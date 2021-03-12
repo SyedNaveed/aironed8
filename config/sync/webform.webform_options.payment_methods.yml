@@ -1,0 +1,9 @@
+uuid: 17aa19bb-13bf-47f8-b765-fdc7f2f32400
+langcode: en
+status: true
+dependencies: {  }
+id: payment_methods
+label: 'Payment Methods'
+category: 'Air Choice One'
+likert: false
+options: "'American Express': 'American Express'\nVisa: Visa\nDiscover: Discover\nMasterCard: MasterCard\nVoucher: Voucher\n"

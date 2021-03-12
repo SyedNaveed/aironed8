@@ -1,0 +1,19 @@
+models:
+  Name:
+    type: "object"
+    location: "json"
+    properties:
+      name:
+        type: "string"
+        location: "json"
+
+  CodeName:
+    type: "object"
+    location: "json"
+    properties:
+      code:
+        type: "string"
+        location: "json"
+      name:
+        type: "string"
+        location: "json"

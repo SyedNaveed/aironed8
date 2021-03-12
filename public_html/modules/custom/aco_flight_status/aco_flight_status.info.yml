@@ -1,0 +1,9 @@
+name: Air Choice One - Flight Status
+type: module
+description: Flight Status page.
+package: Air Choice One
+core: 8.x
+dependencies:
+  - drupal:block
+  - intelisys:intelisys
+  - http_client_manager:http_client_manager

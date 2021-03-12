@@ -1,0 +1,57 @@
+operations:
+  getReservations:
+    httpMethod: "GET"
+    uri: "RESTv1/reservations"
+    summary: "Search reservations for the provided criteria."
+    parameters:
+      reservationNumber:
+        type: "integer"
+        location: "query"
+        description: "Optional number which identifies a reservation."
+        required: false
+      reservationLocator:
+        type: "string"
+        location: "query"
+        description: "Optional locator which identifies a reservation."
+        required: false
+      earliestBooking:
+        type: "string"
+        location: "query"
+        description: "Optional earliest date of booking."
+        required: false
+      latestBooking:
+        type: "string"
+        location: "query"
+        description: "Optional latest date of booking."
+        required: false
+      departureAirport:
+        type: "string"
+        location: "query"
+        description: "Optional departure airport code."
+        required: false
+      earliestDeparture:
+        type: "string"
+        location: "query"
+        description: "Optional earliest date of departure."
+        required: false
+      latestDeparture:
+        type: "string"
+        location: "query"
+        description: "Optional latest date of departure."
+        required: false
+      passengerLastName:
+        type: "string"
+        location: "query"
+        description: "Optional last name of a reserved passenger."
+        required: false
+      passengerFirstName:
+        type: "string"
+        location: "query"
+        description: "Optional first name of a reserved passenger."
+        required: false
+      partialMatch:
+        type: "boolean"
+        location: "query"
+        description: "Optional partial matching of search parameters."
+        required: false
+    responseModel: "Reservations"

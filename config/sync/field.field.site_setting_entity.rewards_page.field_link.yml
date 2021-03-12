@@ -1,0 +1,23 @@
+uuid: 76695027-5ac1-402d-8243-e2c12a3b68a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.site_setting_entity.field_link
+    - site_settings.site_setting_entity_type.rewards_page
+  module:
+    - link
+id: site_setting_entity.rewards_page.field_link
+field_name: field_link
+entity_type: site_setting_entity
+bundle: rewards_page
+label: 'Rewards Page'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 1
+  title: 0
+field_type: link

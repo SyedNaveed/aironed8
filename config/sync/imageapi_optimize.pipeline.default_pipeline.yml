@@ -1,0 +1,22 @@
+uuid: 67982dc9-b148-4b62-9c1a-2de1c5bf7b8e
+langcode: en
+status: true
+dependencies:
+  module:
+    - imageapi_optimize_resmushit
+    - imageapi_optimize_tinypng
+name: default_pipeline
+label: 'Default pipeline'
+processors:
+  d3b06f99-0940-4859-abbf-5999f6f43c0b:
+    uuid: d3b06f99-0940-4859-abbf-5999f6f43c0b
+    id: tinypng
+    weight: -9
+    data:
+      api_key: qesVmHYSeWxP9Ejlo0dIxDwMzNymmdaY
+  779f0d3f-521a-40be-87e0-5c748fbd6669:
+    uuid: 779f0d3f-521a-40be-87e0-5c748fbd6669
+    id: resmushit
+    weight: -10
+    data:
+      quality: 86

@@ -1,0 +1,23 @@
+uuid: 2346cd64-4199-4b55-a72d-716c9536ece0
+langcode: en
+status: true
+dependencies:
+  module:
+    - crop
+third_party_settings:
+  crop:
+    image_field: _none
+id: image
+label: Image
+description: 'A locally hosted image, such as a JPG.'
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image
+field_map:
+  name: name
+  mimetype: field_mime_type
+  filesize: field_file_size
+  width: field_width
+  height: field_height

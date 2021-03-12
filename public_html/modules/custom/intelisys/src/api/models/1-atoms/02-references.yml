@@ -1,0 +1,181 @@
+models:
+  ReferenceCode:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      code:
+        type: "string"
+        location: "json"
+
+  ReferenceKey:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+
+  ReferenceId:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      identifier:
+        type: "string"
+        location: "json"
+
+  ReferenceIdDescription:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      identifier:
+        type: "string"
+        location: "json"
+      description:
+        type: "string"
+        location: "json"
+
+  ReferenceKeyCode:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      code:
+        type: "string"
+        location: "json"
+
+  ReferenceKeyName:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      name:
+        type: "string"
+        location: "json"
+
+  ReferenceCodeDescription:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      code:
+        type: "string"
+        location: "json"
+      description:
+        type: "string"
+        location: "json"
+
+  ReferenceCodeName:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      code:
+        type: "string"
+        location: "json"
+      name:
+        type: "string"
+        location: "json"
+
+  ReferenceKeyId:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      identifier:
+        type: "string"
+        location: "json"
+
+  ReferenceKeyIdName:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      identifier:
+        type: "string"
+        location: "json"
+      name:
+        type: "string"
+        location: "json"
+
+  ReferenceKeyIdDescription:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      identifier:
+        type: "string"
+        location: "json"
+      description:
+        type: "string"
+        location: "json"
+
+  ReferenceKeyCodeDescription:
+    ReferenceKeyCode:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      code:
+        type: "string"
+        location: "json"
+      description:
+        type: "string"
+        location: "json"
+
+  ReferenceCodeNames:
+    type: "array"
+    location: "json"
+    items:
+      "$ref": "ReferenceCodeName"
+
+  ReferenceKeyIdNames:
+    type: "array"
+    location: "json"
+    items:
+      "$ref": "ReferenceKeyIdName"

@@ -1,0 +1,280 @@
+models:
+  PassengerServiceRequest:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      serviceRequest:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKeyCode"
+      notes:
+        type: "string"
+        location: "json"
+
+  PassengerShort:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      reservationOwner:
+        type: "boolean"
+        location: "json"
+      reservationProfile:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Person"
+
+  PassengerProfileInfant:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      index:
+        type: "integer"
+        location: "json"
+      # passengerTypeCode:
+      reservationProfile:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Person"
+      advancePassengerInformation:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "PassengerProfile"
+      notes:
+        type: "string"
+        location: "json"
+      timestamp:
+        type: "string"
+        location: "json"
+
+  Passenger:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      reservationOwner:
+        type: "boolean"
+        location: "json"
+      reservationStatus:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReservationStatus"
+      fareApplicability:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FareApplicability"
+      index:
+        type: "integer"
+        location: "json"
+      # @todo Unsure of below data type.
+      passengerTypeCode:
+        type: "string"
+        location: "json"
+      reservationProfile:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Profile"
+      frequentFlyer:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FrequentFlyer"
+      advancePassengerInformation:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "PassengerProfile"
+      passengerServiceRequests:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "PassengerServiceRequest"
+      passengerCostCenter:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "PassengerCostCenter"
+      infants:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "Infant"
+      journeys:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "JourneySelection"
+      # @todo Unsure of below data type.
+      weight:
+        type: "integer"
+        location: "json"
+      notes:
+        type: "string"
+        location: "json"
+
+  Passengers:
+    type: "array"
+    location: "json"
+    items:
+      "$ref": "Passenger"
+
+  PassengerLegDetail:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      passenger:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKey"
+      journey:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKey"
+      segment:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Key"
+      leg:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Key"
+      reservationStatus:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReservationStatusLong"
+      travelStatus:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "TravelStatus"
+      boardingSequenceNumber:
+        type: "string"
+        location: "json"
+      thru:
+        type: "boolean"
+        location: "json"
+
+  PassengerJourneyDetails:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      passenger:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKey"
+      # @todo Unsure of below data type.
+      segment:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKey"
+      bookingKey:
+        type: "string"
+        location: "json"
+      fareClass:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKeyCodeDescription"
+      bookingCode:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCodeDescription"
+      cabinClass:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCodeDescription"
+      realizedRevenue:
+        type: "boolean"
+        location: "json"
+      shuttle:
+        type: "boolean"
+        location: "json"
+      privateFares:
+        type: "boolean"
+        location: "json"
+      ticketNumber:
+        type: "string"
+        location: "json"
+      notes:
+        type: "string"
+        location: "json"
+      reservationStatus:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReservationStatusLong"
+      timestamp:
+        type: "string"
+        location: "json"
+
+  PassengerJourneyDetailsShort:
+    type: "object"
+    location: "json"
+    properties:
+      passenger:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Index"
+      # @todo Unsure of below data type.
+      segment:
+        type: "string"
+        location: "json"
+      bookingKey:
+        type: "string"
+        location: "json"
+      reservationStatus:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReservationStatusLong"

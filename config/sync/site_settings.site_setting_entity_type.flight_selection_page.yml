@@ -1,0 +1,8 @@
+uuid: 74d2926a-bbe2-45b2-9623-e5141310da9a
+langcode: en
+status: true
+dependencies: {  }
+id: flight_selection_page
+label: 'Flight Selection Page'
+fieldset: General
+multiple: false

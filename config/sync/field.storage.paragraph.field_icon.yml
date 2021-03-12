@@ -1,0 +1,75 @@
+uuid: bd6c5db8-0199-4523-b28b-4ca5b81810d6
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_icon
+field_name: field_icon
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: airplane
+      label: Airplane
+    -
+      value: beach
+      label: 'Beach umbrella with deck chair'
+    -
+      value: bell
+      label: Bell
+    -
+      value: briefcase
+      label: Briefcase
+    -
+      value: document
+      label: 'Document with seal'
+    -
+      value: document-pen
+      label: 'Document with pen'
+    -
+      value: dog
+      label: Dog
+    -
+      value: faq
+      label: 'Question mark inside speech balloon'
+    -
+      value: handshake
+      label: Handshake
+    -
+      value: headphones
+      label: 'Headphones with microphone'
+    -
+      value: lightbulb
+      label: Lightbulb
+    -
+      value: prohibited-shield
+      label: 'Prohibited Shield'
+    -
+      value: seatbelt
+      label: Seatbelt
+    -
+      value: speech-balloons
+      label: 'Speech balloons'
+    -
+      value: tag
+      label: Tag
+    -
+      value: ticket
+      label: Ticket
+    -
+      value: two-tickets
+      label: 'Two Tickets'
+    -
+      value: wheelchair
+      label: Wheelchair
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

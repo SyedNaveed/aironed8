@@ -1,0 +1,49 @@
+models:
+  TravelOption:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      cityPair:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceId"
+      departureDate:
+        type: "string"
+        location: "json"
+      enRouteHours:
+        type: "number"
+        location: "json"
+      numberOfStops:
+        type: "integer"
+        location: "json"
+      numberOfChanges:
+        type: "integer"
+        location: "json"
+      flights:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "FlightSegmentLong"
+      fareOptions:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "FareOption"
+      promoCodeApplicability:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "PromoCodeApplicability"
+
+  TravelOptions:
+    type: "array"
+    location: "json"
+    items:
+      "$ref": "TravelOption"

@@ -1,0 +1,75 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a Home page node.
+ */
+#}
+{% set bg = 'background-image:url(' ~ file_url(content.field_image3[0]['#media'].field_media_image.entity.uri.value) ~ ')' %}
+<article{{ attributes.addClass('hero hero_home').setAttribute('style', bg) }}>
+  <div class="overlay"></div>
+  <div class="hero_home_container">
+    <div class="hero_home_container_left">
+      <h1 class="white h3">{{ label }}</h1>
+      {% if not node.field_text.isEmpty() %}
+        <p class="bigp">{{ content.field_text }}</p>
+      {% endif %}
+      {{ content.field_links }}
+      {{ content.field_links2 }}
+    </div>
+    <div class="hero_home_container_right">
+      <div class="hero_home_form_title">
+        {{ drupal_menu('booking', 1, 1, FALSE) }}
+        <div class="book_connect_btn">
+          <button class="blue_btn book_connect">{{ 'Book Connecting Flight'|t }}</button>
+          <span class="book_connect_dd">
+            {{ drupal_menu('book', 1, 1, FALSE) }}
+          </span>
+        </div>
+        <h2 class="white">{{ 'Book your flight'|t }}</h2>
+      </div>
+      <div class="divide20 nophone"></div>
+
+      {% if content.book_flight_form is defined %}
+        <div class="row form_row">
+          {{ content.book_flight_form }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</article>
+
+{% if not node.field_paragraphs.isEmpty() %}
+  <div class="destination_slider in">
+    {{ content.field_paragraphs }}
+  </div>
+{% endif %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-6 col-sm-7">
+      <div class="divide100 nophone nopro nt"></div>
+      <div class="divide60 nophone nopro nt"></div>
+      {{ content.body }}
+    </div>
+    <div class="col-lg-5 col-sm-5">
+      {{ content.field_image }}
+    </div>
+  </div>
+</div>
+
+<div class="pd nt nopro"></div>
+
+<div class="shadow_bar homepage_shadow_bar">
+  {{ drupal_menu('footer-utility', 1, 1, false) }}
+</div>
+
+{% if not node.field_image2.isEmpty() and not node.field_text2.isEmpty() and not node.field_text3.isEmpty() %}
+  <div class="container in">
+    <div class="homepage_promo_box" style="background:url({{ file_url(content.field_image2[0]['#media'].field_media_image.entity.uri.value) }}) center center no-repeat;background-size:cover">
+      <h3 class="h2 blue">{{ content.field_text3 }}</h3>
+      <h2 class="h3">{{ content.field_text2 }}</h2>
+      {{ content.field_link2 }}
+    </div>
+  </div>
+{% endif %}

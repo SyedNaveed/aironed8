@@ -1,0 +1,57 @@
+operations:
+  getFrequentFlyers:
+    httpMethod: "GET"
+    uri: "RESTv1/frequentFlyers"
+    summary: "Retrieve listing of frequent flyers. Provided criteria is ignored if authenticated with a frequent flyer user session."
+    parameters:
+      firstName:
+        type: "string"
+        location: "query"
+        description: "Optional first name of the frequent flyer."
+        required: false
+      lastName:
+        type: "string"
+        location: "query"
+        description: "Optional last name of the frequent flyer."
+        required: false
+      reference1:
+        type: "string"
+        location: "query"
+        description: "Optional first reference of the frequent flyer."
+        required: false
+      reference2:
+        type: "string"
+        location: "query"
+        description: "Optional second reference of the frequent flyer."
+        required: false
+      phoneNumber:
+        type: "string"
+        location: "query"
+        description: "Optional phone number of the frequent flyer."
+        required: false
+      mobileNumber:
+        type: "string"
+        location: "query"
+        description: "Optional mobile number of the frequent flyer."
+        required: false
+      email:
+        type: "string"
+        location: "query"
+        description: "Optional email of the frequent flyer."
+        required: false
+      passportNumber:
+        type: "string"
+        location: "query"
+        description: "Optional passport number of the frequent flyer."
+        required: false
+      loyaltyNumber:
+        type: "string"
+        location: "query"
+        description: "Optional loyalty number of the frequent flyer."
+        required: false
+      userName:
+        type: "string"
+        location: "query"
+        description: "Optional user name of the frequent flyer."
+        required: false
+    responseModel: "FrequentFlyerProfiles"

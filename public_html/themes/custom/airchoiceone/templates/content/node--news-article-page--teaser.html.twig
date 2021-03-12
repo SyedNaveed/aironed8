@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a News Article page teaser node.
+ */
+#}
+<article{{ attributes }}>
+  <a href="{{ url }}" rel="bookmark">
+    <div class="news_box">
+      <time class="news_box_date">{{ node.getCreatedTime|format_date('short') }}</time>
+
+      {# Title #}
+      {{ title_prefix }}
+      <h2 class="news_box_title">{{ label }}</h2>
+      {{ title_suffix }}
+    </div>
+  </a>
+</article>

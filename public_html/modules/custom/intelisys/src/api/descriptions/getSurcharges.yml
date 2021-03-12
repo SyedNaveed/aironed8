@@ -1,0 +1,6 @@
+operations:
+  getSurcharges:
+    httpMethod: "GET"
+    uri: "RESTv1/surcharges"
+    summary: "Retrieve listing of charges."
+    responseModel: "Surcharges"

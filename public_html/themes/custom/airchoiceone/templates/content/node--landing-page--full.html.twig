@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a Landing page node.
+ */
+#}
+{% if use_icon_and_link_layout %}
+  <div class="contain_2 in">
+    {{ content|without('field_paragraphs') }}
+  </div>
+
+  {% if not node.field_paragraphs.isEmpty() %}
+    {% set count = node.field_paragraphs|length %}
+    {% if count > 4 %}
+    <div class="container">
+      <div class="row eq">
+    {% else %}
+    <div class="contain">
+      <div class="row">
+    {% endif %}
+        {{ content.field_paragraphs }}
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="pd"></div>
+{% else %}
+  <div class="child_page_center in">
+    {{ content|without('field_paragraphs') }}
+
+    {% if not node.field_paragraphs.isEmpty() %}
+      <div class="row">
+        {{ content.field_paragraphs }}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

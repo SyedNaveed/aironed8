@@ -1,0 +1,56 @@
+operations:
+  putQuotations:
+    httpMethod: "PUT"
+    uri: "RESTv1/quotations"
+    summary: "Quote charges for the provided pending reservation."
+    parameters:
+      content-type:
+        location: "header"
+        default: "application/json"
+      httpMethod:
+        type: "string"
+        location: "query"
+        description: "The method name of the request to be processed."
+        required: true
+      requestUri:
+        type: "string"
+        location: "query"
+        description: "The URI of the request to be processed."
+        required: true
+      bookingInformation:
+        type: "object"
+        location: "json"
+        required: false
+        items:
+          "$ref": "BookingInformation"
+      passengers:
+        type: "array"
+        location: "json"
+        required: false
+        items:
+          "$ref": "Passenger"
+      journeys:
+        type: "array"
+        location: "json"
+        required: false
+        items:
+          "$ref": "JourneySelection"
+      ancillaryPurchases:
+        type: "array"
+        location: "json"
+        required: false
+        items:
+          "$ref": "AncillaryPurchaseShort"
+      seatSelections:
+        type: "array"
+        location: "json"
+        required: false
+        items:
+          "$ref": "SeatSelection"
+      paymentTransactions:
+        type: "array"
+        location: "json"
+        required: false
+        items:
+          "$ref": "PaymentTransaction"
+    responseModel: "Charges"

@@ -1,0 +1,26 @@
+uuid: 7c4e4cd0-6cee-4b80-a607-36361fe69488
+langcode: en
+status: true
+dependencies:
+  module:
+    - aco_flight_status
+    - system
+  theme:
+    - airchoiceone
+id: airchoiceone_flight_statuses
+theme: airchoiceone
+region: prefooter
+weight: -9
+provider: null
+plugin: flight_statuses_block
+settings:
+  id: flight_statuses_block
+  label: 'Flight Statuses Block'
+  provider: aco_flight_status
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /flight-status
+    negate: false
+    context_mapping: {  }

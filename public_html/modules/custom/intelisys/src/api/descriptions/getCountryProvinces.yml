@@ -1,0 +1,12 @@
+operations:
+  getCountryProvinces:
+    httpMethod: "GET"
+    uri: "RESTv1/countries/{code}/provinces"
+    summary: "Retrieve a list of provinces in a specific country."
+    parameters:
+      code:
+        type: "string"
+        location: "uri"
+        description: "The code for a country."
+        required: true
+    responseModel: "ReferenceCodeNames"

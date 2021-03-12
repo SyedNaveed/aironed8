@@ -1,0 +1,56 @@
+operations:
+  putReservationJourney:
+    httpMethod: "PUT"
+    uri: "RESTv1/reservations/{reservationKey}/journeys/{journeyKey}"
+    summary: "Update the provided reservation journey."
+    parameters:
+      content-type:
+        location: "header"
+        default: "application/json"
+      reservationKey:
+        type: "string"
+        location: "uri"
+        description: "The access key for a reservation."
+        required: true
+      journeyKey:
+        type: "string"
+        location: "uri"
+        description: "The key value for a reservation journey."
+        required: true
+      key:
+        type: "string"
+        location: "json"
+        description: "Required during relational operations."
+        required: false
+      index:
+        type: "integer"
+        location: "json"
+        description: "Required during POST operations."
+        required: true
+      # departure:
+      # segments:
+      passengerJourneyDetails:
+        type: "array"
+        location: "json"
+        required: false
+        items:
+          "$ref": "PassengerJourneyDetails"
+      reservationStatus:
+        type: "object"
+        location: "json"
+        required: false
+        items:
+          "$ref": "ReservationStatus"
+      ancillaryPurchases:
+        type: "array"
+        location: "json"
+        required: false
+        items:
+          "$ref": "AncillaryPurchaseShort"
+      paymentTransactions:
+        type: "array"
+        location: "json"
+        required: false
+        items:
+          "$ref": "PaymentTransaction"
+    responseModel: "Journey"

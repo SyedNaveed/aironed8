@@ -1,0 +1,28 @@
+uuid: 9b259e76-2d47-4d74-9da5-87bfe0434555
+langcode: en
+status: true
+dependencies:
+  module:
+    - context_active_trail
+    - system
+name: book_flight_active_trail
+label: 'Book flight active trail'
+group: 'Active trail'
+description: ''
+requireAllConditions: false
+disabled: false
+conditions:
+  request_path:
+    id: request_path
+    pages: /book-flight/search
+    negate: 0
+    uuid: 4bc226b2-111a-43e0-8e9a-2a3867d3ee75
+    context_mapping: {  }
+reactions:
+  active_trail:
+    id: active_trail
+    trail: 'flight:menu_link_content:023ecada-7d34-464f-b36f-8b89ed08ad91'
+    breadcrumbs: 1
+    breadcrumb_title: 0
+    uuid: ea7a636c-218c-463a-af45-0f442e0d3344
+weight: 0

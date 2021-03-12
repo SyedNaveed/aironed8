@@ -1,0 +1,20 @@
+uuid: 94d5b581-55af-457f-b523-c9ab0a8aa200
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - seven_tweaks
+id: seven_tweaks_main_page_content
+theme: seven_tweaks
+region: content
+weight: -2
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

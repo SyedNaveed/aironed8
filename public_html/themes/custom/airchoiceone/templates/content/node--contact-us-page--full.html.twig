@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a Contact Us page node.
+ */
+#}
+<div class="container in">
+  <div class="row">
+    {% if not node.field_paragraphs.isEmpty() %}
+      <div class="col-lg-3 col-sm-12">
+        <div class="contact_box">
+          <div class="row">
+            {{ content.field_paragraphs }}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="col-lg-5 col-md-8 col-sm-12 contact_locations">
+      {{ content.body }}
+      {{ content.field_form }}
+    </div>
+
+    <div class="col-lg-4 col-md-4 col-sm-12">
+      {{ content.field_image }}
+    </div>
+  </div>
+</div>

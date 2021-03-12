@@ -1,0 +1,176 @@
+<?php
+
+/**
+ * @file
+ * This is a standalone module. It is not submitted to the drupal.org community.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function aco_core_theme($existing, $type, $theme, $path) {
+  return [
+    'baggage_description' => [
+      'variables' => [],
+    ],
+    'ticket' => [
+      'variables' => [
+        'flights' => NULL,
+        'guests' => NULL,
+        'cost' => NULL,
+        'fees' => NULL,
+        'taxes' => NULL,
+        'total' => NULL,
+      ],
+    ],
+    'flight' => [
+      'variables' => [
+        'title' => NULL,
+        'date' => NULL,
+        'from' => NULL,
+        'to' => NULL,
+      ],
+    ],
+    'flight_times_table' => [
+      'variables' => [
+        'attributes' => NULL,
+        'flights' => NULL,
+      ],
+    ],
+    'flight_times_row' => [
+      'variables' => [
+        'departures' => NULL,
+        'arrivals' => NULL,
+        'stops' => NULL,
+        'business_price' => NULL,
+        'business_detail' => NULL,
+        'everyday_price' => NULL,
+        'everyday_detail' => NULL,
+        'go_your_way_price' => NULL,
+        'go_your_way_detail' => NULL,
+      ],
+    ],
+    'charges_table' => [
+      'variables' => [
+        'charges' => NULL,
+        'total_cost' => NULL,
+      ],
+    ],
+    'charges_row' => [
+      'variables' => [
+        'description' => NULL,
+        'amount' => NULL,
+        'taxes' => NULL,
+        'total' => NULL,
+      ],
+    ],
+    'confirmed_itinerary' => [
+      'variables' => [
+        'reservation_number' => NULL,
+        'authorization_number' => NULL,
+        'trip_details' => NULL,
+        'charge_summary' => NULL,
+        'contact_information' => NULL,
+        'actions' => NULL,
+      ],
+    ],
+    'contact_information' => [
+      'variables' => [
+        'honorific' => NULL,
+        'firstName' => NULL,
+        'middleName' => NULL,
+        'lastName' => NULL,
+        'address1' => NULL,
+        'address2' => NULL,
+        'city' => NULL,
+        'country' => NULL,
+        'province' => NULL,
+        'postalCode' => NULL,
+        'birthDate' => NULL,
+        'loyaltyProgram' => NULL,
+        'redressNumber' => NULL,
+        'knownPassengerNumber' => NULL,
+        'email' => NULL,
+        'phoneNumber' => NULL,
+        'mobileNumber' => NULL,
+        'notificationPreferences' => NULL,
+      ],
+    ],
+    'payment_information' => [
+      'variables' => [
+        'payment_type' => NULL,
+        'card_number' => NULL,
+        'expiry' => NULL,
+        'name' => NULL,
+        'address1' => NULL,
+        'address2' => NULL,
+        'city' => NULL,
+        'country' => NULL,
+        'province' => NULL,
+        'postalCode' => NULL,
+        'phoneNumber' => NULL,
+      ],
+    ],
+    'seats' => [
+      'variables' => [
+        'flights' => NULL,
+      ],
+    ],
+    'seat' => [
+      'variables' => [
+        'attributes' => NULL,
+        'seat' => NULL,
+      ],
+    ],
+    'seat_selections' => [
+      'variables' => [
+        'flights' => NULL,
+      ],
+    ],
+    'tab_buttons' => [
+      'variables' => [
+        'titles' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Helper function to get the default help message.
+ *
+ * @return \Drupal\Core\StringTranslation\TranslatableMarkup
+ *   The message.
+ */
+function _aco_core_get_default_help_message() {
+  static $message;
+
+  if (empty($message)) {
+    // Get Contact page URL site setting.
+    $site_settings = \Drupal::service('site_settings.loader');
+    $general = $site_settings->loadByFieldset('general');
+    $message = t('Please <a href=":url">contact us</a> for help or try again later.', [
+      ':url' => $general['contact_page']['url']->toString(),
+    ]);
+  }
+
+  return $message;
+}
+
+/**
+ * Sort flight rows by UNIX timestamp fields.
+ *
+ * @param int $a
+ *   A UNIX timestamp.
+ * @param int $b
+ *   A UNIX timestamp.
+ *
+ * @return int
+ *   The comparison value.
+ */
+function _aco_core_sort_flights($a, $b) {
+  // Sort by departure time first and then arrival time.
+  if ($a['actual_departure'] == $b['actual_departure']) {
+    return $a['actual_arrival'] - $b['actual_arrival'];
+  }
+  return $a['actual_departure'] - $b['actual_departure'];
+}

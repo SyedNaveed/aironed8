@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * @file
+ * This is a standalone module. It is not submitted to the drupal.org community.
+ */
+
+/**
+ * Implements hook_mail().
+ */
+function aco_frequent_flyers_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'frequent_flyer_sign_up':
+      $message['subject'] = t('Thank You for Signing Up for the Air Choice One Loyalty Program');
+      $message['body'][] = t('Thank You for signing up!');
+      $message['body'][] = '';
+      $message['body'][] = t('Your Loyalty number ID is: @ff_number', [
+        '@ff_number' => $params['ff_number'],
+      ]);
+      $message['body'][] = '';
+      $message['body'][] = t('You currently have @ff_points loyalty points accumulated.', [
+        '@ff_points' => $params['ff_points'],
+      ]);
+      $message['body'][] = '';
+      $message['body'][] = t('Please save this number for your records.');
+      $message['body'][] = '';
+      break;
+  }
+}

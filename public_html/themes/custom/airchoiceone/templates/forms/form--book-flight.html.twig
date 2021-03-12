@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a 'form' element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see template_preprocess_form()
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="book_page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1 class="h2">{{ element.title }}</h1>
+        {{ element.content }}
+        {{ element|without('content', 'title', 'ticket') }}
+      </div>
+      <div class="col-md-3">
+        {{ element.ticket }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pd"></div>
+<div class="pd"></div>

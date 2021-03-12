@@ -1,0 +1,37 @@
+operations:
+  postReservations:
+    httpMethod: "POST"
+    uri: "RESTv1/reservations"
+    summary: "Add the provided reservation or split an existing reservation."
+    parameters:
+      passengers:
+        type: "array"
+        location: "json"
+        required: true
+        items:
+          "$ref": "Passenger"
+      journeys:
+        type: "array"
+        location: "json"
+        required: false
+        items:
+          "$ref": "JourneySelection"
+      ancillaryPurchases:
+        type: "array"
+        location: "json"
+        required: false
+        items:
+          "$ref": "AncillaryPurchaseShort"
+      seatSelections:
+        type: "array"
+        location: "json"
+        required: false
+        items:
+          "$ref": "SeatSelection"
+      paymentTransactions:
+        type: "array"
+        location: "json"
+        required: false
+        items:
+          "$ref": "PaymentTransaction"
+    responseModel: "Charges"

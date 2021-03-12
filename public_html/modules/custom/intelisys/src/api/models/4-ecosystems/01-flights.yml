@@ -1,0 +1,134 @@
+models:
+  FlightTime:
+    type: "object"
+    location: "json"
+    properties:
+      estimatedTime:
+        type: "string"
+        location: "json"
+      localEstimatedTime:
+        type: "string"
+        location: "json"
+      utcActualOutShortTime:
+        type: "string"
+        location: "json"
+      localActualOutShortTime:
+        type: "string"
+        location: "json"
+      utcActualOffShortTime:
+        type: "string"
+        location: "json"
+      localActualOffShortTime:
+        type: "string"
+        location: "json"
+
+  FlightScheduledTime:
+    type: "object"
+    location: "json"
+    properties:
+      scheduledTime:
+        type: "string"
+        location: "json"
+      airport:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "AirportShort"
+
+  Tail:
+    type: "object"
+    location: "json"
+    properties:
+      key:
+        type: "string"
+        location: "json"
+      identifier:
+        type: "string"
+        location: "json"
+
+  Delay:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      delayMinutes:
+        type: "integer"
+        location: "json"
+      delayApplicability:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "DelayStatus"
+
+  Schedule:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      airlineCode:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "AirlineCode"
+      flightNumber:
+        type: "string"
+        location: "json"
+
+  FlightLocation:
+    type: "object"
+    location: "json"
+    properties:
+      date:
+        type: "string"
+        location: "json"
+      # @todo Unsure of below data type.
+      airport:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Airport"
+      # @todo Unsure of below data type.
+      cityPair:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "CityPair"
+      flight:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Schedule"
+
+  Flight:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      airlineCode:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCode"
+      flightNumber:
+        type: "string"
+        location: "json"
+      schedule:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Schedule"

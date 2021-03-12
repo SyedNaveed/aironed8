@@ -1,0 +1,37 @@
+uuid: e1944992-8ae2-46b6-bc35-c96a6b7e499c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraphs
+    - node.type.flight_destinations_page
+    - paragraphs.paragraphs_type.destination
+  module:
+    - entity_reference_revisions
+id: node.flight_destinations_page.field_paragraphs
+field_name: field_paragraphs
+entity_type: node
+bundle: flight_destinations_page
+label: 'Current destinations'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      destination: destination
+    target_bundles_drag_drop:
+      icon_and_link:
+        weight: 3
+        enabled: false
+      destination:
+        enabled: true
+        weight: 4
+      text:
+        weight: 4
+        enabled: false
+field_type: entity_reference_revisions

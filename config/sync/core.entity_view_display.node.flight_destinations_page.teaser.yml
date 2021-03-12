@@ -1,0 +1,37 @@
+uuid: 2d20066e-6477-4141-80dd-9192c61d1331
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.flight_destinations_page.body
+    - field.field.node.flight_destinations_page.field_banner_image
+    - node.type.flight_destinations_page
+  module:
+    - text
+    - user
+id: node.flight_destinations_page.teaser
+targetEntityType: node
+bundle: flight_destinations_page
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_banner_image: true

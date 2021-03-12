@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Theme override for the manage reservation page.
+ */
+#}
+<div class="child_page_center reservation_blocks in">
+  {{ description }}
+  {% for section in sections %}
+    <div{{ section.attributes.addClass('section') }}>
+      {% if section.title %}
+        <h4 class="section__header">{{ section.title }}</h4>
+      {% endif %}
+      {{ section.content }}
+      {% if section.actions %}
+        <div class="section__actions">{{ section.actions }}</div>
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  {% for action in actions %}
+    <div class="section">
+      {{ action }}
+    </div>
+  {% endfor %}
+</div>

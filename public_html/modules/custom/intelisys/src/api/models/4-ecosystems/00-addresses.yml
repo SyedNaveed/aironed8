@@ -1,0 +1,37 @@
+models:
+  Address:
+    type: "object"
+    location: "json"
+    properties:
+      address1:
+        type: "string"
+        location: "json"
+      address2:
+        type: "string"
+        location: "json"
+      city:
+        type: "string"
+        location: "json"
+      location:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Location"
+      postalCode:
+        type: "string"
+        location: "json"
+
+  FullAddress:
+    type: "object"
+    location: "json"
+    properties:
+      contactInformation:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Person"
+      address:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Address"

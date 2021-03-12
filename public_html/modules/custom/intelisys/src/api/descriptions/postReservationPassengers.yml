@@ -1,0 +1,59 @@
+operations:
+  postReservationPassengers:
+    httpMethod: "POST"
+    uri: "RESTv1/reservations/{key}/passengers"
+    summary: "Add the provided reservation passenger."
+    parameters:
+      key:
+        type: "string"
+        location: "uri"
+        description: "The access key for a reservation."
+        required: true
+      index:
+        type: "integer"
+        location: "json"
+        description: "Required during POST operations."
+        required: true
+      fareApplicability:
+        type: "object"
+        location: "json"
+        description: "Required during POST operations if passenger type codes are not enabled or used."
+        required: true
+        items:
+          "$ref": "FareApplicability"
+      reservationProfile:
+        type: "object"
+        location: "json"
+        description: "Passenger profile information."
+        required: true
+        items:
+          "$ref": "PassengerProfile"
+      advancePassengerInformation:
+        type: "object"
+        location: "json"
+        description: "Advance Passenger information."
+        required: false
+        items:
+          "$ref": "PassengerProfile"
+      infants:
+        type: "array"
+        location: "json"
+        description: "Passenger with infants."
+        required: false
+        items:
+          "$ref": "PassengerProfileInfant"
+      journeys:
+        type: "array"
+        location: "json"
+        description: "Required during POST operations - Provide PassengerJourneyDetails for each active journey."
+        required: true
+        items:
+          "$ref": "JourneySelection"
+      paymentTransactions:
+        type: "array"
+        location: "json"
+        description: "Optional during all operations - Maximum of 2 transactions: main transaction and optional additional transaction of type voucher are valid."
+        required: false
+        items:
+          "$ref": "PaymentTransaction"
+    responseModel: "Passenger"

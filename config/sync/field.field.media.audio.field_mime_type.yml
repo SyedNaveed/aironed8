@@ -1,0 +1,19 @@
+uuid: 367dee6a-badd-4acb-bd9f-105e25387167
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_mime_type
+    - media.type.audio
+id: media.audio.field_mime_type
+field_name: field_mime_type
+entity_type: media
+bundle: audio
+label: 'MIME type'
+description: 'The file’s MIME type.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

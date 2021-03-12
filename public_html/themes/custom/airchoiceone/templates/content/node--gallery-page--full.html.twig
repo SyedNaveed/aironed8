@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a Gallery page node.
+ */
+#}
+<div class="shadow_bar_child_menu_pad"></div>
+<article{{ attributes.addClass('child_page_center') }}>
+  {% if not node.body.isEmpty() %}
+    <div class="in">
+      {{ content.body }}
+    </div>
+  {% endif %}
+  {{ content.field_paragraphs }}
+</article>

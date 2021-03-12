@@ -1,0 +1,106 @@
+aco_manage_flight.manage_flight:
+  path: '/manage-flight'
+  defaults:
+    _wizard: '\Drupal\aco_manage_flight\Wizard\ManageFlightWizard'
+    _title: 'Find Your Reservation'
+    tempstore_id: 'aco_manage_flight.wizard.manage_flight'
+    machine_name: 'ManageFlightWizard'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'
+aco_manage_flight.manage_flight.step:
+  path: '/manage-flight/{step}'
+  defaults:
+    _wizard: '\Drupal\aco_manage_flight\Wizard\ManageFlightWizard'
+    _title: 'Find Your Reservation'
+    tempstore_id: 'aco_manage_flight.wizard.manage_flight'
+    machine_name: 'ManageFlightWizard'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'
+
+aco_manage_flight.reservation:
+  path: '/reservation'
+  defaults:
+    _controller: '\Drupal\aco_manage_flight\Controller\ManageReservationController::build'
+    _title_callback: '\Drupal\aco_manage_flight\Controller\ManageReservationController::getTitle'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'
+aco_manage_flight.reservation.edit_contact_information:
+  path: '/reservation/contact-information/edit'
+  defaults:
+    _form: '\Drupal\aco_manage_flight\Form\EditContactInformationForm'
+    _title: 'Edit Reservation Contact Information'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'
+aco_manage_flight.reservation.cancel:
+  path: '/reservation/cancel'
+  defaults:
+    _form: '\Drupal\aco_manage_flight\Form\CancelReservationForm'
+    _title: 'Cancel Reservation'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'
+aco_manage_flight.reservation.charge_summary:
+  path: '/reservation/charge-summary'
+  defaults:
+    _controller: '\Drupal\aco_manage_flight\Controller\ChargesController::build'
+    _title: 'Charge Summary'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'
+aco_manage_flight.reservation.itinerary:
+  path: '/reservation/itinerary'
+  defaults:
+    _controller: '\Drupal\aco_manage_flight\Controller\ItineraryController::build'
+    _title: 'Your Itinerary'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'
+aco_manage_flight.reservation.itinerary.email:
+  path: '/reservation/itinerary/email'
+  defaults:
+    _form: '\Drupal\aco_manage_flight\Form\EmailItineraryForm'
+    _title: 'Email Your Itinerary'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'
+
+# Passengers
+aco_manage_flight.reservation.passengers.edit:
+  path: '/reservation/passengers/edit'
+  defaults:
+    _form: '\Drupal\aco_manage_flight\Form\EditPassengerForm'
+    _title: 'Edit Passenger'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'
+# aco_manage_flight.reservation.passengers.change:
+#   path: '/reservation/passengers/change'
+#   defaults:
+#     _form: '\Drupal\aco_manage_flight\Form\ChangePassengerForm'
+#     _title: 'Change Passenger'
+#   requirements:
+#     _access: 'TRUE'
+
+# Legs
+aco_manage_flight.reservation.legs.cancel:
+  path: '/reservation/legs/cancel'
+  defaults:
+    _form: '\Drupal\aco_manage_flight\Form\CancelLegForm'
+    _title: 'Cancel Leg'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'

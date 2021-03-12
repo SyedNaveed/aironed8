@@ -1,0 +1,23 @@
+uuid: 49cfc6f2-05ed-4aa9-a97b-a94338f78962
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.teaser
+    - field.field.paragraph.destination.field_content
+    - paragraphs.paragraphs_type.destination
+id: paragraph.destination.teaser
+targetEntityType: paragraph
+bundle: destination
+mode: teaser
+content:
+  field_content:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: icon
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden: {  }

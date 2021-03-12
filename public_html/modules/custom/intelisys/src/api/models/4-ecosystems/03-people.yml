@@ -1,0 +1,122 @@
+models:
+  Person:
+    type: "object"
+    location: "json"
+    properties:
+      lastName:
+        type: "string"
+        location: "json"
+      firstName:
+        type: "string"
+        location: "json"
+
+  LoyaltyAccount:
+    type: "object"
+    location: "json"
+    properties:
+      number:
+        type: "string"
+        location: "json"
+      pointsAccumulated:
+        type: "number"
+        location: "json"
+
+  FrequentFlyer:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      reservationProfile:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Person"
+
+  FrequentFlyerProfiles:
+    type: "array"
+    location: "json"
+    items:
+      "$ref": "FrequentFlyerProfile"
+
+  FrequentFlyerProfile:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      userLogonName:
+        type: "string"
+        location: "json"
+      reservationProfile:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Profile"
+      status:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ProfileStatus"
+      vip:
+        type: "boolean"
+        location: "json"
+      loyaltyAccount:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "LoyaltyAccount"
+      preferredDepartureAirport:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCodeName"
+      preferredArrivalAirport:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCodeName"
+      securityChallenges:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "SecurityChallenge"
+      timestamp:
+        type: "string"
+        location: "json"
+
+  Infant:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      # @todo Unsure of below data type.
+      passengerTypeCode:
+        type: "string"
+        location: "json"
+      reservationProfile:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ProfileShort"
+      advancePassengerInformation:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "PassengerProfile"
+      notes:
+        type: "string"
+        location: "json"

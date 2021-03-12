@@ -1,0 +1,17 @@
+operations:
+  getBookingInformation:
+    httpMethod: "GET"
+    uri: "RESTv1/reservations/{key}/bookingInformation/{bookingInformationKey}"
+    summary: "Retrieve the reservation booking information for the provided key."
+    parameters:
+      key:
+        type: "string"
+        location: "uri"
+        description: "The access key for a reservation."
+        required: true
+      bookingInformationKey:
+        type: "string"
+        location: "uri"
+        description: "The key value for a reservation's booking information."
+        required: true
+    responseModel: "BookingInformation"

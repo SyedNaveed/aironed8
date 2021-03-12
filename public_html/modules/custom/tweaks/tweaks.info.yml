@@ -1,0 +1,5 @@
+name: Tweaks
+type: module
+description: Site-specific changes to core and contributed modules.
+package: Air Choice One
+core: 8.x

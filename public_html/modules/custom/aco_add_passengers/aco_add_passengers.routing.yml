@@ -1,0 +1,11 @@
+aco_add_passengers.form_wizard:
+  path: '/reservation/passengers/add/{step}'
+  defaults:
+    _wizard: '\Drupal\aco_add_passengers\Wizard\AddPassengersWizard'
+    _title: 'Add Passenger(s)'
+    tempstore_id: 'aco_add_passengers.form_wizard'
+    machine_name: 'AddPassengersWizard'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'

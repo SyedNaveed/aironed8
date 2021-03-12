@@ -1,0 +1,42 @@
+operations:
+  getFlightStatuses:
+    httpMethod: "GET"
+    uri: "RESTv1/flightStatuses"
+    summary: "Returns flight statuses containing flight status legs matching the given search criteria."
+    parameters:
+      departure:
+        type: "string"
+        location: "query"
+        description: "The date of departure."
+        required: true
+      arrival:
+        type: "string"
+        location: "query"
+        description: "The date of arrival."
+        required: false
+      airlineCode:
+        type: "string"
+        location: "query"
+        description: "Optional airline code."
+        required: false
+      flightNumber:
+        type: "string"
+        location: "query"
+        description: "Optional flight number."
+        required: false
+      departureAirport:
+        type: "string"
+        location: "query"
+        description: "Optional departure airport."
+        required: false
+      arrivalAirport:
+        type: "string"
+        location: "query"
+        description: "Optional arrival airport."
+        required: false
+      status:
+        type: "string"
+        location: "query"
+        description: "Optional status."
+        required: false
+    responseModel: "FlightStatuses"

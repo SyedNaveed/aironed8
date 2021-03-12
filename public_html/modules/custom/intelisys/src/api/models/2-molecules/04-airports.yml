@@ -1,0 +1,67 @@
+models:
+  Airport:
+    type: "object"
+    location: "json"
+    properties:
+      airport:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCodeName"
+
+  AirportShort:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      code:
+        type: "string"
+        location: "json"
+      name:
+        type: "string"
+        location: "json"
+      utcOffset:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "UTCOffset"
+
+  AirportLong:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      code:
+        type: "string"
+        location: "json"
+      name:
+        type: "string"
+        location: "json"
+      latitude:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Coordinate"
+      longitude:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Coordinate"
+      timezone:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Timezone"
+      secure:
+        type: "boolean"
+        location: "json"
+
+  Airports:
+    type: "array"
+    location: "json"
+    items:
+      "$ref": "AirportLong"

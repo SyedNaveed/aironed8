@@ -1,0 +1,7 @@
+name: InteliSys Aviation Systems
+type: module
+description: "Client wrapper for the InteliSys Aviation Systems API."
+package: Air Choice One
+core: 8.x
+dependencies:
+  - http_client_manager:http_client_manager

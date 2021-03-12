@@ -1,0 +1,136 @@
+models:
+  ReservationSummary:
+    type: "object"
+    location: "json"
+    properties:
+      passenger:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "PassengerShort"
+      charges:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Transaction"
+      payments:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Transaction"
+      refunds:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Transaction"
+      itinerary:
+        type: "string"
+        location: "json"
+
+  ReservationShort:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      number:
+        type: "integer"
+        location: "json"
+      locator:
+        type: "string"
+        location: "json"
+      bookingInformation:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "BookingInformation"
+      reservationSummary:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReservationSummary"
+
+  ReservationLong:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      number:
+        type: "integer"
+        location: "json"
+      locator:
+        type: "string"
+        location: "json"
+      # @todo Unsure of below data type.
+      directParentReservation:
+        type: "string"
+        location: "json"
+      # @todo Unsure of below data type.
+      subsidiaryReservations:
+        type: "string"
+        location: "json"
+      bookingInformation:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "BookingInformation"
+      passengers:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "Passenger"
+      journeys:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "Journey"
+      insurancePolicies:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "InsurancePolicy"
+      ancillaryPurchases:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "AncillaryPurchase"
+      seatSelections:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "Seat"
+      passengerLegDetails:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "PassengerLegDetail"
+      charges:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "Charge"
+      paymentTransactions:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "TransactionLong"
+      eTickets:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "Eticket"
+
+  Reservations:
+    type: "array"
+    location: "json"
+    items:
+      "$ref": "ReservationShort"

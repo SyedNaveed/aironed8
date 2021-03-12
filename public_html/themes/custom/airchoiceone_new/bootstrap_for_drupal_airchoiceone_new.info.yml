@@ -1,0 +1,34 @@
+# METADATA
+name: 'Bootstrap for Drupal - Subtheme'
+type: theme
+description: 'New Air Choice One theme with   Bootstrap 4 theme for Drupal 8 and Drupal 9. This theme aims to provide users with the best possible experience out of the box. It also aim to be a Bootstrap 4 base solution for developers with SCSS files provided. Created by octogone.dev.'
+core: 8.x
+core_version_requirement: ^8 || ^9
+base theme: bootstrap_for_drupal
+libraries:
+  - bootstrap_for_drupal_airchoiceone_new/global-styling
+ 
+
+regions:
+  header_special: 'Header - special'
+  nav_main: 'Navigation - Main'
+  nav_add: 'Navigation - Additional '
+  banner_section: 'Banner Section'
+  content_before: 'Content - before'
+  content: 'Content - main '
+  content_after: 'Content - after'
+  sidebar_left: 'Content - Sidebar'
+  full_width: 'Content - Full'
+  content_area_second: 'Content - Area'
+  footer_left: 'Footer - left box'
+  footer_center: 'Footer - center box'
+  footer_right: 'Footer - right box'
+  footer_sub_left: 'Footer sub - left box'
+  footer_sub_center: 'Footer sub - center box'
+  footer_sub_right: 'Footer sub - right box'
+  modal_container: 'Modal box container'
+
+# Information added by Drupal.org packaging script on 2021-01-30
+version: '8.x-2.61'
+project: 'bfd'
+datestamp: 1611999691

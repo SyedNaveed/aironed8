@@ -1,0 +1,30 @@
+uuid: 4ea81c22-054f-4864-a341-3243a89eaef6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.site_setting_entity.contact_page.field_link
+    - site_settings.site_setting_entity_type.contact_page
+  module:
+    - link
+id: site_setting_entity.contact_page.default
+targetEntityType: site_setting_entity
+bundle: contact_page
+mode: default
+content:
+  field_link:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link_separate
+    region: content
+hidden:
+  fieldset: true
+  name: true
+  user_id: true

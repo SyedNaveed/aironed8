@@ -1,0 +1,6 @@
+uuid: 00b0e662-e76d-43ed-a06d-7e3d47ae4609
+langcode: en
+status: true
+dependencies: {  }
+id: administration
+label: Administration

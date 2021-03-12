@@ -1,0 +1,5 @@
+intelisys_api:
+  title: "InteliSys Aviation Systems API"
+  api_path: "src/api/intelisys_api.yml"
+  config:
+    base_uri: "https://airchoiceone-api.intelisystraining.ca"

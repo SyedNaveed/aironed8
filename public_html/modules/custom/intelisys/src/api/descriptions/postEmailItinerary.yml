@@ -1,0 +1,51 @@
+operations:
+  postEmailItinerary:
+    httpMethod: "POST"
+    uri: "RESTv1/reservations/{key}/emailItinerary"
+    summary: "Email the reservation itinerary."
+    parameters:
+      key:
+        type: "string"
+        location: "uri"
+        description: "The access key for a reservation."
+        required: true
+      languageCode:
+        type: "string"
+        location: "query"
+        description: "The two letter language code for the itinerary."
+        required: true
+      itineraryTypeCode:
+        type: "string"
+        location: "query"
+        description: "Optional parameter for itinerary type code ( D - Detail, S - Summary, F - No financial )."
+        required: false
+      includeAllPassengers:
+        type: "boolean"
+        location: "query"
+        description: "Optional parameter to include all passengers."
+        required: false
+      passengerKey:
+        type: "string"
+        location: "query"
+        description: "Optional parameter to specify the passenger to be listed on the itinerary."
+        required: false
+      includeTermsAndConditions:
+        type: "boolean"
+        location: "query"
+        description: "Optional parameter to include terms and conditions on the itinerary."
+        required: false
+      includeLogo:
+        type: "boolean"
+        location: "query"
+        description: "Optional parameter to include company logo on the itinerary."
+        required: false
+      senderAddress:
+        type: "string"
+        location: "query"
+        description: "Optional parameter to specify the sender email address for the itinerary. Subject to Sender Policy Framework (SPF) records."
+        required: false
+      emailAddresses:
+        type: "string"
+        location: "query"
+        description: "Optional parameter to indicate recipient email addresses for the itinerary. If none are provided and includeAllPassengers is set to true then the email is sent to the reservation's contact email address. Multiple email addresses can be separated by ';'. If multi email is not enabled, only the first email in the list will be used."
+        required: false

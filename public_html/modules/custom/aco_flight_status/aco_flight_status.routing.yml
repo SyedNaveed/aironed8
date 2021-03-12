@@ -1,0 +1,9 @@
+aco_flight_status.flight_status:
+  path: '/flight-status'
+  defaults:
+    _form: '\Drupal\aco_flight_status\Form\FlightStatusForm'
+    _title: 'Check Your Flight Status'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'

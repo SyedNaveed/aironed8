@@ -1,0 +1,21 @@
+uuid: 2d2a3e18-fd6b-457a-ad68-802396899203
+langcode: en
+status: true
+dependencies:
+  module:
+    - crop
+third_party_settings:
+  crop:
+    image_field: _none
+id: audio
+label: Audio
+description: 'A locally hosted audio file, such as a MP3.'
+source: audio_file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_audio_file
+field_map:
+  name: name
+  mimetype: field_mime_type
+  filesize: field_file_size

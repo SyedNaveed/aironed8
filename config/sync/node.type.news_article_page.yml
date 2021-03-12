@@ -1,0 +1,17 @@
+uuid: ce4ae1c5-1a22-41e7-81dc-013ac8c32ee6
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'News article page'
+type: news_article_page
+description: 'A <em>News article page</em> is displayed on the Company News page.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,90 @@
+# Documentation: https://confluence.atlassian.com/bitbucket/laravel-with-bitbucket-pipelines-913473967.html
+# Validate: https://bitbucket-pipelines.prod.public.atl-paas.net/validator
+# Debug: https://confluence.atlassian.com/bitbucket/debug-your-pipelines-locally-with-docker-838273569.html
+# Variables: https://confluence.atlassian.com/bitbucket/variables-in-pipelines-794502608.html
+#
+# PHP images: https://hub.docker.com/_/php/
+# MySQL images: https://hub.docker.com/_/mysql/
+#
+# Test locally:
+#
+# docker run --rm --name aco-mysql \
+# -e MYSQL_DATABASE='pipelines' \
+# -e MYSQL_ROOT_HOST='%' \
+# -e MYSQL_RANDOM_ROOT_PASSWORD='yes' \
+# -e MYSQL_USER='test_user' \
+# -e MYSQL_PASSWORD='test_user_password' \
+# -d -p 3306:3306 mysql:5.7.26
+#
+# docker run --rm -it \
+# --name aco-server \
+# --link aco-mysql:mysql \
+# --volume=ABSOLUTE_PATH_TO_REPO:/repo \
+# --workdir="/repo" --memory=4g --memory-swap=4g --memory-swappiness=0 \
+# --entrypoint=/bin/bash php:7.1.31-apache
+#
+# docker stop aco-mysql
+#
+# Required environment variables:
+#
+# DOCROOT
+# SSH_URL
+# SSH_PORT
+# PRODUCTION_SITE_PATH
+# STAGING_SITE_PATH
+# DEV_SITE_PATH
+# GITHUB_TOKEN
+#
+image: php:7.1.31-apache
+pipelines:
+  branches:
+    dev:
+      - step:
+         name: "Development environment deployment"
+         script:
+           - scripts/ci/build.sh
+           - scripts/ci/install.sh
+           - scripts/ci/test.sh
+           - scripts/ci/deploy.sh
+         services:
+           - docker
+           - mysql
+         caches:
+           - docker
+           - node
+           - composer
+    release/*:
+      - step:
+         name: "Staging environment deployment"
+         script:
+           - scripts/ci/build.sh
+           - scripts/ci/deploy.sh
+         services:
+           - docker
+           - mysql
+         caches:
+           - docker
+           - node
+           - composer
+    master:
+      - step:
+         name: "Production environment deployment"
+         script:
+           - scripts/ci/build.sh
+           - scripts/ci/deploy.sh
+         services:
+           - docker
+           - mysql
+         caches:
+           - docker
+           - node
+           - composer
+definitions:
+  services:
+    mysql:
+      image: mysql:5.7.26
+      environment:
+        MYSQL_DATABASE: 'pipelines'
+        MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+        MYSQL_USER: 'test_user'
+        MYSQL_PASSWORD: 'test_user_password'

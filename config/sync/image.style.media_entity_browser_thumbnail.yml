@@ -1,0 +1,20 @@
+uuid: 7c21f0b8-7ece-4c1d-a1d2-00453e7fde00
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: kyNpSwmg-lAVp2WSkg0mEkXaF6nvxrj_xxHqM6iPoCU
+name: media_entity_browser_thumbnail
+label: 'Media Entity Browser thumbnail (350x200)'
+effects:
+  a05f6b66-3198-4704-93ae-c67861f2c6aa:
+    uuid: a05f6b66-3198-4704-93ae-c67861f2c6aa
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 350
+      height: 200
+      crop_type: focal_point
+pipeline: default_pipeline

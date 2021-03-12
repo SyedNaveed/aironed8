@@ -1,0 +1,53 @@
+{#
+/**
+ * @file
+ * Theme override for payment information.
+ */
+#}
+<div class="spacing-bottom new-row">
+  <div class="col-sm-12">
+    {{ 'Credit Card Details'|t }}
+  </div>
+  <div class="contact_information">
+    <div class="col-sm-4">
+      <h5>{{ 'Payment Type'|t }}</h5>{{ payment_type }}
+    </div>
+    <div class="col-sm-4">
+      <h5>{{ 'Card Number'|t }}</h5>{{ card_number }}
+    </div>
+    <div class="col-sm-4">
+      <h5>{{ 'Expiry Date'|t }}</h5>{{ expiry }}
+    </div>
+  </div>
+</div>
+<div class="new-row">
+  <div class="col-sm-12">
+    {{ 'Cardholder Information'|t }}
+  </div>
+  <div class="contact_information">
+    <div class="col-sm-4">
+      <h5>{{ 'Name'|t }}</h5>{{ name }}
+    </div>
+    <div class="col-sm-4">
+      <h5>{{ 'Address Line 1'|t }}</h5>{{ address1 }}
+    </div>
+    <div class="col-sm-4">
+      <h5>{{ 'Address Line 2'|t }}</h5>{{ address2 }}
+    </div>
+    <div class="col-sm-4">
+      <h5>{{ 'City'|t }}</h5>{{ city }}
+    </div>
+    <div class="col-sm-4">
+      <h5>{{ 'Country'|t }}</h5>{{ country }}
+    </div>
+    <div class="col-sm-4">
+      <h5>{{ 'Province/State'|t }}</h5>{{ province }}
+    </div>
+    <div class="col-sm-4">
+      <h5>{{ 'Postal Code'|t }}</h5>{{ postalCode }}
+    </div>
+    <div class="col-sm-4">
+      <h5>{{ 'Phone Number'|t }}</h5>{{ phoneNumber }}
+    </div>
+  </div>
+</div>

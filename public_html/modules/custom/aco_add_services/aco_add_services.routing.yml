@@ -1,0 +1,11 @@
+aco_add_services.form_wizard:
+  path: '/reservation/services/add/{step}'
+  defaults:
+    _wizard: '\Drupal\aco_add_services\Wizard\AddServicesWizard'
+    _title: 'Additional Services & Items'
+    tempstore_id: 'aco_add_services.form_wizard'
+    machine_name: 'AddServicesWizard'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'

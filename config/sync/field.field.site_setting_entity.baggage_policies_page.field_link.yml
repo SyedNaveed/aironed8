@@ -1,0 +1,23 @@
+uuid: 355edc5a-b964-4b6a-b9f1-602b60a6a02e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.site_setting_entity.field_link
+    - site_settings.site_setting_entity_type.baggage_policies_page
+  module:
+    - link
+id: site_setting_entity.baggage_policies_page.field_link
+field_name: field_link
+entity_type: site_setting_entity
+bundle: baggage_policies_page
+label: 'Baggage Policies Page'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 1
+  title: 0
+field_type: link

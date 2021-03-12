@@ -1,0 +1,21 @@
+# Ignore sensitive information.
+/private/
+/public_html/sites/*/settings.local.php
+/public_html/sites/*/services.local.yml
+/salt.txt
+
+# Ignore Drupal's file directory.
+/public_html/sites/*/files/
+
+# Ignore SimpleTest multi-site environment.
+/public_html/sites/simpletest
+
+# Ignore .env files as they are personal.
+/.env
+
+# Ignore server folders.
+/logs/
+/public_html/.well-known/
+/public_html/php_errorlog
+/repository.git/
+/webstats/

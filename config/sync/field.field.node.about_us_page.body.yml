@@ -1,0 +1,34 @@
+uuid: bbbeb773-58b1-4628-9c9a-315ba302799e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.about_us_page
+  module:
+    - better_formats
+    - text
+third_party_settings:
+  better_formats:
+    allowed_formats_toggle: 1
+    allowed_formats:
+      rich_text: rich_text
+    default_order_toggle: 0
+    default_order_wrapper:
+      formats:
+        rich_text:
+          weight: '0'
+id: node.about_us_page.body
+field_name: body
+entity_type: node
+bundle: about_us_page
+label: Body
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

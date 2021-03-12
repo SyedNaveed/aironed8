@@ -1,0 +1,22 @@
+uuid: e421e280-afd9-4070-a056-45cddeea4768
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - airchoiceone
+_core:
+  default_config_hash: 5MNdk3fpMKx_xxBTcz2T11DL4XEU1H5SgHl8BsYdFsA
+id: airchoiceone_messages
+theme: airchoiceone
+region: highlighted
+weight: -10
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

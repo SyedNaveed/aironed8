@@ -1,0 +1,163 @@
+models:
+  FlightSegmentShort:
+    type: "object"
+    location: "json"
+    properties:
+      flight:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Schedule"
+      flightLegs:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "FlightLegShort"
+
+  FlightSegment:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      airlineCode:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCode"
+      flightNumber:
+        type: "string"
+        location: "json"
+      # @todo Unsure of below data type.
+      operatingPartnerCarrier:
+        type: "string"
+        location: "json"
+      aircraftModel:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKeyIdName"
+
+  FlightSegmentLong:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      airlineCode:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCode"
+      flightNumber:
+        type: "string"
+        location: "json"
+      # @todo Unsure of below data type.
+      operatingPartnerCarrier:
+        type: "string"
+        location: "json"
+      aircraftModel:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKeyIdName"
+      departure:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FlightScheduledTime"
+      arrival:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FlightScheduledTime"
+
+  Segment:
+    type: "object"
+    location: "json"
+    properties:
+      key:
+        type: "string"
+        location: "json"
+      flight:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FlightSegment"
+      departure:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FlightScheduledTime"
+      arrival:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FlightScheduledTime"
+      legs:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "FlightLegSummary"
+      reservationStatus:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReservationStatus"
+
+  Journey:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      departure:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "AirportShort"
+      segments:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "Segment"
+      passengerJourneyDetails:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "PassengerJourneyDetails"
+      reservationStatus:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReservationStatus"
+
+  JourneySelection:
+    type: "object"
+    location: "json"
+    properties:
+      index:
+        type: "integer"
+        location: "json"
+      passengerJourneyDetails:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "PassengerJourneyDetailsShort"
+      reservationStatus:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReservationStatus"

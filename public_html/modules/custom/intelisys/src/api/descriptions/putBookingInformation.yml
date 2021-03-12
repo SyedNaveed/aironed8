@@ -1,0 +1,48 @@
+operations:
+  putBookingInformation:
+    httpMethod: "PUT"
+    uri: "RESTv1/reservations/{key}/bookingInformation/{bookingInformationKey}"
+    summary: "Update the booking information for the reservation."
+    parameters:
+      content-type:
+        location: "header"
+        default: "application/json"
+      key:
+        type: "string"
+        location: "uri"
+        description: "The access key for a reservation."
+        required: true
+      bookingInformationKey:
+        type: "string"
+        location: "uri"
+        description: "The key value for a reservation's booking information."
+        required: true
+      contactInformation:
+        type: "object"
+        location: "json"
+        required: false
+        items:
+          "$ref": "ContactInformation"
+      cancellation:
+        type: "object"
+        location: "json"
+        required: false
+        items:
+          "$ref": "BookingCancellation"
+      paymentTransactions:
+        type: "array"
+        location: "json"
+        required: false
+        items:
+          "$ref": "PaymentTransaction"
+      notes:
+        type: "string"
+        location: "json"
+        description: "String length: inclusive between 0 and 5000."
+        required: false
+      timestamp:
+        type: "string"
+        location: "json"
+        description: "Required during PUT or PATCH operations."
+        required: true
+    responseModel: "BookingInformation"

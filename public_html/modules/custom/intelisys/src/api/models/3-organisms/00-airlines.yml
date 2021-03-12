@@ -1,0 +1,19 @@
+models:
+  AirlineCode:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      code:
+        type: "string"
+        location: "json"
+      name:
+        type: "string"
+        location: "json"
+      airport:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "AirportShort"

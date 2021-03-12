@@ -1,0 +1,45 @@
+uuid: 20fb1d83-7b46-4d26-b136-f0d04bc7e6f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.linkit_result_thumbnail
+  module:
+    - file
+    - image
+    - node
+id: wysiwyg
+label: WYSIWYG
+description: 'Intended to be used on all WYSIWYG-enabled text fields with link support.'
+attributes: {  }
+matchers:
+  a3b64498-aaac-45b9-94ac-b0af212300c0:
+    uuid: a3b64498-aaac-45b9-94ac-b0af212300c0
+    id: 'entity:node'
+    weight: 0
+    settings:
+      result_description: Content
+      bundles:
+        about_us_page: about_us_page
+        basic_page: basic_page
+        contact_us_page: contact_us_page
+        flight_destination_page: flight_destination_page
+        flight_destinations_page: flight_destinations_page
+        home_page: home_page
+        landing_page: landing_page
+        news_article_page: news_article_page
+        section_page: section_page
+      group_by_bundle: false
+      include_unpublished: true
+  6ad65066-a234-4b83-8e1f-5f171b0efd31:
+    uuid: 6ad65066-a234-4b83-8e1f-5f171b0efd31
+    id: 'entity:file'
+    weight: 0
+    settings:
+      result_description: File
+      bundles: null
+      group_by_bundle: null
+      images:
+        show_dimensions: false
+        show_thumbnail: true
+        thumbnail_image_style: linkit_result_thumbnail

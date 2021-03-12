@@ -1,0 +1,59 @@
+uuid: fd10bf5d-1c7a-468f-8496-197a55b391c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.lists
+  module:
+    - ckeditor
+    - editor_file
+third_party_settings:
+  editor_file:
+    status: true
+    scheme: public
+    directory: inline-files
+    extensions: txt
+    max_size: ''
+format: lists
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Lists
+          items:
+            - BulletedList
+      -
+        -
+          name: Undo/Redo
+          items:
+            - Undo
+            - Redo
+        -
+          name: Cut/Copy/Paste
+          items:
+            - Cut
+            - Copy
+            - PasteFromWord
+        -
+          name: Tools
+          items:
+            - ShowBlocks
+            - Maximize
+            - Source
+  plugins:
+    language:
+      language_list: un
+    stylescombo:
+      styles: ''
+    linkit:
+      linkit_profile: ''
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

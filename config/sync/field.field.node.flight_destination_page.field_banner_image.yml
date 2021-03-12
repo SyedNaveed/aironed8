@@ -1,0 +1,29 @@
+uuid: 4c9f3327-36f7-4c04-be86-820040a073b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_banner_image
+    - media.type.image
+    - node.type.flight_destination_page
+id: node.flight_destination_page.field_banner_image
+field_name: field_banner_image
+entity_type: node
+bundle: flight_destination_page
+label: 'Banner Image'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: name
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

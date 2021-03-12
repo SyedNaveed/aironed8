@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a Flight Destinations page node.
+ */
+#}
+<div class="container_push_right in">
+  <div class="row">
+    <div class="col-lg-6 space destionations_page">
+      {{ content.body }}
+    </div>
+    <div class="col-lg-6">
+      <div class="form_right">
+        <div class="hero_home_form_title">
+          {{ drupal_menu('booking', 1, 1, FALSE) }}
+          <div class="book_connect_btn">
+            <button class="blue_btn book_connect">{{ 'Book Connecting Flight'|t }}</button>
+            <span class="book_connect_dd">
+              {{ drupal_menu('book', 1, 1, FALSE) }}
+            </span>
+          </div>
+          <h2 class="white">{{ 'Book your flight'|t }}</h2>
+        </div>
+        <div class="divide20 nophone"></div>
+
+        {% if content.book_flight_form is defined %}
+          <div class="row form_row">
+            {{ content.book_flight_form }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if not node.field_paragraphs.isEmpty() %}
+  <div class="container">
+    {{ content.field_paragraphs }}
+  </div>
+{% endif %}
+
+<div class="pd"></div>

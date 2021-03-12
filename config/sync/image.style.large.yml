@@ -1,0 +1,18 @@
+uuid: 6e7724aa-61d6-4b17-b34a-08306dedc05b
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: J2n0RpFzS0-bgSyxjs6rSdgxB1rb-bTAgqywNx_964M
+name: large
+label: Large
+effects:
+  34b4ecdd-e594-4fd6-a433-861947b9ad7f:
+    uuid: 34b4ecdd-e594-4fd6-a433-861947b9ad7f
+    id: image_scale
+    weight: 1
+    data:
+      width: 960
+      height: null
+      upscale: false
+pipeline: default_pipeline

@@ -1,0 +1,30 @@
+uuid: 53f1c57e-ff03-4c60-bf2a-d7a2b26a23e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.site_setting_entity.terms_conditions_page.field_link
+    - site_settings.site_setting_entity_type.terms_conditions_page
+  module:
+    - link
+id: site_setting_entity.terms_conditions_page.default
+targetEntityType: site_setting_entity
+bundle: terms_conditions_page
+mode: default
+content:
+  field_link:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link_separate
+    region: content
+hidden:
+  fieldset: true
+  name: true
+  user_id: true

@@ -1,0 +1,70 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a 'form' element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see template_preprocess_form()
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="book_page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1 class="h2">{{ element.title }}</h1>
+        <div class="new-row section spacing-bottom row">
+          <div class="col-sm-12">
+            <h4 class="section__header">{{ 'Trip Details'|t }}</h4>
+            {{ element.trip_details }}
+          </div>
+          <div class="col-sm-12 section3 text-align-right">
+            <p>{{ 'To change any of the above selections, '|t }}<a href="{{ path('aco_book_flight.book_flight.step', {'step': 'flight-selection'}) }}">{{ 'click here'|t }}</a>{{ '.'|t }}</p>
+          </div>
+        </div>
+        <div class="new-row section spacing-bottom">
+          <div class="col-sm-12">
+            <h4 class="section__header">{{ 'Reservation Charges'|t }}</h4>
+            {{ element.charge_summary }}
+          </div>
+          <div class="col-sm-12 section3 text-align-right">
+            <p>{{ 'To change any of the above selections, '|t }}<a href="{{ path('aco_book_flight.book_flight.step', {'step': 'flight-selection'}) }}">{{ 'click here'|t }}</a>{{ '.'|t }}</p>
+          </div>
+        </div>
+        <div class="new-row section spacing-bottom">
+          <div class="col-sm-12">
+            <h4 class="section__header">{{ 'Contact Information'|t }}</h4>
+          </div>
+          {{ element.contact_information }}
+          <div class="col-sm-12 section3 text-align-right">
+            <p>{{ 'To change any of the above selections, '|t }}<a href="{{ path('aco_book_flight.book_flight.step', {'step': 'contact-information'}) }}">{{ 'click here'|t }}</a>{{ '.'|t }}</p>
+          </div>
+        </div>
+        <div class="new-row section spacing-bottom">
+          <div class="col-sm-12">
+            <h4 class="section__header">{{ 'Payment Information'|t }}</h4>
+          </div>
+          {{ element.payment_information }}
+          <div class="col-sm-12 section3 text-align-right">
+            <p>{{ 'To change any of the above selections, '|t }}<a href="{{ path('aco_book_flight.book_flight.step', {'step': 'purchase'}) }}">{{ 'click here'|t }}</a>{{ '.'|t }}</p>
+          </div>
+        </div>
+        <div class="new-row section spacing-bottom">
+          <div class="col-sm-12">
+            {{ element|without('trip_details', 'charge_summary', 'contact_information', 'payment_information', 'title', 'ticket') }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        {{ element.ticket }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pd"></div>
+<div class="pd"></div>

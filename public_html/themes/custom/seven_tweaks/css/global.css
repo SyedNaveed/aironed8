@@ -1,0 +1,31 @@
+/* Remove the border from iframes. */
+iframe {
+  border: 0;
+}
+
+/* Give some spacing to Paragraphs in 'Preview' mode. */
+.paragraph--view-mode--preview {
+  margin-top: 1em;
+}
+
+/**
+ * Toolbar tab icon.
+ * Reference File: core/modules/contextual/css/contextual.icons.theme.css
+ */
+.toolbar-bar .toolbar-icon-edit:before {
+  background-image: url("/core/misc/icons/bebebe/pencil.svg");
+}
+.toolbar-bar .toolbar-icon-edit:active:before,
+.toolbar-bar .toolbar-icon-edit.is-active:before {
+  background-image: url("/core/misc/icons/ffffff/pencil.svg");
+}
+
+/**
+ * Toolbar search tray height fixes.
+ */
+#toolbar-item-administration-search-tray div.form-item {
+  margin: 6px 0;
+}
+#toolbar-item-administration-search-tray input {
+  height: 27px;
+}

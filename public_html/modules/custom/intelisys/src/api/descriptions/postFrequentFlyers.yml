@@ -1,0 +1,23 @@
+operations:
+  postFrequentFlyers:
+    httpMethod: "POST"
+    uri: "RESTv1/frequentFlyers"
+    summary: "Add the provided frequent flyer."
+    parameters:
+      userLogonName:
+        type: "string"
+        location: "json"
+        description: "String length: inclusive between 0 and 50."
+        required: true
+      password:
+        type: "string"
+        location: "json"
+        description: "String length: inclusive between 0 and 24."
+        required: true
+      reservationProfile:
+        type: "object"
+        location: "json"
+        required: true
+        items:
+          "$ref": "Profile"
+    responseModel: "FrequentFlyerProfile"

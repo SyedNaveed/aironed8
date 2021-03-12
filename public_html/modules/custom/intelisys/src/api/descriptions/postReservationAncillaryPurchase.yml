@@ -1,0 +1,38 @@
+operations:
+  postReservationAncillaryPurchase:
+    httpMethod: "POST"
+    uri: "RESTv1/reservations/{key}/ancillaryPurchases"
+    summary: "Add the provided reservation ancillary purchase."
+    parameters:
+      key:
+        type: "string"
+        location: "uri"
+        description: "The access key for a reservation."
+        required: true
+      purchaseKey:
+        type: "string"
+        location: "json"
+        description: "Required during all operations."
+        required: true
+      passenger:
+        type: "object"
+        location: "json"
+        description: "Required during all operations."
+        required: true
+        items:
+          "$ref": "ReferenceKey"
+      journey:
+        type: "object"
+        location: "json"
+        description: "Required during all operations."
+        required: true
+        items:
+          "$ref": "ReferenceKey"
+      paymentTransactions:
+        type: "array"
+        location: "json"
+        description: "Optional during all operations - Maximum of 2 transactions: main transaction and optional additional transaction of type voucher are valid."
+        required: false
+        items:
+          "$ref": "PaymentTransaction"
+    responseModel: "AncillaryPurchase"

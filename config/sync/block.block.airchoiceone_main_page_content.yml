@@ -1,0 +1,20 @@
+uuid: ea30ff2c-95cd-45a0-8be7-b147961ff0f7
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - airchoiceone
+id: airchoiceone_main_page_content
+theme: airchoiceone
+region: content
+weight: -11
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

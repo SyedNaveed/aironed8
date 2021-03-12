@@ -1,0 +1,19 @@
+uuid: ae11e7d4-1684-4a0a-a697-eca2c4b61297
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_state_country
+    - node.type.flight_destination_page
+id: node.flight_destination_page.field_state_country
+field_name: field_state_country
+entity_type: node
+bundle: flight_destination_page
+label: State/Country
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

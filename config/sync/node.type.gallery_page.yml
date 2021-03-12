@@ -1,0 +1,24 @@
+uuid: 9e0beb83-f53d-4cb6-b642-2495fd15ea14
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - contact
+      - copyright
+      - footer
+      - footer-utility
+      - main
+      - mobile-contact
+      - utility
+    parent: 'main:'
+name: 'Gallery page'
+type: gallery_page
+description: 'The <em>Gallery page</em> can be used to display multiple pictures.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

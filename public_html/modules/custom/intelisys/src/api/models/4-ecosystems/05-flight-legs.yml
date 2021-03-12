@@ -1,0 +1,111 @@
+models:
+  FlightLegSummary:
+    type: "object"
+    location: "json"
+    properties:
+      key:
+        type: "string"
+        location: "json"
+      departure:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FlightScheduledTime"
+      arrival:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FlightScheduledTime"
+
+  FlightLegShort:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      legNumber:
+        type: "integer"
+        location: "json"
+      departure:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FlightTime"
+      arrival:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FlightTime"
+
+  FlightLegLong:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      legNumber:
+        type: "integer"
+        location: "json"
+      flight:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Flight"
+      flightLeg:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FlightLegShort"
+      aircraftModel:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKeyIdName"
+      tail:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Tail"
+      locationStatus:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "LocationStatus"
+      flightType:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCodeName"
+      flightLegStatus:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FlightLegStatus"
+      distance:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Distance"
+      departure:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FlightTime"
+      arrival:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FlightTime"
+      delays:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "Delay"
