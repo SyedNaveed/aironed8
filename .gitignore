@@ -40,8 +40,8 @@ public_html/themes/contrib/
 /.gitattributes
 /.htaccess
 /autoload.php
-/composer.json
-/composer.lock
+composer.json
+composer.lock
 /example.gitignore
 /index.php
 /LICENSE.txt
