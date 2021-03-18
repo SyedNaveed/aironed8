@@ -1,0 +1,53 @@
+airchoice_member.dashboard_controller:
+  path: '/dashboard'
+  defaults:
+    _controller: '\Drupal\airchoice_member\Controller\DashboardController::index'
+    _title: 'Dashboard'
+  requirements:
+    _role: 'paid_member'
+
+airchoice_member.dashboard_controller.member_info:
+  path: '/dashboard/member/{user}'
+  defaults:
+    _controller: '\Drupal\airchoice_member\Controller\DashboardController::removeMember'
+    _title: 'Dashboard'
+  requirements:
+    _role: 'paid_member'
+  options:
+    parameters:
+      user:
+        type: entity:user
+
+airchoice_member.default_controller_hello:
+  path: '/member/list'
+  defaults:
+    _controller: '\Drupal\airchoice_member\Controller\DashboardController::hello'
+    _title: 'Title'
+  requirements:
+    _permission: 'access content'
+
+airchoice_member.login_by_link_controller_hello:
+  path: '/airchoice_member/login/{user}'
+  defaults:
+    _controller: '\Drupal\airchoice_member\Controller\LoginByLinkController::hello'
+    _title: 'main'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      user:
+        type: entity:user
+airchoice_member.add_member_form:
+  path: '/airchoice_member/form/add_member'
+  defaults:
+    _form: '\Drupal\airchoice_member\Form\AddMemberForm'
+    _title: 'AddMemberForm'
+  requirements:
+    _role: 'paid_member'
+airchoice_member.user_register_form:
+  path: '/airchoice_member/register'
+  defaults:
+    _form: '\Drupal\airchoice_member\Form\UserRegisterForm'
+    _title: 'UserRegisterForm'
+  requirements:
+    _access: 'TRUE'

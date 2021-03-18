@@ -1,0 +1,13 @@
+{
+    "name": "airchoice_member",
+    "type": "drupal-module",
+    "description": "Module for airchoice member subscription and register logic",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/airchoice_member",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/airchoice_member",
+        "source": "http://cgit.drupalcode.org/airchoice_member",
+    },
+}

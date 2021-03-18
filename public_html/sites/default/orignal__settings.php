@@ -290,7 +290,7 @@ $databases = [];
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-
+$settings['hash_salt'] = 'v7NypDAuxwoD7X01AhUEbjICFQ9l22o4amec9VJViUhqmMzwRhfO4RDVWFSa35poPxv8KB8ceg';
 
 /**
  * Deployment identifier.
@@ -313,7 +313,7 @@ $databases = [];
  * After finishing the upgrade, be sure to open this file again and change the
  * TRUE back to a FALSE!
  */
-$settings['update_free_access'] = TRUE;
+$settings['update_free_access'] = FALSE;
 
 /**
  * External access proxy settings:
@@ -544,7 +544,7 @@ if ($settings['hash_salt']) {
  * See https://www.drupal.org/documentation/modules/file for more information
  * about securing private files.
  */
-#$settings['file_private_path'] = '';
+$settings['file_private_path'] = '../private_files';
 
 /**
  * Temporary file path:
@@ -557,7 +557,7 @@ if ($settings['hash_salt']) {
  *
  * @see \Drupal\Component\FileSystem\FileSystem::getOsTemporaryDirectory()
  */
-  $settings['file_temp_path'] = '/tmp';
+# $settings['file_temp_path'] = '/tmp';
 
 /**
  * Session write interval:
@@ -795,17 +795,14 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
-
-$settings['config_sync_directory'] = $app_root.'/sync';
-global $content_directories;
-$content_directories['sync'] = $app_root.'/sync';
-variable: $content_directories['sync'];
-
-if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-   include $app_root . '/' . $site_path . '/settings.local.php';
-}
-
-// $config['system.logging']['error_level'] = 'verbose';
-// error_reporting(E_ALL);
-// ini_set('display_errors', TRUE);
-// ini_set('display_startup_errors', TRUE);
+$databases['default']['default'] = array (
+  'database' => 'airchoicenew',
+  'username' => 'root',
+  'password' => '',
+  'prefix' => '',
+  'host' => 'localhost',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
+$settings['config_sync_directory'] = 'sites/default/files/config_8QlFksGYEg_Pd_IKg1BKJamw_i-wlEV4uugNEMGQGKmPKAkOon0aSKIVrxs22gC7h7r2j-nvaw/sync';

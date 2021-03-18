@@ -20,7 +20,7 @@
   font-family: "Calibre-Light";
   src: url("../fonts/Calibre-Light.eot"); /* IE9 Compat Modes */
   src: url("../fonts/Calibre-Light.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-  /* /  url("../fonts/Calibre-Light.otf") format("opentype"),  Open Type Font */ */
+  /* /  url("../fonts/Calibre-Light.otf") format("opentype"),  Open Type Font */  
     url("../fonts/Calibre-Light.ttf") format("truetype"), /* Safari, Android, iOS */
     url("../fonts/Calibre-Light.woff") format("woff"), /* Modern Browsers */
     url("../fonts/Calibre-Light.woff2") format("woff2"); /* Modern Browsers */
@@ -115,6 +115,10 @@ h5 {
 
 
 :root {
+  --purp: #411777;
+  --addM: #411777;
+  --buttonBg: #7419ea;
+  --inputBg: #f0f2f8;
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -19826,41 +19830,41 @@ body.path-flight-status{
 .path-flight-status #page-content #destination-city-wrapper .form-item.custom-control{
   width: 100%;
 }
-.path-flight-status #block-dashboardleftmenu li.nav-item {
+ #block-dashboardleftmenu li.nav-item {
   font-size: 13px;
   text-align: center;
   margin: 10px 0px;
 }
-.path-flight-status #block-dashboardleftmenu li.nav-item:nth-child(1) a.nav-link {
+ #block-dashboardleftmenu li.nav-item:nth-child(1) a.nav-link {
   fill: rgba(255, 158, 44, .5);
 }
-body.path-flight-status #block-dashboardleftmenu .navbar-nav a::before {
+ #block-dashboardleftmenu .navbar-nav a::before {
   fill: #BCC1D0;
   position: absolute;
   top: -22px;
   left: 0;
   right: 0;
 }
-.path-flight-status #block-dashboardleftmenu li.nav-item:nth-child(1) a.nav-link::before{
+ #block-dashboardleftmenu li.nav-item:nth-child(1) a.nav-link::before{
   content: url('data:image/svg+xml,<svg width="2em" height="2em" fill="grey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.417 36.557"><path id="plane" d="M25.077,23.713,15.62,38.8c0,.106-.106.106-.213.106H11.688a.282.282,0,0,1-.319-.319l4.676-14.877H6.055L3.292,27.432c0,.106-.106.106-.213.106H.316A.282.282,0,0,1,0,27.219L1.909,20.63,0,14.041a.34.34,0,0,1,.319-.319H3.079c.106,0,.213,0,.213.106l2.763,3.719h9.989L11.369,2.671a.34.34,0,0,1,.319-.319h3.719c.106,0,.213,0,.213.106l9.457,15.09H35.385c4.038,0,4.038,6.163,0,6.163H25.077Z" transform="translate(0.003 -2.352)" fill-rule="evenodd"/></svg>');
 }
-.path-flight-status #block-dashboardleftmenu li.nav-item:nth-child(2) a.nav-link::before{
+ #block-dashboardleftmenu li.nav-item:nth-child(2) a.nav-link::before{
   content: url('data:image/svg+xml,<svg width="2em" height="2em" fill="grey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.417 36.557"><path id="np_movie-ticket_1780027_000000" d="M10,28v5.107a5.107,5.107,0,0,1,0,10.215v5.107H34.608V28Zm26.465,0V48.429H47.144V43.322a5.107,5.107,0,0,1,0-10.215V28Z" transform="translate(-10 -28)" /></svg>');
 }
-.path-flight-status #block-dashboardleftmenu li.nav-item:nth-child(3) a.nav-link::before{
+ #block-dashboardleftmenu li.nav-item:nth-child(3) a.nav-link::before{
   content: url('data:image/svg+xml,<svg width="2em" height="2em" fill="grey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.417 36.557"><g class="nc-icon-wrapper" ><path d="M11.631,36.841,1,26l3-3,8,5L35,4l3,2L14.65,36.653A2,2,0,0,1,11.631,36.841Z" data-color="color-2"></path> <path d="M46,13H41a1,1,0,0,1,0-2h5a1,1,0,0,1,0,2Z" ></path> <path d="M46,22H34a1,1,0,0,1,0-2H46a1,1,0,0,1,0,2Z" ></path> <path d="M46,31H27a1,1,0,0,1,0-2H46a1,1,0,0,1,0,2Z" ></path> <path d="M46,40H20a1,1,0,0,1,0-2H46a1,1,0,0,1,0,2Z" ></path></g></svg>');
 }
-.path-flight-status #block-dashboardleftmenu li.nav-item:nth-child(4) a.nav-link::before{
+ #block-dashboardleftmenu li.nav-item:nth-child(4) a.nav-link::before{
   content: url('data:image/svg+xml,<svg width="2em" height="2em" fill="grey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.417 36.557"><g><path d="m25.398 20.602l-22.898-7.1016c-0.39844-0.10156-0.69922 0-1 0.19922s-0.5 0.60156-0.5 0.89844v63.699c0 0.5 0.30078 0.89844 0.80078 1.1016l22.898 7.1016c0.39844 0.10156 0.69922 0 1-0.19922s0.5-0.60156 0.5-0.89844v-63.699c0-0.50391-0.30078-0.90234-0.80078-1.1016z"/><path d="m50 37.898c-3.3984 0-6.1016 2.6992-6.1016 6.1016 0 3.3984 2.6992 6.1016 6.1016 6.1016 3.3984 0 6.1016-2.6992 6.1016-6.1016 0-3.3984-2.7031-6.1016-6.1016-6.1016z"/> <path d="m70.801 13.699c-0.19922-0.19922-0.39844-0.19922-0.69922-0.19922-0.10156 0-0.19922 0-0.30078 0.10156l-40.102 7.1016c-0.5 0.19922-0.80078 0.60156-0.80078 1.1016v63.699c0 0.39844 0.19922 0.69922 0.5 0.89844 0.30078 0.19922 0.69922 0.30078 1 0.19922l40.102-7.1016c0.5-0.19922 0.80078-0.60156 0.80078-1.1016v-63.699c-0.10156-0.5-0.19922-0.80078-0.5-1zm-10.301 35.602c-1.6992 3.3008-9 17.5-9 17.5-0.60156 1.3008-2.5 1.3008-3.1016 0 0 0-6.1016-12-8.8984-17.5-2.8008-5.6016-0.60156-12.898 5.1992-15.801 5.8008-2.8984 12.898-0.60156 15.801 5.1992 1.6992 3.4023 1.6016 7.1992 0 10.602z"/><path d="m98.199 20.602l-22.898-7.1016c-0.39844-0.10156-0.69922 0-1 0.19922s-0.5 0.60156-0.5 0.89844v63.699c0 0.5 0.30078 0.89844 0.80078 1.1016l22.898 7.1016c0.39844 0.10156 0.69922 0 1-0.19922s0.5-0.60156 0.5-0.89844v-63.699c0-0.50391-0.30078-0.90234-0.80078-1.1016z"/></g></svg>');
 }
  
-.path-flight-status #block-dashboardleftmenu li.nav-item:nth-child(5) a.nav-link::before{
+ #block-dashboardleftmenu li.nav-item:nth-child(5) a.nav-link::before{
   content: url('data:image/svg+xml,<svg width="2em" height="2em" fill="grey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 9 4 C 6.789063 4 5 5.789063 5 8 C 5 10.210938 6.789063 12 9 12 C 11.210938 12 13 10.210938 13 8 C 13 5.789063 11.210938 4 9 4 Z M 9 6 C 10.105469 6 11 6.894531 11 8 C 11 9.105469 10.105469 10 9 10 C 7.894531 10 7 9.105469 7 8 C 7 6.894531 7.894531 6 9 6 Z M 16.5 6 C 15.121094 6 14 7.121094 14 8.5 C 14 9.878906 15.121094 11 16.5 11 C 17.878906 11 19 9.878906 19 8.5 C 19 7.121094 17.878906 6 16.5 6 Z M 17 12 C 15.503906 12 14.402344 12.527344 13.625 13.15625 C 15.96875 14.480469 16.882813 16.5 16.9375 16.625 L 17 16.8125 L 17 17 L 22 17 L 22 15.34375 C 22 15.34375 20.796875 12 17 12 Z M 9 13 C 3.683594 13 2 17 2 17 L 2 19 L 16 19 L 16 17 C 16 17 14.316406 13 9 13 Z M 9 15 C 12.433594 15 13.53125 17 13.53125 17 L 4.46875 17 C 4.46875 17 5.609375 15 9 15 Z"></path></svg>');
 }
-.path-flight-status #block-dashboardleftmenu li.nav-item:nth-child(6) a.nav-link::before{
+ #block-dashboardleftmenu li.nav-item:nth-child(6) a.nav-link::before{
   content: url('data:image/svg+xml,<svg width="2em" height="2em" fill="grey"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 12 3 A 4 4 0 0 0 8 7 A 4 4 0 0 0 12 11 A 4 4 0 0 0 16 7 A 4 4 0 0 0 12 3 z M 12 14 C 8.996 14 3 15.508 3 18.5 L 3 20 C 3 20.552 3.448 21 4 21 L 20 21 C 20.552 21 21 20.552 21 20 L 21 18.5 C 21 15.508 15.004 14 12 14 z"></path></svg>');
 }
-.path-flight-status #block-dashboardleftmenu li.nav-item:nth-child(7) a.nav-link::before{
+  #block-dashboardleftmenu li.nav-item:nth-child(7) a.nav-link::before{
   content: url('data:image/svg+xml,<svg width="2em" height="2em" fill="grey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.417 36.557"><g id="badge-13" transform="translate(-1 -7)"><path id="Path_77" data-name="Path 77" d="M31.147,7H25.62a.511.511,0,0,0-.5.522,2.553,2.553,0,0,1-4.036,2.033,2.368,2.368,0,0,1-.988-2.061.5.5,0,0,0-.5-.494H13.561a.511.511,0,0,0-.5.522A2.553,2.553,0,0,1,9.023,9.555a2.368,2.368,0,0,1-.988-2.061A.5.5,0,0,0,7.532,7H2A1,1,0,0,0,1,8V31.118a1,1,0,0,0,1,1H31.147a1,1,0,0,0,1-1V8A1,1,0,0,0,31.147,7Zm-20.6,8.039a2.512,2.512,0,1,1-2.512,2.512A2.515,2.515,0,0,1,10.547,15.039ZM15.571,26.6H5.522a.5.5,0,0,1-.5-.5,4.528,4.528,0,0,1,4.522-4.522h2.01a4.528,4.528,0,0,1,4.522,4.522A.5.5,0,0,1,15.571,26.6Zm11.054-2.512H19.591a.5.5,0,0,1,0-1h7.034a.5.5,0,0,1,0,1Zm0-5.025H19.591a.5.5,0,0,1,0-1h7.034a.5.5,0,0,1,0,1Z"/></g></svg>');
 }
  
@@ -19912,8 +19916,221 @@ nav#block-flightstatusfootermenu li a {
 #block-pagesidebarmenu .nav-link{
   padding: 0px;
 }
-/* Static page style */
+#page-footer {
+  -webkit-box-shadow: 0 0px 0px 0px rgb(0 0 0 / 40%);
+  box-shadow: 0 0px 0px 0px rgb(0 0 0 / 40%);
+}
+form.airchoice-user-register-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+form.airchoice-user-register-form .custom-control.custom-stripe,
+form.airchoice-user-register-form #edit-account ,
+form.airchoice-user-register-form .custom-textfield {
+  width: 48%;
+  margin-right: 15px;
+}
+form.airchoice-user-register-form .custom-control.custom-stripe .StripeElement--empty,
+form.airchoice-user-register-form #edit-account input,
+form.airchoice-user-register-form .custom-textfield input {
+  background: var(--inputBg);
+  border: 0px;
+  height: 50px;
+  width: 100%;
+  padding-left: 15px;
+}
+form.airchoice-user-register-form input[type="submit"]:hover,
+form.airchoice-user-register-form input[type="submit"]:focus {
+  background: var(--buttonBg);
+  border: 1px solid var(--buttonBg);
+}
+form.airchoice-user-register-form input[type="submit"] {
+  clear: both;
+  background: var(--buttonBg);
+  border: 1px solid var(--buttonBg);
+  height: 52px;
+  margin-top: 50px;
+}
+body.path-dashboard article.profile {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 39px;
+  background: #fff;
+  margin-bottom: 30px;
+}
+body.path-dashboard article.profile .field--name-membership-type,
+body.path-dashboard article.profile .custom-control.custom-item,
+body.path-dashboard article.profile .field--type-string {
+  width: 48%;
+  margin-right: 15px;
+  margin-bottom: 30px;
+}
+body.path-dashboard a.btn-success:hover:focus ,
+body.path-dashboard a.btn-success:focus:hover ,
+body.path-dashboard a.btn-success:active
+body.path-dashboard a.btn-success:hover {  
+  background: var(--addM);
+  border: 1px solid var(--addM);
+}
+body.path-dashboard a.btn-success {
+  background: var(--addM);
+  border: 1px solid var(--addM);
+  padding: 15px 30px 10px;
+  border-radius: 0;
+  font-size: 20px;
+  position: relative;
+}
+body.path-dashboard a.btn-success::before {
 
+}
+body.path-dashboard div.newdashboard-con {
+  padding: 39px;
+  background: #fff;
+  margin-bottom: 30px;
+}
+.members-addsection-header {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 25px;
+  padding-top: 15px;
+}
+.members-addsection-headerh1 {
+  flex: 1;
+}
+.members-addsection-headerh1 h1 {
+  margin-bottom: 16px;
+  font-size: 42px;
+  font-family: 'Calibre';
+  color: var(--black);
+}
+.members-addsection-header .members-addmembers {
+  align-items: flex-end;
+}
+.members_bar.shadow {
+  background: white;
+  margin-bottom: 30px;
+  position: relative;
+  padding: 20px 20px 9px;
+}
+.members_bar img {
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  object-fit: cover;
+  display: block;
+  float: left;
+}
+.member_flights {
+  color: var(--purp);
+  cursor: pointer;
+  line-height: 70px;
+}
+.member_flights svg {
+  width: 24px;
+  /* padding-top: 11px; */
+  margin-bottom: -4px;
+  margin-right: 5px;
+}
+.members_bar .user-img-section {
+  display: flex;
+  flex-wrap: wrap;
+}
+.members_bar h2 {
+  float: left;
+  padding-left: 15px;
+  line-height: 71px;
+  font-size: 28px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+}
+.members_bar .user-options a {
+  width: auto;
+  padding: 13px 21px 10px;
+  border-radius: 50px;
+  font-size: 16px;
+  height: 40px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+.members_bar .user-options {
+  text-align: right;
+  padding-top: 10px;
+}
+.members_bar .user-options a.member_view {
+  background: #7419ea;
+  color: #fff;
+}
+.members_bar .user-options a.member_activity {
+  background: var(--purp);
+  color: #fff;
+}
+.members_bar .user-options a.member_edit {
+  color: var(--black);
+  background: #F0F2F8;
+}
+/* Static page style */
+body.path-dashboard header#header-menu {
+  display: none;
+}
+body.path-dashboard #block-dashboardfootermenu {
+  padding-left: 153px;
+}
+body.path-dashboard .members-addsection {
+  padding-left: 153px;
+  clear: both;
+}
+nav.block-menu.menu--dashboard-top-menu > ul.navbar-nav {
+  display: inline-block;
+  width: 100%;
+  text-align: right;
+}
+nav.block-menu.menu--dashboard-top-menu > ul.navbar-nav > li {
+  list-style: none;
+  display: inline-block;
+  text-align: right;
+  margin-left: 30px;
+  font-size: 17px;
+  position: relative;
+}
+nav.block-menu.menu--dashboard-top-menu > ul.navbar-nav > li > a {
+  color: #444;
+  text-decoration: none;
+  padding: 20px 0px;
+}
+nav.block-menu.menu--dashboard-top-menu {
+  padding-left: 150px;
+  padding-right: 35px;
+}
+body.path-dashboard {
+  background: #e9ecef;
+}
+.block-superfishdashboard-top-menu > ul.sf-dashboard-top-menu {
+  float: right;
+  padding-right: 35px;
+}
+.block-superfishdashboard-top-menu > ul.sf-dashboard-top-menu > li {
+  list-style: none;   
+  text-align: right;
+  margin-left: 30px;
+  font-size: 17px;
+  position: relative;
+}
+.block-superfishdashboard-top-menu > ul.sf-dashboard-top-menu > li ul {
+  background: #fff;
+}
+.block-superfishdashboard-top-menu > ul.sf-dashboard-top-menu > li ul li {
+  text-align: left;
+  padding-left: 15px;
+}
+.block-superfishdashboard-top-menu ul.sf-dashboard-top-menu li a {
+  color: #444;
+  text-decoration: none;
+  padding: 20px 0px;
+}
+.block-superfishdashboard-top-menu ul.sf-dashboard-top-menu li a:hover {
+  color: var(--purp);
+}
+ 
 @media only screen and (min-width: 320px) and (max-width:575px){
   #banner-section #block-travelpolicy .field--name-body, 
   #banner-section #block-safetypage .field--name-body {
@@ -19936,9 +20153,6 @@ nav#block-flightstatusfootermenu li a {
      background-color: #fff;
      padding: 20px;
   }
-
-
-
   .navigation.menu--flight > .navbar-nav .nav-item{
     margin-left: 0px;
     margin-right: 0px;
@@ -19972,7 +20186,7 @@ nav#block-flightstatusfootermenu li a {
     padding-left: 85px;
   }
 }
-@media only screen and (min-width: 576px) and (max-width:767px){
+@media only screen and (min-width: 576px) and (max-width:767px) {
   .navigation.menu--flight > .navbar-nav .nav-item{
     margin-left: 0px;
     margin-right: 0px;
