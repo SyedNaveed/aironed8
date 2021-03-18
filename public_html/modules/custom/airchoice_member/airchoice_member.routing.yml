@@ -1,4 +1,4 @@
-airchoice_member.dashboard_controller:
+airchoice_member.dashboard_controller_index:
   path: '/dashboard'
   defaults:
     _controller: '\Drupal\airchoice_member\Controller\DashboardController::index'
@@ -6,10 +6,18 @@ airchoice_member.dashboard_controller:
   requirements:
     _role: 'paid_member'
 
+airchoice_member.dashboard_controller:
+  path: '/dashboard2'
+  defaults:
+    _controller: '\Drupal\airchoice_member\Controller\Dashboard2Controller::index'
+    _title: 'Dashboard'
+  requirements:
+    _role: 'paid_member'
+
 airchoice_member.dashboard_controller.member_info:
   path: '/dashboard/member/{user}'
   defaults:
-    _controller: '\Drupal\airchoice_member\Controller\DashboardController::removeMember'
+    _controller: '\Drupal\airchoice_member\Controller\Dashboard2Controller::removeMember'
     _title: 'Dashboard'
   requirements:
     _role: 'paid_member'
@@ -21,7 +29,7 @@ airchoice_member.dashboard_controller.member_info:
 airchoice_member.default_controller_hello:
   path: '/member/list'
   defaults:
-    _controller: '\Drupal\airchoice_member\Controller\DashboardController::hello'
+    _controller: '\Drupal\airchoice_member\Controller\Dashboard2Controller::hello'
     _title: 'Title'
   requirements:
     _permission: 'access content'
@@ -49,5 +57,14 @@ airchoice_member.user_register_form:
   defaults:
     _form: '\Drupal\airchoice_member\Form\UserRegisterForm'
     _title: 'UserRegisterForm'
+  requirements:
+    _access: 'TRUE'
+
+
+airchoice_member.find_flight_form:
+  path: '/airchoice_member/find_flight'
+  defaults:
+    _form: '\Drupal\airchoice_member\Form\FindFlightForm'
+    _title: 'FindFlightForm'
   requirements:
     _access: 'TRUE'

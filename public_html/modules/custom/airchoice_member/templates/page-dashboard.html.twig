@@ -1,0 +1,93 @@
+ <div class='alert jumbotron members-addsection'>
+    <div class='members-addsection-header'>  
+        <div class='members-addsection-headerh1'><h1>Manage Members</h1></div>
+        <div class='members-addmembers'>
+            {% if data.canAddMoreMembers %}
+            <a class="use-ajax btn btn-success"
+            data-dialog-options="{&quot;width&quot;:600}"  
+            data-dialog-type="modal"
+            href="{{ path('airchoice_member.add_member_form') }}"><i class="fa fa-plus-circle" ></i>Add New Member</a>
+            {% else %}
+            <a class="btn btn-success" href="javascript:void(0)" disabled><i class="fa fa-plus-circle" ></i>Add New Member ☹️ </a>
+            {% endif %}
+        </div>
+    </div>
+    {{ drupal_entity("user", data.user_id, "default") }}
+    <div class='newdashboard-con'>
+        
+        {{ drupal_entity("profile", data.profile_id, "full") }}
+        
+        {{ drupal_entity("node", data.package_id, "full") }}
+        <h3>Members</h3>
+        
+        
+        
+    </div>
+    <div class='useradded-mem'>
+        <div class="list">
+            <div class='members_bar shadow'>
+                <div class='row'>
+                    <div class='col-md-6 '>
+                        <div class='user-img-section'>
+                            <img src='CODE.jpg' />
+                            <a class="use-ajax"
+                            data-dialog-options="{&quot;width&quot;:400}" 
+                            data-dialog-type="modal"
+                            href="{{ path("airchoice_member.dashboard_controller.member_info", {user: data.user_id}) }}">
+                            <h2>{{ data.user.name.value }} (Self) </h2>
+                        </a>
+                        
+                        <div class='member_flights'>
+                            <svg viewBox="0 0 18.854 17.941"> <path d="M12.306,12.835,7.664,20.24c0,.052-.052.052-.1.052H5.735a.138.138,0,0,1-.157-.157l2.295-7.3H2.97L1.614,14.66c0,.052-.052.052-.1.052H.154A.138.138,0,0,1,0,14.556l.938-3.234L0,8.088a.167.167,0,0,1,.157-.157H1.51c.052,0,.1,0,.1.052L2.97,9.809h4.9l-2.295-7.3a.167.167,0,0,1,.157-.157H7.56c.052,0,.1,0,.1.052l4.641,7.406h5.059a1.513,1.513,0,0,1,0,3.025H12.306Z" transform="translate(0.003 -2.352)" fill="#411777" fill-rule="evenodd"></path></svg>
+                        </div>
+                    </div>
+                </div>
+                <div class='col-md-6 user-options'>
+                    <div class='member_buttons'>
+                        <a href='' class='member_view'>View Flights</a>
+                        <a href='' class='member_activity'>View Activity</a>
+                        <a href='' class='member_edit'>Edit Profile</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        {% if  data.members|length > 0 %}
+
+        {% for member in data.members %}
+        <div class='members_bar shadow'>
+            <div class='row'>
+                <div class='col-md-6 '>
+                    <div class='user-img-section'>
+                        <img src='CODE.jpg' />
+                        <a class="use-ajax"
+                        data-dialog-options="{&quot;width&quot;:400}"  
+                        data-dialog-type="modal"
+                        href="{{ path("airchoice_member.dashboard_controller.member_info", {user:member.id}) }}"
+                        >
+                        <h2>{{member.name.value}}</h2>
+                    </a>
+                    <div class='member_flights'>
+                        <svg viewBox="0 0 18.854 17.941"> <path d="M12.306,12.835,7.664,20.24c0,.052-.052.052-.1.052H5.735a.138.138,0,0,1-.157-.157l2.295-7.3H2.97L1.614,14.66c0,.052-.052.052-.1.052H.154A.138.138,0,0,1,0,14.556l.938-3.234L0,8.088a.167.167,0,0,1,.157-.157H1.51c.052,0,.1,0,.1.052L2.97,9.809h4.9l-2.295-7.3a.167.167,0,0,1,.157-.157H7.56c.052,0,.1,0,.1.052l4.641,7.406h5.059a1.513,1.513,0,0,1,0,3.025H12.306Z" transform="translate(0.003 -2.352)" fill="#411777" fill-rule="evenodd"></path></svg>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-6 user-options'>
+                <div class='member_buttons'>
+                    <a href='' class='member_view'>View Flights</a>
+                    <a href='' class='member_activity'>View Activity</a>
+                    <a href='' class='member_edit'>Edit Profile</a>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="members_bar shadow alert alert-danger"> No other members 😞 </div>
+    {% endif %}
+</div>
+</div>
+</div>
