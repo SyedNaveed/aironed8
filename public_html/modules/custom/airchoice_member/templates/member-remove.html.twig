@@ -1,0 +1,10 @@
+<div>
+{% if data.is_self %}
+Self
+{% else %}
+Info about {{ data.user_name }}
+<a class="use-ajax" href="{{ path("airchoice_member.dashboard_controller.member_info", {user:data.user_id}) }}?delete=1\">
+👉 Remove
+</a>
+{% endif %}
+</div>

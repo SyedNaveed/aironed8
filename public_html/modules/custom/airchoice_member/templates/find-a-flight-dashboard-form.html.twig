@@ -1,0 +1,21 @@
+<form{{ attributes }}>
+
+  <div class="row">
+    <div class="col-md-6">
+      {{ form.city_of_origin }}
+    </div>
+    <div class="col-md-6">
+      {{ form.city_of_origin }}
+    </div>
+  </div>
+  <div>
+    <h3>Form variables</h3>
+    {{ form|keys|join(', ') }}
+    <h3>Other variables</h3>
+    {{ _context|keys|join(', ') }}
+  </div>
+
+  {# render other fields  #}
+  {{ form|without('city_of_origin') }}
+
+</form>
