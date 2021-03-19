@@ -1,0 +1,17 @@
+uuid: ee9f0ed2-982e-44b4-bda8-35046532d728
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Home page'
+type: home_page
+description: 'The <em>Home page</em> for the website.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

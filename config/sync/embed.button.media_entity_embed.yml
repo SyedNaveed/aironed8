@@ -1,0 +1,37 @@
+uuid: 9eb5ad8f-07f9-4a50-ac99-2134df456019
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.embedded
+    - core.entity_view_mode.media.large
+    - core.entity_view_mode.media.medium
+    - entity_browser.browser.media_entity_browser_media_library
+    - media.type.audio
+    - media.type.image
+    - media.type.remote_video
+  module:
+    - entity_embed
+    - media
+_core:
+  default_config_hash: uDFr71znDwk7GjuKOoGMVNXOEuC0_cse0NdhYARcWu0
+label: 'Media Entity Embed'
+id: media_entity_embed
+type_id: entity
+type_settings:
+  entity_type: media
+  bundles:
+    - audio
+    - image
+    - remote_video
+  display_plugins:
+    - 'view_mode:media.embedded'
+    - 'view_mode:media.large'
+    - 'view_mode:media.medium'
+  entity_browser: media_entity_browser_media_library
+  entity_browser_settings:
+    display_review: false
+icon:
+  data: iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABcElEQVRYhe3Xv0okQRDH8Y8isqEcYmQo4jPoRRuJiBgoF4iB0YGJmSAIPoVPcQZiJJiLuQb+w0g4A9dI5OR0NegVm2V26XZGNtAfNAM9XV3f6erpquarqy9hzAAmMI7+kv7ucIh/OUazOMYzXkq0ZzSwiVoOwFlJx+2tgfrb5ClLOpZDm6Ah/MgBKBv3rvNVPXm2YoAF73Fa6AVAT/QN8A3wGQD3uOolwC6WcPOZAA9YEzJbrCP8bj2XcZ0zaaeDqCirbQtpuo7/rf4L/IzsBrFaYN/xoEsF+IOR6P06/ooyXJu28VgVQEMoTmINY7qDcxjFQSeAnD1wK8T3tKB/v4vdtbAfLoteDiQ4fmqN68cKfiXYFOntY5utlgywh3mhiJj5oPNYJ6JVTAHYEojnhJ39UTWFMGzgPAfgBIslHHdVz3NB+wo0BaipCn3spA6sC/95lSX4Sw5pTbg0NJS/hCQDtF/NapgU1e0VKDkEX1Ov/uuhVX4rMacAAAAASUVORK5CYII=
+  uri: 'public://embed_buttons/file_browser_icon.png'
+icon_uuid: null

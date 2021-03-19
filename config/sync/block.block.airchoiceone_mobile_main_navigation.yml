@@ -1,0 +1,25 @@
+uuid: 8ad9ec8c-5539-42ba-b789-ce5fcf6d3a1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - airchoiceone
+id: airchoiceone_mobile_main_navigation
+theme: airchoiceone
+region: mobile_menus
+weight: -5
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Mobile main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 2
+  expand_all_items: true
+visibility: {  }

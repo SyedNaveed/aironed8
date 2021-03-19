@@ -1,0 +1,6 @@
+operations:
+  getCommunicationChannels:
+    httpMethod: "GET"
+    uri: "RESTv1/communicationChannels"
+    summary: "Retrieve listing of communication channels."
+    responseModel: "ReferenceKeyIdNames"

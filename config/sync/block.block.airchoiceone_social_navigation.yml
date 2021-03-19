@@ -1,0 +1,25 @@
+uuid: 85f7935c-65d6-419f-96d4-0f6200fe9643
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.social
+  module:
+    - system
+  theme:
+    - airchoiceone
+id: airchoiceone_social_navigation
+theme: airchoiceone
+region: footer
+weight: -9
+provider: null
+plugin: 'system_menu_block:social'
+settings:
+  id: 'system_menu_block:social'
+  label: 'Social navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

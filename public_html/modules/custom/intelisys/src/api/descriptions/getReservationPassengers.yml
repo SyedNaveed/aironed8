@@ -1,0 +1,12 @@
+operations:
+  getReservationPassengers:
+    httpMethod: "GET"
+    uri: "RESTv1/reservations/{key}/passengers"
+    summary: "Retrieve listing of passengers for the given reservation."
+    parameters:
+      key:
+        type: "string"
+        location: "uri"
+        description: "The access key for a reservation."
+        required: true
+    responseModel: "Passengers"

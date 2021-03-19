@@ -1,0 +1,9 @@
+scheme_whitelist:
+  - http
+  - https
+  - files
+  - internal
+protocol_style: full
+local_paths: "https://airchoiceone.lndo.site/\r\nhttps://dev.airchoiceone.com/\r\nhttps://stg.airchoiceone.com/\r\nhttps://www.airchoiceone.com/"
+_core:
+  default_config_hash: EKYCulG-Y3pcObfUpVbl-D9T5DDX6d4hpQ-BVlSBAmw

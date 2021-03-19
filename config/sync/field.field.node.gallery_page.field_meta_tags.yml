@@ -1,0 +1,23 @@
+uuid: 3b678cfb-4211-4e1b-8068-6cdf5de2d388
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.gallery_page
+  module:
+    - metatag
+id: node.gallery_page.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: gallery_page
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'a:1:{s:25:"schema_web_site_publisher";s:98:"a:2:{s:5:"@type";s:12:"Organization";s:3:"@id";s:42:"https://www.airchoiceone.com/#organization";}";}'
+default_value_callback: ''
+settings: {  }
+field_type: metatag

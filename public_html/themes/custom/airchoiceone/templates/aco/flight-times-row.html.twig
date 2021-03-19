@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Theme override for a flight times row.
+ */
+#}
+<div class="col-md-2 col-sm-4 col-xs-6 bs_depart">
+  {% for flight in departures %}
+    <span class="book_page_airport">{{ flight.flight }}</span><br>
+    <span class="book_page_time">{{ flight.time }}</span>
+    <span class="book_page_airport">{{ flight.code }}</span><br>
+  {% endfor %}
+</div>
+<div class="col-md-2 col-sm-4 col-xs-6 bs_arrive">
+  {% for flight in arrivals %}
+    <span class="book_page_airport">&nbsp;</span><br>
+    <span class="book_page_time">{{ flight.time }}</span>
+    <span class="book_page_airport">{{ flight.code }}</span><br>
+  {% endfor %}
+</div>
+<div class="col-md-1 col-sm-2 col-xs-12  bs_stops">
+  <span class="book_page_time">{{ stops }}</span>
+</div>
+<div class="col-md-2 col-sm-4 col-xs-12 bs_refund">
+  {{ business_price }}
+  {% if business_price is empty %}
+    <span class="book_page_supersaver">{{ 'Sold Out'|t }}</span>
+  {% else %}
+    <span class="book_page_airport">{{ business_detail }}</span>
+  {% endif %}
+</div>
+<div class="col-md-3 col-sm-4 col-xs-12 bs_nonrefund">
+  {{ everyday_price }}
+  {% if everyday_price is empty %}
+    <span class="book_page_supersaver">{{ 'Sold Out'|t }}</span>
+  {% else %}
+    <span class="book_page_airport">{{ everyday_detail }}</span>
+  {% endif %}
+</div>
+<div class="col-md-2 col-sm-4 col-xs-12 bs_ss">
+  {{ go_your_way_price }}
+  {% if go_your_way_price is empty %}
+    <span class="book_page_supersaver">{{ 'Sold Out'|t }}</span>
+  {% else %}
+    <span class="book_page_airport">{{ go_your_way_detail }}</span>
+  {% endif %}
+</div>

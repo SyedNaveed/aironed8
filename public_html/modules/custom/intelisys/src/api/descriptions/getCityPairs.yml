@@ -1,0 +1,27 @@
+operations:
+  getCityPairs:
+    httpMethod: "GET"
+    uri: "RESTv1/cityPairs"
+    summary: "Retrieve listing of valid origin and destination airport city pairs."
+    parameters:
+      includeExpired:
+        type: "boolean"
+        location: "query"
+        description: "Optional inclusion of expired city pairs, fares and charges."
+        required: false
+      includeLapsed:
+        type: "boolean"
+        location: "query"
+        description: "Optional inclusion of lapsed city pairs, fares and charges."
+        required: false
+      airportApplicabilityDescriptor:
+        type: "string"
+        location: "query"
+        description: "Optional airport applicability values: All or Reservation. Ignored under certain authentication conditions if provided."
+        required: false
+      includeInactiveAirports:
+        type: "boolean"
+        location: "query"
+        description: "Optional inclusion of city pairs with inactive airports. Ignored under certain authentication conditions if provided."
+        required: false
+    responseModel: "CityPairs"

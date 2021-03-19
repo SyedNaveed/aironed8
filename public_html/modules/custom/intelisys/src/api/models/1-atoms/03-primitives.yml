@@ -1,0 +1,95 @@
+models:
+  Index:
+    type: "object"
+    location: "json"
+    properties:
+      index:
+        type: "integer"
+        location: "json"
+
+  Time:
+    type: "object"
+    location: "json"
+    properties:
+      time:
+        type: "string"
+        location: "json"
+
+  UTCOffset:
+    type: "object"
+    location: "json"
+    properties:
+      iso:
+        type: "string"
+        location: "json"
+      hours:
+        type: "number"
+        location: "json"
+      minutes:
+        type: "integer"
+        location: "json"
+
+  Timezone:
+    type: "object"
+    location: "json"
+    properties:
+      followsDst:
+        type: "boolean"
+        location: "json"
+      utcOffsetDstOff:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "UTCOffset"
+      utcOffsetDstOn:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "UTCOffset"
+
+  Coordinate:
+    type: "object"
+    location: "json"
+    properties:
+      degrees:
+        type: "integer"
+        location: "json"
+      minutes:
+        type: "integer"
+        location: "json"
+      seconds:
+        type: "integer"
+        location: "json"
+      quadrant:
+        type: "string"
+        location: "json"
+
+  Distance:
+    type: "object"
+    location: "json"
+    properties:
+      length:
+        type: "number"
+        location: "json"
+      unitOfMeasurement:
+        type: "string"
+        location: "json"
+
+  Transaction:
+    type: "object"
+    location: "json"
+    properties:
+      totalAmount:
+        type: "number"
+        location: "json"
+
+  SecurityChallenge:
+    type: "object"
+    location: "json"
+    properties:
+      question:
+        type: "string"
+        location: "json"
+      answer:
+        type: "string"
+        location: "json"

@@ -1,0 +1,17 @@
+operations:
+  getAncillaryOptions:
+    httpMethod: "GET"
+    uri: "RESTv1/ancillaryOptions"
+    summary: "Retrieve ancillary options for the provided criteria. Each ancillary option includes a purchase key which is to be retained for the booking process."
+    parameters:
+      bookingKey:
+        type: "string"
+        location: "query"
+        description: "The key value identifying a fare option under a specific travel option / passenger journey detail."
+        required: true
+      languageCode:
+        type: "string"
+        location: "query"
+        description: "(Optional) ISO_639-1 (2 letter code) language code."
+        required: false
+    responseModel: "AncillaryOptions"

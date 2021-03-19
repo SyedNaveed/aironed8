@@ -1,0 +1,49 @@
+uuid: f79c541b-faa6-4d76-98b0-e4d25191482f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.site_setting_entity.contact_page.field_link
+    - site_settings.site_setting_entity_type.contact_page
+  module:
+    - link
+id: site_setting_entity.contact_page.default
+targetEntityType: site_setting_entity
+bundle: contact_page
+mode: default
+content:
+  field_link:
+    weight: 11
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  fieldset:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

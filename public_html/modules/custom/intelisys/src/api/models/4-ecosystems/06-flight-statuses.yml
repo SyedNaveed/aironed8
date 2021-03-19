@@ -1,0 +1,30 @@
+models:
+  FlightStatus:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      airlineCode:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCode"
+      flightNumber:
+        type: "string"
+        location: "json"
+      legs:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "FlightLegLong"
+
+  FlightStatuses:
+    type: "array"
+    location: "json"
+    items:
+      "$ref": "FlightStatus"

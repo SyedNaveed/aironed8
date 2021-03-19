@@ -1,0 +1,7 @@
+name: Air Choice One - Core
+type: module
+description: Core functionality for all other Air Choice One modules.
+package: Air Choice One
+core: 8.x
+dependencies:
+  - intelisys:intelisys

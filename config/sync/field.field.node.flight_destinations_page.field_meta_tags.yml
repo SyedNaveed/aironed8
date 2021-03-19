@@ -1,0 +1,21 @@
+uuid: c33b55a0-ce26-45ad-b38a-7ae6eaf72b91
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.flight_destinations_page
+  module:
+    - metatag
+id: node.flight_destinations_page.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: flight_destinations_page
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

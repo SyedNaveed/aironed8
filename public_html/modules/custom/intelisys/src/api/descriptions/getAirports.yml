@@ -1,0 +1,17 @@
+operations:
+  getAirports:
+    httpMethod: "GET"
+    uri: "RESTv1/airports"
+    summary: "Retrieve listing of airports."
+    parameters:
+      applicabilityDescriptor:
+        type: "string"
+        location: "query"
+        description: "Optional applicability values: All or Reservation. Ignored under certain authentication conditions if provided."
+        required: false
+      includeInactive:
+        type: "string"
+        location: "query"
+        description: "Optional inclusion of inactive airports. Ignored under certain authentication conditions if provided."
+        required: false
+    responseModel: "Airports"

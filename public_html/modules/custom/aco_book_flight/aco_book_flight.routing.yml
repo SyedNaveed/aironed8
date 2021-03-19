@@ -1,0 +1,40 @@
+aco_book_flight.book_flight:
+  path: '/book-flight'
+  defaults:
+    _wizard: '\Drupal\aco_book_flight\Wizard\BookFlightWizard'
+    _title: 'Book a Flight'
+    tempstore_id: 'aco_book_flight.wizard.book_flight'
+    machine_name: 'BookFlightWizard'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'
+aco_book_flight.book_flight.step:
+  path: '/book-flight/{step}'
+  defaults:
+    _wizard: '\Drupal\aco_book_flight\Wizard\BookFlightWizard'
+    _title: 'Book a Flight'
+    tempstore_id: 'aco_book_flight.wizard.book_flight'
+    machine_name: 'BookFlightWizard'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'
+aco_book_flight.charge_summary:
+  path: '/book-flight-charge-summary/{option_index}/{fare_index}'
+  defaults:
+    _controller: '\Drupal\aco_book_flight\Controller\ChargesController::build'
+    _title: 'Charge Summary'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'
+aco_book_flight.confirmed_itinerary:
+  path: '/your-confirmed-itinerary'
+  defaults:
+    _controller: '\Drupal\aco_book_flight\Controller\ConfirmedItineraryController::build'
+    _title: 'Your Confirmed Itinerary'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'

@@ -1,0 +1,14 @@
+uuid: c5d2528d-db99-4bca-900f-4ab0a370409a
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media_media_name
+label: 'Media / Media name'
+type: 'canonical_entities:media'
+pattern: '/media/[media:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: -8
+relationships: {  }

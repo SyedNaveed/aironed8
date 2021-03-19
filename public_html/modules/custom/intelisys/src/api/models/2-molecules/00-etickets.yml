@@ -1,0 +1,42 @@
+models:
+  Eticket:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      external:
+        type: "boolean"
+        location: "json"
+      passenger:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKey"
+      journey:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKey"
+      segment:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Key"
+      status:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "EticketStatus"
+      assignment:
+        type: "string"
+        location: "json"
+      infant:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKey"

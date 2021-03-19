@@ -1,0 +1,30 @@
+uuid: 44318de1-2f88-4d90-9e65-150db72a60d4
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.error_page.body
+    - node.type.error_page
+  module:
+    - text
+    - user
+id: node.error_page.teaser
+targetEntityType: node
+bundle: error_page
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

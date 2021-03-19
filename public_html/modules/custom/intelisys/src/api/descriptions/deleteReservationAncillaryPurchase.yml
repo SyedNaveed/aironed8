@@ -1,0 +1,16 @@
+operations:
+  deleteReservationAncillaryPurchase:
+    httpMethod: "DELETE"
+    uri: "RESTv1/reservations/{key}/ancillaryPurchases/{ancillaryPurchaseKey}"
+    summary: "Add the provided reservation journey."
+    parameters:
+      key:
+        type: "string"
+        location: "uri"
+        description: "The access key for a reservation."
+        required: true
+      ancillaryPurchaseKey:
+        type: "string"
+        location: "uri"
+        description: "The key value for reservation ancillary purchase."
+        required: true

@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a Section page node.
+ */
+#}
+<div class="sidebar_left_page">
+  <div class="row">
+    <div class="col-lg-3 col-md-4">
+      <div class="side_nav">
+        <h2>{{ section_navigation_title }}</h2>
+        {{ section_navigation }}
+      </div>
+    </div>
+    <div class="col-lg-9 col-md-8 side_nav_pad_left{% if node.id == 13 %} travel_tips{% endif %}">
+      {{ content }}
+    </div>
+  </div>
+</div>
+<div class="pd"></div>

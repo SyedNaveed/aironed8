@@ -1,0 +1,11 @@
+aco_edit_leg.form_wizard:
+  path: '/reservation/legs/edit/{step}'
+  defaults:
+    _wizard: '\Drupal\aco_edit_leg\Wizard\EditLegWizard'
+    _title: 'Edit Leg'
+    tempstore_id: 'aco_edit_leg.form_wizard'
+    machine_name: 'EditLegWizard'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'

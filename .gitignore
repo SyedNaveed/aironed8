@@ -7,7 +7,7 @@
 /sites/*/*services*.yml
 
 # Ignore paths that may contain user-generated content
-/sites/*/files
+/sites/*/files/
 /sites/*/public
 /sites/*/private
 /sites/*/files-public
@@ -22,14 +22,16 @@
 /sites/simpletest
 
 # Ignore drupal core (if not versioning drupal sources)
-/core
+public_html/core/
 /modules/README.txt
+public_html/modules/contrib
 /profiles/README.txt
 /sites/README.txt
 /sites/example.sites.php
 /sites/example.settings.local.php
 /sites/development.services.yml
-/themes/README.txt
+public_html/themes/README.txt
+public_html/themes/contrib/
 /vendor
 /.csslintrc
 /.editorconfig

@@ -1,0 +1,24 @@
+uuid: ec4fb0e7-35c3-4ff7-a3f4-027193e2972e
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - contact
+      - copyright
+      - footer
+      - footer-utility
+      - main
+      - mobile-contact
+      - utility
+    parent: 'main:'
+name: 'Section page'
+type: section_page
+description: 'A <em>Section page</em> features a grey sidebar with the section navigation.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,242 @@
+models:
+  SeatMap:
+    type: "object"
+    location: "json"
+    properties:
+      key:
+        type: "string"
+        location: "json"
+      name:
+        type: "string"
+        location: "json"
+      aircraftModel:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKeyIdName"
+
+  SeatQualifiers:
+    type: "object"
+    location: "json"
+    properties:
+      aisle:
+        type: "boolean"
+        location: "json"
+      window:
+        type: "boolean"
+        location: "json"
+      emergencyExit:
+        type: "boolean"
+        location: "json"
+      bulkheadFront:
+        type: "boolean"
+        location: "json"
+      bulkheadBack:
+        type: "boolean"
+        location: "json"
+      overWing:
+        type: "boolean"
+        location: "json"
+      nearEngine:
+        type: "boolean"
+        location: "json"
+      limitedRecline:
+        type: "boolean"
+        location: "json"
+
+  SeatMapCell:
+    type: "object"
+    location: "json"
+    properties:
+      key:
+        type: "string"
+        location: "json"
+      rowIdentifier:
+        type: "string"
+        location: "json"
+      seatIdentifier:
+        type: "string"
+        location: "json"
+      seatQualifiers:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "SeatQualifiers"
+
+  SeatSelectionValidity:
+    type: "object"
+    location: "json"
+    properties:
+      available:
+        type: "boolean"
+        location: "json"
+      reserved:
+        type: "boolean"
+        location: "json"
+      saleBlock:
+        type: "boolean"
+        location: "json"
+      serviceBlock:
+        type: "boolean"
+        location: "json"
+      invalidAllLegs:
+        type: "boolean"
+        location: "json"
+
+  SeatBlockType:
+    type: "object"
+    location: "json"
+    properties:
+      emergencyExit:
+        type: "boolean"
+        location: "json"
+      cityPair:
+        type: "boolean"
+        location: "json"
+      bookingCode:
+        type: "boolean"
+        location: "json"
+      flight:
+        type: "boolean"
+        location: "json"
+      tail:
+        type: "boolean"
+        location: "json"
+
+  SeatBookingInformation:
+    type: "object"
+    location: "json"
+    properties:
+      blockType:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "SeatBlockType"
+      allowOverride:
+        type: "boolean"
+        location: "json"
+      reason:
+        type: "string"
+        location: "json"
+
+  SeatOption:
+    type: "object"
+    location: "json"
+    properties:
+      selectionKey:
+        type: "string"
+        location: "json"
+      selectionValidity:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "SeatSelectionValidity"
+      seatMapCell:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "SeatMapCell"
+      bookingInformation:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "SeatBookingInformation"
+      seatCharges:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "FareCharge"
+
+  Seat:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      selectionKey:
+        type: "string"
+        location: "json"
+      passenger:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKey"
+      journey:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKey"
+      segment:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Key"
+      seatMapCell:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "SeatMapCell"
+      reservationStatus:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "SeatStatus"
+
+  SeatSelectionOptions:
+    type: "array"
+    location: "json"
+    items:
+      "$ref": "SeatSelectionOption"
+
+  SeatSelectionOption:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      flightSegment:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FlightSegmentShort"
+      seatMap:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "SeatMap"
+      seatOptions:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "SeatOption"
+
+  SeatSelection:
+    type: "object"
+    location: "json"
+    properties:
+      selectionKey:
+        type: "string"
+        location: "json"
+      passenger:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Index"
+      journey:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Index"
+      segment:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Index"

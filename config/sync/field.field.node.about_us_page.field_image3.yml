@@ -1,0 +1,29 @@
+uuid: 1fbb08f1-131d-4d71-ae55-e4fa58e306ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image3
+    - media.type.image
+    - node.type.about_us_page
+id: node.about_us_page.field_image3
+field_name: field_image3
+entity_type: node
+bundle: about_us_page
+label: 'Background Image (bottom)'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: name
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

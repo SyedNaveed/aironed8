@@ -1,0 +1,61 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a Flight Destinations page node.
+ */
+#}
+<div class="rel single_dest">
+  <div class="hero_destinations_form" id="myHeader">
+    <div class="hero_home_form_title">
+      {{ drupal_menu('booking', 1, 1, FALSE) }}
+      <div class="book_connect_btn">
+        <button class="blue_btn book_connect">{{ 'Book Connecting Flight'|t }}</button>
+        <span class="book_connect_dd">
+          {{ drupal_menu('book', 1, 1, FALSE) }}
+        </span>
+      </div>
+      <h1 class="white h2">{{ label }}</h1>
+    </div>
+    {% if content.book_flight_form is defined %}
+      <div class="row form_row">
+        {{ content.book_flight_form }}
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="single_dest_hero">
+    <div class="row rnp">
+      <div class="col-lg-6">
+        {{ content.field_banner_image }}
+      </div>
+      <div class="col-lg-6"></div>
+    </div>
+  </div>
+
+  <div class="container_push_right">
+
+    <div class="pd"></div>
+    <div class="row rnp">
+      <div class="col-lg-5 col-sm-12 space">
+
+        <h2>{% trans %}From {{ node.field_city.0.value }}, enjoy affordable flights to and from:{% endtrans %}</h2>
+
+        {% if not node.field_paragraphs.isEmpty() %}
+          <div class="destionations_icons">
+            {{ content.field_paragraphs }}
+          </div>
+        {% endif %}
+
+        {{ content.body }}
+
+        {% if not node.field_iframe.isEmpty() %}
+          <div class="destination_map">
+            {{ content.field_iframe }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="pd"></div>
+  <div id="moredestinations"></div>
+</div>

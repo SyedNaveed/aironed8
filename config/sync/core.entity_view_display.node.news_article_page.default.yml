@@ -1,0 +1,38 @@
+uuid: 89ce33ae-4cc4-4805-be01-0d7f1524bb7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.news_article_page.body
+    - field.field.node.news_article_page.field_meta_tags
+    - node.type.news_article_page
+  module:
+    - metatag
+    - text
+    - user
+id: node.news_article_page.default
+targetEntityType: node
+bundle: news_article_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_meta_tags:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+hidden:
+  links: true

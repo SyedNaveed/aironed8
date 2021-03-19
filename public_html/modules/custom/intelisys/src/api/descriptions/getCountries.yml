@@ -1,0 +1,13 @@
+operations:
+  getCountries:
+    httpMethod: "GET"
+    uri: "RESTv1/countries"
+    summary: "Retrieve a list of all countries."
+    parameters:
+      includeProvinces:
+        type: "boolean"
+        location: "query"
+        description: "Optional inclusion of provinces."
+        required: false
+        default: false
+    responseModel: "ReferenceCodeNames"

@@ -1,0 +1,25 @@
+uuid: 7d36dea7-eb16-49df-bb0a-14240023516c
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.copyright
+  module:
+    - system
+  theme:
+    - airchoiceone
+id: airchoiceone_copyright_navigation
+theme: airchoiceone
+region: copyright
+weight: 0
+provider: null
+plugin: 'system_menu_block:copyright'
+settings:
+  id: 'system_menu_block:copyright'
+  label: 'Copyright navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

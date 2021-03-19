@@ -1,0 +1,153 @@
+models:
+  Agency:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      iataNumber:
+        type: "string"
+        location: "json"
+      name:
+        type: "string"
+        location: "json"
+
+  RequestedTranslation:
+    type: "object"
+    location: "json"
+    properties:
+      key:
+        type: "string"
+        location: "json"
+      language:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCodeName"
+      name:
+        type: "string"
+        location: "json"
+      description:
+        type: "string"
+        location: "json"
+
+  BookingType:
+    type: "object"
+    location: "json"
+    properties:
+      eticketed:
+        type: "boolean"
+        location: "json"
+      groupReserved:
+        type: "boolean"
+        location: "json"
+      frequentFlyerRedeemed:
+        type: "boolean"
+        location: "json"
+
+  DistributionChannel:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      identifier:
+        type: "string"
+        location: "json"
+      description:
+        type: "string"
+        location: "json"
+
+  BookingApplicability:
+    type: "object"
+    location: "json"
+    properties:
+      allPassengers:
+        type: "boolean"
+        location: "json"
+      primaryPassenger:
+        type: "boolean"
+        location: "json"
+      optional:
+        type: "boolean"
+        location: "json"
+
+  BookingCancellation:
+    type: "object"
+    location: "json"
+    properties:
+      reason:
+        type: "string"
+        location: "json"
+
+  BookingInformation:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      sessionIdentifier:
+        type: "string"
+        location: "json"
+      distributionChannel:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "DistributionChannel"
+      externalLocators:
+        type: "string"
+        location: "json"
+      agency:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Agency"
+      company:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKeyIdName"
+      currency:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCodeDescription"
+      contactInformation:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ContactInformation"
+      creation:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Time"
+      hold:
+        type: "string"
+        location: "json"
+      cancellation:
+        type: "string"
+        location: "json"
+      bookingType:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "BookingType"
+      frequentFlyer:
+        type: "string"
+        location: "json"
+      notes:
+        type: "string"
+        location: "json"
+      timestamp:
+        type: "string"
+        location: "json"

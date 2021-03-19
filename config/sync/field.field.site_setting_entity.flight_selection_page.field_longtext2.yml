@@ -1,0 +1,35 @@
+uuid: ef3a8e59-daf2-484a-a13d-b38e298117b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.site_setting_entity.field_longtext2
+    - site_settings.site_setting_entity_type.flight_selection_page
+  module:
+    - better_formats
+    - text
+third_party_settings:
+  better_formats:
+    allowed_formats_toggle: 1
+    allowed_formats:
+      lists: lists
+      rich_text: 0
+    default_order_toggle: 0
+    default_order_wrapper:
+      formats:
+        rich_text:
+          weight: '-10'
+        lists:
+          weight: '-9'
+id: site_setting_entity.flight_selection_page.field_longtext2
+field_name: field_longtext2
+entity_type: site_setting_entity
+bundle: flight_selection_page
+label: 'Everyday Fare'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

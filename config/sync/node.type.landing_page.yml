@@ -1,0 +1,24 @@
+uuid: 0e01bb04-88ff-423c-8d1f-bf4c94948be7
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - contact
+      - copyright
+      - footer
+      - footer-utility
+      - main
+      - mobile-contact
+      - utility
+    parent: 'main:'
+name: 'Landing page'
+type: landing_page
+description: 'A <em>Landing page</em> for a section of the site.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

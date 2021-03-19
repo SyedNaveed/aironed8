@@ -1,0 +1,17 @@
+site-css:
+  css:
+    theme:
+      css/vendor.css: {}
+      css/style.css: {}
+      css/mobile.css: {}
+      css/overrides.css: {}
+
+site-js:
+  js:
+    js/vendor.js: {}
+    js/scripts.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupal.dialog

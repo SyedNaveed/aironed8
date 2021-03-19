@@ -1,0 +1,18 @@
+uuid: d89b45ef-6bba-4772-afeb-4cfada2360e0
+langcode: en
+status: true
+dependencies:
+  theme:
+    - seven_tweaks
+id: seven_tweaks_local_actions
+theme: seven_tweaks
+region: content
+weight: -3
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

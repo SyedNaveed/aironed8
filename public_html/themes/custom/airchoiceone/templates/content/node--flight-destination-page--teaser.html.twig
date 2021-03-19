@@ -1,0 +1,12 @@
+{#
+/**
+ * @file
+ * Teaser theme implementation to display a Flight Destinations page node.
+ */
+#}
+<a href="{{ url }}" rel="bookmark">
+  {{ content.field_image }}
+  <div class="hp_slider_gradient">
+    <h2 class="h4">{{ node.field_city.0.value }},<br><span>{{ node.field_state_country.0.value }}</span></h2>
+  </div>
+</a>

@@ -1,0 +1,38 @@
+uuid: 48b206ab-0e61-42d8-b3c3-ca02fdee30a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.section_page.body
+    - field.field.node.section_page.field_meta_tags
+    - node.type.section_page
+  module:
+    - metatag
+    - text
+    - user
+id: node.section_page.default
+targetEntityType: node
+bundle: section_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_meta_tags:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+hidden:
+  links: true

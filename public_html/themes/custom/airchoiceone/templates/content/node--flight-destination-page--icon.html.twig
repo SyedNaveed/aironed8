@@ -1,0 +1,10 @@
+{#
+/**
+ * @file
+ * Icon theme implementation to display a Flight Destinations page node.
+ */
+#}
+<a href="{{ url }}" rel="bookmark" class="destionations_icons_city">
+  {{ content.field_image2 }}
+  <h4>{{ node.field_city.0.value }}, {{ node.field_state_country.0.value }}</h4>
+</a>

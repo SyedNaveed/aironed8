@@ -1,0 +1,14 @@
+form_ids:
+  - comment_comment_form
+  - user_login_form
+  - user_pass
+  - user_register_form
+  - contact_message_feedback_form
+  - contact_message_personal_form
+  - aco_flight_status_form
+  - aco_frequent_flyers_sign_up_form
+  - aco_manage_flight_find_your_flight_form
+  - aco_book_flight_search_form
+show_form_ids: 0
+_core:
+  default_config_hash: f8-7hVX66ftHnUweoB4XDVx8q1hEr4PiqFvPvFB6yRc

@@ -1,0 +1,23 @@
+uuid: f696df76-2be3-4a0f-9932-c03796bd17e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_file_size
+    - media.type.video
+id: media.video.field_file_size
+field_name: field_file_size
+entity_type: media
+bundle: video
+label: 'File size'
+description: 'The size of the file in bytes.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

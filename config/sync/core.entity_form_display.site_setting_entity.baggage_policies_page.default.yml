@@ -1,0 +1,49 @@
+uuid: 4c8ff779-070e-478c-bf0e-0c815b2397bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.site_setting_entity.baggage_policies_page.field_link
+    - site_settings.site_setting_entity_type.baggage_policies_page
+  module:
+    - link
+id: site_setting_entity.baggage_policies_page.default
+targetEntityType: site_setting_entity
+bundle: baggage_policies_page
+mode: default
+content:
+  field_link:
+    weight: 11
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  fieldset:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,1487 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the Air Choice One theme.
+ */
+
+use Drupal\node\NodeInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Markup;
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Url;
+use Drupal\paragraphs\Entity\Paragraph;
+use Drupal\aco_core\Utility\Environment;
+
+/**
+ * Implements template_preprocess_html().
+ */
+function airchoiceone_preprocess_html(&$variables) {
+  $is_live = Environment::isSiteLive();
+
+  $variables['is_live'] = $is_live;
+  $variables['is_local'] = FALSE;
+  $variables['enable_brandcdn_script'] = FALSE;
+
+  // Skip loading the service on the live site.
+  if (!$is_live) {
+    $active_filters = \Drupal::service('plugin.manager.config_filter')->getDefinitions();
+    $variables['is_local'] = $active_filters['config_split:local']['status'];
+  }
+
+  // Add Brand CDN script to specific pages.
+  if ($is_live) {
+    $current_node = _airchoiceone_get_current_node();
+    $nids = [
+      // Home page.
+      7,
+      // Flights to Burlington, Iowa page.
+      43,
+    ];
+
+    if ($current_node && in_array($current_node->id(), $nids)) {
+      $variables['enable_brandcdn_script'] = TRUE;
+    }
+  }
+
+  if (!\Drupal::state()->get('system.maintenance_mode', FALSE)) {
+    $node = \Drupal::routeMatch()->getParameter('node_preview');
+    if ($node instanceof NodeInterface) {
+      // Remove the node preview form and use a status message instead.
+      if (isset($variables['page_top']['page_top']['node_preview'])) {
+        unset($variables['page_top']['page_top']['node_preview']);
+
+        $query_options = ['query' => ['uuid' => $node->uuid()]];
+        $query = \Drupal::service('request_stack')->getCurrentRequest()->query;
+        if ($query->has('destination')) {
+          $query_options['query']['destination'] = $query->get('destination');
+        }
+
+        $link = [
+          '#type' => 'link',
+          '#title' => t('Back to content editing'),
+          '#url' => $node->isNew() ? Url::fromRoute('node.add', [
+            'node_type' => $node->bundle(),
+          ]) : $node->urlInfo('edit-form'),
+          '#options' => [
+            'attributes' => [
+              'class' => ['node-preview-backlink'],
+            ],
+          ] + $query_options,
+        ];
+
+        $link = \Drupal::service('renderer')->render($link);
+        \Drupal::messenger()->addStatus($link);
+      }
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_page().
+ */
+function airchoiceone_preprocess_page(&$variables) {
+  // Disable pesky path-enabled blocks on 403/404 pages.
+  if (_airchoiceone_get_content_type() == 'error_page') {
+    if (isset($variables['page']['precontent']['airchoiceone_system_page_title'])) {
+      unset($variables['page']['precontent']['airchoiceone_system_page_title']);
+    }
+    if (isset($variables['page']['precontent']['airchoiceone_flight_navigation'])) {
+      unset($variables['page']['precontent']['airchoiceone_flight_navigation']);
+    }
+  }
+  else {
+    // Load node 6 (Purchasing and Refunds) body for popup.
+    $current_route_name = \Drupal::service('current_route_match')->getRouteName();
+    $routes = [
+      'aco_book_flight.book_flight.step',
+      'aco_add_leg.form_wizard',
+      'aco_edit_leg.form_wizard',
+    ];
+
+    if (in_array($current_route_name, $routes)) {
+      $params = \Drupal::service('current_route_match')->getParameters();
+      $step = $params->get('step');
+      if ($step == 'flight-selection') {
+        $site_settings = \Drupal::service('site_settings.loader');
+        $general = $site_settings->loadByFieldset('general');
+        if (isset($general['purchasing_refunds_page'])) {
+          $params = $general['purchasing_refunds_page']['url']->getRouteParameters();
+          $node = \Drupal::entityManager()->getStorage('node')->load((int) $params['node']);
+          $value = $node->get('body')->getValue();
+          $variables['page']['content'][] = [
+            '#markup' => '<div class="visually-hidden"><div id="dialog-purchasing-and-refunds">' . $value[0]['value'] . '</div></div>',
+          ];
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_maintenance_page().
+ */
+function airchoiceone_preprocess_maintenance_page(&$variables) {
+  airchoiceone_preprocess_page($variables);
+}
+
+/**
+ * Implements template_preprocess_node().
+ */
+function airchoiceone_preprocess_node(&$variables) {
+  switch ($variables['node']->bundle()) {
+    case 'about_us_page':
+      switch ($variables['view_mode']) {
+        case 'full':
+          $variables['content']['field_image'][0]['#pre_render'][] = '_airchoiceone_remove_width_height_attrs';
+          $variables['content']['field_image'][0]['#pre_render'][] = '_airchoiceone_add_about_us_image_class';
+          $variables['content']['field_image2'][0]['#pre_render'][] = '_airchoiceone_remove_width_height_attrs';
+          $variables['content']['field_image2'][0]['#pre_render'][] = '_airchoiceone_add_about_us_image2_class';
+          $variables['content']['field_image3'][0]['#pre_render'][] = '_airchoiceone_remove_width_height_attrs';
+          $variables['content']['field_image3'][0]['#pre_render'][] = '_airchoiceone_add_about_us_image3_class';
+          if (isset($variables['content']['field_image4'])) {
+            $variables['content']['field_image4'][0]['#pre_render'][] = '_airchoiceone_remove_width_height_attrs';
+            $variables['content']['field_image4'][0]['#pre_render'][] = '_airchoiceone_add_about_us_image4_class';
+          }
+          break;
+      }
+      break;
+
+    case 'basic_page':
+      switch ($variables['view_mode']) {
+        case 'full':
+          // Add Frequent Flyers Sign Up form to the Rewards page.
+          $site_settings = \Drupal::service('site_settings.loader');
+          $general = $site_settings->loadByFieldset('general');
+          $params = $general['rewards_page']['url']->getRouteParameters();
+          if ((int) $params['node'] == $variables['node']->id()) {
+            $variables['content']['aco_frequent_flyers_sign_up_form'] = \Drupal::formBuilder()->getForm('Drupal\aco_frequent_flyers\Form\SignUpForm');
+            $variables['content']['aco_frequent_flyers_sign_up_form']['#weight'] = 3;
+          }
+          break;
+      }
+      break;
+
+    case 'contact_us_page':
+      switch ($variables['view_mode']) {
+        case 'full':
+          $variables['content']['field_image'][0]['#pre_render'][] = '_airchoiceone_remove_width_height_attrs';
+          $variables['content']['field_image'][0]['#pre_render'][] = '_airchoiceone_add_contact_us_image_class';
+          break;
+      }
+      break;
+
+    case 'flight_destination_page':
+      switch ($variables['view_mode']) {
+        case 'full':
+          $variables['content']['field_banner_image'][0]['#pre_render'][] = '_airchoiceone_remove_width_height_attrs';
+          $variables['content']['field_banner_image'][0]['#pre_render'][] = '_airchoiceone_add_destination_image_class';
+          break;
+
+        case 'icon':
+          $variables['content']['field_image2'][0]['#pre_render'][] = '_airchoiceone_remove_width_height_attrs';
+          break;
+
+        case 'teaser':
+          $variables['content']['field_image'][0]['#pre_render'][] = '_airchoiceone_remove_width_height_attrs';
+          break;
+      }
+      break;
+
+    case 'home_page':
+      switch ($variables['view_mode']) {
+        case 'full':
+          $variables['content']['field_image'][0]['#pre_render'][] = '_airchoiceone_remove_width_height_attrs';
+          $variables['content']['field_image'][0]['#pre_render'][] = '_airchoiceone_add_home_page_image_class';
+          break;
+      }
+      break;
+
+    case 'landing_page':
+      switch ($variables['view_mode']) {
+        case 'full':
+          $variables['use_icon_and_link_layout'] = TRUE;
+          if (!$variables['node']->field_paragraphs->isEmpty()) {
+            $value = $variables['node']->field_paragraphs->first()->getValue();
+            $paragraph = FALSE;
+            if (!empty($value['entity'])) {
+              // Use that, we're probably previewing.
+              $paragraph = $value['entity'];
+            }
+            elseif (!empty($value['target_id'])) {
+              $paragraph = Paragraph::load($value['target_id']);
+            }
+            if (!empty($paragraph) && ($paragraph instanceof Paragraph) && $paragraph->bundle() == 'image_and_link') {
+              $variables['use_icon_and_link_layout'] = FALSE;
+            }
+          }
+          break;
+      }
+      break;
+
+    case 'section_page':
+      switch ($variables['view_mode']) {
+        case 'full':
+          // Enable URL context caching.
+          $build = [
+            '#cache' => [
+              'contexts' => ['url'],
+            ],
+          ];
+
+          $menu_name = 'main';
+          $menu_tree = \Drupal::menuTree();
+
+          // This one will give us the active trail in *reverse order*.
+          // Our current active link always will be the first array element.
+          $parameters = $menu_tree->getCurrentRouteMenuTreeParameters($menu_name);
+          $active_trail = array_keys($parameters->activeTrail);
+
+          // But actually we need its parent.
+          // Except for <front>. Which has no parent.
+          $parent_link_id = isset($active_trail[1]) ? $active_trail[1] : $active_trail[0];
+
+          $variables['section_navigation_title'] = $variables['node']->label();
+          $variables['section_navigation'] = '';
+          if (!empty($parent_link_id)) {
+            // Having the parent now we set it as starting point to build our
+            // custom tree.
+            $parameters->setRoot($parent_link_id);
+            $parameters->setMaxDepth(1);
+            $parameters->excludeRoot();
+            $parameters->setActiveTrail($active_trail);
+            $tree = $menu_tree->load($menu_name, $parameters);
+
+            // Optional: Native sort and access checks.
+            $manipulators = [
+              ['callable' => 'menu.default_tree_manipulators:checkNodeAccess'],
+              ['callable' => 'menu.default_tree_manipulators:checkAccess'],
+              ['callable' => 'menu.default_tree_manipulators:generateIndexAndSort'],
+            ];
+            $tree = $menu_tree->transform($tree, $manipulators);
+
+            // Get parent menu link.
+            $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
+            $parent = $menu_link_manager->createInstance($parent_link_id);
+
+            // Finally, build a renderable array.
+            $variables['section_navigation_title'] = $parent->getTitle();
+            $variables['section_navigation'] = $menu_tree->build($tree);
+          }
+          break;
+      }
+      break;
+  }
+}
+
+/**
+ * Implements template_preprocess_paragraph().
+ */
+function airchoiceone_preprocess_paragraph(&$variables) {
+  switch ($variables['paragraph']->bundle()) {
+    case 'gallery':
+      foreach ($variables['content']['field_media'] as $key => &$media) {
+        if (is_numeric($key)) {
+          $media['#pre_render'][] = '_airchoiceone_remove_width_height_attrs';
+        }
+      }
+      break;
+
+    case 'icon_and_link':
+      $variables['attributes']['class'] = ['news_box', 'news_box_icons'];
+      $node = _airchoiceone_get_current_node();
+      if ($node->id() == 8) {
+        $variables['attributes']['class'][] = 'service_box_icons';
+
+        if ($variables['paragraph']->field_icon->getValue()[0]['value'] == 'handshake') {
+          $variables['attributes']['class'][] = 'sbi2';
+        }
+      }
+      break;
+  }
+}
+
+/**
+ * Implements template_preprocess_field().
+ */
+function airchoiceone_preprocess_field(&$variables) {
+  switch ($variables['field_name']) {
+    case 'field_links2':
+      if ($variables['element']['#bundle'] == 'home_page') {
+        foreach ($variables['items'] as &$item) {
+          $item['content']['#title'] = ['#markup' => '<span class="alert">' . $item['content']['#title'] . '</span>'];
+        }
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function airchoiceone_theme_suggestions_region_alter(array &$suggestions, array $variables) {
+  if ($variables['elements']['#region'] == 'content') {
+    if (_airchoiceone_is_system_page()) {
+      $suggestions[] = 'region__system_page_content';
+    }
+    else {
+      $current_route_name = \Drupal::service('current_route_match')->getRouteName();
+      $routes = [
+        'aco_book_flight.book_flight',
+        'aco_book_flight.charge_summary',
+        'aco_manage_flight.manage_flight',
+        'aco_manage_flight.manage_flight.step',
+        'aco_manage_flight.reservation.edit_contact_information',
+        'aco_manage_flight.reservation.charge_summary',
+        'aco_manage_flight.reservation.cancel',
+        'aco_manage_flight.reservation.itinerary.email',
+        'aco_manage_flight.reservation.passengers.edit',
+        'aco_add_passengers.form_wizard',
+        'aco_manage_flight.reservation.passengers.change',
+        'aco_add_leg.form_wizard',
+        'aco_edit_leg.form_wizard',
+        'aco_add_services.form_wizard',
+        'aco_manage_flight.reservation.legs.cancel',
+        'aco_flight_status.flight_status',
+        'user.login',
+        'user.pass',
+      ];
+
+      $current_path = \Drupal::request()->getRequestUri();
+      $current_path = explode('?', $current_path)[0];
+      $aco_form_paths = ['/book-flight/search'];
+      $aco_full_form_paths = [
+        '/reservation/legs/add/flight-selection',
+        '/reservation/legs/edit/flight-selection',
+      ];
+
+      if (in_array($current_path, $aco_full_form_paths)) {
+        $suggestions[] = 'region__aco_full_form';
+      }
+      elseif (in_array($current_route_name, $routes) || in_array($current_path, $aco_form_paths)) {
+        $suggestions[] = 'region__aco_form';
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function airchoiceone_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  // Add the view mode as a theme suggestion.
+  if (isset($variables['elements']['content']['#block_content'])) {
+    $block = $variables['elements']['content']['#block_content'];
+    $bundle = $block->bundle();
+    $suggestions[] = 'block__' . $bundle;
+    $view_mode = $variables['elements']['#configuration']['view_mode'];
+    if (!empty($view_mode)) {
+      $suggestions[] = 'block__' . $bundle . '__' . $view_mode;
+    }
+  }
+
+  // Block-specific suggestions.
+  if (isset($variables['elements']['#id'])) {
+    switch ($variables['elements']['#id']) {
+      case 'airchoiceone_tabs':
+      case 'airchoiceone_system_section_navigation':
+      case 'airchoiceone_section_utility_navigation':
+        $suggestions[] = 'block__airchoiceone_section_main_navigation';
+        break;
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_manage_reservation().
+ */
+function airchoiceone_preprocess_manage_reservation(&$variables) {
+  foreach ($variables['sections'] as &$section) {
+    if (isset($section['actions'])) {
+      $section['actions']['#attributes']['class'] = [
+        'block-list',
+        'horizontal-list',
+      ];
+      foreach ($section['actions']['#items'] as &$item) {
+        $item['#title'] = Markup::create('<button type="button" class="blue_btn">' . $item['#title'] . '</button>');
+      }
+    }
+  }
+
+  airchoiceone_preprocess_confirmed_itinerary($variables);
+}
+
+/**
+ * Implements template_preprocess_ticket().
+ */
+function airchoiceone_preprocess_ticket(&$variables) {
+  $variables['guests']['#attributes']['class'] = ['block-list'];
+}
+
+/**
+ * Implements template_preprocess_confirmed_itinerary().
+ */
+function airchoiceone_preprocess_confirmed_itinerary(&$variables) {
+  if (isset($variables['actions'])) {
+    foreach ($variables['actions'] as &$action) {
+      $action['#attributes']['class'] = ['block-list', 'horizontal-list'];
+      foreach ($action['#items'] as &$item) {
+        $item['#title'] = Markup::create('<button type="button" class="blue_btn">' . $item['#title'] . '</button>');
+      }
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_block().
+ */
+function airchoiceone_preprocess_block(&$variables) {
+  if (isset($variables['elements']['#id'])) {
+    switch ($variables['elements']['#id']) {
+      case 'airchoiceone_flight_statuses':
+        $variables['attributes']['class'][] = 'container center';
+        break;
+
+      case 'airchoiceone_footer_utility_navigation':
+        $variables['attributes']['class'][] = 'shadow_bar';
+        break;
+
+      case 'airchoiceone_floating_navigation':
+        $variables['attributes']['class'][] = 'floating_icons';
+        break;
+
+      case 'airchoiceone_main_navigation':
+        $variables['#cache']['contexts'][] = 'url';
+        $variables['attributes']['class'][] = 'menu_right_bottom';
+        if (_airchoiceone_is_banner_content_type()) {
+          $node = _airchoiceone_get_current_node();
+          if (!$node->hasField('field_banner_image') || $node->field_banner_image->isEmpty()) {
+            $variables['attributes']['class'][] = 'lb_menu';
+          }
+        }
+        else {
+          $node = _airchoiceone_get_current_node();
+          $is_node = ($node instanceof NodeInterface);
+          if (!$is_node || ($is_node && $node->bundle() != 'home_page')) {
+            $variables['attributes']['class'][] = 'lb_menu';
+          }
+        }
+        break;
+
+      case 'airchoiceone_mobile_main_navigation':
+        $variables['elements']['content']['#theme'] = 'menu__main_mobile';
+        $variables['content']['#theme'] = 'menu__main_mobile';
+        break;
+
+      case 'airchoiceone_page_title':
+      case 'airchoiceone_system_page_title':
+        $variables['#cache']['contexts'][] = 'url';
+        $variables['attributes']['class'][] = 'hero';
+
+        if (_airchoiceone_is_banner_content_type()) {
+          $node = _airchoiceone_get_current_node();
+          if ($node->hasField('field_banner_image') && !$node->field_banner_image->isEmpty()) {
+            $variables['attributes']['class'][] = 'hero_child';
+            $banner_url = file_create_url($node->field_banner_image->entity->get('field_media_image')->entity->uri->value);
+            $variables['attributes']['style'] = "background:url({$banner_url}) center top;background-size:cover";
+          }
+          else {
+            $variables['attributes']['class'][] = 'child_child';
+          }
+        }
+        else {
+          $variables['attributes']['class'][] = 'child_child';
+        }
+        break;
+
+      case 'airchoiceone_utility_navigation':
+        $variables['attributes']['class'][] = 'menu_right_top';
+        break;
+
+      case 'airchoiceone_section_main_navigation':
+      case 'airchoiceone_section_utility_navigation':
+      case 'airchoiceone_system_section_navigation':
+        $variables['#cache']['contexts'][] = 'url';
+        // Check if there is a banner.
+        $variables['has_banner'] = FALSE;
+        if (_airchoiceone_is_banner_content_type()) {
+          $node = _airchoiceone_get_current_node();
+          if ($node->hasField('field_banner_image') && !$node->field_banner_image->isEmpty()) {
+            $variables['has_banner'] = TRUE;
+          }
+        }
+
+        // Add parent menu item to section navigation.
+        $menu_item = reset($variables['content']['#items']);
+        $parent_link_id = $menu_item['original_link']->getParent();
+        $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
+        $parent = $menu_link_manager->createInstance($parent_link_id);
+        $current_path = \Drupal::service('path.current')->getPath();
+        array_unshift($variables['content']['#items'], [
+          'is_expanded' => FALSE,
+          'is_collapsed' => FALSE,
+          'in_active_trail' => $current_path == ('/' . $parent->getUrlObject()->getInternalPath()),
+          'attributes' => new Attribute(),
+          'title' => $parent->getTitle(),
+          'url' => $parent->getUrlObject(),
+          'below' => [],
+          'original_link' => $parent,
+        ]);
+        break;
+
+      case 'views_block__destinations_block_1':
+        $variables['attributes']['class'][] = 'destination_slider';
+        break;
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function airchoiceone_theme_suggestions_page_title_alter(array &$suggestions, array $variables) {
+  if (_airchoiceone_is_banner_content_type()) {
+    $node = _airchoiceone_get_current_node();
+    if ($node->hasField('field_banner_image') && !$node->field_banner_image->isEmpty()) {
+      $suggestions[] = 'page_title__banner';
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function airchoiceone_theme_suggestions_form_element_alter(array &$suggestions, array $variables) {
+  if (isset($variables['element']['#use_list_item'])) {
+    $suggestions[] = 'form_element__list_item';
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function airchoiceone_theme_suggestions_radios_alter(array &$suggestions, array $variables) {
+  if (isset($variables['element']['#use_unordered_list'])) {
+    $suggestions[] = 'checkboxes__unordered_list';
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function airchoiceone_theme_suggestions_checkboxes_alter(array &$suggestions, array $variables) {
+  airchoiceone_theme_suggestions_radios_alter($suggestions, $variables);
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function airchoiceone_theme_suggestions_input_alter(array &$suggestions, array $variables) {
+  if (isset($variables['element']['#button_label'])) {
+    $suggestions[] = 'input__button';
+  }
+}
+
+/**
+ * Implements template_preprocess_input().
+ */
+function airchoiceone_preprocess_input(&$variables) {
+  $element = $variables['element'];
+  if (isset($variables['element']['#button_label'])) {
+    $variables['button_label'] = $element['#button_label'];
+  }
+}
+
+/**
+ * Helper function to pre-render webform checkboxes other.
+ */
+function _airchoiceone_pre_render_webform_checkboxes_other($variables) {
+  $variables['checkboxes']['#use_unordered_list'] = TRUE;
+  foreach ($variables['checkboxes'] as &$value) {
+    if (isset($value['#type']) && $value['#type'] == 'checkbox') {
+      $value['#use_list_item'] = TRUE;
+    }
+  }
+
+  $variables['other']['#title'] .= ' <span>*</span>';
+  $variables['other']['#wrapper_attributes']['class'][] = 'new-row';
+  return $variables;
+}
+
+/**
+ * Helper function to pre-render radios.
+ */
+function _airchoiceone_pre_render_radios($variables) {
+  foreach ($variables as &$value) {
+    if (isset($value['#type']) && $value['#type'] == 'radio') {
+      $value['#use_list_item'] = TRUE;
+    }
+  }
+  return $variables;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function airchoiceone_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  switch ($form_id) {
+    case 'aco_add_leg_select_form':
+      $form['departure']['#wrapper_attributes']['class'] = ['col-xs-6'];
+      $form['arrival']['#wrapper_attributes']['class'] = ['col-xs-6'];
+      $form['from']['#wrapper_attributes']['class'] = ['col-xs-6'];
+      $form['actions']['#attributes']['class'] = ['col-md-12', 'col-xs-12'];
+      $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+      $form['actions']['submit']['#button_label'] = t('Continue');
+      $form['actions']['cancel'] = [
+        '#type' => 'link',
+        '#title' => t('Cancel'),
+        '#url' => Url::fromRoute('aco_manage_flight.reservation'),
+      ];
+      $form['actions']['cancel']['#title'] = Markup::create('<button type="button" class="red_btn">' . $form['actions']['cancel']['#title'] . '</button>');
+      break;
+
+    case 'aco_edit_leg_select_form':
+      $form['description']['#attributes']['class'] = [
+        'col-md-12',
+        'spacing-bottom',
+      ];
+      if (isset($form['error'])) {
+        unset($form['actions']['submit']);
+      }
+      else {
+        $form['departure']['#wrapper_attributes']['class'] = ['col-xs-6'];
+        $form['arrival']['#wrapper_attributes']['class'] = ['col-xs-6'];
+        $form['from']['#wrapper_attributes']['class'] = ['col-xs-6'];
+        $form['edited_leg']['#attributes']['class'][] = 'col-sm-12';
+        $form['edited_leg_segments']['#attributes']['class'][] = 'col-sm-12';
+        $form['actions']['#attributes']['class'] = ['col-md-12', 'col-xs-12'];
+        $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+        $form['actions']['submit']['#button_label'] = t('Continue');
+      }
+
+      $form['actions']['cancel'] = [
+        '#type' => 'link',
+        '#title' => t('Cancel'),
+        '#url' => Url::fromRoute('aco_manage_flight.reservation'),
+      ];
+      $form['actions']['cancel']['#title'] = Markup::create('<button type="button" class="red_btn">' . $form['actions']['cancel']['#title'] . '</button>');
+      break;
+
+    case 'aco_book_flight_search_form':
+      $node = _airchoiceone_get_current_node();
+      if ($node instanceof NodeInterface) {
+        $form['departure']['#wrapper_attributes']['class'] = ['col-xs-6'];
+        $form['arrival']['#wrapper_attributes']['class'] = ['col-xs-6'];
+        $form['from']['#wrapper_attributes']['class'] = ['col-xs-6'];
+        $form['from']['#children']['suffix'] = ['#markup' => t('<div class="date_to">TO</div>')];
+        $form['to']['#wrapper_attributes']['class'] = ['col-xs-6'];
+        $form['adultCount']['#wrapper_attributes']['class'] = ['col-xs-4'];
+        $form['childCount']['#wrapper_attributes']['class'] = ['col-xs-4'];
+        $form['infantCount']['#wrapper_attributes']['class'] = ['col-xs-4'];
+        $form['promoCode']['#wrapper_attributes']['class'] = [
+          'col-md-8',
+          'col-xs-12',
+        ];
+        $form['isRoundtrip']['#wrapper_attributes']['class'] = [
+          'col-md-4',
+          'col-xs-5',
+        ];
+        $form['isRoundtrip']['#label_attributes']['class'] = [
+          'round_trip_label',
+        ];
+        $form['actions']['#attributes']['class'] = ['col-md-12', 'col-xs-7'];
+        $form['actions']['submit']['#attributes']['class'] = [
+          'red_btn',
+          'search_btn',
+        ];
+        $form['actions']['submit']['#button_label'] = t('Search Flights');
+      }
+      else {
+        $form['departure']['#wrapper_attributes']['class'] = ['col-xs-6'];
+        $form['arrival']['#wrapper_attributes']['class'] = ['col-xs-6'];
+        $form['from']['#wrapper_attributes']['class'] = ['col-xs-6'];
+        $form['from']['#children']['suffix'] = ['#markup' => t('<div class="date_to">TO</div>')];
+        $form['to']['#wrapper_attributes']['class'] = ['col-xs-6'];
+        $form['adultCount']['#wrapper_attributes']['class'] = ['col-xs-4'];
+        $form['childCount']['#wrapper_attributes']['class'] = ['col-xs-4'];
+        $form['infantCount']['#wrapper_attributes']['class'] = ['col-xs-4'];
+        $form['promoCode']['#wrapper_attributes']['class'] = [
+          'col-md-8',
+          'col-xs-12',
+        ];
+        $form['isRoundtrip']['#wrapper_attributes']['class'] = [
+          'col-md-4',
+          'col-xs-5',
+        ];
+        $form['actions']['#attributes']['class'] = ['col-md-12', 'col-xs-12'];
+        $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+        $form['actions']['submit']['#button_label'] = t('Continue');
+      }
+      break;
+
+    case 'aco_frequent_flyers_sign_up_form':
+      $form['#prefix'] = '<div class="divide40"></div><div class="book_page_contact_form width100">';
+      $form['#suffix'] = '</div><div class="divide40"></div>';
+      $form['#attributes']['class'][] = 'row';
+      if (isset($form['userLogonName'])) {
+        $form['userLogonName']['#wrapper_attributes']['class'] = ['col-sm-6'];
+        _airchoiceone_style_contact_information_form($form['reservationProfile']);
+        $form['password']['#wrapper_attributes']['class'] = ['col-sm-6'];
+        $form['actions']['#attributes']['class'] = ['col-md-12', 'col-xs-12'];
+        $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+        $form['actions']['submit']['#button_label'] = $form['actions']['submit']['#value'];
+      }
+      break;
+
+    case 'aco_manage_flight_edit_passenger_form':
+    case 'aco_manage_flight_change_passenger_form':
+      $form['description']['#attributes']['class'] = [
+        'col-md-12',
+        'spacing-bottom',
+      ];
+      if (isset($form['contact_information'])) {
+        $form['contact_information']['#attributes']['class'] = [
+          'new-row',
+          'spacing-bottom',
+        ];
+      }
+      _airchoiceone_style_contact_information_form($form);
+      $form['actions']['#attributes']['class'] = ['col-md-12', 'col-xs-12'];
+      $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+      $form['actions']['submit']['#button_label'] = $form['actions']['submit']['#value'];
+      $form['actions']['cancel']['#title'] = Markup::create('<button type="button" class="red_btn">' . $form['actions']['cancel']['#title'] . '</button>');
+      break;
+
+    case 'aco_book_flight_contact_information_form':
+    case 'aco_add_passengers_contact_information_form':
+      if (isset($form['description'])) {
+        $form['description']['#attributes']['class'] = [
+          'col-md-12',
+          'spacing-bottom',
+        ];
+      }
+      foreach ($form['passengers'] as &$passenger) {
+        $passenger['header']['#attributes']['class'] = [
+          'col-md-12',
+          'spacing-bottom',
+          'section-header',
+        ];
+        _airchoiceone_style_contact_information_form($passenger);
+      }
+      $form['actions']['#attributes']['class'] = ['new-row'];
+      $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+      $form['actions']['submit']['#button_label'] = t('Save Contact Information');
+      break;
+
+    case 'aco_book_flight_seat_selection_form':
+      if (isset($form['description'])) {
+        $form['description']['#attributes']['class'] = ['spacing-bottom'];
+      }
+      if (isset($form['actions']['skip'])) {
+        $form['actions']['skip']['#attributes']['class'] = ['outline_btn'];
+        $form['actions']['skip']['#button_label'] = $form['actions']['skip']['#value'];
+      }
+      $form['actions']['#attributes']['class'] = ['new-row'];
+      $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+      $form['actions']['submit']['#button_label'] = t('Select Seat(s)');
+      break;
+
+    case 'aco_book_flight_additional_services_form':
+    case 'aco_add_passengers_additional_services_form':
+    case 'aco_add_leg_additional_services_form':
+    case 'aco_edit_leg_additional_services_form':
+      $form['actions']['#attributes']['class'] = ['new-row'];
+      $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+      $form['actions']['submit']['#button_label'] = t('Continue');
+      break;
+
+    case 'aco_book_flight_purchase_form':
+    case 'aco_add_passengers_purchase_form':
+    case 'aco_add_leg_purchase_form':
+    case 'aco_edit_leg_purchase_form':
+    case 'aco_add_services_purchase_form':
+      if (isset($form['voucher'])) {
+        $form['voucher']['#wrapper_attributes']['class'] = [
+          'col-md-12',
+          'col-xs-12',
+          'large-label',
+        ];
+      }
+      if (isset($form['paymentMethod'])) {
+        $form['paymentMethod']['identifier']['#attributes']['class'] = [
+          'col-md-12',
+          'col-xs-12',
+          'credit_cards',
+        ];
+        $form['paymentMethod']['identifier']['#after_build'][] = '_airchoiceone_payment_method_radios';
+        _airchoiceone_style_purchase_form($form);
+      }
+      $form['actions']['#attributes']['class'] = ['new-row'];
+      $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+      $form['actions']['submit']['#button_label'] = t('Continue to Confirm Purchase');
+      break;
+
+    case 'aco_manage_flight_cancel_reservation_form':
+      if (isset($form['actions'])) {
+        $form['description']['#attributes']['class'] = [
+          'col-md-12',
+          'spacing-bottom',
+        ];
+        $form['contact_us']['#attributes']['class'] = [
+          'col-md-12',
+          'spacing-bottom',
+        ];
+        $form['actions']['#attributes']['class'] = ['col-md-12', 'col-xs-12'];
+        if (isset($form['actions']['submit'])) {
+          $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+          $form['actions']['submit']['#button_label'] = $form['actions']['submit']['#value'];
+        }
+        $form['actions']['cancel']['#title'] = Markup::create('<button type="button" class="red_btn">' . $form['actions']['cancel']['#title'] . '</button>');
+      }
+      break;
+
+    case 'aco_manage_flight_select_passenger_form':
+    case 'aco_manage_flight_select_leg_form':
+      foreach ($form['actions'] as &$item) {
+        if (isset($item['#type'])) {
+          if ($item['#type'] == 'submit') {
+            $item['#attributes']['class'] = ['blue_btn'];
+            $item['#button_label'] = $item['#value'];
+          }
+          elseif ($item['#type'] == 'link') {
+            $item['#title'] = Markup::create('<button type="button" class="blue_btn">' . $item['#title'] . '</button>');
+          }
+        }
+      }
+      break;
+
+    case 'aco_add_leg_flight_selection_form':
+    case 'aco_edit_leg_flight_selection_form':
+    case 'aco_book_flight_flight_selection_form':
+      $form['actions']['#attributes']['class'] = ['new-row'];
+      $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+      if (isset($form['arrival'])) {
+        $form['actions']['submit']['#button_label'] = t('Select Flights');
+      }
+      else {
+        $form['actions']['submit']['#button_label'] = t('Select Flight');
+      }
+      break;
+
+    case 'aco_book_flight_confirm_form':
+    case 'aco_add_passengers_confirm_form':
+    case 'aco_add_leg_confirm_form':
+    case 'aco_edit_leg_confirm_form':
+    case 'aco_add_services_confirm_form':
+      $form['instructions']['#attributes']['class'] = ['spacing-bottom'];
+      $form['confirm']['#wrapper_attributes']['class'] = ['spacing-bottom'];
+      $form['actions']['#attributes']['class'] = ['new-row'];
+      $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+      $form['actions']['submit']['#button_label'] = t('Confirm Purchase');
+      break;
+
+    case 'aco_flight_status_form':
+      $form['flight_date']['#attributes']['class'] = ['col-sm-12'];
+      $form['day']['#wrapper_attributes']['class'] = ['col-sm-3'];
+      $form['month_year']['#wrapper_attributes']['class'] = ['col-sm-3'];
+      $form['flightNumber']['#wrapper_attributes']['class'] = ['col-sm-6'];
+      $form['airports']['#attributes']['class'] = ['col-sm-12'];
+      $form['departureAirport']['#wrapper_attributes']['class'] = ['col-sm-6'];
+      $form['arrivalAirport']['#wrapper_attributes']['class'] = ['col-sm-6'];
+      $form['actions']['#attributes']['class'] = ['col-md-12', 'col-xs-12'];
+      $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+      $form['actions']['submit']['#button_label'] = $form['actions']['submit']['#value'];
+      break;
+
+    case 'aco_manage_flight_find_your_flight_form':
+      $form['reservationLocator']['#wrapper_attributes']['class'] = [
+        'col-sm-6',
+      ];
+      $form['passengerLastName']['#wrapper_attributes']['class'] = ['col-sm-6'];
+      $form['actions']['#attributes']['class'] = ['col-md-12', 'col-xs-12'];
+      $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+      $form['actions']['submit']['#button_label'] = t('Find Your Flight');
+      break;
+
+    case 'aco_manage_flight_select_reservation_form':
+      $form['actions']['previous']['#access'] = FALSE;
+      $form['actions']['#attributes']['class'] = ['col-md-12', 'col-xs-12'];
+      $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+      $form['actions']['submit']['#button_label'] = t('Select Flight');
+      break;
+
+    case 'aco_add_passengers_select_form':
+      $form['adultCount']['#wrapper_attributes']['class'] = ['col-sm-6'];
+      $form['childCount']['#wrapper_attributes']['class'] = ['col-sm-6'];
+      if (isset($form['description'])) {
+        $form['description']['#attributes']['class'] = [
+          'col-md-12',
+          'spacing-bottom',
+        ];
+      }
+      $form['actions']['#attributes']['class'] = ['col-md-12', 'col-xs-12'];
+      $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+      $form['actions']['submit']['#button_label'] = $form['actions']['submit']['#value'];
+      $form['actions']['cancel'] = [
+        '#type' => 'link',
+        '#title' => t('Cancel'),
+        '#url' => Url::fromRoute('aco_manage_flight.reservation'),
+      ];
+      $form['actions']['cancel']['#title'] = Markup::create('<button type="button" class="red_btn">' . $form['actions']['cancel']['#title'] . '</button>');
+      break;
+
+    case 'aco_manage_flight_edit_contact_information_form':
+      $form['description']['#attributes']['class'] = [
+        'col-md-12',
+        'spacing-bottom',
+      ];
+      $form['firstName']['#wrapper_attributes']['class'] = ['col-sm-6'];
+      $form['lastName']['#wrapper_attributes']['class'] = ['col-sm-6'];
+      $form['phoneNumber']['#wrapper_attributes']['class'] = ['col-sm-6'];
+      $form['email']['#wrapper_attributes']['class'] = ['col-sm-6'];
+      $form['notes']['#wrapper_attributes']['class'] = ['col-sm-12'];
+      $form['actions']['#attributes']['class'] = ['col-md-12', 'col-xs-12'];
+      $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+      $form['actions']['submit']['#button_label'] = $form['actions']['submit']['#value'];
+      $form['actions']['cancel']['#title'] = Markup::create('<button type="button" class="red_btn">' . $form['actions']['cancel']['#title'] . '</button>');
+      break;
+
+    case 'aco_add_services_select_form':
+      if (isset($form['none'])) {
+        $form['title']['#prefix'] = '<div class="col-sm-12">';
+        $form['title']['#suffix'] = '</div>';
+        $form['description']['#prefix'] = '<div class="col-sm-12">';
+        $form['description']['#suffix'] = '</div>';
+        $form['none']['#prefix'] = '<div class="col-sm-12">';
+        $form['none']['#suffix'] = '</div>';
+        unset($form['actions']['submit']);
+      }
+      $form['actions']['#attributes']['class'] = ['col-md-12', 'col-xs-12'];
+      if (isset($form['actions']['submit'])) {
+        $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+        $form['actions']['submit']['#button_label'] = t('Continue');
+      }
+      $form['actions']['cancel'] = [
+        '#type' => 'link',
+        '#title' => t('Cancel'),
+        '#url' => Url::fromRoute('aco_manage_flight.reservation'),
+      ];
+      $form['actions']['cancel']['#title'] = Markup::create('<button type="button" class="red_btn">' . $form['actions']['cancel']['#title'] . '</button>');
+      break;
+
+    case 'aco_manage_flight_cancel_leg_form':
+      $form['description']['#prefix'] = '<div class="col-sm-12">';
+      $form['description']['#suffix'] = '</div>';
+      if (isset($form['body'])) {
+        $form['body']['#attributes']['class'] = ['col-sm-12'];
+      }
+      $form['actions']['#attributes']['class'] = ['col-md-12', 'col-xs-12'];
+      if (isset($form['actions']['submit'])) {
+        $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+        $form['actions']['submit']['#button_label'] = $form['actions']['submit']['#value'];
+      }
+      $form['actions']['cancel']['#title'] = Markup::create('<button type="button" class="red_btn">' . $form['actions']['cancel']['#title'] . '</button>');
+      break;
+
+    case 'aco_manage_flight_email_itinerary_form':
+      $form['emailAddresses']['#wrapper_attributes']['class'] = ['col-sm-12'];
+      $form['actions']['#attributes']['class'] = ['col-md-12', 'col-xs-12'];
+      $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+      $form['actions']['submit']['#button_label'] = $form['actions']['submit']['#value'];
+      $form['actions']['cancel']['#title'] = Markup::create('<button type="button" class="red_btn">' . $form['actions']['cancel']['#title'] . '</button>');
+      break;
+
+    case 'user_login_form':
+    case 'user_pass':
+    case 'user_pass_reset':
+      $form['actions']['submit']['#attributes']['class'] = ['blue_btn'];
+      $form['actions']['submit']['#button_label'] = $form['actions']['submit']['#value'];
+      break;
+
+    default:
+      // Webforms.
+      if (isset($form['#webform_id'])) {
+        switch ($form['#webform_id']) {
+          case 'contact':
+            $form['elements']['name']['#title_display'] = 'invisible';
+            $form['elements']['name']['#placeholder'] = $form['elements']['name']['#title'];
+            $form['elements']['email']['#title_display'] = 'invisible';
+            $form['elements']['email']['#placeholder'] = $form['elements']['email']['#title'];
+            $form['elements']['phone']['#title_display'] = 'invisible';
+            $form['elements']['phone']['#placeholder'] = $form['elements']['phone']['#title'];
+            $form['elements']['phone']['#size'] = NULL;
+            $form['elements']['message']['#title_display'] = 'invisible';
+            $form['elements']['message']['#placeholder'] = $form['elements']['message']['#title'];
+            $form['actions']['submit']['#attributes']['class'] = ['red_btn'];
+            $form['actions']['submit']['#button_label'] = $form['elements']['actions']['#submit__label'];
+            break;
+
+          case 'donation_request':
+          case 'refundable_ticket_request_form':
+            foreach ($form['elements'] as &$element) {
+              if (is_array($element)) {
+                foreach ($element as &$item) {
+                  // Add class to checkboxes other textfield wrapper.
+                  if (isset($item['#type']) && $item['#type'] == 'webform_checkboxes_other') {
+                    $item['#pre_render'][] = '_airchoiceone_pre_render_webform_checkboxes_other';
+                  }
+
+                  // Add list item wrapper.
+                  if (isset($item['#type']) && $item['#type'] == 'radios') {
+                    $item['#use_unordered_list'] = TRUE;
+                    $item['#pre_render'][] = '_airchoiceone_pre_render_radios';
+                  }
+
+                  // Add required asterisk to all elements.
+                  if (is_array($item) && isset($item['#title'])
+                    && (
+                      (isset($item['#required']) && $item['#required'])
+                      ||
+                      (isset($item['#states']) && isset($item['#states']['required']))
+                    )) {
+                    $item['#title'] .= ' <span>*</span>';
+                  }
+                }
+              }
+            }
+
+            // Add class to documentation button on Donation Request form.
+            if (isset($form['documentation'])) {
+              $form['documentation']['#attributes']['class'][] = 'blue_btn';
+            }
+
+            $form['actions']['submit']['#prefix'] = '<div class="divide40"></div>';
+            $form['actions']['submit']['#button_label'] = $form['elements']['actions']['#submit__label'];
+            break;
+        }
+      }
+      break;
+  }
+
+  // Style previous button.
+  if (isset($form['actions']) && isset($form['actions']['previous'])) {
+    unset($form['actions']['previous']['#weight']);
+    $form['actions']['previous']['#attributes']['class'] = [
+      'blue_btn',
+      'blue_btn--link',
+    ];
+    $form['actions']['previous']['#button_label'] = t('Go Back');
+  }
+}
+
+/**
+ * Implements template_preprocess_entity_embed_container().
+ */
+function airchoiceone_preprocess_entity_embed_container(&$variables) {
+  $type = $variables['element']['#context']['data-entity-type'];
+  $variables['attributes']['class'][] = $type;
+
+  // Add caption class.
+  if (isset($variables['attributes']['data-caption'])) {
+    $variables['attributes']['class'][] = $type . '--caption';
+  }
+
+  // Add view mode.
+  if (isset($variables['element']['entity']) && isset($variables['element']['entity']['#view_mode'])) {
+    $variables['attributes']['class'][] = $type . '--' . $variables['element']['entity']['#view_mode'];
+  }
+
+  // Add wrapper attributes.
+  $variables['wrapper_attributes'] = [];
+  if (in_array('align-center', $variables['attributes']['class'])) {
+    $variables['wrapper_attributes']['class'][] = 'wrapper-align-center';
+  }
+  elseif (in_array('align-left', $variables['attributes']['class'])) {
+    $variables['wrapper_attributes']['class'][] = 'wrapper-align-left';
+  }
+  elseif (in_array('align-right', $variables['attributes']['class'])) {
+    $variables['wrapper_attributes']['class'][] = 'wrapper-align-right';
+  }
+  $variables['wrapper_attributes'] = new Attribute($variables['wrapper_attributes']);
+
+  // Remove 'embedded-entity' class.
+  $variables['attributes']['class'] = array_diff($variables['attributes']['class'], ['embedded-entity']);
+}
+
+/**
+ * Helper function to style contact information forms.
+ */
+function _airchoiceone_style_contact_information_form(&$form) {
+  $form['title']['#wrapper_attributes']['class'] = ['col-md-1', 'col-xs-4'];
+  $form['firstName']['#wrapper_attributes']['class'] = ['col-md-4', 'col-xs-8'];
+  if (isset($form['middleName'])) {
+    $form['middleName']['#wrapper_attributes']['class'] = [
+      'col-md-3',
+      'col-xs-4',
+    ];
+  }
+  $form['lastName']['#wrapper_attributes']['class'] = ['col-md-4', 'col-xs-8'];
+  if (isset($form['address'])) {
+    $form['address']['address1']['#wrapper_attributes']['class'] = [
+      'col-md-6',
+      'col-xs-6',
+    ];
+    $form['address']['address2']['#wrapper_attributes']['class'] = [
+      'col-md-6',
+      'col-xs-6',
+    ];
+    $form['address']['city']['#wrapper_attributes']['class'] = [
+      'col-md-4',
+      'col-xs-8',
+    ];
+    $form['address']['location']['country']['code']['#wrapper_attributes']['class'] = [
+      'col-md-4',
+      'col-xs-8',
+    ];
+    $form['address']['location']['province']['code']['#wrapper_attributes']['class'] = [
+      'col-md-2',
+      'col-xs-4',
+    ];
+    $form['address']['postalCode']['#wrapper_attributes']['class'] = [
+      'col-md-2',
+      'col-xs-4',
+    ];
+  }
+  $form['birthDateMonth']['#prefix'] = t('<div class="col-md-12 col-xs-12"><h4 class="mh4">Date of birth</h4></div>');
+  $form['birthDateMonth']['#wrapper_attributes']['class'] = [
+    'col-md-2',
+    'col-xs-4',
+  ];
+  $form['birthDateDay']['#wrapper_attributes']['class'] = [
+    'col-md-2',
+    'col-xs-4',
+  ];
+  $form['birthDateYear']['#wrapper_attributes']['class'] = [
+    'col-md-2',
+    'col-xs-4',
+  ];
+  if (isset($form['loyaltyProgram'])) {
+    $form['loyaltyProgram']['number']['#wrapper_attributes']['class'] = [
+      'col-md-6',
+      'col-xs-12',
+    ];
+  }
+  $form['personalContactInformation']['phoneNumber']['#wrapper_attributes']['class'] = [
+    'col-md-6',
+    'col-xs-12',
+  ];
+  if (isset($form['advancePassengerInformation'])) {
+    if (isset($form['advancePassengerInformation']['redressNumber'])) {
+      $form['advancePassengerInformation']['redressNumber']['#wrapper_attributes']['class'] = [
+        'new-row',
+        'col-md-6',
+        'col-xs-12',
+      ];
+    }
+    if (isset($form['advancePassengerInformation']['knownPassengerNumber'])) {
+      $form['advancePassengerInformation']['knownPassengerNumber']['#wrapper_attributes']['class'] = [
+        'col-md-6',
+        'col-xs-12',
+      ];
+    }
+  }
+  if (isset($form['personalContactInformation']['email'])) {
+    $form['personalContactInformation']['email']['#wrapper_attributes']['class'] = [
+      'new-row',
+      'col-md-6',
+      'col-xs-12',
+    ];
+    $form['personalContactInformation']['verifyEmail']['#wrapper_attributes']['class'] = [
+      'col-md-6',
+      'col-xs-12',
+    ];
+    $form['personalContactInformation']['mobileNumber']['#wrapper_attributes']['class'] = [
+      'col-md-6',
+      'col-xs-12',
+    ];
+  }
+  if (isset($form['gender'])) {
+    $form['gender']['#wrapper_attributes']['class'] = [
+      'col-md-6',
+      'col-xs-12',
+    ];
+  }
+  if (isset($form['personalContactInformation']['notificationPreferences'])) {
+    $form['personalContactInformation']['notificationPreferences']['#prefix'] = t('<div class="col-md-12 col-xs-12"><h4 class="mh4">Notification Preferences</h4></div>');
+    $form['personalContactInformation']['notificationPreferences']['#attributes']['class'] = [
+      'col-md-12',
+      'col-xs-12',
+    ];
+  }
+  if (isset($form['withInfant'])) {
+    if (isset($form['personalContactInformation']['notificationPreferences'])) {
+      $form['withInfant']['#prefix'] = t('<div class="col-md-12 col-xs-12"><hr style="margin:1em 0;"></div>');
+    }
+    $form['withInfant']['#wrapper_attributes']['class'] = [
+      'col-md-12',
+      'col-xs-12',
+    ];
+    $form['withInfant']['#attributes']['class'] = [
+      'col-md-12',
+      'col-xs-12',
+    ];
+    $form['infant']['firstName']['#wrapper_attributes']['class'] = [
+      'col-md-4',
+      'col-xs-8',
+    ];
+    $form['infant']['lastName']['#wrapper_attributes']['class'] = [
+      'col-md-4',
+      'col-xs-8',
+    ];
+    $form['infant']['birthDateMonth']['#prefix'] = t('<div class="col-md-12 col-xs-12"><h4 class="mh4">Date of birth</h4></div>');
+    $form['infant']['birthDateMonth']['#wrapper_attributes']['class'] = [
+      'col-md-2',
+      'col-xs-4',
+    ];
+    $form['infant']['birthDateDay']['#wrapper_attributes']['class'] = [
+      'col-md-2',
+      'col-xs-4',
+    ];
+    $form['infant']['birthDateYear']['#wrapper_attributes']['class'] = [
+      'col-md-2',
+      'col-xs-4',
+    ];
+  }
+}
+
+/**
+ * Helper function to style purchase forms.
+ */
+function _airchoiceone_style_purchase_form(&$form) {
+  if (!isset($form['billing'])) {
+    return;
+  }
+
+  // Credit card.
+  $cc = &$form['billing']['creditCard'];
+  $cc['number']['#wrapper_attributes']['class'] = [
+    'col-md-4',
+    'col-xs-12',
+  ];
+  $cc['expiry']['#wrapper_attributes']['class'] = [
+    'col-md-4',
+    'col-xs-12',
+  ];
+  $cc['verificationNumber']['#wrapper_attributes']['class'] = [
+    'col-md-4',
+    'col-xs-12',
+  ];
+  $cc['billing']['#markup'] = '<div class="col-md-12 col-xs-12 cardholder">' . $cc['billing']['#markup'] . '</div>';
+  $cc['billing']['copyPrimaryPassengerAddress']['#wrapper_attributes']['class'] = [
+    'col-md-12',
+    'col-xs-12',
+    'spacing-bottom',
+  ];
+  $cc['billing']['contactInformation']['name']['#wrapper_attributes']['class'] = [
+    'col-md-4',
+    'col-xs-12',
+  ];
+  $cc['billing']['address']['address1']['#wrapper_attributes']['class'] = [
+    'col-md-4',
+    'col-xs-12',
+  ];
+  $cc['billing']['address']['address2']['#wrapper_attributes']['class'] = [
+    'col-md-4',
+    'col-xs-12',
+  ];
+  $cc['billing']['address']['city']['#wrapper_attributes']['class'] = [
+    'col-md-4',
+    'col-xs-12',
+  ];
+  $cc['billing']['address']['location']['province']['code']['#wrapper_attributes']['class'] = [
+    'col-md-4',
+    'col-xs-6',
+  ];
+  $cc['billing']['address']['postalCode']['#wrapper_attributes']['class'] = [
+    'col-md-4',
+    'col-xs-6',
+  ];
+  $cc['billing']['address']['location']['country']['code']['#wrapper_attributes']['class'] = [
+    'col-md-4',
+    'col-xs-12',
+  ];
+  $cc['billing']['phoneNumber']['#wrapper_attributes']['class'] = [
+    'col-md-4',
+    'col-xs-12',
+  ];
+}
+
+/**
+ * Helper function to turn payment method titles into images.
+ */
+function _airchoiceone_payment_method_radios($form_element, FormStateInterface $form_state) {
+  foreach ($form_element['#options'] as $key => &$option) {
+    $form_element[$key]['#prefix'] = '<li>';
+    $form_element[$key]['#suffix'] = '</li>';
+    $form_element[$key]['#title'] = [
+      '#theme' => 'image',
+      '#uri' => '/themes/custom/airchoiceone/images/icons/' . $key . '.svg',
+      '#alt' => $form_element[$key]['#title'],
+    ];
+  }
+  return $form_element;
+}
+
+/**
+ * Helper function to remove width/height attributes from an image.
+ */
+function _airchoiceone_remove_width_height_attrs($variables) {
+  $variables['field_media_image'][0]['#cache']['contexts'][] = 'url:path';
+  $variables['field_media_image'][0]['#item_attributes']['width'] = NULL;
+  $variables['field_media_image'][0]['#item_attributes']['height'] = NULL;
+  return $variables;
+}
+
+/**
+ * Helper function to add a class to the image 1 tag.
+ */
+function _airchoiceone_add_about_us_image_class($variables) {
+  $variables['field_media_image'][0]['#cache']['contexts'][] = 'url:path';
+  $variables['field_media_image'][0]['#item_attributes']['class'][] = 'about_img_1';
+  return $variables;
+}
+
+/**
+ * Helper function to add a class to the image 2 tag.
+ */
+function _airchoiceone_add_about_us_image2_class($variables) {
+  $variables['field_media_image'][0]['#cache']['contexts'][] = 'url:path';
+  $variables['field_media_image'][0]['#item_attributes']['class'][] = 'about_img_3';
+  return $variables;
+}
+
+/**
+ * Helper function to add a class to the image 3 tag.
+ */
+function _airchoiceone_add_about_us_image3_class($variables) {
+  $variables['field_media_image'][0]['#cache']['contexts'][] = 'url:path';
+  $variables['field_media_image'][0]['#item_attributes']['class'][] = 'about_img_2';
+  return $variables;
+}
+
+/**
+ * Helper function to add a class to the image 4 tag.
+ */
+function _airchoiceone_add_about_us_image4_class($variables) {
+  $variables['field_media_image'][0]['#cache']['contexts'][] = 'url:path';
+  $variables['field_media_image'][0]['#item_attributes']['class'][] = 'about_img_4';
+  return $variables;
+}
+
+/**
+ * Helper function to add a class to the image tag.
+ */
+function _airchoiceone_add_contact_us_image_class($variables) {
+  $variables['field_media_image'][0]['#cache']['contexts'][] = 'url:path';
+  $variables['field_media_image'][0]['#item_attributes']['class'][] = 'contact_map';
+  return $variables;
+}
+
+/**
+ * Helper function to add a class to the image tag.
+ */
+function _airchoiceone_add_destination_image_class($variables) {
+  $variables['field_media_image'][0]['#cache']['contexts'][] = 'url:path';
+  $variables['field_media_image'][0]['#item_attributes']['class'][] = 'hero_destinations';
+  return $variables;
+}
+
+/**
+ * Helper function to add a class to the Home page image tag.
+ */
+function _airchoiceone_add_home_page_image_class($variables) {
+  $variables['field_media_image'][0]['#cache']['contexts'][] = 'url:path';
+  $variables['field_media_image'][0]['#item_attributes']['class'][] = 'hp_flight_map';
+  return $variables;
+}
+
+/**
+ * Helper function to determine if the page content type.
+ */
+function _airchoiceone_get_content_type() {
+  static $content_type;
+
+  if (isset($content_type)) {
+    return $content_type;
+  }
+
+  $node = _airchoiceone_get_current_node();
+  $content_type = ($node instanceof NodeInterface) ? $node->bundle() : '';
+  return $content_type;
+}
+
+/**
+ * Helper function to check if a node has a banner field.
+ */
+function _airchoiceone_is_banner_content_type() {
+  return in_array(_airchoiceone_get_content_type(), [
+    'about_us_page',
+    'basic_page',
+    'contact_us_page',
+    'flight_destinations_page',
+    'landing_page',
+    'section_page',
+  ]);
+}
+
+/**
+ * Helper function to get the current node.
+ */
+function _airchoiceone_get_current_node() {
+  $node = FALSE;
+  if (!\Drupal::state()->get('system.maintenance_mode', FALSE)) {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if (!$node instanceof NodeInterface) {
+      $node = \Drupal::routeMatch()->getParameter('node_preview');
+    }
+  }
+  return $node;
+}
+
+/**
+ * Helper function to determine if the page is a system page.
+ */
+function _airchoiceone_is_system_page() {
+  static $is_system_page;
+
+  if (isset($is_system_page)) {
+    return $is_system_page;
+  }
+
+  $current_route_name = \Drupal::service('current_route_match')->getRouteName();
+
+  // List of route names to ignore.
+  $themed_pages = [
+    'entity.node.preview',
+    'entity.node.revision',
+    'entity.node.canonical',
+    'entity.node.latest_version',
+    'aco_book_flight.book_flight',
+    'aco_book_flight.book_flight.step',
+    'aco_book_flight.charge_summary',
+    'aco_book_flight.confirmed_itinerary',
+    'aco_manage_flight.manage_flight',
+    'aco_manage_flight.manage_flight.step',
+    'aco_manage_flight.reservation',
+    'aco_manage_flight.reservation.edit_contact_information',
+    'aco_manage_flight.reservation.charge_summary',
+    'aco_manage_flight.reservation.cancel',
+    'aco_manage_flight.reservation.itinerary',
+    'aco_manage_flight.reservation.itinerary.email',
+    'aco_manage_flight.reservation.passengers.edit',
+    'aco_add_passengers.form_wizard',
+    'aco_manage_flight.reservation.passengers.change',
+    'aco_add_leg.form_wizard',
+    'aco_edit_leg.form_wizard',
+    'aco_add_services.form_wizard',
+    'aco_manage_flight.reservation.legs.cancel',
+    'aco_flight_status.flight_status',
+    'user.login',
+    'user.pass',
+    'view.news.page_1',
+  ];
+
+  $is_system_page = !in_array($current_route_name, $themed_pages);
+
+  return $is_system_page;
+}

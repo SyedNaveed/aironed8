@@ -1,0 +1,29 @@
+uuid: 7d34d15a-bb82-49c2-a0a0-c2291df9551a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_content
+    - node.type.flight_destination_page
+    - paragraphs.paragraphs_type.destination
+id: paragraph.destination.field_content
+field_name: field_content
+entity_type: paragraph
+bundle: destination
+label: Destination
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      flight_destination_page: flight_destination_page
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

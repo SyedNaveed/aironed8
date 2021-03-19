@@ -1,0 +1,18 @@
+uuid: ec88cffb-200d-46e8-b2e5-847669c8ac39
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:menu_link_content:a5dc7b66-7504-479d-8bcf-3a2610d61dfa'
+name: 'Flight Destination page'
+type: flight_destination_page
+description: 'A single <em>Flight Destination page</em>.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

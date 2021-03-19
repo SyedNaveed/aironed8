@@ -1,0 +1,12 @@
+operations:
+  getReservation:
+    httpMethod: "GET"
+    uri: "RESTv1/reservations/{key}"
+    summary: "Retrieve the reservation for the provided key."
+    parameters:
+      key:
+        type: "string"
+        location: "uri"
+        description: "The access key for a reservation."
+        required: true
+    responseModel: "ReservationLong"

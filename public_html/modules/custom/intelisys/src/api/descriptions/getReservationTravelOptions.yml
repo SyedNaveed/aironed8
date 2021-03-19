@@ -1,0 +1,37 @@
+operations:
+  getReservationTravelOptions:
+    httpMethod: "GET"
+    uri: "RESTv1/travelOptions"
+    summary: "Retrieve travel options for the purpose of passengers POST using the provided criteria. Each fare option includes a booking key which is to be retained for the booking process."
+    parameters:
+      reservation:
+        type: string
+        location: "query"
+        description: "The access key for a reservation."
+        required: true
+      cabinClass:
+        type: string
+        location: "query"
+        description: "The cabin class code being requested. Also known as class of service or level of service."
+        required: true
+      adultCount:
+        type: integer
+        location: "query"
+        description: "The number of adult passengers expected to reserve. 0 or above."
+        required: true
+      childCount:
+        type: integer
+        location: "query"
+        description: "The number of child passengers expected to reserve. 0 or above."
+        required: true
+      infantCount:
+        type: integer
+        location: "query"
+        description: "The number of infant passengers expected to reserve. 0 or above."
+        required: true
+      promoCode:
+        type: string
+        location: "query"
+        description: "Optional promotion code to be validated and applied during fare retrieval."
+        required: false
+    responseModel: "TravelOptions"

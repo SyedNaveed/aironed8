@@ -1,0 +1,26 @@
+models:
+  Vendor:
+    type: "object"
+    location: "json"
+    properties:
+      name:
+        type: "string"
+        location: "json"
+      job:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Name"
+
+  BusinessUnit:
+    type: "object"
+    location: "json"
+    properties:
+      name:
+        type: "string"
+        location: "json"
+      vendor:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Vendor"

@@ -1,0 +1,105 @@
+models:
+  Currency:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      code:
+        type: "string"
+        location: "json"
+      description:
+        type: "string"
+        location: "json"
+      baseCurrency:
+        type: "boolean"
+        location: "json"
+
+  CurrencyAmountShort:
+    type: "object"
+    location: "json"
+    properties:
+      totalAmount:
+        type: "number"
+        location: "json"
+      currency:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Currency"
+      exchangeRate:
+        type: "number"
+        location: "json"
+
+  Voucher:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      serialNumber:
+        type: "string"
+        location: "json"
+      passengerName:
+        type: "string"
+        location: "json"
+      value:
+        type: "number"
+        location: "json"
+      currency:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Currency"
+
+  Vouchers:
+    type: "array"
+    location: "json"
+    items:
+      "$ref": "Voucher"
+
+  TaxRateAmount:
+    type: "object"
+    location: "json"
+    properties:
+      name:
+        type: "string"
+        location: "json"
+      amount:
+        type: "number"
+        location: "json"
+
+  CurrencyAmount:
+    type: "object"
+    location: "json"
+    properties:
+      baseAmount:
+        type: "number"
+        location: "json"
+      discountAmount:
+        type: "number"
+        location: "json"
+      taxAmount:
+        type: "number"
+        location: "json"
+      taxRateAmounts:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "TaxRateAmount"
+      totalAmount:
+        type: "number"
+        location: "json"
+      currency:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCodeDescription"
+      exchangeRate:
+        type: "number"
+        location: "json"

@@ -1,0 +1,8 @@
+uuid: 8901c489-48b5-4b5b-9993-2718aea9b01b
+langcode: en
+status: true
+dependencies: {  }
+id: mobile-contact
+label: 'Mobile contact navigation'
+description: 'Mobile site contact links'
+locked: false

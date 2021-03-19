@@ -1,0 +1,20 @@
+name: Seven Tweaks
+type: theme
+base theme: seven
+description: 'The (modified) default administration theme for Drupal 8 was designed with clean lines, simple blocks, and sans-serif font to emphasize the tools and tasks at hand.'
+alt text: 'Modified administration theme for Drupal 8 with simple blocks and clean lines.'
+core: 8.x
+regions:
+  header: 'Header'
+  pre_content: 'Pre-content'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  sidebar_first: 'First sidebar'
+regions_hidden:
+  - sidebar_first
+libraries:
+  - seven_tweaks/global-styling

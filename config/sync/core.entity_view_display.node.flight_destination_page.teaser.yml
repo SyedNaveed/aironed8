@@ -1,0 +1,61 @@
+uuid: a1ad5d99-7da2-44a5-a41d-dc08ea124e0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.flight_destination_page.body
+    - field.field.node.flight_destination_page.field_banner_image
+    - field.field.node.flight_destination_page.field_city
+    - field.field.node.flight_destination_page.field_iframe
+    - field.field.node.flight_destination_page.field_image
+    - field.field.node.flight_destination_page.field_image2
+    - field.field.node.flight_destination_page.field_meta_tags
+    - field.field.node.flight_destination_page.field_paragraphs
+    - field.field.node.flight_destination_page.field_state_country
+    - node.type.flight_destination_page
+  module:
+    - user
+id: node.flight_destination_page.teaser
+targetEntityType: node
+bundle: flight_destination_page
+mode: teaser
+content:
+  content_moderation_control:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_city:
+    type: string
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_image:
+    type: entity_reference_entity_view
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      view_mode: embedded
+      link: false
+    third_party_settings: {  }
+  field_state_country:
+    type: string
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_banner_image: true
+  field_iframe: true
+  field_image2: true
+  field_meta_tags: true
+  field_paragraphs: true
+  links: true

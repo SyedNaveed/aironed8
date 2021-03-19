@@ -1,0 +1,698 @@
+models:
+  TransactionAuthorization:
+    type: "object"
+    location: "json"
+    properties:
+      identifier:
+        type: "string"
+        location: "json"
+      reference:
+        type: "string"
+        location: "json"
+      authorization:
+        type: "string"
+        location: "json"
+
+  CreditCardDetails:
+    type: "object"
+    location: "json"
+    properties:
+      number:
+        type: "string"
+        location: "json"
+      expiryMonth:
+        type: "integer"
+        location: "json"
+      expiryYear:
+        type: "integer"
+        location: "json"
+      verificationNumber:
+        type: "integer"
+        location: "json"
+      cardHolder:
+        type: "string"
+        location: "json"
+      reference:
+        type: "string"
+        location: "json"
+      paymentMonths:
+        type: "integer"
+        location: "json"
+      billing:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FullAddress"
+      shipping:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FullAddress"
+      # @todo Unsure of below data type.
+      clientIP:
+        type: "string"
+        location: "json"
+      transaction:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "TransactionAuthorization"
+      # @todo Unsure of below data type.
+      redirect:
+        type: "string"
+        location: "json"
+      # @todo Unsure of below data type.
+      threeDSecure:
+        type: "string"
+        location: "json"
+
+  CreditCard:
+    type: "object"
+    location: "json"
+    properties:
+      creditCard:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "CreditCardDetails"
+
+  PromoCodeValidity:
+    type: "object"
+    location: "json"
+    properties:
+      valid:
+        type: "boolean"
+        location: "json"
+      notApplicable:
+        type: "boolean"
+        location: "json"
+      noMarket:
+        type: "boolean"
+        location: "json"
+      invalidFlightDate:
+        type: "boolean"
+        location: "json"
+      notAvailable:
+        type: "boolean"
+        location: "json"
+      invalidAvailability:
+        type: "boolean"
+        location: "json"
+
+  PromoCodeApplicability:
+    type: "object"
+    location: "json"
+    properties:
+      promoCodeRequested:
+        type: "boolean"
+        location: "json"
+      promoCodeValidity:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "PromoCodeValidity"
+      promoCode:
+        type: "string"
+        location: "json"
+
+  FareApplicability:
+    type: "object"
+    location: "json"
+    properties:
+      adult:
+        type: "boolean"
+        location: "json"
+      child:
+        type: "boolean"
+        location: "json"
+
+  PassengerApplicability:
+    type: "object"
+    location: "json"
+    properties:
+      adult:
+        type: "boolean"
+        location: "json"
+      child:
+        type: "boolean"
+        location: "json"
+
+  SeatSelectionChargeApplicability:
+    type: "object"
+    location: "json"
+    properties:
+      bookingCode:
+        type: "boolean"
+        location: "json"
+      seatType:
+        type: "boolean"
+        location: "json"
+
+  Usage:
+    type: "object"
+    location: "json"
+    properties:
+      manual:
+        type: "boolean"
+        location: "json"
+      perReservation:
+        type: "boolean"
+        location: "json"
+      perJourney:
+        type: "boolean"
+        location: "json"
+      perPassenger:
+        type: "boolean"
+        location: "json"
+
+  FareClass:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      code:
+        type: "string"
+        location: "json"
+      description:
+        type: "string"
+        location: "json"
+      seatSale:
+        type: "boolean"
+        location: "json"
+      allowWaitlist:
+        type: "boolean"
+        location: "json"
+      passengerApplicability:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "PassengerApplicability"
+      seatSelectionChargeApplicability:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FareValidity"
+
+  FareValidity:
+    type: "object"
+    location: "json"
+    properties:
+      valid:
+        type: "boolean"
+        location: "json"
+      soldOut:
+        type: "boolean"
+        location: "json"
+      noFare:
+        type: "boolean"
+        location: "json"
+      invalidAdultAvailability:
+        type: "boolean"
+        location: "json"
+      invalidChildAvailability:
+        type: "boolean"
+        location: "json"
+      invalidAvailability:
+        type: "boolean"
+        location: "json"
+      invalidLayover:
+        type: "boolean"
+        location: "json"
+      invalidStayover:
+        type: "boolean"
+        location: "json"
+
+  PassengerApplicability:
+    type: "object"
+    location: "json"
+    properties:
+      adult:
+        type: "boolean"
+        location: "json"
+      child:
+        type: "boolean"
+        location: "json"
+      infant:
+        type: "boolean"
+        location: "json"
+
+  ChargeType:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      code:
+        type: "string"
+        location: "json"
+      description:
+        type: "string"
+        location: "json"
+      feeCategory:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCodeDescription"
+      index:
+        type: "integer"
+        location: "json"
+
+  TaxConfiguration:
+    type: "object"
+    location: "json"
+    properties:
+      feeCategory:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCodeDescription"
+
+  AncillaryCharge:
+    type: "object"
+    location: "json"
+    properties:
+      description:
+        type: "string"
+        location: "json"
+      chargeType:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ChargeType"
+      currencyAmounts:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "CurrencyAmount"
+      taxConfiguration:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "TaxConfiguration"
+
+  FareCharge:
+    type: "object"
+    location: "json"
+    properties:
+      description:
+        type: "string"
+        location: "json"
+      bookingApplicability:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "BookingApplicability"
+      passengerApplicability:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "PassengerApplicability"
+      chargeType:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ChargeType"
+      currencyAmounts:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "CurrencyAmount"
+      taxConfiguration:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "TaxConfiguration"
+
+  FareOption:
+    type: "object"
+    location: "json"
+    properties:
+      bookingKey:
+        type: "string"
+        location: "json"
+      fareValidity:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FareValidity"
+      fareClass:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FareClass"
+      bookingCode:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCode"
+      cabinClass:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCodeDescription"
+      fareType:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceIdDescription"
+      availability:
+        type: "integer"
+        location: "json"
+      cheapestFareType:
+        type: "boolean"
+        location: "json"
+      cheapestFareOption:
+        type: "boolean"
+        location: "json"
+      fareCharges:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "FareCharge"
+      promoCodeApplied:
+        type: "boolean"
+        location: "json"
+
+  CostCenter:
+    type: "object"
+    location: "json"
+    properties:
+      name:
+        type: "string"
+        location: "json"
+      businessUnit:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "BusinessUnit"
+
+  PassengerCostCenter:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      costCenter:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "CostCenter"
+
+  Payment:
+    type: "object"
+    location: "json"
+    properties:
+      key:
+        type: "string"
+        location: "json"
+      currencyAmounts:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "CurrencyAmountShort"
+      passenger:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKey"
+
+  Surcharges:
+    type: "array"
+    location: "json"
+    items:
+      "$ref": "ReferenceKeyIdDescription"
+
+  SpecifiedTaxConfiguration:
+    type: "object"
+    location: "json"
+    properties:
+      overridden:
+        type: "boolean"
+        location: "json"
+      # @todo Unsure of below data type.
+      taxConfiguration:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "TaxConfiguration"
+
+  Surcharge:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      identifier:
+        type: "string"
+        location: "json"
+      description:
+        type: "string"
+        location: "json"
+      chargeAmount:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "CurrencyAmount"
+      chargeType:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ChargeType"
+      specifiedTaxConfiguration:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "SpecifiedTaxConfiguration"
+      usage:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Usage"
+      passengerApplicability:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "PassengerApplicability"
+      refundable:
+        type: "boolean"
+        location: "json"
+      distributionChannels:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "ReferenceIdDescription"
+      index:
+        type: "integer"
+        location: "json"
+
+  Charge:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      passenger:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKey"
+      journey:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKey"
+      chargeTime:
+        type: "string"
+        location: "json"
+      description:
+        type: "string"
+        location: "json"
+      chargeType:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCodeDescription"
+      surcharge:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKeyIdDescription"
+      currencyAmounts:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "CurrencyAmount"
+      taxConfiguration:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKeyName"
+      status:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ChargeStatus"
+      discount:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "KeyIdDescription"
+      refundable:
+        type: "boolean"
+        location: "json"
+      privateFares:
+        type: "boolean"
+        location: "json"
+      notes:
+        type: "string"
+        location: "json"
+      timestamp:
+        type: "string"
+        location: "json"
+
+  TransactionLong:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      paymentTime:
+        type: "string"
+        location: "json"
+      description:
+        type: "string"
+        location: "json"
+      paymentMethod:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKeyId"
+      paymentMethodCriteria:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "CreditCard"
+      currencyAmounts:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "CurrencyAmountShort"
+      processingCurrencyAmounts:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "CurrencyAmountShort"
+      payerDescription:
+        type: "string"
+        location: "json"
+      receiptNumber:
+        type: "integer"
+        location: "json"
+      payments:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "Payment"
+      # @todo Unsure of below data type.
+      refundTransactions:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "Payment"
+      notes:
+        type: "string"
+        location: "json"
+
+  PaymentTransaction:
+    type: "object"
+    location: "json"
+    properties:
+      paymentMethod:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKeyId"
+      paymentMethodCriteria:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "CreditCard"
+      currencyAmounts:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "CurrencyAmountShort"
+      allPassengers:
+        type: "boolean"
+        location: "json"
+
+  Charges:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      number:
+        type: "string"
+        location: "json"
+      locator:
+        type: "string"
+        location: "json"
+      charges:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "Charge"
+      paymentTransactions:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "TransactionLong"
+
+  PurchaseApplicability:
+    type: "object"
+    location: "json"
+    properties:
+      available:
+        type: "boolean"
+        location: "json"
+      package:
+        type: "boolean"
+        location: "json"
+      unavailable:
+        type: "boolean"
+        location: "json"
+
+  PurchaseConditions:
+    type: "object"
+    location: "json"
+    properties:
+      maximumPerPassengerCount:
+        type: "number"
+        location: "json"

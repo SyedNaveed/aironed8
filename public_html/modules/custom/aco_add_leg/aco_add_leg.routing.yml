@@ -1,0 +1,11 @@
+aco_add_leg.form_wizard:
+  path: '/reservation/legs/add/{step}'
+  defaults:
+    _wizard: '\Drupal\aco_add_leg\Wizard\AddLegWizard'
+    _title: 'Add Leg'
+    tempstore_id: 'aco_add_leg.form_wizard'
+    machine_name: 'AddLegWizard'
+  options:
+    no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'

@@ -1,0 +1,8 @@
+uuid: 359aa891-da4a-42a2-89f7-14a3138b6550
+langcode: en
+status: true
+dependencies: {  }
+id: copyright
+label: 'Copyright navigation'
+description: 'Site copyright links'
+locked: false

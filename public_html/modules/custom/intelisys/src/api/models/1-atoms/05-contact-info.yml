@@ -1,0 +1,33 @@
+models:
+  ContactInformation:
+    type: "object"
+    location: "json"
+    properties:
+      phoneNumber:
+        type: "string"
+        location: "json"
+      mobileNumber:
+        type: "string"
+        location: "json"
+      email:
+        type: "string"
+        location: "json"
+      notificationPreferences:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "ReferenceKeyIdName"
+
+  BusinessContactInformation:
+    type: "object"
+    location: "json"
+    properties:
+      phoneNumber:
+        type: "string"
+        location: "json"
+      faxNumber:
+        type: "string"
+        location: "json"
+      extension:
+        type: "string"
+        location: "json"

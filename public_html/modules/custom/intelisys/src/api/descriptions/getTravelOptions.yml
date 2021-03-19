@@ -1,0 +1,112 @@
+operations:
+  getTravelOptions:
+    httpMethod: "GET"
+    uri: "RESTv1/travelOptions"
+    summary: "Retrieve travel options for the provided criteria. Use the optional daysBefore/daysAfter or earliest/latest groups of parameters to return options for a date range up to a maximum of 31 days. Each fare option includes a booking key which is to be retained for the booking process."
+    parameters:
+      cityPair:
+        type: string
+        location: "query"
+        description: "The origin and destination airport city pair."
+        required: true
+      departure:
+        type: string
+        location: "query"
+        description: "The date of departure."
+        required: true
+      cabinClass:
+        type: string
+        location: "query"
+        description: "The cabin class code being requested. Also known as class of service or level of service."
+        required: true
+      # The reservation parameter is only required when adding or editing a
+      # journey to an existing reservation.
+      reservation:
+        type: string
+        location: "query"
+        description: "The access key for a reservation."
+        required: false
+      # The journey parameter is only required when editing a leg.
+      journey:
+        type: string
+        location: "query"
+        description: "The key value for a reservation journey. Leave blank for a new journey."
+        required: false
+      # The currency parameter is only required for new reservations.
+      currency:
+        type: string
+        location: "query"
+        description: "The currency code for the currency amounts returned."
+        required: false
+      # The adultCount parameter is only required for new reservations.
+      adultCount:
+        type: integer
+        location: "query"
+        description: "The number of adult passengers expected to reserve. 0 or above."
+        required: false
+      # The childCount parameter is only required for new reservations.
+      childCount:
+        type: integer
+        location: "query"
+        description: "The number of child passengers expected to reserve. 0 or above."
+        required: false
+      # The infantCount parameter is only required for new reservations.
+      infantCount:
+        type: integer
+        location: "query"
+        description: "The number of infant passengers expected to reserve. 0 or above."
+        required: false
+      daysBeforeDeparture:
+        type: integer
+        location: "query"
+        description: "Optional number of days to include prior to chosen date of departure."
+        default: 0
+      daysAfterDeparture:
+        type: integer
+        location: "query"
+        description: "Optional number of days to include following the chosen date of departure."
+        default: 0
+      earliestDeparture:
+        type: string
+        location: "query"
+        description: "Optional earliest date of departure. An alternative to daysBeforeDeparture."
+      latestDeparture:
+        type: string
+        location: "query"
+        description: "Optional latest date of departure. An alternative to daysAfterDeparture."
+      return:
+        type: string
+        location: "query"
+        description: "Optional date of return."
+      daysBeforeReturn:
+        type: integer
+        location: "query"
+        description: "Optional number of days to include prior to chosen date of return."
+        default: 0
+      daysAfterReturn:
+        type: integer
+        location: "query"
+        description: "Optional number of days to include following the chosen date of return."
+        default: 0
+      earliestReturn:
+        type: string
+        location: "query"
+        description: "Optional earliest date of return. An alternative to daysBeforeReturn."
+      latestReturn:
+        type: string
+        location: "query"
+        description: "Optional latest date of return. An alternative to daysAfterReturn."
+      promoCode:
+        type: string
+        location: "query"
+        description: "Optional promotion code to be validated and applied during fare retrieval."
+      company:
+        type: string
+        location: "query"
+        description: "Optional company key to be validated and applied during fare retrieval. Ignored if not authorized."
+      standby:
+        type: boolean
+        location: "query"
+        description: "Optional standby booking fare options."
+        default: false
+    responseModel: "TravelOptions"

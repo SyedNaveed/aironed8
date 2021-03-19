@@ -1,0 +1,14 @@
+transport: smtp
+smtp_host: mail.server269.com
+smtp_port: 587
+smtp_encryption: tls
+smtp_credential_provider: swiftmailer
+smtp_credentials:
+  swiftmailer:
+    username: ACOwebforms@airchoiceone.com
+    password: 'Bk0SvWS4O&'
+sendmail_path: /usr/sbin/sendmail
+sendmail_mode: bs
+spool_directory: ''
+_core:
+  default_config_hash: 0dJfQivKgyEp-S8D6gSRTBbpRFApE3VkpltnPMBQ5OY

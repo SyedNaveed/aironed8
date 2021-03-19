@@ -1,0 +1,76 @@
+{#
+/**
+ * @file
+ * Theme override for contact information.
+ */
+#}
+<div class="col-sm-12">
+  {{ 'Primary Reservation Contact Information'|t }}
+</div>
+<div class="contact_information">
+  <div class="col-sm-12">
+    <h5>{{ 'Title'|t }}</h5>{{ honorific }}
+  </div>
+  <div class="col-sm-4">
+    <h5>{{ 'First Name'|t }}</h5>{{ firstName }}
+  </div>
+  <div class="col-sm-4">
+    <h5>{{ 'Middle Name'|t }}</h5>{{ middleName }}
+  </div>
+  <div class="col-sm-4">
+    <h5>{{ 'Last Name'|t }}</h5>{{ lastName }}
+  </div>
+  {% if address1 is not empty and city is not empty and country is not empty and province is not empty %}
+    <div class="col-sm-4">
+      <h5>{{ 'Address Line 1'|t }}</h5>{{ address1 }}
+    </div>
+    <div class="col-sm-4">
+      <h5>{{ 'Address Line 2'|t }}</h5>{{ address2 }}
+    </div>
+    <div class="col-sm-4">
+      <h5>{{ 'City'|t }}</h5>{{ city }}
+    </div>
+    <div class="col-sm-4">
+      <h5>{{ 'Country'|t }}</h5>{{ country }}
+    </div>
+    <div class="col-sm-4">
+      <h5>{{ 'Province/State'|t }}</h5>{{ province }}
+    </div>
+    <div class="col-sm-4">
+      <h5>{{ 'Postal Code'|t }}</h5>{{ postalCode }}
+    </div>
+  {% endif %}
+  <div class="col-sm-4">
+    <h5>{{ 'Date of Birth'|t }}</h5>{{ birthDate }}
+  </div>
+  {% if loyaltyProgram is not empty %}
+    <div class="col-sm-4">
+      <h5>{{ 'Loyalty ID'|t }}</h5>{{ loyaltyProgram }}
+    </div>
+  {% endif %}
+  {% if redressNumber is not empty %}
+    <div class="col-sm-4">
+      <h5>{{ 'Redress Number'|t }}</h5>{{ redressNumber }}
+    </div>
+  {% endif %}
+  {% if knownPassengerNumber is not empty %}
+    <div class="col-sm-4">
+      <h5>{{ 'Known Traveler Number'|t }}</h5>{{ knownPassengerNumber }}
+    </div>
+  {% endif %}
+  {% if phoneNumber is not empty %}
+    <div class="new-row col-sm-4">
+      <h5>{{ 'Phone Number'|t }}</h5>{{ phoneNumber }}
+    </div>
+  {% endif %}
+  {% if mobileNumber is not empty %}
+    <div class="col-sm-8">
+      <h5>{{ 'Mobile Number'|t }}</h5>{{ mobileNumber }}
+    </div>
+  {% endif %}
+  {% if notificationPreferences is not empty %}
+    <div class="col-sm-12">
+      <h5>{{ 'Notification Preferences'|t }}</h5>{{ notificationPreferences }}
+    </div>
+  {% endif %}
+</div>

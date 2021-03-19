@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * This is a standalone module. It is not submitted to the drupal.org community.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function aco_manage_flight_theme($existing, $type, $theme, $path) {
+  return [
+    'manage_reservation' => [
+      'variables' => [
+        'description' => NULL,
+        'sections' => NULL,
+        'actions' => NULL,
+      ],
+    ],
+  ];
+}

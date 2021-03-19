@@ -1,0 +1,49 @@
+uuid: 4ab63fd1-a2d8-41ab-b7ff-8b037f4b6f28
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.site_setting_entity.terms_conditions_page.field_link
+    - site_settings.site_setting_entity_type.terms_conditions_page
+  module:
+    - link
+id: site_setting_entity.terms_conditions_page.default
+targetEntityType: site_setting_entity
+bundle: terms_conditions_page
+mode: default
+content:
+  field_link:
+    weight: 11
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  fieldset:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,8 @@
+uuid: c2664a8a-8e58-4acb-a4d6-3f0049a95fc1
+langcode: en
+status: true
+dependencies: {  }
+id: rewards_page
+label: 'Rewards Page'
+fieldset: General
+multiple: false

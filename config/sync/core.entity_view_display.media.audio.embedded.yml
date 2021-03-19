@@ -1,0 +1,35 @@
+uuid: 5f527868-15e7-4729-b3b7-6d1898ab294e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.embedded
+    - field.field.media.audio.field_file_size
+    - field.field.media.audio.field_media_audio_file
+    - field.field.media.audio.field_mime_type
+    - media.type.audio
+  module:
+    - file
+id: media.audio.embedded
+targetEntityType: media
+bundle: audio
+mode: embedded
+content:
+  field_media_audio_file:
+    type: file_audio
+    weight: 0
+    label: hidden
+    settings:
+      controls: true
+      multiple_file_display_type: tags
+      autoplay: false
+      loop: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_file_size: true
+  field_mime_type: true
+  name: true
+  thumbnail: true
+  uid: true

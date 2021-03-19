@@ -1,0 +1,3 @@
+parameters:
+  # Only save form values for six (6) hours.
+  tempstore.expire: 21600

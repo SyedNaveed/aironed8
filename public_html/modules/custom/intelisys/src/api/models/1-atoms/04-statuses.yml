@@ -1,0 +1,183 @@
+models:
+  EticketStatus:
+    type: "object"
+    location: "json"
+    properties:
+      active:
+        type: "boolean"
+        location: "json"
+      historical:
+        type: "boolean"
+        location: "json"
+
+  DelayStatus:
+    type: "object"
+    location: "json"
+    properties:
+      arrival:
+        type: "boolean"
+        location: "json"
+      departure:
+        type: "boolean"
+        location: "json"
+
+  PolicyStatus:
+    type: "object"
+    location: "json"
+    properties:
+      confirmed:
+        type: "boolean"
+        location: "json"
+      cancelled:
+        type: "boolean"
+        location: "json"
+      finalized:
+        type: "boolean"
+        location: "json"
+
+  LocationStatus:
+    type: "object"
+    location: "json"
+    properties:
+      departed:
+        type: "boolean"
+        location: "json"
+      arrived:
+        type: "boolean"
+        location: "json"
+
+  ProfileStatus:
+    type: "object"
+    location: "json"
+    properties:
+      active:
+        type: "boolean"
+        location: "json"
+      inactive:
+        type: "boolean"
+        location: "json"
+      denied:
+        type: "boolean"
+        location: "json"
+
+  SeatStatus:
+    type: "object"
+    location: "json"
+    properties:
+      confirmed:
+        type: "boolean"
+        location: "json"
+
+  ReservationStatus:
+    type: "object"
+    location: "json"
+    properties:
+      cancelled:
+        type: "boolean"
+        location: "json"
+      open:
+        type: "boolean"
+        location: "json"
+      finalized:
+        type: "boolean"
+        location: "json"
+      external:
+        type: "boolean"
+        location: "json"
+
+  ReservationStatusLong:
+    type: "object"
+    location: "json"
+    properties:
+      confirmed:
+        type: "boolean"
+        location: "json"
+      waitlist:
+        type: "boolean"
+        location: "json"
+      standby:
+        type: "boolean"
+        location: "json"
+      cancelled:
+        type: "boolean"
+        location: "json"
+      noshow:
+        type: "boolean"
+        location: "json"
+      open:
+        type: "boolean"
+        location: "json"
+      pending:
+        type: "boolean"
+        location: "json"
+      finalized:
+        type: "boolean"
+        location: "json"
+      external:
+        type: "boolean"
+        location: "json"
+
+  TravelStatus:
+    type: "object"
+    location: "json"
+    properties:
+      notCheckedIn:
+        type: "boolean"
+        location: "json"
+      checkedIn:
+        type: "boolean"
+        location: "json"
+      boarded:
+        type: "boolean"
+        location: "json"
+      noshow:
+        type: "boolean"
+        location: "json"
+
+  ChargeStatus:
+    type: "object"
+    location: "json"
+    properties:
+      active:
+        type: "boolean"
+        location: "json"
+      historical:
+        type: "boolean"
+        location: "json"
+      pending:
+        type: "boolean"
+        location: "json"
+
+  RedemptionStatus:
+    type: "object"
+    location: "json"
+    properties:
+      available:
+        type: "boolean"
+        location: "json"
+      redeemed:
+        type: "boolean"
+        location: "json"
+
+  FlightLegStatus:
+    type: "object"
+    location: "json"
+    properties:
+      active:
+        type: "boolean"
+        location: "json"
+      expired:
+        type: "boolean"
+        location: "json"
+      checkInClosed:
+        type: "boolean"
+        location: "json"
+      closed:
+        type: "boolean"
+        location: "json"
+      cancelled:
+        type: "boolean"
+        location: "json"
+      locked:
+        type: "boolean"
+        location: "json"

@@ -1,0 +1,56 @@
+operations:
+  putReservationPassenger:
+    httpMethod: "PUT"
+    uri: "RESTv1/reservations/{reservationKey}/passengers/{passengerKey}"
+    summary: "Update the provided reservation passenger."
+    parameters:
+      content-type:
+        location: "header"
+        default: "application/json"
+      reservationKey:
+        type: "string"
+        location: "uri"
+        description: "The access key for a reservation."
+        required: true
+      passengerKey:
+        type: "string"
+        location: "uri"
+        description: "The key value for a reservation passenger."
+        required: true
+      key:
+        type: "string"
+        location: "json"
+        description: "Required during relational operations."
+        required: true
+      reservationProfile:
+        type: "object"
+        location: "json"
+        description: "Passenger profile information."
+        required: false
+        items:
+          "$ref": "PassengerProfile"
+      advancePassengerInformation:
+        type: "object"
+        location: "json"
+        description: "Advance Passenger information."
+        required: false
+        items:
+          "$ref": "PassengerProfile"
+      infants:
+        type: "array"
+        location: "json"
+        description: "Passenger with infants."
+        required: false
+        items:
+          "$ref": "PassengerProfileInfant"
+      notes:
+        type: "string"
+        location: "json"
+        description: "String length: inclusive between 0 and 250."
+        required: false
+      timestamp:
+        type: "string"
+        location: "json"
+        description: "Required during PUT or PATCH operations."
+        required: true
+    responseModel: "Passenger"

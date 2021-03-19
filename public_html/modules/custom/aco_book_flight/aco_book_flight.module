@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * This is a standalone module. It is not submitted to the drupal.org community.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+
+/**
+ * Implements hook_entity_view().
+ */
+function aco_book_flight_entity_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  switch ($entity->bundle()) {
+    case 'home_page':
+    case 'flight_destination_page':
+    case 'flight_destinations_page':
+      if ('full' == $view_mode) {
+        $build['book_flight_form'] = \Drupal::formBuilder()->getForm('Drupal\aco_book_flight\Form\SearchForm');
+      }
+      break;
+  }
+}

@@ -1,0 +1,80 @@
+<?php
+
+/**
+ * @file
+ * This is a standalone module. It is not submitted to the drupal.org community.
+ *
+ * The sole purpose of this module is to implement various functions that alter
+ * contributed modules and Drupal core functionality. Functionality contained
+ * within this module should primarily deal with the back-end of Drupal.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function tweaks_form_user_form_alter(&$form, FormStateInterface $form_state) {
+  $user_id = $form_state->getBuildInfo()['callback_object']->getEntity()->id();
+  if ($user_id == 1) {
+    $user = \Drupal::currentUser();
+    // Allow user/1 to edit own details.
+    if ($user->id() != 1) {
+      \Drupal::messenger()->addWarning(t('You must log in as this user (user/1) to modify the name, email address, and password for this account.'), 'warning');
+      $form['account']['name']['#access'] = FALSE;
+      $form['account']['mail']['#access'] = FALSE;
+      $form['account']['pass']['#access'] = FALSE;
+      $form['account']['current_pass']['#access'] = FALSE;
+    }
+  }
+}
+
+/**
+ * Restricts available view modes for the entity being embedded.
+ *
+ * Implements hook_form_FORM_ID_alter().
+ */
+function tweaks_form_entity_embed_dialog_alter(&$form, FormStateInterface $form_state) {
+  // Remove options on the WYSIWYG Entity Embed pop-up form.
+  if ($form_state->get('step') == 'embed') {
+    switch ($form_state->get('entity')->bundle()) {
+      case 'image':
+      case 'video':
+        $form['attributes']['data-entity-embed-display']['#options']['view_mode:media.embedded'] = t('Original');
+        break;
+
+      case 'audio':
+        // Link and alignment are not necessary.
+        $form['attributes']['data-entity-embed-display-settings']['#access'] = FALSE;
+        $form['attributes']['data-align']['#access'] = FALSE;
+
+        // Only the 'Embedded' View Mode is allowed.
+        $embedded_view_mode = 'view_mode:media.embedded';
+        $form['attributes']['data-entity-embed-display']['#default_value'] = $embedded_view_mode;
+        foreach ($form['attributes']['data-entity-embed-display']['#options'] as $view_mode => &$option) {
+          if ($view_mode != $embedded_view_mode) {
+            unset($form['attributes']['data-entity-embed-display']['#options'][$view_mode]);
+          }
+        }
+        break;
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function tweaks_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  switch ($form_id) {
+    case 'node_basic_page_form':
+    case 'node_basic_page_edit_form':
+      unset($form['field_form']['widget'][0]['target_id']['#options']['contact']);
+      break;
+
+    case 'node_contact_us_page_form':
+    case 'node_contact_us_page_edit_form':
+      unset($form['field_form']['widget'][0]['target_id']['#options']['donation_request']);
+      unset($form['field_form']['widget'][0]['target_id']['#options']['refundable_ticket_request_form']);
+      break;
+  }
+}

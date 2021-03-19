@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * This is a standalone module. It is not submitted to the drupal.org community.
+ */
+
+/**
+ * Airline code.
+ */
+const INTELIYSYS_AIRLINE_CODE = '3E';
+
+/**
+ * English language code.
+ */
+const INTELIYSYS_ENGLISH_LANG_CODE = 'en';
+
+/**
+ * Economy class.
+ */
+const INTELIYSYS_ECONOMY_CLASS = 'Y';
+
+/**
+ * Detailed itinerary type code.
+ */
+const INTELIYSYS_DETAILED_ITINERARY = 'D';
+
+/**
+ * Summary itinerary type code.
+ */
+const INTELIYSYS_SUMMARY_ITINERARY = 'S';
+
+/**
+ * No financial itinerary type code.
+ */
+const INTELIYSYS_NO_FINANCIAL_ITINERARY = 'F';
+
+/**
+ * The required format for phone numbers.
+ */
+const INTELIYSYS_PHONE_PATTERN = '^[\d|\+|\(]+[\)|\d|\s|\-.]*[\d]$';

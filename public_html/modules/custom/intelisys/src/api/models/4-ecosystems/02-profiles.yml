@@ -1,0 +1,162 @@
+models:
+  ProfileShort:
+    type: "object"
+    location: "json"
+    properties:
+      lastName:
+        type: "string"
+        location: "json"
+      firstName:
+        type: "string"
+        location: "json"
+      middleName:
+        type: "string"
+        location: "json"
+      gender:
+        type: "string"
+        location: "json"
+      birthDate:
+        type: "string"
+        location: "json"
+
+  Profile:
+    type: "object"
+    location: "json"
+    properties:
+      lastName:
+        type: "string"
+        location: "json"
+      firstName:
+        type: "string"
+        location: "json"
+      middleName:
+        type: "string"
+        location: "json"
+      title:
+        type: "string"
+        location: "json"
+      gender:
+        type: "string"
+        location: "json"
+      address:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Address"
+      birthDate:
+        type: "string"
+        location: "json"
+      nationCountry:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCode"
+      personalContactInformation:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ContactInformation"
+      businessContactInformation:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "BusinessContactInformation"
+      destinationContactInformation:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "BusinessContactInformation"
+      passport:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Passport"
+      # @todo Unsure of below data type.
+      loyaltyProgram:
+        type: "string"
+        location: "json"
+      preBoard:
+        type: "boolean"
+        location: "json"
+      status:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ProfileStatus"
+      reference1:
+        type: "string"
+        location: "json"
+      reference2:
+        type: "string"
+        location: "json"
+      notes:
+        type: "string"
+        location: "json"
+
+  PassengerProfile:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      lastName:
+        type: "string"
+        location: "json"
+      firstName:
+        type: "string"
+        location: "json"
+      middleName:
+        type: "string"
+        location: "json"
+      gender:
+        type: "string"
+        location: "json"
+      title:
+        type: "string"
+        location: "json"
+      birthDate:
+        type: "string"
+        location: "json"
+      nationCountry:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCode"
+      residentCountry:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCode"
+      redressNumber:
+        type: "string"
+        location: "json"
+      knownPassengerNumber:
+        type: "string"
+        location: "json"
+      clearanceAirport:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCodeName"
+      destinationAddress:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Address"
+      destinationContactInformation:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ContactInformation"
+      documents:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "Document"
+      verified:
+        type: "boolean"
+        location: "json"

@@ -1,0 +1,15 @@
+uuid: 3b484ce6-8df9-4498-9934-faea5ff82a7e
+langcode: en
+status: false
+dependencies: {  }
+id: staging
+label: Staging
+description: 'Staging environment (SiteGround).'
+folder: ../config/staging
+module: {  }
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 2

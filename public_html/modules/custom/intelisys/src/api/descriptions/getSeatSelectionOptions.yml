@@ -1,0 +1,17 @@
+operations:
+  getSeatSelectionOptions:
+    httpMethod: "GET"
+    uri: "RESTv1/seatSelectionOptions"
+    summary: "Retrieve seat selection options for the provided criteria. Each seat option includes a selection key which is to be retained for the booking/departure process."
+    parameters:
+      departurePassengerJourneyDetailKey:
+        type: "string"
+        location: "query"
+        description: "The key value identifying a departure passenger journey detail."
+        required: false
+      bookingKey:
+        type: "string"
+        location: "query"
+        description: "The key value identifying the fare option under the passenger journey detail."
+        required: true
+    responseModel: "SeatSelectionOptions"

@@ -1,0 +1,118 @@
+{#
+/**
+ * @file
+ * Theme override for the basic structure of a single Drupal page.
+ *
+ * Variables:
+ * - logged_in: A flag indicating if user is logged in.
+ * - root_path: The root path of the current page (e.g., node, admin, user).
+ * - node_type: The content type for the current node, if the page is a node.
+ * - head_title: List of text elements that make up the head_title variable.
+ *   May contain or more of the following:
+ *   - title: The title of the page.
+ *   - name: The name of the site.
+ *   - slogan: The slogan of the site.
+ * - page_top: Initial rendered markup. This should be printed before 'page'.
+ * - page: The rendered page markup.
+ * - page_bottom: Closing rendered markup. This variable should be printed after
+ *   'page'.
+ * - db_offline: A flag indicating if the database is offline.
+ * - placeholder_token: The token for generating head, css, js and js-bottom
+ *   placeholders.
+ *
+ * @see template_preprocess_html()
+ */
+#}
+{% set node_class = node_type ? ' is-node node-' ~ node_type|clean_id : ' not-node' %}
+<!DOCTYPE html>
+<html{{ html_attributes.addClass('no-js') }}>
+  <head>
+    <head-placeholder token="{{ placeholder_token }}">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#fe0000" />
+    <meta name="msapplication-navbutton-color" content="#fe0000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#fe0000">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="DELT">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="https://use.typekit.net/dsw4ivk.css">
+    <link rel="stylesheet" href="https://use.typekit.net/iys1vay.css">
+    <css-placeholder token="{{ placeholder_token }}">
+    <js-placeholder token="{{ placeholder_token }}">
+{% if is_live %}
+<script>
+(function(h,o,t,j,a,r){
+h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+h._hjSettings={hjid:1566436,hjsv:6};
+a=o.getElementsByTagName('head')[0];
+r=o.createElement('script');r.async=1;
+r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+a.appendChild(r);
+})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KJWDXL3');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5VCPMB8');</script>
+<!-- End Google Tag Manager -->
+<!-- Global site tag (gtag.js) - Google AdWords: 853029694 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-853029694"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-853029694');
+</script>
+<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+<script>Weglot.initialize({api_key: 'wg_4c0d86c8c2c1606dc70bd8a5a102dda63'});</script>
+{% endif %}
+{% if not is_local %}
+  <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=856db752-68b8-479e-994a-625fe0a69c89"></script>
+{% endif %}
+  </head>
+  <body{{ attributes.addClass('site' ~ node_class) }}>
+    {{ page_top }}
+    {{ page }}
+    {{ page_bottom }}
+    <js-bottom-placeholder token="{{ placeholder_token }}">
+{% if not is_local and not is_live %}
+<script>
+  (function (d, t, g) {
+  var ph    = d.createElement(t), s = d.getElementsByTagName(t)[0];
+  ph.type   = 'text/javascript';
+  ph.async   = true;
+  ph.charset = 'UTF-8';
+  ph.src     = g + '&v=' + (new Date()).getTime();
+  s.parentNode.insertBefore(ph, s);
+  })(document, 'script', '//www.delt.work/?p=21&ph_apikey=d476eb1f27f0daf0cad966c544618cc4');
+</script>
+{% endif %}
+{% if is_live %}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJWDXL3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-2656423-17"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-2656423-17');
+</script>
+{% if enable_brandcdn_script %}
+<script src="//tag.brandcdn.com/autoscript/southeastiowaregionalairport_vfhwrk13pt0=/onmediadigital2016.js"></script>
+{% endif %}
+{% endif %}
+  </body>
+</html>

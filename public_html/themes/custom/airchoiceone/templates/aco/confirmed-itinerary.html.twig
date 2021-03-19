@@ -1,0 +1,65 @@
+{#
+/**
+ * @file
+ * Theme override for the confirmed itinerary page.
+ */
+#}
+<div class="book_page">
+  <div class="container">
+    <div class="row">
+      <div class="new-row">
+        <div class="col-sm-12">
+          <h1 class="h2">{{ 'Your Confirmed Itinerary'|t }}</h1>
+          <p>
+            {{ 'All prices are in United States Dollar. All times are airport local.'|t }}
+            <br>
+            {{ 'Please print this page as confirmation of your reservation.'|t }}
+          </p>
+        </div>
+      </div>
+      <div class="new-row section2">
+        <div class="seats_overview">
+          <div class="col-sm-6">
+            <h4>{{ 'Reservation Number'|t }}</h4>{{ reservation_number }}
+          </div>
+          <div class="col-sm-6">
+            <h4>{{ 'Authorization Number'|t }}</h4>{{ authorization_number }}
+          </div>
+        </div>
+      </div>
+      <div class="new-row section">
+        <div class="col-sm-12">
+          <h4 class="section__header">{{ 'Trip Details'|t }}</h4>
+          {{ trip_details }}
+        </div>
+      </div>
+      <div class="new-row section">
+        <div class="col-sm-12">
+          <h4 class="section__header">{{ 'Reservation Charges'|t }}</h4>
+          {{ charge_summary }}
+        </div>
+      </div>
+      <div class="new-row section">
+        <div class="col-sm-12">
+          <h4 class="section__header">{{ 'Contact Information'|t }}</h4>
+        </div>
+        {{ contact_information }}
+      </div>
+      <div class="new-row section">
+        <div class="col-sm-12">
+          <p>{{ 'Would you like to insure your travel? <a href="http://www.travelinsured.com/agency?agency=53604&amp;r=http%3a%2f%2f&amp;p=dwood" rel="noreferrer" target="_blank">Click here to learn more</a>'|t }}</p>
+        </div>
+      </div>
+      {% for action in actions %}
+        <div class="new-row section">
+          <div class="col-sm-12">
+            {{ action }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div class="pd"></div>
+<div class="pd"></div>

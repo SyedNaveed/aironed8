@@ -1,0 +1,51 @@
+uuid: e2452755-492a-4ee7-a70c-0b2acbc32112
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.flight_destinations_page.body
+    - field.field.node.flight_destinations_page.field_banner_image
+    - field.field.node.flight_destinations_page.field_meta_tags
+    - field.field.node.flight_destinations_page.field_paragraphs
+    - node.type.flight_destinations_page
+  module:
+    - entity_reference_revisions
+    - metatag
+    - text
+    - user
+id: node.flight_destinations_page.default
+targetEntityType: node
+bundle: flight_destinations_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_meta_tags:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+  field_paragraphs:
+    weight: 4
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  field_banner_image: true
+  links: true

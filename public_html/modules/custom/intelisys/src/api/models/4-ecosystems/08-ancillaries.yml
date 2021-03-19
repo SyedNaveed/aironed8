@@ -1,0 +1,216 @@
+models:
+  AncillaryCategory:
+    type: "object"
+    location: "json"
+    properties:
+      key:
+        type: "string"
+        location: "json"
+      name:
+        type: "string"
+        location: "json"
+      external:
+        type: "boolean"
+        location: "json"
+
+  AncillaryCategoryDetail:
+    type: "object"
+    location: "json"
+    properties:
+      key:
+        type: "string"
+        location: "json"
+      name:
+        type: "string"
+        location: "json"
+      external:
+        type: "boolean"
+        location: "json"
+
+  AncillaryOptionType:
+    type: "object"
+    location: "json"
+    properties:
+      airportOption:
+        type: "boolean"
+        location: "json"
+      cityPairOption:
+        type: "boolean"
+        location: "json"
+      flightOption:
+        type: "boolean"
+        location: "json"
+
+  AncillaryItemOption:
+    type: "object"
+    location: "json"
+    properties:
+      key:
+        type: "string"
+        location: "json"
+      name:
+        type: "string"
+        location: "json"
+      description:
+        type: "string"
+        location: "json"
+      index:
+        type: "number"
+        location: "json"
+      ancillaryCategory:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "AncillaryCategoryDetail"
+      ancillaryOptionType:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "AncillaryOptionType"
+      purchaseConditions:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "PurchaseConditions"
+      requestedTranslation:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "RequestedTranslation"
+
+  AncillaryItem:
+    type: "object"
+    location: "json"
+    properties:
+      key:
+        type: "string"
+        location: "json"
+      name:
+        type: "string"
+        location: "json"
+      ancillaryCategory:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "AncillaryCategory"
+      serviceRequest:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKeyCode"
+      serviceRequestNote:
+        type: "string"
+        location: "json"
+
+  AncillaryRedemption:
+    type: "object"
+    location: "json"
+    properties:
+      reference:
+        type: "string"
+        location: "json"
+      status:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "RedemptionStatus"
+
+  AncillaryPurchase:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      purchaseKey:
+        type: "string"
+        location: "json"
+      passenger:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKey"
+      journey:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceKey"
+      requirementLocation:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "FlightLocation"
+      ancillaryItem:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "AncillaryItem"
+      ancillaryRedemption:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "AncillaryRedemption"
+
+  AncillaryPurchaseShort:
+    type: "object"
+    location: "json"
+    properties:
+      purchaseKey:
+        type: "string"
+        location: "json"
+      passenger:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Index"
+      journey:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Index"
+
+  AncillaryOption:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      purchaseKey:
+        type: "string"
+        location: "json"
+      ancillaryItem:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "AncillaryItemOption"
+      requirementLocation:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "RequirementLocation"
+      availability:
+        type: "number"
+        location: "json"
+      purchaseApplicability:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "PurchaseApplicability"
+      ancillaryCharges:
+        type: "array"
+        location: "json"
+        items:
+          "$ref": "AncillaryCharge"
+
+  AncillaryOptions:
+    type: "array"
+    location: "json"
+    items:
+      "$ref": "AncillaryOption"

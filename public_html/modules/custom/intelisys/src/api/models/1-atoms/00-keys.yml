@@ -1,0 +1,33 @@
+models:
+  Key:
+    type: "object"
+    location: "json"
+    properties:
+      key:
+        type: "string"
+        location: "json"
+
+  KeyName:
+    type: "object"
+    location: "json"
+    properties:
+      key:
+        type: "string"
+        location: "json"
+      name:
+        type: "string"
+        location: "json"
+
+  KeyIdDescription:
+    type: "object"
+    location: "json"
+    properties:
+      key:
+        type: "string"
+        location: "json"
+      identifier:
+        type: "string"
+        location: "json"
+      description:
+        type: "string"
+        location: "json"

@@ -1,0 +1,159 @@
+<?php
+
+/**
+* @file
+* Contains airchoice_member.module.
+*/
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
+
+/**
+* Implements hook_help().
+*/
+function airchoice_member_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the airchoice_member module.
+    case 'help.page.airchoice_member':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Module for airchoice member subscription and register logic') . '</p>';
+      return $output;
+      
+      default:
+    }
+  }
+  
+  /**
+  * Implements hook_theme().
+  */
+  function airchoice_member_theme() {
+
+    $templates = [];
+
+    $templates['page-dashboard-main'] = [
+      'variables' => [
+        'data' => [],
+      ],
+      'template' => 'page-dashboard-main',
+    ];
+
+    $templates['page-dashboard'] = [
+      'variables' => [
+        'data' => [],
+      ],
+      'template' => 'page-dashboard',
+    ];
+
+    $templates['find-a-flight-dashboard-form'] = [
+      'render element' => 'form',
+      'template' => 'find-a-flight-dashboard-form'
+    ];
+
+    $templates['member-remove'] = [
+      'variables' => [
+        'data' => [],
+      ],
+      'template' => 'member-remove',
+    ];
+
+    $templates['airchoice_member'] = [
+      'render element' => 'children',
+    ];
+
+
+    return $templates;
+  }
+  
+  /**
+  * Implements hook_form_alter().
+  */
+  function airchoice_member_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+    $show_debug = \Drupal\Core\Site\Settings::get('custom_show_debug_info');
+    if($show_debug)
+    {
+      $form['formidtest'] = ['#markup'=>"<div class='alert alert-info'>FormID is $form_id <a type='button' class='close' data-dismiss='alert' aria-label='Close'>    <span aria-hidden='true'>&times;</span>  </a></div>", '#weight'=>-100];
+      
+    }
+    if($form_id === 'user_register_paid_member_form')
+    {
+      return profile_form_user_register_form_alter($form, $form_state, $form_id);
+      
+    }
+    
+    if($form_id === 'profile_paid_member_edit_form')
+    {
+      profile_paid_member_edit_form_alter($form, $form_state);
+    }
+  }
+  
+
+  function checkTestStripeApiKey() {
+    $status = FALSE;
+    $config = \Drupal::config('stripe.settings');
+    if ($config->get('environment') == 'test' && $config->get('apikey.test.secret')) {
+      $status = TRUE;
+    }
+    return $status;
+  }
+  function profile_form_user_register_form_alter(&$form, &$form_state, $form_id)
+  {
+    return;
+    $package_id = $_GET['package']??null;
+    $field_package = &$form['paid_member_profiles']['widget'][0]['entity']['field_package'];
+    $link_generator = \Drupal::service('link_generator');
+    
+    if($package_id)
+    {
+      $field_package['widget']['#value'] = $package_id;
+      $field_package['widget']['#disabled'] = true;
+      $package = \Drupal\node\Entity\Node::load($package_id);
+      $price = $package->field_price->value;
+      //stripe
+      $form['stripe'] = [
+        '#type' => 'stripe',
+        '#weight' => 50,
+        '#title' => t('Credit card'),
+        // The selectors are gonna be looked within the enclosing form only.
+        "#stripe_selectors" => [
+          'first_name' => ':input[name="mail"]',
+          'last_name' => ':input[name="name"]',
+        ],
+        '#description' => t('You can use test card numbers and tokens from @link.', [
+          '@link' => $link_generator->generate('stripe docs', Url::fromUri('https://stripe.com/docs/testing')),
+          ]),
+        ];
+
+        $form['submit'] = [
+          '#action' => 'myfunction',
+        ];
+
+        if (checkTestStripeApiKey()) {
+          $form['submit']['#value'] = t('Pay $'.$price);
+        }
+
+    }
+  }
+
+  function myfunction($form, $form_state)
+  {
+    kint($form, $form_state->getValues());
+    exit;
+  }
+  
+  function profile_paid_member_edit_form_alter($form, $form_state)
+  {
+    // kint($form);
+  }
+  
+  //used to add switch user
+  function airchoice_member_preprocess_block(&$variables)
+  {
+   
+    // $variables['content']['x']['#markup'] = "<div class='hidden pluginid'>".$variables['plugin_id']."</div>";
+    if($variables['plugin_id'] === 'block_content:7852dbea-cb60-4118-b81e-39c98c46579c')
+    {
+      \Drupal\airchoice_member\Controller\LoginByLinkController::addLinksToBlock($variables);
+    }
+  }

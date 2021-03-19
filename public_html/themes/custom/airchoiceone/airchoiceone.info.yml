@@ -1,0 +1,25 @@
+name: Air Choice One
+description: A custom theme for Air Choice One.
+type: theme
+core: 8.x
+base theme: false
+regions:
+  highlighted: Highlighted
+  header: Header
+  header_menus: 'Header menus'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  mobile_menus: 'Mobile menus'
+  precontent: 'Pre-content'
+  content: Content
+  prefooter: 'Pre-footer'
+  footer_menus: 'Footer menus'
+  footer: Footer
+  copyright: Copyright
+  postfooter: 'Post-footer'
+features: {  }
+libraries:
+  - airchoiceone/site-css
+  - airchoiceone/site-js
+ckeditor_stylesheets:
+  - css/wysiwyg.css

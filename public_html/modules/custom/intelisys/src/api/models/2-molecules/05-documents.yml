@@ -1,0 +1,106 @@
+models:
+  DocumentDetail:
+    type: "object"
+    location: "json"
+    properties:
+      lastName:
+        type: "string"
+        location: "json"
+      firstName:
+        type: "string"
+        location: "json"
+      middleName:
+        type: "string"
+        location: "json"
+      birthDate:
+        type: "string"
+        location: "json"
+      nationCountry:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCode"
+      number:
+        type: "string"
+        location: "json"
+      expiryDate:
+        type: "string"
+        location: "json"
+      issuingCountry:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCode"
+      issuingCity:
+        type: "string"
+        location: "json"
+
+  Document:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      documentType:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "CodeName"
+      documentInformation:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "DocumentDetail"
+
+  Passport:
+    type: "object"
+    location: "json"
+    properties:
+      number:
+        type: "string"
+        location: "json"
+      expiryDate:
+        type: "string"
+        location: "json"
+      issuingCountry:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCode"
+      issuingCity:
+        type: "string"
+        location: "json"
+      issuingDate:
+        type: "string"
+        location: "json"
+
+  InsurancePolicy:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      key:
+        type: "string"
+        location: "json"
+      purchaseKey:
+        type: "string"
+        location: "json"
+      number:
+        type: "string"
+        location: "json"
+      insuranceProvider:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "KeyName"
+      policyStatus:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "PolicyStatus"

@@ -1,0 +1,12 @@
+operations:
+  getSurcharge:
+    httpMethod: "GET"
+    uri: "RESTv1/surcharges/{key}"
+    summary: "Retrieve a charge using the identifying key."
+    parameters:
+      key:
+        type: "string"
+        location: "uri"
+        description: "The key of a charge."
+        required: true
+    responseModel: "Surcharge"

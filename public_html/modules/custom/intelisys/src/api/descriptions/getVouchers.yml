@@ -1,0 +1,17 @@
+operations:
+  getVouchers:
+    httpMethod: "GET"
+    uri: "RESTv1/vouchers"
+    summary: "Search for vouchers to be used for redemption during payment."
+    parameters:
+      serialNumber:
+        type: "string"
+        location: "query"
+        description: "The voucher serial number."
+        required: true
+      passengerName:
+        type: "string"
+        location: "query"
+        description: "The passenger name associated with the voucher."
+        required: false
+    responseModel: "Vouchers"

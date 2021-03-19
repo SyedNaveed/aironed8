@@ -1,0 +1,44 @@
+uuid: bfe0bad7-ceaa-450b-8cad-0bcbb3a35aa8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.gallery_page.body
+    - field.field.node.gallery_page.field_meta_tags
+    - field.field.node.gallery_page.field_paragraphs
+    - node.type.gallery_page
+  module:
+    - entity_reference_revisions
+    - metatag
+    - text
+    - user
+id: node.gallery_page.default
+targetEntityType: node
+bundle: gallery_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_meta_tags:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+  field_paragraphs:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  links: true

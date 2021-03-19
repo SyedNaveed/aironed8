@@ -1,0 +1,91 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a single Drupal page while offline.
+ *
+ * All available variables are mirrored in page.html.twig.
+ * Some may be blank but they are provided for consistency.
+ *
+ * @see template_preprocess_maintenance_page()
+ *
+ * @ingroup themeable
+ */
+#}
+{{ page.highlighted }}
+<div class="menu">
+  <div class="container">
+    <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}">
+      <img src="/themes/custom/airchoiceone/images/air-choice-one-logo.png" alt="{{ 'Air Choice Once'|t }}" class="brand">
+    </a>
+    <div class="menu_right">
+      <nav role="navigation" aria-labelledby="block-airchoiceone-utility-navigation-menu" id="block-airchoiceone-utility-navigation" class="menu_right_top">
+        <h2 class="visually-hidden" id="block-airchoiceone-utility-navigation-menu">{{ 'Utility navigation'|t }}</h2>
+        <ul class="block-list">
+          <li><a href="https://rebrand.ly/onlinecheckin" target="_blank">{{ 'Check-In'|t }}</a></li>
+          <li><a href="http://www.choicetravelagency.com/">{{ 'Travel Agency'|t }}</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+<div id="block-airchoiceone-page-title" class="hero child_child">
+  <h1><span>{{ 'Site Maintenance'|t }}</span></h1>
+</div>
+<article class="child_page_center in center">
+  {{ page.content }}
+</article>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-6 col-xs-12 contact_footer">
+        <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}">
+          <img src="/themes/custom/airchoiceone/images/air-choice-one-logo.png" alt="{{ 'Air Choice Once'|t }}" class="footer_brand">
+        </a>
+        <p><a href="tel:+18664359847">{{ '866.435.9847'|t }}</a><br> <a href="mailto:customerservice@airchoiceone.com">{{ 'Send Us an Email'|t }}</a></p>
+      </div>
+      <div class="col-md-3 col-sm-6 col-xs-6 nophone center"></div>
+      <nav role="navigation" aria-labelledby="block-airchoiceone-social-navigation-menu" id="block-airchoiceone-social-navigation" class="col-md-5 col-xs-12">
+        <div class="social_footer">
+          <h2 class="visually-hidden" id="block-airchoiceone-social-navigation-menu">{{ 'Social navigation'|t }}</h2>
+          <li>
+            <a href="https://www.facebook.com/airchoiceone/" rel="noreferrer" target="_blank">
+              {% include 'themes/custom/airchoiceone/images/icons/facebook.svg' %}
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/airchoiceone/" rel="noreferrer" target="_blank">
+              {% include 'themes/custom/airchoiceone/images/icons/instagram.svg' %}
+            </a>
+          </li>
+          <li>
+            <a href="http://twitter.com/airchoiceone" rel="noreferrer" target="_blank">
+              {% include 'themes/custom/airchoiceone/images/icons/twitter.svg' %}
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/company/airchoiceone/" rel="noreferrer" target="_blank">
+              {% include 'themes/custom/airchoiceone/images/icons/linkedin.svg' %}
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/channel/UCP-rCZB670tA7x4RlarTy3w/videos" rel="noreferrer" target="_blank">
+              {% include 'themes/custom/airchoiceone/images/icons/youtube.svg' %}
+            </a>
+          </li>
+          <li>
+            <a href="https://www.yelp.com/biz/air-choice-one-st-louis" rel="noreferrer" target="_blank">
+              {% include 'themes/custom/airchoiceone/images/icons/yelp.svg' %}
+            </a>
+          </li>
+        </div>
+      </nav>
+    </div>
+    <div class="divide50"></div>
+    <div class="copyright center">
+      {{ 'Copyright Air Choice One - All Rights Reserved '|t }}<span class="nophone">|</span> {{ content }}<br><br>
+    <a href="https://www.delt.net" rel="noreferrer" target="_blank">{{ 'Website design by DELT'|t }}</a>
+    </div>
+    <div class="divide30"></div>
+  </div>
+</footer>

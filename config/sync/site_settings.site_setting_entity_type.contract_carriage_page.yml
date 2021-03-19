@@ -1,0 +1,8 @@
+uuid: d1f16df3-d7ff-44bf-84c1-98446a2c51f8
+langcode: en
+status: true
+dependencies: {  }
+id: contract_carriage_page
+label: 'Contract of Carriage Page'
+fieldset: General
+multiple: false

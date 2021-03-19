@@ -1,0 +1,68 @@
+models:
+  Location:
+    type: "object"
+    location: "json"
+    properties:
+      country:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCodeName"
+      province:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "ReferenceCodeName"
+
+  RequirementLocation:
+    type: "object"
+    location: "json"
+    properties:
+      date:
+        type: "string"
+        location: "json"
+      # @todo Unsure of below data type.
+      airport:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "AirportShort"
+      # @todo Unsure of below data type.
+      cityPair:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "CityPair"
+      flight:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Schedule"
+
+  CityPair:
+    type: "object"
+    location: "json"
+    properties:
+      href:
+        type: "string"
+        location: "json"
+      identifier:
+        type: "string"
+        location: "json"
+      departure:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Airport"
+      arrival:
+        departure:
+        type: "object"
+        location: "json"
+        items:
+          "$ref": "Airport"
+
+  CityPairs:
+    type: "array"
+    location: "json"
+    items:
+      "$ref": "CityPair"
