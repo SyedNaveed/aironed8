@@ -4,13 +4,10 @@
 const LOCAL_SETTINGS_PATH = DRUPAL_ROOT . '/sites/default';
 $settings['hash_salt'] = 'wD0gtBkpoEerSQ3FaV-cVSrN6Ppu_a071mux8nkfzneq-Ay00IsKKy5ZfTkKVHOHPtCDVbGAVw';
 
-$settings['custom_show_debug_info'] = true;
-
-
 $databases['default']['default'] = array (
-    'database' => 'airchoice_current',
-    'username' => 'root',
-    'password' => '',
+    'database' => 'aironem',
+    'username' => 'aironem',
+    'password' => 'aironeM@123',
     'prefix' => '',
     'host' => 'localhost',
     'port' => '3306',
@@ -54,3 +51,5 @@ $settings['skip_permissions_hardening'] = TRUE;
 
 /* Exclude modules from configuration synchronization. */
 $settings['config_exclude_modules'] = ['devel', 'kint', 'stage_file_proxy'];
+
+// $settings['custom_show_debug_info'] = true;
