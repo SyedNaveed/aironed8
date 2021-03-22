@@ -23,10 +23,10 @@ $settings['container_yamls'][] = LOCAL_SETTINGS_PATH . '/localdev.services.yml';
 $settings['container_yamls'][] = LOCAL_SETTINGS_PATH . '/services.local.yml';
 
 
-$config['system.logging']['error_level'] = 'verbose';
+// $config['system.logging']['error_level'] = 'verbose';
 
-$config['system.performance']['css']['preprocess'] = FALSE;
-$config['system.performance']['js']['preprocess'] = FALSE;
+// $config['system.performance']['css']['preprocess'] = FALSE;
+// $config['system.performance']['js']['preprocess'] = FALSE;
 
 /* Disable the render cache. */
 $settings['cache']['bins']['render'] = 'cache.backend.null';

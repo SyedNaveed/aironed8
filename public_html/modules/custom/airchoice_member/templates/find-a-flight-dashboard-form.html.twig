@@ -1,0 +1,67 @@
+<form  {{ attributes }}>
+
+  <div class="row">
+    <div class="col-md-6">
+      {{ form.city_of_origin }}
+    </div>
+    <div class="col-md-6">
+      {{ form.destination_city }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      {{ form.departure_date }}
+    </div>
+    <div class="col-md-6">
+      {{ form.return_date }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-6">
+          {{ form.passengers }}
+        </div>
+        <div class="col-md-6">
+          {{ form.children }}
+        </div>
+      </div>
+     
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-6">
+          {{ form.infant }}
+        </div>
+        <div class="col-md-6">
+          {{ form.round_trip }}
+        </div>
+      </div>
+     
+    </div>
+    <div class="col-md-12 ">
+      {{ form.promo_code }}
+    </div>
+  </div>
+  
+  
+  <!-- <div> -->
+    <!-- <h3>Form variables</h3> -->
+    <!-- {{ form|keys|join(', ') }} -->
+    <!-- <h3>Other variables</h3> -->
+    <!-- {{ _context|keys|join(', ') }} -->
+  <!-- </div> -->
+<div class="row">
+  <div class="col-md-12">
+    {# render other fields  #}
+  {{ form|without('city_of_origin','destination_city','departure_date','return_date','passengers','children','infant','round_trip','promo_code') }}
+  </div>
+  <div class="col-md-12">
+    <p class='description'>
+      To book an unaccompanied minor or pet, please call 866-435-9847
+    </p>
+  </div>
+</div>
+  
+
+</form>

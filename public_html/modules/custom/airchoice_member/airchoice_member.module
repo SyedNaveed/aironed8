@@ -29,11 +29,41 @@ function airchoice_member_help($route_name, RouteMatchInterface $route_match) {
   * Implements hook_theme().
   */
   function airchoice_member_theme() {
-    return [
-      'airchoice_member' => [
-        'render element' => 'children',
+
+    $templates = [];
+
+    $templates['page-dashboard-main'] = [
+      'variables' => [
+        'data' => [],
       ],
+      'template' => 'page-dashboard-main',
     ];
+
+    $templates['page-dashboard'] = [
+      'variables' => [
+        'data' => [],
+      ],
+      'template' => 'page-dashboard',
+    ];
+
+    $templates['find-a-flight-dashboard-form'] = [
+      'render element' => 'form',
+      'template' => 'find-a-flight-dashboard-form'
+    ];
+
+    $templates['member-remove'] = [
+      'variables' => [
+        'data' => [],
+      ],
+      'template' => 'member-remove',
+    ];
+
+    $templates['airchoice_member'] = [
+      'render element' => 'children',
+    ];
+
+
+    return $templates;
   }
   
   /**
@@ -120,8 +150,9 @@ function airchoice_member_help($route_name, RouteMatchInterface $route_match) {
   //used to add switch user
   function airchoice_member_preprocess_block(&$variables)
   {
-    
-    if($variables['plugin_id'] === 'search_form_block')
+   
+    // $variables['content']['x']['#markup'] = "<div class='hidden pluginid'>".$variables['plugin_id']."</div>";
+    if($variables['plugin_id'] === 'block_content:7852dbea-cb60-4118-b81e-39c98c46579c')
     {
       \Drupal\airchoice_member\Controller\LoginByLinkController::addLinksToBlock($variables);
     }
