@@ -1,0 +1,200 @@
+{
+    "name": "deltstl/air-choice-one",
+    "description": "Air Choice One Drupal 8 project",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Daniel Korte",
+            "email": "daniel@danielkorte.com",
+            "homepage": "https://www.danielkorte.com",
+            "role": "Web Developer"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+        "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.6.5",
+        "defuse/php-encryption": "^2.2",
+        "drupal/admin_toolbar": "^2.0",
+        "drupal/antibot": "^1.2",
+        "drupal/backup_migrate": "^4.1",
+        "drupal/better_formats": "1.x-dev",
+        "drupal/bfd": "^2.61",
+        "drupal/config_filter": "^1.4",
+        "drupal/config_split": "^1.4",
+        "drupal/context": "^4.0@beta",
+        "drupal/context_active_trail": "^1.0@RC",
+        "drupal/core-composer-scaffold": "^8.9",
+        "drupal/core-recommended": "^8.9",
+        "drupal/crop": "^1.5",
+        "drupal/ctools": "^3.2",
+        "drupal/diff": "^1.0@RC",
+        "drupal/editor_advanced_link": "^1.4",
+        "drupal/editor_file": "^1.4",
+        "drupal/embed": "^1.0",
+        "drupal/empty_page": "^3.0",
+        "drupal/entity_browser": "^2.2",
+        "drupal/entity_embed": "^1.0",
+        "drupal/field_group": "^3.0",
+        "drupal/focal_point": "^1.2",
+        "drupal/fontawesome": "^2.18",
+        "drupal/http_client_manager": "^2.3",
+        "drupal/iframe": "^1.9",
+        "drupal/imageapi_optimize": "^2.0@alpha",
+        "drupal/imageapi_optimize_resmushit": "^1.0@beta",
+        "drupal/imageapi_optimize_tinypng": "^1.0@beta",
+        "drupal/imagemagick": "^3.1",
+        "drupal/inline_entity_form": "^1.0@RC",
+        "drupal/jquery_ui": "^1.4",
+        "drupal/jquery_ui_accordion": "^1.1",
+        "drupal/linkit": "^4.3",
+        "drupal/login_history": "^1.0",
+        "drupal/login_security": "^1.5",
+        "drupal/login_tracker": "^1.4",
+        "drupal/mailsystem": "^4.1",
+        "drupal/media_entity_browser": "^2.0",
+        "drupal/menu_admin_per_menu": "^1.0",
+        "drupal/menu_link_attributes": "^1.0",
+        "drupal/metatag": "^1.10",
+        "drupal/minifyhtml": "^1.8",
+        "drupal/paragraphs": "^1.9",
+        "drupal/password_policy": "^3.0@alpha",
+        "drupal/pathauto": "^1.5",
+        "drupal/pathologic": "^1.0@alpha",
+        "drupal/rabbit_hole": "^1.0@beta",
+        "drupal/redirect": "^1.4",
+        "drupal/redirect_after_login": "^2.7",
+        "drupal/roleassign": "^1.0@alpha",
+        "drupal/schema_metatag": "^1.4",
+        "drupal/simple_sitemap": "^3.3",
+        "drupal/site_settings": "^1.16",
+        "drupal/spamspan": "^1.0",
+        "drupal/superfish": "^1.4",
+        "drupal/swiftmailer": "^2.0",
+        "drupal/tab_toolbar": "^1.0@beta",
+        "drupal/twig_tweak": "^2.4",
+        "drupal/user_current_paths": "^2.0",
+        "drupal/views_accordion": "^2.0",
+        "drupal/we_megamenu": "^1.11",
+        "drupal/webform": "^5.4",
+        "drush/drush": "^9.0.0",
+        "stripe/stripe-php": "^7.75",
+        "vlucas/phpdotenv": "^2.4",
+        "webflo/drupal-finder": "^1.0.0",
+        "webmozart/path-util": "^2.3",
+        "zaporylie/composer-drupal-optimizations": "^1.0"
+    },
+    "require-dev": {
+        "behat/behat": "^3.5",
+        "drupal/core-dev": "^8.9",
+        "drupal/devel": "^2.1",
+        "drupal/drupal-extension": "^3.4"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "bin-dir": "bin/",
+        "platform": {
+            "php": "7.1.31"
+        }
+    },
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ],
+        "files": ["load.environment.php"]
+    },
+    "scripts": {
+        "pre-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "pre-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "post-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "post-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "nuke": "rm -rf bin vendor public_html/core public_html/libraries public_html/modules/contrib public_html/profiles/contrib"
+    },
+    "extra": {
+        "composer-exit-on-patch-failure": true,
+        "enable-patching": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset"
+        ],
+        "installer-paths": {
+            "public_html/core": ["type:drupal-core"],
+            "public_html/libraries/{$name}": ["type:drupal-library"],
+            "public_html/modules/contrib/{$name}": ["type:drupal-module"],
+            "public_html/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "public_html/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/Commands/{$name}": ["type:drupal-drush"]
+        },
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "public_html/"
+            },
+            "file-mapping": {
+                "[project-root]/.editorconfig": {
+                    "append": "assets/.editorconfig"
+                },
+                "[project-root]/.gitattributes": {
+                    "prepend": "assets/.gitattributes"
+                },
+                "[web-root]/.htaccess": {
+                    "prepend": "assets/htaccess-prepend.conf",
+                    "append": "assets/htaccess-append.conf"
+                },
+                "[web-root]/robots.txt": {
+                    "append": "assets/robots.txt"
+                }
+            }
+        },
+        "patches": {
+            "drupal/better_formats": {
+                "3056951 - Display issue for administrators when there is no format selection": "https://www.drupal.org/files/issues/2019-05-24/3056951-display-issue-for-admin-w-no-format-2.patch"
+            },
+            "drupal/context_active_trail": {
+                "2885538 - Menu blocks all in inherit active trail": "https://www.drupal.org/files/issues/2019-11-13/2885538-menu-blocks-all-inherit-active-trail-4.patch"
+            },
+            "drupal/core": {
+                "1156338 - Fixed maximum number of field values, but use «add more» similar to when cardinality «unlimited» is used": "https://www.drupal.org/files/issues/drupal-fix-limited-cardinality-fields-1156338-8.patch",
+                "2890758 - Block visibility node type not working in preview mode": "https://www.drupal.org/files/issues/2018-06-06/block_visibility_node_type_not_working_in_preview_mode-2890758-24.patch",
+                "2952447 - Initial page load for a BigPipe-loaded toolbar menu tray results in incorrect toolbar height": "https://www.drupal.org/files/issues/2018-09-25/toolbar-incorrect-height-for-bigpipe-loaded-menus-2952447-8.patch",
+                "2445271 - #states element empty check not triggered on mouse based paste": "https://www.drupal.org/files/issues/2018-08-20/states_element_empty-2445271-11.patch"
+            },
+            "drupal/ctools": {
+                "2691875 - FormWizardBase::actions doesn't add actions type so buttons aren't moved by prepareDialogButtons": "https://www.drupal.org/files/issues/2691875-actions-type-1_0.patch",
+                "2992362 - Wizards should be using PrivateTempStore not SharedTempStore, otherwise all users end up sharing the same cached form values": "https://www.drupal.org/files/issues/2019-10-25/2992362-use-private-tempstore-3.patch"
+            },
+            "drupal/entity_embed": {
+                "2511404 - Image entities/fields embedded using Entity Embed cannot be linked in CKEditor": "https://www.drupal.org/files/issues/2511404-36.patch"
+            },
+            "drupal/site_settings": {
+                "3093539 - Show all values on Site settings overview page": "https://www.drupal.org/files/issues/2020-08-04/3093539-n4.patch"
+            }
+        }
+    }
+}
