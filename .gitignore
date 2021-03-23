@@ -41,7 +41,7 @@ public_html/themes/contrib/
 /.htaccess
 /autoload.php
 
-/composer.lock
+
 /example.gitignore
 /index.php
 /LICENSE.txt
