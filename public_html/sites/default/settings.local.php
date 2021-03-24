@@ -14,7 +14,6 @@ $databases['default']['default'] = array (
     'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
     'driver' => 'mysql',
   );
-$settings['config_sync_directory'] = 'sites/default/files/config_9vlkikxo4amlfGmDq-whynlxauiTnHgXnk2ZL3ms8zZLBEQA8BPYu06JQxWmkoLIBDpHIBPDLQ/sync';
 
 #assert_options(ASSERT_ACTIVE, TRUE);
 \Drupal\Component\Assertion\Handle::register();
