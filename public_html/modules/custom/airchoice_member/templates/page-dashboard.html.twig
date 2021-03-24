@@ -52,7 +52,7 @@
                     <div class='member_buttons'>
                         <a href='' class='member_view'>View Flights</a>
                         <a href='' class='member_activity'>View Activity</a>
-                        <a href='/user/{{data.user.id}}/edit' class='member_edit'>Edit Profile</a>
+                        <a href='{{ drupal_url("/user/" ~ data.user.id ~ "/edit") }}' class='member_edit'>Edit Profile</a>
                     </div>
                 </div>
             </div>
@@ -247,6 +247,7 @@
                         data-dialog-type="modal"
                         href="{{ path('airchoice_member.dashboard_controller.member_info', {user:member.id}) }}"
                         >
+                         
                         <h2>{{member.name.value}}</h2>
                     </a>
                     <div class='member_flights'>
@@ -258,7 +259,8 @@
                 <div class='member_buttons'>
                     <a href='' class='member_view'>View Flights</a>
                     <a href='' class='member_activity'>View Activity</a>
-                    <a href='/user/{{member.id}}/edit' class='member_edit'>Edit Profile</a>
+                    
+                    <a href='{{ drupal_url("/user/" ~ member.id ~ "/edit") }}' class='member_edit'>Edit Profile</a>
                 </div>
             </div>
             
