@@ -36,6 +36,8 @@ class SearchForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $this->setup($form, $form_state, 'search');
     $this->getBookingFields($form, $form_state, $this->values);
+    
+    $form['#theme'] = 'find-a-flight-dashboard-form';
     return $form;
   }
 

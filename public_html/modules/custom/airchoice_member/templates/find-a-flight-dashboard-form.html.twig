@@ -1,29 +1,31 @@
+<div class="find_flight_form wbg">
+<h2>Find a Flight</h2>
 <form  {{ attributes }}>
 
   <div class="row">
     <div class="col-md-6">
-      {{ form.city_of_origin }}
+      {{ form.departure }}
     </div>
     <div class="col-md-6">
-      {{ form.destination_city }}
+      {{ form.arrival }}
     </div>
   </div>
   <div class="row">
     <div class="col-md-6">
-      {{ form.departure_date }}
+      {{ form.from }}
     </div>
     <div class="col-md-6">
-      {{ form.return_date }}
+      {{ form.to }}
     </div>
   </div>
   <div class="row">
     <div class="col-md-6">
       <div class="row">
         <div class="col-md-6">
-          {{ form.passengers }}
+          {{ form.adultCount }}
         </div>
         <div class="col-md-6">
-          {{ form.children }}
+          {{ form.childCount }}
         </div>
       </div>
      
@@ -31,16 +33,16 @@
     <div class="col-md-6">
       <div class="row">
         <div class="col-md-6">
-          {{ form.infant }}
+          {{ form.infantCount }}
         </div>
-        <div class="col-md-6">
-          {{ form.round_trip }}
+        <div class="col-md-6 round-trip-ch">
+          {{ form.isRoundtrip }}
         </div>
       </div>
      
     </div>
     <div class="col-md-12 ">
-      {{ form.promo_code }}
+      {{ form.promoCode }}
     </div>
   </div>
   
@@ -52,9 +54,9 @@
     <!-- {{ _context|keys|join(', ') }} -->
   <!-- </div> -->
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-12 cus-form-btn">
     {# render other fields  #}
-  {{ form|without('city_of_origin','destination_city','departure_date','return_date','passengers','children','infant','round_trip','promo_code') }}
+  {{ form|without('departure','arrival','from','to','adultCount','childCount','infantCount','isRoundtrip','promoCode') }}
   </div>
   <div class="col-md-12">
     <p class='description'>
@@ -62,6 +64,5 @@
     </p>
   </div>
 </div>
-  
-
 </form>
+</div>

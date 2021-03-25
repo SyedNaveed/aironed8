@@ -20510,6 +20510,7 @@ h4, .h4 {
   font-family: 'Calibre';
 }
 .dash_side {
+  display: none;
   height: calc(100vh - 4vw);
   position: fixed;
   left: 2%;
@@ -20598,7 +20599,44 @@ h4, .h4 {
   width: 56px;
   text-align: right;
   font-size: 28px;
-  
+}
+form.aco-book-flight-search-form .find_flight_form {
+  padding: 39px;
+} 
+form.aco-book-flight-search-form .find_flight_form .custom-control input,
+form.aco-book-flight-search-form .find_flight_form .custom-control select {
+  border: 0px;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-left: 15px;
+  margin-top: 0px;
+  background: #f0f2f8;
+}
+form.aco-book-flight-search-form .find_flight_form .custom-control {
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+form.aco-book-flight-search-form .find_flight_form .round-trip-ch {
+  padding-left: 0;
+  padding-top: 45px;
+}
+form.aco-book-flight-search-form .find_flight_form .form-item-isroundtrip label {
+  display: block;
+  width: 100%;
+}
+form .cus-form-btn .form-actions input[type="submit"]{  
+  background: #7419ea;
+  border: 0px;
+  width: 100%;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+form.aco-book-flight-search-form .description {
+  font-size: 15px;
+  margin-top: 20px;
 }
 @media only screen and (min-width: 320px) and (max-width:575px){
   #banner-section #block-travelpolicy .field--name-body, 

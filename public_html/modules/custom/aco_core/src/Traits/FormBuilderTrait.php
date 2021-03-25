@@ -640,7 +640,7 @@ trait FormBuilderTrait {
     $form['departure'] = [
       '#type' => 'select',
       '#title' => $this->t('Departure'),
-      '#title_display' => 'invisible',
+      // '#title_display' => 'invisible',
       '#options' => $options,
       '#empty_option' => $this->t('City of Origin'),
       '#default_value' => $values['departure'],
@@ -657,7 +657,7 @@ trait FormBuilderTrait {
     $form['arrival'] = [
       '#type' => 'select',
       '#title' => $this->t('Arrival'),
-      '#title_display' => 'invisible',
+      // '#title_display' => 'invisible',
       '#options' => $all_options,
       '#empty_option' => $this->t('Destination City'),
       '#default_value' => $values['arrival'],
@@ -682,7 +682,7 @@ trait FormBuilderTrait {
       '#type' => 'date',
       '#datepicker' => TRUE,
       '#title' => $this->t('Departure Date'),
-      '#title_display' => 'invisible',
+      // '#title_display' => 'invisible',
       '#placeholder' => $this->t('MM/DD/YYYY'),
       '#default_value' => $from,
       '#required' => TRUE,
@@ -722,7 +722,7 @@ trait FormBuilderTrait {
       '#type' => 'date',
       '#datepicker' => TRUE,
       '#title' => $this->t('Return Date'),
-      '#title_display' => 'invisible',
+      // '#title_display' => 'invisible',
       '#placeholder' => $this->t('MM/DD/YYYY'),
       '#default_value' => $to,
       '#prefix' => '<div id="return-date-wrapper">',
@@ -752,7 +752,7 @@ trait FormBuilderTrait {
     $form['adultCount'] = [
       '#type' => 'number',
       '#title' => $this->t('Adults'),
-      '#title_display' => 'invisible',
+      // '#title_display' => 'invisible',
       '#placeholder' => $this->t('Adults *'),
       '#default_value' => $values['adultCount'] == 0 ? 1 : $values['adultCount'],
       '#required' => TRUE,
@@ -761,7 +761,7 @@ trait FormBuilderTrait {
     $form['childCount'] = [
       '#type' => 'number',
       '#title' => $this->t('Child'),
-      '#title_display' => 'invisible',
+      // '#title_display' => 'invisible',
       '#placeholder' => $this->t('Child'),
       '#default_value' => $values['childCount'] == 0 ? '' : $values['childCount'],
       '#min' => 0,
@@ -769,7 +769,7 @@ trait FormBuilderTrait {
     $form['infantCount'] = [
       '#type' => 'number',
       '#title' => $this->t('Infant'),
-      '#title_display' => 'invisible',
+      // '#title_display' => 'invisible',
       '#placeholder' => $this->t('Infant'),
       '#default_value' => $values['infantCount'] == 0 ? '' : $values['infantCount'],
       '#min' => 0,
@@ -777,7 +777,7 @@ trait FormBuilderTrait {
     $form['promoCode'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Promo Code'),
-      '#title_display' => 'invisible',
+      // '#title_display' => 'invisible',
       '#placeholder' => $this->t('Promo Code'),
       '#default_value' => $values['promoCode'],
     ];
@@ -790,7 +790,7 @@ trait FormBuilderTrait {
     $form['actions'] = ['#type' => 'actions'];
     $form['actions']['submit'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Search Flights'),
+      '#value' => $this->t('Find Your Flight'),
     ];
   }
 
