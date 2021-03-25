@@ -1,0 +1,37 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a 'form' element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see template_preprocess_form()
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="book_page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1 class="h2">{{ element.title }}</h1>
+        <p>{{ 'Please fill all the information in English. Fields Marked with * are mandatory.'|t }}</p>
+        <p>{{ 'Please enter first and last names as they appear on the passenger’s Government Issued ID or Passport.'|t }}</p>
+        <div class="book_page_contact_form">
+          <div class="row">
+            {{ element.passengers }}
+            {{ element|without('passengers', 'title', 'ticket') }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        {{ element.ticket }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pd"></div>
+<div class="pd"></div>

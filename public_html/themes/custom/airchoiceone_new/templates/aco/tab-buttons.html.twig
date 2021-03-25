@@ -1,0 +1,9 @@
+{#
+/**
+ * @file
+ * Theme override for tab buttons.
+ */
+#}
+{% for title in titles %}
+  <button type="button" class="blue_btn" data-tab-controller="{{ loop.index0 }}">{{ title }}</button>
+{% endfor %}

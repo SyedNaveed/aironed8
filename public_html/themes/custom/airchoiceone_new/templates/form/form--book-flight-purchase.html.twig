@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a 'form' element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see template_preprocess_form()
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="book_page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h1 class="h2">{{ element.title }}</h1>
+        <p>{{ 'All prices are in United States Dollar. All times are airport local.'|t }}</p>
+
+        <div class="book_page_date_select">{{ element.subtitle }}</div>
+
+        {{ element.charges_table }}
+
+        <div class="divide60"></div>
+
+        <div class="book_page_table_values">
+
+          <h1 class="h2">{{ 'Payment Information'|t }}</h1>
+
+          <div class="book_page_contact_form">
+
+            <div class="row">
+              {{ element|without('subtitle', 'charges_table', 'title', 'ticket') }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        {{ element.ticket }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pd"></div>
+<div class="pd"></div>

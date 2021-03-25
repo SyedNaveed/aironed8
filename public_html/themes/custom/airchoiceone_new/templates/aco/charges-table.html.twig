@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Theme override for a charges table.
+ */
+#}
+<div class="book_page_table">
+  <div class="book_page_table_head doshow_tablet">
+    <div class="row">
+      <div class="col-sm-6 bpth_br">
+        <h4>{{ 'Description'|t }}</h4>
+      </div>
+      <div class="col-sm-2 bpth_br">
+        <h4>{{ 'Amount'|t }}</h4>
+      </div>
+      <div class="col-sm-2 bpth_br">
+        <h4>{{ 'Tax'|t }}</h4>
+      </div>
+      <div class="col-sm-2">
+        <h4>{{ 'Total'|t }}</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="book_page_table_values book_pay">
+  {% for charge in charges %}
+    <div class="row book_page_table_row">
+      {{ charge }}
+    </div>
+  {% endfor %}
+
+  <div class="row book_page_table_row">
+    <div class="col-md-10 col-sm-8">
+      <span class="book_page_time">{{ 'TOTAL COST'|t }}</span>
+    </div>
+    <div class="col-md-2 col-sm-4 bp_total_big">
+      <span class="book_page_total book_price_fr">{{ total_cost }}</span>
+    </div>
+  </div>
+</div>

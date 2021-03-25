@@ -1,0 +1,61 @@
+{#
+/**
+ * @file
+ * Theme override for your ticket.
+ */
+#}
+<div id="your-ticket" class="book_ticket">
+  <div class="book_ticket_header">
+    <h2>{{ 'Your Ticket'|t }}</h2>
+  </div>
+
+  {{ flights }}
+
+  <div class="book_ticket_body">
+    <h4>{{ 'Summary'|t }}</h4>
+
+    <div class="row rnp">
+      <div class="col-xs-3">
+        <b>{{ 'Guests:'|t }}</b>
+      </div>
+      <div class="col-xs-9">
+        {{ guests }}
+      </div>
+    </div>
+
+    <div class="row rnp">
+      <div class="col-xs-3">
+        <b>{{ 'Cost:'|t }}</b>
+      </div>
+      <div class="col-xs-9">
+        {% trans %}
+          <span data-cost>{{ cost }}</span> (per passenger)
+        {% endtrans %}
+      </div>
+    </div>
+
+    <div class="row rnp">
+      <div class="col-xs-3">
+        <b>{{ 'Fees:'|t }}</b>
+      </div>
+      <div class="col-xs-9" data-fees>
+        {{ fees }}
+      </div>
+    </div>
+
+    <div class="row rnp">
+      <div class="col-xs-3">
+        <b>{{ 'Taxes:'|t }}</b>
+      </div>
+      <div class="col-xs-9" data-taxes>
+        {{ taxes }}
+      </div>
+    </div>
+  </div>
+
+  <div class="book_ticket_total">
+    <h5>{{ 'Total Cost'|t }}</h5>
+    <h2 data-total-price>{{ total }}</h2>
+  </div>
+
+</div>

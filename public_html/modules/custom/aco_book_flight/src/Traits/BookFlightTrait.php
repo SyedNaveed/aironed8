@@ -100,15 +100,18 @@ trait BookFlightTrait {
       }
     }
 
+
     $this->fillValues($form_state);
+
+    
+
 
     // Use the book flight template and create a ticket on all steps except the
     // first one.
     if ($step != $this->steps[0]) {
-      $form['#theme'] = 'form__book_flight';
       $form['ticket'] = $this->getTicket();
+      $form['#theme'] = 'form__book_flight';
     }
-
     return TRUE;
   }
 

@@ -52,3 +52,7 @@ $settings['skip_permissions_hardening'] = TRUE;
 $settings['config_exclude_modules'] = ['devel', 'kint', 'stage_file_proxy'];
 
 // $settings['custom_show_debug_info'] = true;
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
+$config['system.logging']['error_level'] = 'verbose';

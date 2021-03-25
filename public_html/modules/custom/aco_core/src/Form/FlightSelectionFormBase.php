@@ -26,9 +26,14 @@ abstract class FlightSelectionFormBase extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
+   $form['ddd'] = ['#markup' => 'asdfsadf'];
+    
+   
     if (!$this->setup($form, $form_state, 'flight-selection')) {
+      exit(1);
       return $form;
     }
+    return $form;
 
     $all_airports = Locations::getAirportOptions();
     $title = $this->t('Flights from @from to @to', [

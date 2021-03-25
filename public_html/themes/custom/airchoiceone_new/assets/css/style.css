@@ -20429,6 +20429,7 @@ body.path-manage-members #page-content {
   color: var(--purp);
   text-decoration: none;
 }
+body.path-book-flight  footer,
 body.path-manage-members header#header-menu, 
 body.path-manage-members footer,
 body.path-dashboard header#header-menu,
@@ -20510,7 +20511,6 @@ h4, .h4 {
   font-family: 'Calibre';
 }
 .dash_side {
-  
   height: calc(100vh - 4vw);
   position: fixed;
   left: 2%;
