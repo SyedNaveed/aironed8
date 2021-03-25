@@ -20510,7 +20510,7 @@ h4, .h4 {
   font-family: 'Calibre';
 }
 .dash_side {
-  display: none;
+  
   height: calc(100vh - 4vw);
   position: fixed;
   left: 2%;
