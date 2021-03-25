@@ -20009,9 +20009,6 @@ body.path-dashboard a.btn-success {
   font-size: 20px;
   position: relative;
 }
-body.path-dashboard a.btn-success::before {
-
-}
 body.path-dashboard div.newdashboard-con {
   padding: 39px;
   background: #fff;
@@ -20505,7 +20502,104 @@ body.path-airchoice-member {
 body.path-airchoice-member form.airchoice-user-register-form {
   padding: 20px;
 }
- 
+/* dashboard left side   */
+h4, .h4 {
+  font-size: 16px;
+  margin-bottom: 0px;
+  line-height: 36px;
+  font-family: 'Calibre';
+}
+.dash_side {
+  height: calc(100vh - 4vw);
+  position: fixed;
+  left: 2%;
+  top: 2vw;
+  width: 20%;
+  padding: 20px;
+  background: white;
+  min-width: 360px;
+  z-index: 2;
+  -webkit-transition: all 0.15s ease-in-out ;
+  transition: all 0.15s ease-in-out ;
+  transition: all 0.15s ease-in-out ;
+  transition: all 0.15s ease-in-out ;
+}
+.dash_side h2 {
+  color: black;
+  font-size: 30px;
+  margin-bottom: 6px;
+  margin-top: 9px;
+}
+.ticket.ticket_purp {
+  color: white;
+}
+.purp {
+  background: var(--purp);
+  color: white;
+}
+.row.row_squares {
+  margin-left: -5px;
+  margin-right: -5px;
+}
+.dash_side .col-md-6 {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.side_menu_square {
+  background: #f0f2f8;
+  height: 100px;
+  text-align: center;
+  margin-top: 10px;
+  color: #838898;
+  font-weight: normal;
+  padding-top: 18px;
+}
+.side_menu_square svg {
+  fill: #bcc1d0;
+  width: 50px;
+  margin: auto;
+  display: block;
+  height: 31px;
+  margin-bottom: 5px;
+}
+.side_menu_square h4 {
+  font-size: 15px;
+}
+.dash_side button.green.btn {
+  position: absolute;
+  width: calc(100% - 40px);
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+  padding: 16px 12px 12px;
+  font-size: 20px;
+}
+.green {
+  background: #7419ea;
+}
+.dlclose {
+  left: -340px;
+}
+.dash_side span.openclose:hover {
+  cursor: pointer;
+}
+.dash_side span.openclose {
+  position: absolute;
+  right: -34px;
+  top: 13px;
+  z-index: 4;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+  background: #fff;
+  padding: 13px 14px 3px 6px;
+  border-radius: 40%;
+  width: 56px;
+  text-align: right;
+  font-size: 28px;
+  
+}
 @media only screen and (min-width: 320px) and (max-width:575px){
   #banner-section #block-travelpolicy .field--name-body, 
   #banner-section #block-safetypage .field--name-body {

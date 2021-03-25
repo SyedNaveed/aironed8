@@ -11,9 +11,14 @@
     }
   });
   // for place holder 
-  $("#edit-pass").attr("placeholder", "Password")
+  $("#edit-pass").attr("placeholder", "Password");
 
-  $("#edit-name").attr("placeholder", "User Name")
+  $("#edit-name").attr("placeholder", "User Name");
 
+  $('.dash_side .openclose').click(function() {
+    console.log('ff');
+     $('.dash_side').toggleClass('dlclose'); 
+  }) 
+  
 
 })(jQuery, Drupal);
