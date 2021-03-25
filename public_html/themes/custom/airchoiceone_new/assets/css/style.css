@@ -20513,7 +20513,7 @@ h4, .h4 {
 .dash_side {
   height: calc(100vh - 4vw);
   position: fixed;
-  left: 2%;
+  left: 0%;
   top: 2vw;
   width: 20%;
   padding: 20px;
@@ -20579,7 +20579,7 @@ h4, .h4 {
   background: #7419ea;
 }
 .dlclose {
-  left: -340px;
+  left: -360px;
 }
 .dash_side span.openclose:hover {
   cursor: pointer;
@@ -20637,6 +20637,37 @@ form .cus-form-btn .form-actions input[type="submit"]{
 form.aco-book-flight-search-form .description {
   font-size: 15px;
   margin-top: 20px; 
+}
+.openclose .fa-chevron-right {
+  position: relative;
+}
+.openclose .fa-chevron-right::before {
+  display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f105";
+}
+.openclose .fa-chevron-left {
+  position: relative;
+}
+.openclose .fa-chevron-left::before {
+  display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f104";
+}
+.dash_side .fa-chevron-right {
+  display: none;
+}
+.dash_side.dlclose .fa-chevron-right {
+  display: block;
+}
+.dash_side.dlclose .fa-chevron-left {
+  display: none;
 }
 @media only screen and (min-width: 320px) and (max-width:575px){
   #banner-section #block-travelpolicy .field--name-body, 
