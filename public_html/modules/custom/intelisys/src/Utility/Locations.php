@@ -240,6 +240,34 @@ class Locations {
     return $options;
   }
 
+  public static function getAirportOptions2() {
+    static $options;
+
+    if (isset($options)) {
+      return $options;
+    }
+
+    try {
+      $intelisys = \Drupal::service('http_client_manager.factory')
+        ->get('intelisys_api');
+      $response = $intelisys->getAirports()->toArray();
+    }
+    catch (CommandException $e) {
+      return [];
+    }
+
+    $options = [];
+    foreach ($response as &$airport) {
+      $options[$airport['code']] =  [
+        'name' => $airport['name'],
+        'code' => $airport['code'],
+      ];
+    }
+
+    asort($options);
+    return $options;
+  }
+
   /**
    * Intersect airport options.
    *

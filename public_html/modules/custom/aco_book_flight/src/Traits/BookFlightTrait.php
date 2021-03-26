@@ -310,7 +310,7 @@ trait BookFlightTrait {
    *   Render array.
    */
   protected function getFlight($title, $date, $departure, $arrival) {
-    $all_airports = Locations::getAirportOptions();
+    $all_airports = Locations::getAirportOptions2();
     return [
       '#theme' => 'flight',
       '#title' => $title,

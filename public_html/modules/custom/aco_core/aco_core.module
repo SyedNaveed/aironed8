@@ -33,6 +33,7 @@ function aco_core_theme($existing, $type, $theme, $path) {
     ],
     'flight_times_table' => [
       'variables' => [
+        'datepicker' => NULL,
         'attributes' => NULL,
         'flights' => NULL,
       ],

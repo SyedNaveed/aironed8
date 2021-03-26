@@ -5,57 +5,94 @@
  */
 #}
 <div id="your-ticket" class="book_ticket">
-  <div class="book_ticket_header">
+  <div class="ticket_total_title">
     <h2>{{ 'Your Ticket'|t }}</h2>
-  </div>
 
+  </div>
   {{ flights }}
 
-  <div class="book_ticket_body">
-    <h4>{{ 'Summary'|t }}</h4>
 
-    <div class="row rnp">
-      <div class="col-xs-3">
-        <b>{{ 'Guests:'|t }}</b>
-      </div>
-      <div class="col-xs-9">
-        {{ guests }}
-      </div>
+  <!-- BEGIN TICKET SUMMARY -->
+  <div class="ticket_summary">
+    <div class="ticket_summary_line">
+      <div class="tsl">GUESTS</div>
+      <div class="tsr">{{ guests }}</div>
     </div>
 
-    <div class="row rnp">
-      <div class="col-xs-3">
-        <b>{{ 'Cost:'|t }}</b>
-      </div>
-      <div class="col-xs-9">
-        {% trans %}
-          <span data-cost>{{ cost }}</span> (per passenger)
+    <div class="ticket_summary_line">
+      <div class="tsl">cost</div>
+      <div class="tsr"> {% trans %}
+        <span data-cost>{{ cost }}</span> (per passenger)
         {% endtrans %}
       </div>
     </div>
 
-    <div class="row rnp">
+    <div class="ticket_summary_line">
+      <div class="tsl">fees</div>
+      <div class="tsr" data-fees> {{ fees }}</div>
+    </div>
+
+    <div class="ticket_summary_line">
+      <div class="tsl">taxes</div>
+      <div class="tsr" data-taxes>{{ taxes }}</div>
+    </div>
+  </div>
+  <!-- END TICKET SUMMARY -->
+  <div class="ticket_dash">
+    <svg height="1" viewBox="0 0 385.908 1">
+      <line id="Line_104" data-name="Line 104" x2="384.908" transform="translate(0.5 0.5)" fill="none" stroke="#ccc" stroke-linecap="round" stroke-width="1" stroke-dasharray="0 3"></line>
+    </svg>
+  </div>
+  <div class="book_ticket_body">
+    <!-- <h4>{{ 'Summary'|t }}</h4> -->
+
+    <!-- <div class="row rnp">
       <div class="col-xs-3">
-        <b>{{ 'Fees:'|t }}</b>
+        {# <b>{{ 'Guests:'|t }}</b> #}
+      </div>
+      <div class="col-xs-9">
+        {# {{ guests }} #}
+      </div>
+    </div> -->
+
+    <!-- <div class="row rnp">
+      <div class="col-xs-3">
+        {# <b>{{ 'Cost:'|t }}</b> #}
+      </div>
+      <div class="col-xs-9">
+        {# {% trans %} #}
+          {# <span data-cost>{{ cost }}</span> (per passenger) #}
+        {# {% endtrans %} #}
+      </div>
+    </div> -->
+
+    <!-- <div class="row rnp">
+      <div class="col-xs-3">
+        {# <b>{{ 'Fees:'|t }}</b> #}
       </div>
       <div class="col-xs-9" data-fees>
-        {{ fees }}
+        {# {{ fees }} #}
       </div>
-    </div>
+    </div> -->
 
-    <div class="row rnp">
+    <!-- <div class="row rnp">
       <div class="col-xs-3">
-        <b>{{ 'Taxes:'|t }}</b>
+        {# <b>{{ 'Taxes:'|t }}</b> #}
       </div>
       <div class="col-xs-9" data-taxes>
-        {{ taxes }}
+        {# {{ taxes }} #}
       </div>
+    </div> -->
+
+    <div class="ticket_total_price">
+      <div class="ticket_total_depart">TOTAL</div>
+      <h3 data-total-price>{{ total }}</h3>
     </div>
+
+
+
   </div>
 
-  <div class="book_ticket_total">
-    <h5>{{ 'Total Cost'|t }}</h5>
-    <h2 data-total-price>{{ total }}</h2>
-  </div>
+
 
 </div>

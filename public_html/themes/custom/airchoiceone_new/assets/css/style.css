@@ -20429,6 +20429,7 @@ body.path-manage-members #page-content {
   color: var(--purp);
   text-decoration: none;
 }
+body.path-book-flight header#header-menu, 
 body.path-book-flight  footer,
 body.path-manage-members header#header-menu, 
 body.path-manage-members footer,
@@ -20497,6 +20498,7 @@ body.path-user form.user-form .form-actions .button {
 body.path-user form.user-form .custom-control .description {
   display: none;
 }
+body.path-book-flight,
 body.path-airchoice-member {
   background: #F0F2F8;
 }
@@ -20643,11 +20645,11 @@ form.aco-book-flight-search-form .description {
 }
 .openclose .fa-chevron-right::before {
   display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f105";
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f105";
 }
 .openclose .fa-chevron-left {
   position: relative;
@@ -20669,6 +20671,260 @@ form.aco-book-flight-search-form .description {
 .dash_side.dlclose .fa-chevron-left {
   display: none;
 }
+body.path-book-flight form.aco-book-flight-flight-selection-form { 
+  padding-left: 80px;
+}
+.cl4.ticket_row_ticket {
+  padding-left: 50px;
+}
+.ticket_total_title {
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-top: -20px;
+  padding: 23px 0px 15px;
+  background: #7318ea;
+  margin-bottom: 20px;
+}
+.ticket_total_title h2 {
+  color: white;
+  margin-bottom: 0px;
+  text-align: center;
+}
+.row.ticket_total_details {
+  font-size: 14px;
+}
+.ticket .row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.ticket .col-md-4, .ticket .col-md-2 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.col-md-4.tcb_right {
+  text-align: right;
+}
+.ticket_total_depart {
+  text-align: center;
+  border: 2px solid #7318ea;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-size: 13px;
+  width: 120px;
+}
+.ticket_total .ticket_city_big {
+  font-size: 44px;
+}
+.ticket_city_small {
+  font-size: 14px;
+  line-height: 1;
+  margin-top: -10px;
+}
+.ticket_total_plane svg {
+  margin: auto;
+  display: block;
+  width: 33px;
+  margin-top: 11px;
+}
+.ticket_summary {
+  padding-bottom: 10px;
+}
+.ticket_summary_line {
+  overflow: hidden;
+}
+.tsl {
+  float: left;
+  text-transform: uppercase;
+  font-size: 17px;
+  opacity: .8;
+}
+.tsr {
+  float: right;
+}
+.ticket_total_price .ticket_total_depart {
+  width: 120px;
+  margin: auto;
+}
+.ticket_total_depart {
+  text-align: center;
+  border: 2px solid #7318ea;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-size: 13px;
+  width: 120px;
+}
+.ticket_total_price h3 {
+  text-align: center;
+  font-size: 55px;
+  line-height: 1;
+  margin-top: 14px;
+}
+.col-md-6.search_flights_departures {
+  padding-right: 40px;
+}
+.search_flights_titles {
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.search_flights_titles h3 {
+  color: black;
+  font-size: 19px;
+  line-height: 23px;
+  float: left;
+  padding-top: 9px;
+  font-family: 'Calibre';
+}
+.date_drop_down {
+  float: right;
+  padding: 0px 5px 0px 14px;
+  background: #411777;
+  border-radius: 100px;
+ 
+}
+.search_flights_returns .date_drop_down,
+.search_flights_departures .date_drop_down {
+  width: 135px;
+  padding: 0px 21px 0px 14px;
+}
+.search_flights_returns .date_drop_down  .form-item,
+.search_flights_departures .date_drop_down .form-item {
+  margin: 0;
+}
+.date_drop_down select {
+ 
+  color: white;
+  line-height: 30px;
+  border: 0px;
+  background: var(--purp) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='white' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 1rem center/10px 10px;
+  padding-right: 20px;
+   
+}
+.sfb {
+  color: black;
+  padding: 40px 25px;
+  margin-bottom: 30px;
+}
+.sfb .ticket_city_big {
+  font-size: 42px;
+}
+.sfb .ticket_city_small {
+  font-size: 14px;
+}
+.search_stops {
+  text-align: center;
+  color: #7318ea;
+  font-size: 14px;
+}
+.search_stops svg {
+  width: 29px;
+  margin: auto;
+  display: block;
+}
+.search_dots {
+  margin-bottom: 10px;
+  margin-top: -10px;
+}
+.search_flights_times_row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.search_flights_times_row .col-md-3 {
+  width: 25%;
+}
+.search_flights_number {
+  font-size: 17px;
+  padding-top: 0;
+  line-height: 1;
+}
+.search_flights_times_row .cm6 {
+  width: 36%;
+}
+.search_flights_times_row h4, .fares h4 {
+  font-size: 13px;
+  line-height: 1;
+}
+.search_time_big {
+  font-size: 21px;
+  color: #7318ea;
+  float: left;
+  margin-right: 3px;
+  line-height: 1;
+  margin-top: 2px;
+}
+.search_time_small {
+  font-size: 15px;
+  opacity: .7;
+  line-height: 1;
+  float: left;
+  padding-top: 6px;
+}
+.row.fares {
+  text-align: center;
+  margin-top: 22px;
+}
+.row.fares .custom-control {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.row.fares .custom-control label,
+.row.fares .custom-control input {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 40px;
+  border-radius: 50px;
+  padding-top: 5px;
+  background: white;
+  font-size: 17px;
+  color: #411876;
+  border: 2px solid #411876;
+}
+.row.fares .custom-control input[type="radio"] {
+  opacity: 0.01;
+  z-index: 100;
+}
+.row.fares .custom-control input[type="radio"]:checked+label,
+.Checked+label {
+  background: #411876;
+  color: #fff;
+}
+.fares .custom-control label::before {
+  /* height: 40px;
+  border-radius: 50px;
+  padding-top: 5px;
+  background: white;
+  font-size: 17px;
+  color: #411876;
+  border: 2px solid #411876; */
+  opacity: 0;
+}
+.row.fares .book_page_airport {
+  position: relative;
+  z-index: 5;
+  top: 22px;
+  display: block;
+}
+.row.fares .book_page_airport a {
+  font-size: 14px;
+    color: #7318ea;
+    cursor: pointer;
+}
+.search_flights_returns .date_select_date .custom-control label,
+#flight-date-switcher--from .date_select_date label {
+  display: none;
+} 
+
+
+
+
+
 @media only screen and (min-width: 320px) and (max-width:575px){
   #banner-section #block-travelpolicy .field--name-body, 
   #banner-section #block-safetypage .field--name-body {

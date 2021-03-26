@@ -4,33 +4,68 @@
  * Theme override for a flight.
  */
 #}
-<div class="book_ticket_body bt_outbound">
-  <h4>{{ title }}</h4>
+<!-- BEGIN DEPARTURE DETAILS -->
+<div class="row ticket_total_details">
+							<div class="col-md-4">
+            
+								#3E2203
+                {# find out the ticket no  #}
+							</div>
+							<div class="col-md-4">
+									<div class="ticket_total_depart">{{ title }}</div>
+							</div>
+							<div class="col-md-4 tcb_right">
+              {{ date }}
+							</div>
+						</div>
+            <div class="row">
+							<div class="col-md-4">
+								<div class="ticket_city_big"> {{ from.code }}</div>
+								<div class="ticket_city_small">{{ from.name }}</div>
+							</div>
+							<div class="col-md-4">
+								<div class="ticket_total_plane">
+									<svg viewBox="0 0 26.68 25.389">
+										  <path id="np_plane_2045803_000000" d="M17.415,17.187l-6.568,10.48c0,.074-.074.074-.148.074H8.116a.2.2,0,0,1-.222-.222l3.247-10.332H4.2L2.286,19.77c0,.074-.074.074-.148.074H.219A.2.2,0,0,1,0,19.622l1.328-4.576L0,10.47a.236.236,0,0,1,.222-.222H2.138c.074,0,.148,0,.148.074L4.2,12.905h6.937L7.895,2.573a.236.236,0,0,1,.222-.222H10.7c.074,0,.148,0,.148.074l6.568,10.48h7.159a2.14,2.14,0,0,1,0,4.28H17.415Z" transform="translate(0.003 -2.352)" fill="#7316ea" fill-rule="evenodd"></path>
+									</svg>
+										
+								</div>
+							</div>
+							<div class="col-md-4 tcb_right">
+								<div class="ticket_city_big"> {{ to.code }}</div>
+								<div class="ticket_city_small">{{ to.name }}</div>
+							</div>
+						</div>
+<!-- END DEPARTURE DETAILS -->
+<div class="ticket_divider"></div>
+ 
+<!-- <div class="book_ticket_body bt_outbound">
+  {# <h4>{{ title }}</h4> #}
 
   <div class="row rnp">
     <div class="col-xs-3">
-      <b>{{ 'Date:'|t }}</b>
+      {# <b>{{ 'Date:'|t }}</b> #}
     </div>
     <div class="col-xs-9">
-      {{ date }}
+      {# {{ date }} #}
     </div>
   </div>
 
   <div class="row rnp">
     <div class="col-xs-3">
-      <b>{{ 'From:'|t }}</b>
+      {# <b>{{ 'From:'|t }}</b> #}
     </div>
     <div class="col-xs-9">
-      {{ from }}
+      {# {{ from }} #}
     </div>
   </div>
 
   <div class="row rnp">
     <div class="col-xs-3">
-      <b>{{ 'To:'|t }}</b>
+      {# <b>{{ 'To:'|t }}</b> #}
     </div>
     <div class="col-xs-9">
-       {{ to }}
+       {# {{ to }} #}
     </div>
   </div>
-</div>
+</div> -->

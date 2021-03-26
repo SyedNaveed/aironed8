@@ -1,47 +1,140 @@
 {#
 /**
- * @file
- * Theme override for a flight times row.
- */
+* @file
+* Theme override for a flight times row.
+*/
 #}
-<div class="col-md-2 col-sm-4 col-xs-6 bs_depart">
+
+<div class="wbg shadow sfb">
+  <div class="row">
+    <div class="col-md-4 cs5">
+      <div class="ticket_city_big">{{ departures[0].code }}</div>
+      <div class="ticket_city_small">{{ departures[0].name }}</div>
+    </div>
+    <div class="col-md-4 cs2">
+      <div class="search_stops">
+        <svg viewbox="0 0 25.979 24.722">
+          <path id="plane"
+            d="M16.957,16.8,10.562,27c0,.072-.072.072-.144.072H7.9a.191.191,0,0,1-.216-.216L10.849,16.8H4.094L2.225,19.312c0,.072-.072.072-.144.072H.213A.191.191,0,0,1,0,19.168L1.29,14.712,0,10.257a.23.23,0,0,1,.216-.216H2.082c.072,0,.144,0,.144.072l1.869,2.515h6.755L7.687,2.567A.23.23,0,0,1,7.9,2.352h2.515c.072,0,.144,0,.144.072l6.4,10.2h6.971a2.084,2.084,0,0,1,0,4.168H16.957Z"
+            transform="translate(0.003 -2.352)" fill="#7316ea" fill-rule="evenodd"></path>
+        </svg>
+        <span>{{ stops }}
+        </span>
+      </div>
+    </div>
+    <div class="col-md-4 cs5">
+      <div class="ticket_city_big">{{ arrivals[0].code }}</div>
+      <div class="ticket_city_small">{{ arrivals[0].name }}</div>
+    </div>
+  </div>
+
+
+  {# loop start for departure #}
+  {% for key, flight in departures %}
+  <div class="search_dots">
+    <svg viewbox="0 0 340.231 1">
+      <line id="Line_70" data-name="Line 70" x2="339.231" transform="translate(0.5 0.5)" fill="none" stroke="#bbbbbb"
+        stroke-linecap="round" stroke-width="1" stroke-dasharray="0 2"></line>
+    </svg>
+  </div>
+  <div class="row search_flights_times_row">
+    <div class="col-md-3 cs12">
+      <div class="search_flights_number">{{ flight.flight }}</div>
+    </div>
+    <div class="col-md-4 cs6">
+      <h4>Depart</h4>
+      <div class="search_time">
+        <div class="search_time_big">{{ flight.time }} </div>
+        <div class="search_time_small">{{ flight.code }}</div>
+      </div>
+    </div>
+    <div class="col-md-4 cs6">
+      <h4>Arrive</h4>
+      <div class="search_time">
+        <div class="search_time_big">{{ arrivals[key].time }}</div>
+        <div class="search_time_small">{{ arrivals[key].code }}</div>
+      </div>
+    </div>
+
+  </div>
+  {% endfor %}
+<div class="search_dots_second">
+									<svg viewBox="0 0 340.231 1">
+										  <line id="Line_70" data-name="Line 70" x2="339.231" transform="translate(0.5 0.5)" fill="none" stroke="#bbbbbb" stroke-linecap="round" stroke-width="1" stroke-dasharray="0 2"></line>
+									</svg>
+								</div>
+  <div class="row fares">
+    <div class="col-md-4">
+      <h4>Business</h4>
+
+      {% if business_price is empty %}
+      <span class="active">{{ 'Sold Out'|t }}</span>
+        {% else %}
+        <span class="active"> {{ business_price }}</span>
+        <span class="book_page_airport">{{ business_detail }}</span>
+        {% endif %}
+
+    </div>
+    <div class="col-md-4">
+      <h4>Everyday</h4>
+        {% if everyday_price is empty %}
+        <span class="active">{{ 'Sold Out'|t }}</span>
+        {% else %}
+        <span class="active">{{ everyday_price }}</span>
+        <span class="book_page_airport">{{ everyday_detail }}</span>
+        {% endif %}
+    </div>
+    <div class="col-md-4">
+      <h4>Go Your Way</h4>
+       {% if go_your_way_price is empty %}
+        <span class="active">{{ 'Sold Out'|t }}</span>
+        {% else %}
+         <span class="active">{{ go_your_way_price }}</span>
+        <span class="book_page_airport">{{ go_your_way_detail }}</span>
+        {% endif %}
+    </div>
+  </div>
+</div>
+
+
+{# <div class="col-md-2 col-sm-4 col-xs-6 bs_depart">
   {% for flight in departures %}
-    <span class="book_page_airport">{{ flight.flight }}</span><br>
-    <span class="book_page_time">{{ flight.time }}</span>
-    <span class="book_page_airport">{{ flight.code }}</span><br>
+  <span class="book_page_airport">{{ flight.flight }}</span><br>
+  <span class="book_page_time">{{ flight.time }}</span>
+  <span class="book_page_airport">{{ flight.code }}</span><br>
   {% endfor %}
-</div>
-<div class="col-md-2 col-sm-4 col-xs-6 bs_arrive">
+</div> #}
+{# <div class="col-md-2 col-sm-4 col-xs-6 bs_arrive">
   {% for flight in arrivals %}
-    <span class="book_page_airport">&nbsp;</span><br>
-    <span class="book_page_time">{{ flight.time }}</span>
-    <span class="book_page_airport">{{ flight.code }}</span><br>
+  <span class="book_page_airport">&nbsp;</span><br>
+  <span class="book_page_time">{{ flight.time }}</span>
+  <span class="book_page_airport">{{ flight.code }}</span><br>
   {% endfor %}
-</div>
-<div class="col-md-1 col-sm-2 col-xs-12  bs_stops">
+</div> #}
+{# <div class="col-md-1 col-sm-2 col-xs-12  bs_stops">
   <span class="book_page_time">{{ stops }}</span>
-</div>
-<div class="col-md-2 col-sm-4 col-xs-12 bs_refund">
+</div> #}
+{#<div class="col-md-2 col-sm-4 col-xs-12 bs_refund">
   {{ business_price }}
   {% if business_price is empty %}
-    <span class="book_page_supersaver">{{ 'Sold Out'|t }}</span>
+  <span class="book_page_supersaver">{{ 'Sold Out'|t }}</span>
   {% else %}
-    <span class="book_page_airport">{{ business_detail }}</span>
+  <span class="book_page_airport">{{ business_detail }}</span>
   {% endif %}
-</div>
-<div class="col-md-3 col-sm-4 col-xs-12 bs_nonrefund">
+</div> #}
+{# <div class="col-md-3 col-sm-4 col-xs-12 bs_nonrefund">
   {{ everyday_price }}
   {% if everyday_price is empty %}
-    <span class="book_page_supersaver">{{ 'Sold Out'|t }}</span>
+  <span class="book_page_supersaver">{{ 'Sold Out'|t }}</span>
   {% else %}
-    <span class="book_page_airport">{{ everyday_detail }}</span>
+  <span class="book_page_airport">{{ everyday_detail }}</span>
   {% endif %}
-</div>
-<div class="col-md-2 col-sm-4 col-xs-12 bs_ss">
+</div> #}
+{# <div class="col-md-2 col-sm-4 col-xs-12 bs_ss">
   {{ go_your_way_price }}
   {% if go_your_way_price is empty %}
-    <span class="book_page_supersaver">{{ 'Sold Out'|t }}</span>
+  <span class="book_page_supersaver">{{ 'Sold Out'|t }}</span>
   {% else %}
-    <span class="book_page_airport">{{ go_your_way_detail }}</span>
+  <span class="book_page_airport">{{ go_your_way_detail }}</span>
   {% endif %}
-</div>
+</div> #}

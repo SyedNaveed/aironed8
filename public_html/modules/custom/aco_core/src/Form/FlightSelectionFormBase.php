@@ -26,14 +26,13 @@ abstract class FlightSelectionFormBase extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-   $form['ddd'] = ['#markup' => 'asdfsadf'];
+ 
     
    
     if (!$this->setup($form, $form_state, 'flight-selection')) {
-      exit(1);
       return $form;
     }
-    return $form;
+ 
 
     $all_airports = Locations::getAirportOptions();
     $title = $this->t('Flights from @from to @to', [
@@ -42,28 +41,32 @@ abstract class FlightSelectionFormBase extends FormBase {
     ]);
     $form['title'] = ['#markup' => $title];
 
-    $form['description'] = [
-      '#theme' => 'baggage_description',
-    ];
+    // $form['description'] = [
+    //   '#theme' => 'baggage_description',
+    // ];
 
     $flights = $this->getFlightFares();
 
-    $form['from'] = $this->getDateChanger($form_state->getValue('from'), 'from');
+      $form['from'] = $this->getDateChanger($form_state->getValue('from'), 'from');
     $form['departure'] = [
       '#theme' => 'flight_times_table',
-      '#attributes' => ['id' => 'flight-fares-table--from'],
+      '#attributes' => ['id' => 'flight-fares-table--from', "class"=>['']],
       '#flights' => $flights['from'],
+      // '#datepicker' => $form['from'],
     ];
+
 
     if ($this->values['isRoundtrip']) {
       $form['to'] = $this->getDateChanger($form_state->getValue('to'), 'to');
       $form['arrival'] = [
         '#theme' => 'flight_times_table',
-        '#attributes' => ['id' => 'flight-fares-table--to'],
+        '#attributes' => ['id' => 'flight-fares-table--to', "class"=>['']],
         '#flights' => $flights['to'],
+        // '#datepicker' => $form['to'],
+
       ];
     }
-
+    $form['#theme'] = "form__book_flight_flight_selection";
     return $form;
   }
 
@@ -229,7 +232,7 @@ abstract class FlightSelectionFormBase extends FormBase {
   protected function getDateChanger($value, $type) {
     $default_value = empty($value) ? $this->values[$type] : $value;
     return [
-      '#type' => 'radios',
+      '#type' => 'select',
       '#title' => $type == 'from' ? $this->t('Departure date:') : $this->t('Return date:'),
       '#title_display' => 'before',
       '#default_value' => $default_value,
@@ -278,11 +281,13 @@ abstract class FlightSelectionFormBase extends FormBase {
         $departures[] = [
           'time' => TimeHelper::getLocalTime($flight['departure'], $time_format),
           'code' => $flight['departure']['airport']['code'],
+          'name' => $flight['departure']['airport']['name'],
           'flight' => $flight['airlineCode']['code'] . $flight['flightNumber'],
         ];
         $arrivals[] = [
           'time' => TimeHelper::getLocalTime($flight['arrival'], $time_format),
           'code' => $flight['arrival']['airport']['code'],
+          'name' => $flight['arrival']['airport']['name'],
         ];
       }
 

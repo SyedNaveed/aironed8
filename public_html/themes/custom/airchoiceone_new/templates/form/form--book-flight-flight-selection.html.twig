@@ -1,0 +1,59 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a 'form' element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see template_preprocess_form()
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="dashboard_content search_flights_page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1 class="serach_flights_h1">{{ element.title }}</h1>
+        <div class="row">
+        <div class="col-md-6 search_flights_departures">
+            {# {{ dump(element.from|keys) }} #}
+          <div class="search_flights_titles">
+          <h3>Departure Flight</h3>
+          <div class="date_drop_down">
+            {{ element.from|without('#title') }}
+            </div>
+          </div>   
+          
+          {{ element.departure }}
+        </div>
+
+
+        <div class="col-md-6 search_flights_returns">
+        <div class="search_flights_titles">
+          <h3>Return Flight</h3>
+          <div class="date_drop_down">
+            {{ element.to|without('#title') }}
+            </div>
+          </div>   
+           
+          {{ element.arrival }}
+        </div>
+
+        {{ element|without('content', 'title', 'ticket', 'from', 'to', 'departure', 'arrival') }}
+        </div>
+      </div>
+      <div class="col-md-4 ticket_row_ticket">
+        <div class="ticket ticket_purp purp ticket_total">
+          {{ element.ticket }}
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pd"></div>
+<div class="pd"></div>

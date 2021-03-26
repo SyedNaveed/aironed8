@@ -4,56 +4,69 @@
  * Theme override for a flight times table.
  */
 #}
-<div{{ attributes }}>
-  <div class="book_page_table">
-    <div class="book_page_table_head">
-      <div class="row">
-        <div class="col-sm-2 col-md-2 bpth_br">
-          <h4>{{ 'Depart'|t }}</h4>
-        </div>
-        <div class="col-sm-2 col-md-2 bpth_br">
-          <h4>{{ 'Arrive'|t }}</h4>
-        </div>
-        <div class="col-md-1 col-sm-2 bpth_br">
-          <h4>{{ 'Stops'|t }}</h4>
-        </div>
-        <div class="col-md-2 col-sm-3 bpth_br hvr_btn">
-            <div class="fare_hover">{% trans %}<b>Business Fare</b><br>{% endtrans %}
-              {{ site_settings.general.flight_selection_page.field_longtext.value|striptags('<li>')|raw }}
-            </div>
-            <h4><span>{{ 'Business'|t }}</span></h4>
-        </div>
-        <div class="col-md-3 col-sm-3 bpth_br tab_nonrefund hvr_btn">
-            <div class="fare_hover">{% trans %}<b>Everyday Fare</b><br>{% endtrans %}
-              {{ site_settings.general.flight_selection_page.field_longtext2.value|striptags('<li>')|raw }}
-            </div>
-            <h4><span>{{ 'Everyday'|t }}</span></h4>
-        </div>
-        <div class="col-md-2 no_tablet hvr_btn">
-            <div class="fare_hover">{% trans %}<b>Go Your Way Fare</b><br>{% endtrans %}
-              {{ site_settings.general.flight_selection_page.field_longtext3.value|striptags('<li>')|raw }}
-            </div>
-            <h4><span>{{ 'Go Your Way'|t }}</span></h4>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="book_page_table_values">
-    {% if flights is not empty %}
-      {% for flight in flights %}
-        <div class="row book_page_table_row">
-          {{ flight }}
-        </div>
-      {% endfor %}
-    {% else %}
-      <div class="row book_page_table_row">
-        <p class="book_page_supersaver">
-          {{ 'There are no flights available for your specifications.' }}
-        </p>
-      </div>
-    {% endif %}
-  </div>
+<div{{attributes}}>
+	<div class="search_flights_titles">
+		<h3>{{ datepicker['#title'] }}</h3>
+		<div class="date_drop_down">{{ datepicker|without('#title') }}</div>
+	</div>
+  {% if flights is not empty %}
+  {% for flight in flights %}
+   
+      {# {{ dump(flight|keys) }} #}
+      {{ flight }}
+      
+	{% endfor %}
+			{% else %}
+				<div class="row book_page_table_row">
+					<p class="book_page_supersaver">
+						{{ 'There are no flights available for your specifications.' }}
+					</p>
+				</div>
+			{% endif %}
 
-  <div class="divide60"></div>
+
+ {% if false %}
+	<div class="book_page_table">
+		<div class="book_page_table_head">
+			<div class="row">
+				<div class="col-sm-2 col-md-2 bpth_br">
+					<h4>{{ 'Depart'|t }}</h4>
+				</div>
+				<div class="col-sm-2 col-md-2 bpth_br">
+					<h4>{{ 'Arrive'|t }}</h4>
+				</div>
+				<div class="col-md-1 col-sm-2 bpth_br">
+					<h4>{{ 'Stops'|t }}</h4>
+				</div>
+				<div class="col-md-2 col-sm-3 bpth_br hvr_btn">
+					<div class="fare_hover">{% trans %}<b>Business Fare</b><br>{% endtrans %}
+						{# {{ site_settings.general.flight_selection_page.field_longtext.value|striptags('<li>')|raw }} #}
+					</div>
+					<h4>
+						<span>{{ 'Business'|t }}</span>
+					</h4>
+				</div>
+				<div class="col-md-3 col-sm-3 bpth_br tab_nonrefund hvr_btn">
+					<div class="fare_hover">{% trans %}<b>Everyday Fare</b><br>{% endtrans %}
+						{# {{ site_settings.general.flight_selection_page.field_longtext2.value|striptags('<li>')|raw }} #}
+					</div>
+					<h4>
+						<span>{{ 'Everyday'|t }}</span>
+					</h4>
+				</div>
+				<div class="col-md-2 no_tablet hvr_btn">
+					<div class="fare_hover">{% trans %}<b>Go Your Way Fare</b><br>{% endtrans %}
+						{# {{ site_settings.general.flight_selection_page.field_longtext3.value|striptags('<li>')|raw }} #}
+					</div>
+					<h4>
+						<span>{{ 'Go Your Way'|t }}</span>
+					</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+	<div class="divide60"></div>
 </div>

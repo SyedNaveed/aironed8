@@ -12,16 +12,21 @@
  * @ingroup themeable
  */
 #}
-<div class="book_page">
+<div class="dashboard_content search_flights_page">
   <div class="container">
     <div class="row">
-      <div class="col-md-9">
-        <h1 class="h2">{{ element.title }}</h1>
-        {{ element.content }}
+      <div class="col-md-8">
+        <h1 class="serach_flights_h1">{{ element.title }}</h1>
+        <div class="row">
+        {# {{ element.content }} #}
         {{ element|without('content', 'title', 'ticket') }}
+        </div>
       </div>
-      <div class="col-md-3">
-        {{ element.ticket }}
+      <div class="col-md-4 ticket_row_ticket">
+        <div class="ticket ticket_purp purp ticket_total">
+          {{ element.ticket }}
+        </div>
+        
       </div>
     </div>
   </div>

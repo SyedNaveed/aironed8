@@ -181,10 +181,10 @@
 					<div class="row">
 						{% for flight in data.upcomingFlights%}
 						<div class="col-md-6">
-							<!-- <div class="alert alert-info">
+							  <div class="alert alert-info">
 								variables in fligt
-								<pre>{{ dump(flight) }}</pre>
-							</div> -->
+								<pre>{{ dump(flight)|keys }}</pre>
+							</div>  
 							<div class="ticket ticket_white wbg">
 								<h4>{{ flight.name }}</h4>
 								<div class="row">
