@@ -15,80 +15,106 @@
 <div class="book_page">
   <div class="container">
     <div class="row">
-      <div class="col-md-9">
-        <h1 class="h2">{{ element.title }}</h1>
-        {{ element.tab_buttons }}
+      <div class="col-md-7">
+        <h1  >{{ element.title }}</h1>
+        <div class="divide10"></div>
+        <div class="row seat_flight_ov">
+						<div class="col-md-4 cs6">
+							<label>Flight Number</label>
+							<h4>3E2700 JBR-STL</h4>
+						</div>
+						<div class="col-md-4 cs6">
+							<label>Passenger</label>
+							<h4>Matt McKenna</h4>
+						</div>
+						<div class="col-md-3 cs6">
+							<label>Upgrade Price</label>
+							<h4>$0.00</h4>
+						</div>
+						
+						<div class="col-md-1 cs6">
+							<label>Seat</label>
+							<div class="seat_select_small"></div><h4>1B</h4>
+						</div>
+					</div>
+          <div class="flights-seat-btuns">
+            {{ element.tab_buttons }}
+          </div>
+        
 
         <div class="divide50"></div>
 
         <div class="row">
-          <div class="col-md-12 col-sm-5">
-            <div class="book_page_table">
-              <div class="book_page_table_head show_tablet bp_seats">
-                <div class="row">
-                  <div class="col-md-2 col-sm-12 bpth_br bpth_seat">
-                    <span></span>
+          <div class="col-md-7 col-sm-5">
+            <div class="seat_color_list">
+              <h2>Choose Your Seat</h2>
+              <p>Click a seat on the plane to select your seat. The key below explains what each color means.</p>
+                 <ul class="bpth_seat">
+                  <li class=" bpth_br bpth_seat">
+                    <span class="s1"></span>
                     <h4>{{ 'Selected'|t }}</h4>
-                  </div>
-                  <div class="col-md-2 col-sm-12 bpth_br bpth_seat">
-                    <span></span>
+                  </li>
+                  <li class=" bpth_br bpth_seat">
+                    <span class="s2"></span>
                     <h4>{{ 'Unavailable'|t }}</h4>
-                  </div>
-                  <div class="col-md-2 col-sm-12 bpth_br bpth_seat">
-                    <span></span>
+                  </li>
+                  <li class=" bpth_br bpth_seat">
+                    <span class="s3"></span>
                     <h4>{{ 'Occupied'|t }}</h4>
-                  </div>
-                  <div class="col-md-2 col-sm-12 bpth_br bpth_seat">
-                    <span></span>
+                  </li>
+                  <li class=" bpth_br bpth_seat">
+                    <span class="s4"></span>
                     <h4>{{ 'Standard'|t }}</h4>
-                  </div>
-                  <div class="col-md-2 col-sm-12 bpth_br bpth_seat">
-                    <span></span>
+                  </li>
+                  <li class=" bpth_br bpth_seat">
+                    <span class="s5"></span>
                     <h4>{{ 'Plus'|t }}</h4>
-                  </div>
-                  <div class="col-md-2 col-sm-12 bpth_seat">
-                    <span></span>
+                  </li>
+                  <li class=" bpth_seat">
+                    <span class="s6"></span>
                     <h4>{{ 'Premium/Emergency'|t }}</h4>
-                  </div>
-                </div>
-              </div>
+                  </li>
+                 </ul>
+             
+            </div>
+            <div class="col-md-12 col-sm-12">
+              {{ element.seat_selections }}
+  
+              <div class="divide40"></div>
+  
+              <h4 class="seat_list_h4">{{ 'To travel in an emergency exit row seat a passenger must:'|t }}</h4>
+              <ul class="seats_list">
+                <li>{{ 'Be 16 years of age or older.'|t }}</li>
+                <li>{{ 'Be able to understand the operating instructions.'|t }}</li>
+                <li>{{ 'Be able to operate the emergency exit without causing themselves bodily harm.'|t }}</li>
+                <li>{{ 'Be able to visually determine if the exit is safe to open.'|t }}</li>
+                <li>{{ 'Not require special handling or the use of a mobility aid or medical device.'|t }}</li>
+                <li>{{ 'Not be traveling with an animal in the cabin.'|t }}</li>
+                <li>{{ 'Not be solely responsible for another person.'|t }}</li>
+                <li>{{ 'Not require a seatbelt extender as this presents a tripping hazard.'|t }}</li>
+              </ul>
+  
+             
+               
             </div>
           </div>
 
-          <div class="col-md-4 col-sm-7">
+          <div class="col-md-5 col-sm-7">
             {{ element.seats }}
           </div>
 
-          <div class="col-md-8 col-sm-12">
-            {{ element.seat_selections }}
-
-            <div class="divide40"></div>
-
-            <h4 class="seat_list_h4">{{ 'To travel in an emergency exit row seat a passenger must:'|t }}</h4>
-            <ul class="seats_list">
-              <li>{{ 'Be 16 years of age or older.'|t }}</li>
-              <li>{{ 'Be able to understand the operating instructions.'|t }}</li>
-              <li>{{ 'Be able to operate the emergency exit without causing themselves bodily harm.'|t }}</li>
-              <li>{{ 'Be able to visually determine if the exit is safe to open.'|t }}</li>
-              <li>{{ 'Not require special handling or the use of a mobility aid or medical device.'|t }}</li>
-              <li>{{ 'Not be traveling with an animal in the cabin.'|t }}</li>
-              <li>{{ 'Not be solely responsible for another person.'|t }}</li>
-              <li>{{ 'Not require a seatbelt extender as this presents a tripping hazard.'|t }}</li>
-            </ul>
-
-            <div class="seat_buttons center">
-              {{ element|without('actions', 'tab_buttons', 'seats', 'seat_selections', 'title', 'ticket') }}
-              {{ element.actions|without('previous') }}
-            </div>
-            <div class="center mbm40">
-              {{ element.actions.previous }}
-            </div>
-          </div>
+          
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-1"></div>
+      <div class="col-md-4">
         {{ element.ticket }}
       </div>
+    </div>
+    <div class="checkout_next_back">
+      {{ element|without('actions', 'tab_buttons', 'seats', 'seat_selections', 'title', 'ticket') }}
+      {{ element.actions|without('previous') }}
+      {{ element.actions.previous }}
     </div>
   </div>
 </div>

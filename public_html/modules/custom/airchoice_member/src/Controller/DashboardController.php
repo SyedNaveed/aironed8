@@ -21,6 +21,12 @@ class DashboardController extends ControllerBase {
   public function index(){
     $build = [];
 
+    $userSession = \Drupal::currentUser();
+    $uid = $userSession->id();
+    $userInfo = AirchoiceMember::getBasicProfileInfo($uid);
+
+
+
     $findFlightForm = \Drupal::formBuilder()->getForm('\Drupal\airchoice_member\Form\FindFlightForm');
     $findFlightForm = \Drupal::formBuilder()->getForm('\Drupal\aco_book_flight\Form\SearchForm');
     $upcomingFlights = [];
@@ -32,7 +38,8 @@ class DashboardController extends ControllerBase {
       '#theme' => 'page-dashboard-main',
       '#data' => [
         'findFlightForm' => $findFlightForm,
-        'upcomingFlights' => $upcomingFlights
+        'upcomingFlights' => $upcomingFlights,
+        'currentUser'  => $userInfo['user']
       ]
     ];
 

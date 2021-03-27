@@ -20795,12 +20795,13 @@ body.path-book-flight form.aco-book-flight-flight-selection-form {
   margin: 0;
 }
 .date_drop_down select {
- 
   color: white;
   line-height: 30px;
   border: 0px;
-  background: var(--purp) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='white' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 1rem center/10px 10px;
-  padding-right: 20px;
+  background: var(--purp) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='white' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 1rem;
+  padding-right: 0px;
+  background-position: right;
+  background-size: 11px 24px;
    
 }
 .sfb {
@@ -20920,11 +20921,149 @@ body.path-book-flight form.aco-book-flight-flight-selection-form {
 #flight-date-switcher--from .date_select_date label {
   display: none;
 } 
+form.aco-book-flight-seat-selection-form .booking_seats img {
+  width: 100%;
+  height: 552px;
+}
+form.aco-book-flight-seat-selection-form .booking_seats .seats {
+  position: absolute;
+  z-index: 1;
+  top: 131px;
+  width: 100px;
+  left: calc(50% - 50px);
+}
+form.aco-book-flight-seat-selection-form .booking_seats .seats ul {
+  list-style: none;
+  padding-left: 0px;
+}
+form.aco-book-flight-seat-selection-form .booking_seats .seats ul li {
+  background: #BCC1D0;
+  height: 55px;
+  width: 40%;
+  float: left;
+  margin: 5%;
+  border-radius: 5px;
+  list-style: none;
+}
+.seats li.is-standard {
+  cursor: pointer;
+  background: #BCC1D0;
+}
+form.aco-book-flight-seat-selection-form .booking_seats .seats .visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(1px,1px,1px,1px);
+  width: 1px;
+  height: 1px;
+  word-wrap: normal;
+}
+.divide10 {
+  width: 100%;
+  height: 10px;
+}
+.row.seat_flight_ov {
+  border-bottom: 1px solid #c8cfda;
+}
+.row.seat_flight_ov label {
+  font-size: 15px;
+  line-height: 1;
+}
+.seat_flight_ov h4 {
+  font-size: 19px;
+  color: #411777;
+  LINE-HEIGHT: 1.2;
+  MARGIN-BOTTOM: 15px;
+  font-family: 'Calibre';
+}
+ul.bpth_seat {
+  overflow: hidden;
+  margin-bottom: 27px;
+  padding-left: 0px;
+}
 
+ul.bpth_seat li {
+  position: relative;
+  list-style: none;
+  width: 48%;
+  float: left;
+  padding-left: 20px;
+  margin-bottom: 13px;
+  /* margin-right: 40px; */
+  line-height: 34px;
+  font-size: 18px;
+}
 
-
-
-
+.seat_color_list .bpth_seat li .s1 {
+  background: #16EA80;
+}
+.seat_color_list .bpth_seat li .s2 {
+  background: #EA1637;
+}
+.seat_color_list .bpth_seat li .s3 {
+  background: #1678EA;
+}
+.seat_color_list .bpth_seat li .s4 {
+  background: #BCC1D0;
+}
+.seat_color_list .bpth_seat li .s5 {
+  background: #F06B09;
+}
+.seat_color_list .bpth_seat li .s6 {
+  background: #7316EA;
+}
+.bpth_seat li span, .selected_seat span {
+  height: 19px;
+  width: 12px;
+  content: '';
+  position: absolute;
+  left: 0;
+  border-radius: 2px;
+  top: 5px;
+}
+.seat_color_list {
+  padding-top: 25px;
+}
+.flights-seat-btuns {
+  padding-top: 25px;
+  padding-bottom: 40px;
+}
+.booking_seats {
+  text-align: right;
+}
+form.aco-book-flight-seat-selection-form .book_page {
+  padding-left: 90px;
+}
+form.aco-book-flight-seat-selection-form .book_page .book_ticket {
+  background-color: #411777;
+}
+form.aco-book-flight-seat-selection-form .book_page .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+form.aco-book-flight-seat-selection-form .book_page .ticket_summary {
+  padding: 0 20px;
+}
+form.aco-book-flight-seat-selection-form .book_page .ticket_total_title {
+  width:  100% ;
+  margin-left: 0px;
+  margin-top: 0;
+}
+form.aco-book-flight-seat-selection-form .book_page .book_ticket_body,
+form.aco-book-flight-seat-selection-form .book_page .ticket_summary,
+form.aco-book-flight-seat-selection-form .book_page .ticket_city_small,
+form.aco-book-flight-seat-selection-form .book_page .ticket_city_big,
+form.aco-book-flight-seat-selection-form .book_page .row.ticket_total_details {
+ 
+  color: #fff;
+}
+form.aco-book-flight-seat-selection-form .book_page .ticket_dash {
+  width: calc(100% + 0px);
+  margin-left: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
 @media only screen and (min-width: 320px) and (max-width:575px){
   #banner-section #block-travelpolicy .field--name-body, 
   #banner-section #block-safetypage .field--name-body {

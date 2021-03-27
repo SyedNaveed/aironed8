@@ -23,8 +23,8 @@
       </div>
     </div>
     <div class="col-md-4 cs5">
-      <div class="ticket_city_big">{{ arrivals[0].code }}</div>
-      <div class="ticket_city_small">{{ arrivals[0].name }}</div>
+      <div class="ticket_city_big">{{ arrivals|last.code }}</div>
+      <div class="ticket_city_small">{{ arrivals|last.name }}</div>
     </div>
   </div>
 
@@ -70,7 +70,7 @@
       {% if business_price is empty %}
       <span class="active">{{ 'Sold Out'|t }}</span>
         {% else %}
-        <span class="active"> {{ business_price }}</span>
+        <span class="active"> {{ business_price }}-----</span>
         <span class="book_page_airport">{{ business_detail }}</span>
         {% endif %}
 
