@@ -20275,6 +20275,7 @@ h1, h2, h3, h4, h6 {
   margin-left: 0px;
   margin-right: 0px;
 }
+.ticket .col-lg-4,
 .ticket .col-md-4, .ticket .col-md-2 {
   padding-left: 0px;
   padding-right: 0px;
@@ -20642,6 +20643,8 @@ form.aco-book-flight-search-form .description {
 }
 .openclose .fa-chevron-right {
   position: relative;
+  top: -1px;
+  right: 2px;
 }
 .openclose .fa-chevron-right::before {
   display: inline-block;
@@ -20653,6 +20656,8 @@ form.aco-book-flight-search-form .description {
 }
 .openclose .fa-chevron-left {
   position: relative;
+  top: -1px;
+    right: 2px;
 }
 .openclose .fa-chevron-left::before {
   display: inline-block;
@@ -20701,6 +20706,7 @@ body.path-book-flight form.aco-book-flight-flight-selection-form {
   padding-left: 0px;
   padding-right: 0px;
 }
+.col-lg-4.tcb_right,
 .col-md-4.tcb_right {
   text-align: right;
 }
@@ -21064,100 +21070,93 @@ form.aco-book-flight-seat-selection-form .book_page .ticket_dash {
   position: relative;
   overflow: hidden;
 }
-@media only screen and (min-width: 320px) and (max-width:575px){
-  #banner-section #block-travelpolicy .field--name-body, 
-  #banner-section #block-safetypage .field--name-body {
-    width: 100%;
-  }
-  header#header-menu.menuscroll {
-    z-index: 12;
-  }
-  header#header-menu.menuscroll a.navbar-brand {
-    color: #000;
-  }
-  header#header-menu.menuscroll .navbar-toggler {
-    border: 1px solid black;
-    fill: black;
-  }
-  header#header-menu.menuscroll .navbar-dark .navbar-toggler-icon {
-     fill: black;
-  }
-  header#header-menu.menuscroll #navigation-container #menu-main.search-effect {
-     background-color: #fff;
-     padding: 20px;
-  }
-  .navigation.menu--flight > .navbar-nav .nav-item{
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-  .navigation.menu--flight > .navbar-nav {
-    flex-direction: column;
-    margin-left:0;
-    border-bottom: 2px solid #ccd4e2;
-  }
-  .path-flight-status #page-content .form-item.custom-control{
-    width: 100%;
-  }
-  .path-flight-status #page-content #aco-flight-status-form{
-    width: 100%;
-    overflow: hidden;
-    padding-left: 85px;
-  }
-  .path-flight-status #page-content .js-form-item.form-item.custom-control.js-form-type-select.form-type-select.js-form-item-departureairport.form-item-departureairport.form-no-label{
-    width: 100%;
-  }
-  .path-flight-status #page-content #destination-city-wrapper{
-    width: 100%;
-  }
-  .path-flight-status #aco-flight-status-form #edit-airports{
-    position: relative;
-  }
-  .path-flight-status #edit-arrivalairport.custom-select{
-    margin-left: 0px;
-  }
-  .path-flight-status .block-menu.navigation.menu--flight{
-    padding-left: 85px;
-  }
+form.aco-book-flight-contact-information-form {
+  padding-left: 90px;
 }
-@media only screen and (min-width: 576px) and (max-width:767px) {
-  .navigation.menu--flight > .navbar-nav .nav-item{
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-  .navigation.menu--flight > .navbar-nav {
-    flex-direction: column;
-    margin-left:0;
-    border-bottom: 2px solid #ccd4e2;
-  }
-  .path-flight-status #page-content .form-item.custom-control{
-    width: 100%;
-  }
-  .path-flight-status #page-content #aco-flight-status-form{
-    width: 100%;
-    overflow: hidden;
-    padding-left: 85px;
-  }
-  .path-flight-status #page-content .js-form-item.form-item.custom-control.js-form-type-select.form-type-select.js-form-item-departureairport.form-item-departureairport.form-no-label{
-    width: 100%;
-  }
-  .path-flight-status #page-content #destination-city-wrapper{
-    width: 100%;
-  }
-  .path-flight-status #aco-flight-status-form #edit-airports{
-    position: relative;
-  }
-  .path-flight-status #edit-arrivalairport.custom-select{
-    margin-left: 0px;
-  }
-  .path-flight-status .block-menu.navigation.menu--flight{
-    padding-left: 85px;
-  }
+form .form-actions .button {
+  background: #411777;
+  border: 0px;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
 }
-@media only screen and (min-width: 768px) and (max-width:1024px){
-  .path-flight-status #page-content #aco-flight-status-form {
-    width: 80%;
-  }
-  .path-flight-status #aco-flight-status-form #edit-airports{
-    top: 55%;
-  }
+form.aco-book-flight-contact-information-form .book_ticket {
+  background: #411777;
+  padding: 0 20px 20px 20px;
+}
+form.aco-book-flight-contact-information-form .ticket_total_title {
+   margin-left: -20px;  
+    margin-right: -20px;
+}
+form.aco-book-flight-contact-information-form .ticket_total_price h3,
+form.aco-book-flight-contact-information-form .ticket_total_price .ticket_total_depart,
+form.aco-book-flight-contact-information-form .ticket_summary_line,
+form.aco-book-flight-contact-information-form .ticket_city_big,
+form.aco-book-flight-contact-information-form .ticket_city_small,
+form.aco-book-flight-contact-information-form .row.ticket_total_details {
+  color: #fff;
+}
+.contact-information-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+.contact-information-form div[data-drupal-selector="edit-passengers-0-header"],
+.contact-information-form .custom-control {
+  width: 48%;
+  margin-right: 15px;
+}
+.contact-information-form .custom-control input {
+  border: 0px;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-left: 15px;
+  margin-top: 0px;
+  background-color: #fff;
+}
+.contact-information-form .custom-control select {
+  height: 50px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  width: 100%;
+  border: 0px;
+}
+.contact-information-form .custom-control select.custom-select:disabled,
+.contact-information-form .custom-control input.form-control:disabled {
+  background-color: #e9ecef;
+}
+.contact-information-form  #address-0-province {
+  width: 48%;
+}
+.contact-information-form  #address-0-province .custom-control {
+  width: 100%;
+}
+/**
+ * Seats.
+ */
+/* Unavailable */
+.seats ul li.is-unavailable {
+  background: var(--red);
+}
+/* Occupied */
+.seats ul li.is-reserved {
+  background: var(--navy);
+}
+/* Standard */
+.seats ul li.is-standard {
+  cursor: pointer;
+  background: #bbb;
+}
+/* Plus */
+.seats ul li.is-sale-block {
+  background: var(--blue);
+}
+/* Premium */
+.seats ul li.is-service-block {
+  background: #36B3EB;
+}
+/* Selected */
+.seats ul li.is-selected {
+  background: #23D962;
 }

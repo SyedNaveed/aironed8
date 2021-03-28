@@ -64,18 +64,18 @@
 									</svg>
 								</div>
   <div class="row fares">
-    <div class="col-md-4">
+    <div class="col-lg-4 col-md-12 fares-types">
       <h4>Business</h4>
 
       {% if business_price is empty %}
       <span class="active">{{ 'Sold Out'|t }}</span>
         {% else %}
-        <span class="active"> {{ business_price }}-----</span>
+        <span class="active"> {{ business_price }}</span>
         <span class="book_page_airport">{{ business_detail }}</span>
         {% endif %}
 
     </div>
-    <div class="col-md-4">
+    <div class="col-lg-4 col-md-12 fares-types">
       <h4>Everyday</h4>
         {% if everyday_price is empty %}
         <span class="active">{{ 'Sold Out'|t }}</span>
@@ -84,7 +84,7 @@
         <span class="book_page_airport">{{ everyday_detail }}</span>
         {% endif %}
     </div>
-    <div class="col-md-4">
+    <div class="col-lg-4 col-md-12 fares-types">
       <h4>Go Your Way</h4>
        {% if go_your_way_price is empty %}
         <span class="active">{{ 'Sold Out'|t }}</span>

@@ -1,0 +1,174 @@
+@media only screen and (min-width: 320px) and (max-width:575px){
+    #banner-section #block-travelpolicy .field--name-body, 
+    #banner-section #block-safetypage .field--name-body {
+      width: 100%;
+    }
+    header#header-menu.menuscroll {
+      z-index: 12;
+    }
+    header#header-menu.menuscroll a.navbar-brand {
+      color: #000;
+    }
+    header#header-menu.menuscroll .navbar-toggler {
+      border: 1px solid black;
+      fill: black;
+    }
+    header#header-menu.menuscroll .navbar-dark .navbar-toggler-icon {
+       fill: black;
+    }
+    header#header-menu.menuscroll #navigation-container #menu-main.search-effect {
+       background-color: #fff;
+       padding: 20px;
+    }
+    .navigation.menu--flight > .navbar-nav .nav-item{
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+    .navigation.menu--flight > .navbar-nav {
+      flex-direction: column;
+      margin-left:0;
+      border-bottom: 2px solid #ccd4e2;
+    }
+    .path-flight-status #page-content .form-item.custom-control{
+      width: 100%;
+    }
+    .path-flight-status #page-content #aco-flight-status-form{
+      width: 100%;
+      overflow: hidden;
+      padding-left: 85px;
+    }
+    .path-flight-status #page-content .js-form-item.form-item.custom-control.js-form-type-select.form-type-select.js-form-item-departureairport.form-item-departureairport.form-no-label{
+      width: 100%;
+    }
+    .path-flight-status #page-content #destination-city-wrapper{
+      width: 100%;
+    }
+    .path-flight-status #aco-flight-status-form #edit-airports{
+      position: relative;
+    }
+    .path-flight-status #edit-arrivalairport.custom-select{
+      margin-left: 0px;
+    }
+    .path-flight-status .block-menu.navigation.menu--flight{
+      padding-left: 85px;
+    }
+  }
+  @media only screen and (min-width: 576px) and (max-width:767px) {
+    .navigation.menu--flight > .navbar-nav .nav-item{
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+    .navigation.menu--flight > .navbar-nav {
+      flex-direction: column;
+      margin-left:0;
+      border-bottom: 2px solid #ccd4e2;
+    }
+    .path-flight-status #page-content .form-item.custom-control{
+      width: 100%;
+    }
+    .path-flight-status #page-content #aco-flight-status-form{
+      width: 100%;
+      overflow: hidden;
+      padding-left: 85px;
+    }
+    .path-flight-status #page-content .js-form-item.form-item.custom-control.js-form-type-select.form-type-select.js-form-item-departureairport.form-item-departureairport.form-no-label{
+      width: 100%;
+    }
+    .path-flight-status #page-content #destination-city-wrapper{
+      width: 100%;
+    }
+    .path-flight-status #aco-flight-status-form #edit-airports{
+      position: relative;
+    }
+    .path-flight-status #edit-arrivalairport.custom-select{
+      margin-left: 0px;
+    }
+    .path-flight-status .block-menu.navigation.menu--flight{
+      padding-left: 85px;
+    }
+  }
+  @media only screen and (min-width: 768px) and (max-width:1024px){
+    .path-flight-status #page-content #aco-flight-status-form {
+      width: 80%;
+    }
+    .path-flight-status #aco-flight-status-form #edit-airports{
+      top: 55%;
+    }
+    .dash_side {
+        z-index: 500;
+    }
+    .ticket_city_big {
+        font-size: 25px;
+    }
+    .ticket_city_small {
+        margin-top: -3px;
+    }
+    .ticket_white .ticket_depart_arrive {
+        font-size: 14px;
+    }
+    .ticket_time {
+        font-size: 25px;
+        line-height: 28px;
+    }
+    .ticket_flight_time {
+        text-align: center;
+        font-size: 30px;
+        line-height: 27px;
+    }
+    .ticket_ft_sm {
+        font-size: 18px;
+    }
+    .sfb .ticket_city_big {
+        font-size: 25px;
+    }
+    .search_stops svg {
+        width: 22px;
+ 
+    }
+    .col-md-6.search_flights_departures {
+        padding-right: 15px;
+    }
+    .search_flights_times_row .col-md-3 {
+        padding-left: 0;
+    }
+    .search_time_big {
+        font-size: 13px;
+    }
+    .row.fares {
+        margin-top: 0px;
+    }
+    .row.fares .book_page_airport {
+        top: 16px;
+    }
+    .row.fares .fares-types {
+        padding-bottom: 15px;
+    }
+    .col-lg-4.tcb_right, .col-md-4.tcb_right {
+        text-align: left;
+    }
+    .ticket_total .ticket_city_big {
+        font-size: 25px;
+    }
+    .ticket_total_plane svg {
+        width: 25px;
+    }
+    .ticket_total_price h3 {
+        font-size: 40px;
+    }
+    .contact-information-form div[data-drupal-selector="edit-passengers-0-header"], .contact-information-form .custom-control {
+        width: 46%;
+        margin-right: 15px;
+    }
+  }
+
+  @media only screen and (min-width: 768px) and (max-width:1024px) and (orientation: landscape)  {  
+    .book_ticket  .ticket_total_details .col-lg-4, 
+    .row.fares .col-md-12.fares-types {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .search_flights_returns .search_flights_titles h3,
+    .search_flights_departures .search_flights_titles h3 {
+        float: none;
+    }
+  }

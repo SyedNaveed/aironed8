@@ -15,18 +15,21 @@
 <div class="book_page">
   <div class="container">
     <div class="row">
-      <div class="col-md-9">
+      <div class="col-md-8">
         <h1 class="h2">{{ element.title }}</h1>
         <p>{{ 'Please fill all the information in English. Fields Marked with * are mandatory.'|t }}</p>
         <p>{{ 'Please enter first and last names as they appear on the passenger’s Government Issued ID or Passport.'|t }}</p>
         <div class="book_page_contact_form">
-          <div class="row">
-            {{ element.passengers }}
-            {{ element|without('passengers', 'title', 'ticket') }}
-          </div>
+        <div class="contact-information-form">
+            <div class="row">
+              {{ element.passengers }}
+              {{ element|without('passengers', 'title', 'ticket') }}
+            </div>
+        </div>
+          
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         {{ element.ticket }}
       </div>
     </div>
