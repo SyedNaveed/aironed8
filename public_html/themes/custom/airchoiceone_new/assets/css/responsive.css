@@ -5,10 +5,9 @@
     }
     header#header-menu.menuscroll {
       z-index: 12;
+      height: auto;
     }
-    header#header-menu.menuscroll a.navbar-brand {
-      color: #000;
-    }
+
     header#header-menu.menuscroll .navbar-toggler {
       border: 1px solid black;
       fill: black;
@@ -17,7 +16,7 @@
        fill: black;
     }
     header#header-menu.menuscroll #navigation-container #menu-main.search-effect {
-       background-color: #fff;
+       background-color: #411876  ;
        padding: 20px;
     }
     .navigation.menu--flight > .navbar-nav .nav-item{
@@ -159,6 +158,88 @@
         width: 46%;
         margin-right: 15px;
     }
+    #block-banner .field--name-body {
+      width: 70%;
+    }
+    #block-aviationreimagined .col-md-4 .field--name-title {
+      font-size: 44px;
+    }
+    .plan-plans .field--name-plan-info1 > .field__items > .field__item {
+      width: 33%;
+      padding: 0 0px 0 15px;
+    }
+    .plan-plans .field--name-plan-info1 .paragraph--type--aviation-reimagined- .field--name-plan-title {
+      font-size: 18px;
+    }
+    .plan-plans .field--name-plan-info1 .paragraph--type--aviation-reimagined- .field--name-plan-price {
+      font-size: 56px;
+    }
+    .plan-plans .field--name-plan-info1 .paragraph--type--aviation-reimagined- .field--name-plan-description- {
+      padding: 20px 2px;
+    }
+    .plan-plans .field--name-plan-info1 .paragraph--type--aviation-reimagined- .field--name-plan-description- p {
+      font-size: 19px;
+      width: 80%;
+      margin: auto;
+      line-height: 17px;
+      text-align: center !important;
+    }
+    .plan-plans .field--name-plan-info1 > .field__items > .field__item .paragraph--type--aviation-reimagined- .field--name-plan-link.field--type-link a {
+      width: 80%;
+      padding-bottom: 13px;
+      padding-right: 10px;
+      padding-left: 16px;
+      padding-top: 15px;
+    }
+    #block-explorethepossibilitiesofflyingwithskypass h2 {
+     
+      width: 80%;
+     
+      top: 30%;
+      font-size: 66px;
+    }
+    #block-explorethepossibilitiesofflyingwithskypass .field--name-body p {
+      top: 58%;
+    }
+    #block-aircraftdetails h2 {
+      font-size: 60px;
+    }
+    #block-aircraftdetails .field--name-body {
+      font-size: 32px;
+    }
+    #block-havequestionscontactoursupportteam h2 {
+      font-size: 38px;
+      font-family: 'Calibre-Light';
+      line-height: 53px;
+      padding-left: 50px;
+      /* word-break: break-all; */
+      padding-right: 201px;
+      padding-top: 41px;
+    }
+    #header-menu .nav.navbar-nav li.nav-item {
+      margin-right: 10px;
+    }
+    header#header-menu a img {
+      margin-right: 5px;
+    }
+    .about-bottom-section .about-col-section .field--name-content-title {
+      font-size: 28px;
+      padding: 0 44px 30px 30px;
+    }
+    .about-us-section .eb_text h2 {
+      font-size: 60px;
+    }
+    #block-contactusbanner .field--name-body {
+      width: 80%;
+      top: 39%;
+    }
+    .contact-form-section-right-inner form > .custom-processed-text {
+      font-size: 45px;
+      line-height: 42px;
+    }
+    .contact-form-section-right-inner {
+      padding: 60px 40px;
+    }
   }
 
   @media only screen and (min-width: 768px) and (max-width:1024px) and (orientation: landscape)  {  
@@ -171,4 +252,89 @@
     .search_flights_departures .search_flights_titles h3 {
         float: none;
     }
+  }
+
+  @media screen and (max-width: 767.98px) {
+    header#header-menu .navbar-collapse .block.block-system-branding-block {
+      display: none;
+    }
+    #block-contactusbanner .field--name-body {
+      width: 80%;
+    }
+    #banner-section .field--name-body p {
+      font-size: 60px;
+    }
+    .contact-form-section-right-inner {
+      padding: 41px 25px;
+    }
+    .contact-form-section-right-inner form > .custom-processed-text {
+      font-size: 40px;
+      line-height: 42px;
+    }
+    .faq-section-inner .view-faq.ui-accordion .ui-accordion-header {
+      padding-right: 10px;
+    }
+    #block-havequestionscontactoursupportteam h2 {
+      font-size: 27px;
+      line-height: 31px;
+      padding-left: 15px;
+      padding-top: 19px;
+      padding-right: 80px;
+    }
+    #block-havequestionscontactoursupportteam .field--name-body .media--type-image img {
+      width: 80px;
+      height: 118px;
+    }
+    #block-havequestionscontactoursupportteam {
+      height: 118px;
+      margin-bottom: -62px;
+    }
+    #block-havequestionscontactoursupportteam .text-formatted {
+      width: 82px;
+    }
+    #page-footer #block-adress {
+      font-size: 32px;
+    }
+    header#header-menu.menuscroll {
+      box-shadow: 0 0px 0px 0px rgb(0 0 0);
+      -webkit-box-shadow: 0 0px 0px 0px rgb(0 0 0);
+      box-shadow: 0 0px 0px 0px rgb(0 0 0);
+      background: transparent;
+    }
+    header#header-menu .bg-secondary {
+      background-color: #411876 !important;
+    }
+    header img.show-logo {
+       display: block;
+    }
+    header#header-menu.menuscroll #menu-main nav#block-useraccountmenu ul li a,
+    header#header-menu.menuscroll .nav.navbar-nav li.nav-item a,
+    header#header-menu.menuscroll a.navbar-brand {
+      color: #fff;
+    }
+    #header-menu #block-useraccountmenu ul li {
+      margin-left: 7px;
+    }
+    #header-menu #block-useraccountmenu ul li:nth-last-child(1) {
+      padding-top: 8px !important;
+    }
+    #header-menu #block-useraccountmenu ul li:nth-last-child(1) a {
+      width: auto;
+      background: white;
+      color: black;
+      padding: 15px ​11px 10px 11px;
+      padding-top: 15px;
+      padding-right: ​11px;
+      padding-bottom: 10px;
+      padding-left: 11px;
+      border-radius: 50px;
+      transition: .3s;
+      border: 0px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    header#header-menu.menuscroll #block-useraccountmenu ul li:nth-last-child(1) a {
+      background:white ;
+      color: #411876 !important;
+  }
   }

@@ -23,8 +23,18 @@ class AddMemberForm extends FormBase {
   */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['#attached']['library'][] = 'airchoice_member/test1';
-    $form['#prefix'] = '<div id="myform">Myform';
-    $form['#suffix'] = '</div>';
+    $form['#theme'] = 'form__add_member';
+
+     
+
+    // $form['address'] = [
+    //   '#type' => 'address',
+    // ];
+
+
+ 
+    // $form['#prefix'] = '<div id="myform">Myform';
+    // $form['#suffix'] = '</div>';
     $uid = \Drupal::currentUser()->id();
     $userData = AirchoiceMember::getBasicProfileInfo($uid);
     list('user'=>$user,
@@ -45,7 +55,7 @@ class AddMemberForm extends FormBase {
     $form['email'] = [
       '#title' => 'Email',
       '#type' => 'email',
-      '#default_value' => $form_state->getValue('email'),
+      '#default_value' => $form_state->getValue('email','test@gmail.com'),
       '#disabled' => $email?true:false,
       '#required' => true
     ];
@@ -56,6 +66,75 @@ class AddMemberForm extends FormBase {
         '#default_value' => $form_state->getValue('username'),
         '#required' => true
       ];
+      $form['last_name'] = [
+        '#title' => 'Lastname',
+        '#type' => 'textfield',
+        '#default_value' => $form_state->getValue('last_name'),
+        '#required' => true
+      ];
+      $form['company'] = [
+        '#title' => 'Company',
+        '#type' => 'textfield',
+        '#default_value' => $form_state->getValue('company'),
+        '#required' => true
+      ];
+      $form['phone'] = [
+        '#title' => 'Phone',
+        '#type' => 'textfield',
+        '#default_value' => $form_state->getValue('phone'),
+        '#required' => true
+      ];
+      $form['loyalty_id'] = [
+        '#title' => 'Loyalty ID',
+        '#type' => 'textfield',
+        '#default_value' => $form_state->getValue('loyalty_id'),
+        '#required' => true
+      ];
+      $form['membership_type'] = [
+        '#title' => 'Membership Type',
+        '#type' => 'select',
+        '#default_value' => $form_state->getValue('membership_type'),
+        '#required' => true
+      ];
+ 
+      $form['sms_text'] = [
+        '#title' => 'SMS/Text',
+        '#type' => 'checkbox',
+        '#default_value' => 0,
+        '#required' => true
+      ];
+      $form['email_notified'] = [
+        '#title' => 'Email',
+        '#type' => 'checkbox',
+        '#default_value' => 0,
+        '#required' => true
+      ];
+      $form['month'] = [
+        '#title' => 'Month',
+        '#type' => 'text',
+        
+        '#default_value' => $form_state->getValue('month'),
+        '#required' => true
+      ];
+      $form['day'] = [
+        '#title' => 'Day',
+        '#type' => 'textfeild',
+        '#attributes' => ['type' => 'number'] , 
+        '#default_value' => $form_state->getValue('day'),
+        '#required' => true
+      ];
+      $form['year'] = [
+        '#title' => 'Year',
+        '#type' => 'textfeild',
+        '#attributes' => ['type' => 'number'] , 
+        '#default_value' => $form_state->getValue('year'),
+        '#required' => true
+      ];
+      
+
+      
+      
+
     }
     
     $form['submit'] = [
