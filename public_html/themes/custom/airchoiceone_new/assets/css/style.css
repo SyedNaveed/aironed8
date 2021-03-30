@@ -19934,12 +19934,12 @@ form.airchoice-user-register-form {
   display: flex;
   flex-wrap: wrap;
 }
-form.airchoice-user-register-form .custom-control.custom-stripe,
-form.airchoice-user-register-form #edit-account ,
-form.airchoice-user-register-form .custom-textfield {
+ 
+form.airchoice-user-register-form #edit-account   {
   width: 48%;
   margin-right: 15px;
 }
+form.airchoice-user-register-form .custom-control.custom-stripe .StripeElement,
 form.airchoice-user-register-form .custom-control.custom-stripe .StripeElement--complete,
 form.airchoice-user-register-form .custom-control.custom-stripe .StripeElement--empty {  
   background: #fff;
@@ -21252,4 +21252,51 @@ body.path-book-flight nav.block-menu.menu--flight {
 }
 .red_btn, .red_bg {
   background: #D84848;
+}
+.user-checkboxes li {
+  list-style: none;
+  display: inline-block;
+   
+}
+.user-checkboxes ul {
+  padding-left: 0 !important;
+  list-style: none;
+  display: inline-block;
+}
+.add-member-member .white_input.edit_profile {
+  margin: 0 auto;
+}
+.add-member-member h1 {
+  margin-bottom: 16px;
+  font-size: 42px;
+  font-family: 'Calibre';
+}
+.add-member-member h2 {
+  color: #7316EA;
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+.add-member-member input {
+  background: white;
+  border: 0px;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-left: 15px;
+  margin-top: 0px;
+}
+.add-member-member input[type="submit"] {
+  background: #411777;
+  border: 0px;
+  width: 100%;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+.add-member-member select {
+  height: 50px;
+    background: white;
+    margin-bottom: 30px;
+    padding: 0px 10px;
 }

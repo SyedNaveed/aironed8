@@ -111,23 +111,28 @@ class AddMemberForm extends FormBase {
       ];
       $form['month'] = [
         '#title' => 'Month',
-        '#type' => 'text',
-        
+        '#type' => 'textfield',
         '#default_value' => $form_state->getValue('month'),
         '#required' => true
       ];
       $form['day'] = [
         '#title' => 'Day',
-        '#type' => 'textfeild',
+        '#type' => 'textfield',
         '#attributes' => ['type' => 'number'] , 
         '#default_value' => $form_state->getValue('day'),
         '#required' => true
       ];
       $form['year'] = [
         '#title' => 'Year',
-        '#type' => 'textfeild',
+        '#type' => 'textfield',
         '#attributes' => ['type' => 'number'] , 
         '#default_value' => $form_state->getValue('year'),
+        '#required' => true
+      ];
+      $form['role'] = [
+        '#title' => 'Role',
+        '#type' => 'textfield',
+        '#default_value' => $form_state->getValue('role'),
         '#required' => true
       ];
       

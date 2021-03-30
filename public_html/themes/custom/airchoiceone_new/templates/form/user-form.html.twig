@@ -1,0 +1,122 @@
+{#
+/**
+ * @file
+ * Default theme implementation for a 'form' element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see template_preprocess_form()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<div class='add-member-member' id="myform" >
+ {# {{dump(element|keys)}} #}
+
+
+   <div class="col-lg-6 col-md-12 white_input edit_profile">
+    
+        <h1>Register Member</h1>
+        <div class="user-info-inputes">
+        
+            <h2>Name &amp; Contact</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    {{ element.first }}
+                </div>
+                <div class="col-md-6">
+                    {{ element.last_name }}
+                </div>
+                <div class="col-md-6">
+                    {{ element.username }}
+                </div>
+                <div class="col-md-6">
+                    {{ element.company }}
+                </div>
+            </div>
+            <div class="row">
+                 <div class="col-md-4">
+                    {{ element.phone }}
+                </div>
+                <div class="col-md-4">
+                    {{ element.account.email }}
+                </div>
+                <div class="col-md-4">
+                    {{ element.membership_type }}
+                </div>
+            </div>
+             <div class="row">
+                 <div class="col-md-4">
+                    {{ element.role }}
+                </div>
+                <div class="col-md-4">
+                    {{ element.loyalty_id }}
+                </div>
+                <div class="col-md-4 user-checkboxes">
+                    <label>Notification Preferences</label>
+                    <ul>
+                    <li>{{ element.sms_text }}  </li>
+                    <li>{{ element.email_notified }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="divide30"></div>
+            <div class="col-md-12">
+                <h2>Date of Birth</h2>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    {{ element.month }}
+                </div>
+                 <div class="col-md-4">
+                    {{ element.day }}
+                </div>
+                  <div class="col-md-4">
+                    {{ element.year }}
+                </div>
+            </div>
+               <div class="divide30"></div>
+            <div class="col-md-12">
+                <h2>Packages</h2>
+            <div>  
+            <div class="row">
+                <div class="col-md-4">
+                    {{ element.price }}
+                </div>
+                 <div class="col-md-8">
+                    {{ element.stripe }}
+                </div>
+            </div>
+            <div class="divide30"></div>
+            <div class="col-md-12">
+                <h2>Address</h2>
+            <div>  
+                <div class="new">
+                <div class="row">
+                 {{ element.submit }}
+                 </div>
+                </div>
+            
+
+        </div>
+        
+
+       
+    <div class="new  ">
+    
+    
+    </div>
+
+    {{ element|without('username', 'last_name', 'company', 'phone', 'role', 'loyalty_id', 'sms_text', 'email_notified', 'month', 'day', 'year','membership_type', 'submit', 'last', 'stripe', 'first', 'price', 
+    'account') }}
+       
+       
+   </div>
+   
+
+
+</div>

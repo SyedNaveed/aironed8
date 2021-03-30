@@ -83,6 +83,7 @@
         "drupal/schema_metatag": "^1.4",
         "drupal/simple_sitemap": "^3.3",
         "drupal/site_settings": "^1.16",
+        "drupal/smtp": "^1.0",
         "drupal/spamspan": "^1.0",
         "drupal/stripe": "^1.0",
         "drupal/superfish": "^1.4",

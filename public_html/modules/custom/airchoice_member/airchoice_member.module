@@ -8,6 +8,15 @@
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Url;
 
+function airchoice_member_theme_suggestions_form_alter(array &$suggestions, array $variables) 
+{
+  if($variables['element']['#form_id'] == 'user_form')
+  {
+    //custom_form__user_form
+     $suggestions[] = 'custom_form__'.$variables['element']['#form_id'];
+  }
+}
+
 
 /**
 * Implements hook_help().

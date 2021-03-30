@@ -31,12 +31,14 @@ class UserRegisterForm extends FormBase {
   * {@inheritdoc}
   */
   public function buildForm(array $form, FormStateInterface $form_state) {
+    $form['#theme'] = 'form__register_member';
     
     if (!class_exists('Stripe\Stripe')) {
       drupal_set_message("Stripe installtion required", 'error');
       $form['msg']['#markup'] = "Stripe is not installed on site.";
       return $form;
     }
+    
     
     $package_id = $_GET['package']??null;
     $package = \Drupal\node\Entity\Node::load($package_id);
@@ -64,11 +66,11 @@ class UserRegisterForm extends FormBase {
       '#required' => true
     ];
     
-    $form['last'] = [
-      '#title' => $this->t("Last Name"),
-      '#type' => 'textfield',
-      '#required' => true
-    ];
+    // $form['last'] = [
+    //   '#title' => $this->t("Last Name"),
+    //   '#type' => 'textfield',
+    //   '#required' => true
+    // ];
     
     $form['account'] = [
       "#type" => "container",
@@ -100,6 +102,83 @@ class UserRegisterForm extends FormBase {
         '@link' => $link_generator->generate('stripe docs', Url::fromUri('https://stripe.com/docs/testing')),
         ]),
       ];
+
+      $form['username'] = [
+        '#title' => 'Username',
+        '#type' => 'textfield',
+        '#default_value' => $form_state->getValue('username'),
+        '#required' => true
+      ];
+      $form['last_name'] = [
+        '#title' => 'Lastname',
+        '#type' => 'textfield',
+        '#default_value' => $form_state->getValue('last_name'),
+        '#required' => true
+      ];
+      $form['company'] = [
+        '#title' => 'Company',
+        '#type' => 'textfield',
+        '#default_value' => $form_state->getValue('company'),
+        '#required' => true
+      ];
+      $form['phone'] = [
+        '#title' => 'Phone',
+        '#type' => 'textfield',
+        '#default_value' => $form_state->getValue('phone'),
+        '#required' => true
+      ];
+      $form['loyalty_id'] = [
+        '#title' => 'Loyalty ID',
+        '#type' => 'textfield',
+        '#default_value' => $form_state->getValue('loyalty_id'),
+        '#required' => true
+      ];
+      $form['membership_type'] = [
+        '#title' => 'Membership Type',
+        '#type' => 'select',
+        '#default_value' => $form_state->getValue('membership_type'),
+         
+      ];
+ 
+      $form['sms_text'] = [
+        '#title' => 'SMS/Text',
+        '#type' => 'checkbox',
+        '#default_value' => 0,
+        '#required' => true
+      ];
+      $form['email_notified'] = [
+        '#title' => 'Email',
+        '#type' => 'checkbox',
+        '#default_value' => 0,
+        '#required' => true
+      ];
+      $form['month'] = [
+        '#title' => 'Month',
+        '#type' => 'textfield',
+        '#default_value' => $form_state->getValue('month'),
+        '#required' => true
+      ];
+      $form['day'] = [
+        '#title' => 'Day',
+        '#type' => 'textfield',
+        '#attributes' => ['type' => 'number'] , 
+        '#default_value' => $form_state->getValue('day'),
+        '#required' => true
+      ];
+      $form['year'] = [
+        '#title' => 'Year',
+        '#type' => 'textfield',
+        '#attributes' => ['type' => 'number'] , 
+        '#default_value' => $form_state->getValue('year'),
+        '#required' => true
+      ];
+      $form['role'] = [
+        '#title' => 'Role',
+        '#type' => 'textfield',
+        '#default_value' => $form_state->getValue('role'),
+        '#required' => true
+      ];
+       
       
       
       $form['submit'] = [
@@ -141,6 +220,21 @@ class UserRegisterForm extends FormBase {
       $first = $form_state->getValue('first');
       $last = $form_state->getValue('last');
       $package = $form_state->getValue('package');
+      
+      $username = $form_state->getValue('username');  
+       
+      $company = $form_state->getValue('company');  
+      $phone = $form_state->getValue('phone');  
+         
+      $role = $form_state->getValue('role');  
+      $loyalty_id = $form_state->getValue('loyalty_id');  
+      $sms_text = $form_state->getValue('sms_text');  
+      $email_notified = $form_state->getValue('email_notified');  
+      $month = $form_state->getValue('month');  
+      $day = $form_state->getValue('day');  
+      $year = $form_state->getValue('year');  
+
+      // exit;
       $email_name = explode("@", $email, 2)[0];
       do{
         $username = $email_name.'_'. substr(uniqid(), -5) ;
