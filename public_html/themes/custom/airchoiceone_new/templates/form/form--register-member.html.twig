@@ -95,6 +95,9 @@
             <div class="col-md-12">
                 <h2>Address</h2>
             <div>  
+            <div class="col-md-12">
+                 {{ element.address }}
+            </div>
                 <div class="new">
                 <div class="row">
                  {{ element.submit }}
@@ -103,15 +106,8 @@
             
 
         </div>
-        
-
-       
-    <div class="new  ">
     
-    
-    </div>
-
-    {{ element|without('username', 'last_name', 'company', 'phone', 'role', 'loyalty_id', 'sms_text', 'email_notified', 'month', 'day', 'year','membership_type', 'submit', 'last', 'stripe', 'first', 'price', 
+    {{ element|without('address', 'username', 'last_name', 'company', 'phone', 'role', 'loyalty_id', 'sms_text', 'email_notified', 'month', 'day', 'year','membership_type', 'submit', 'last', 'stripe', 'first', 'price', 
     'account') }}
        
        

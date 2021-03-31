@@ -32,6 +32,12 @@ class UserRegisterForm extends FormBase {
   */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['#theme'] = 'form__register_member';
+    // ddefaulte user form 
+    $entity = \Drupal::entityTypeManager()->getStorage('user')->create(array());
+    $formObject = \Drupal::entityTypeManager()
+    ->getFormObject('user', 'register')
+    ->setEntity($entity);
+    $form2 = \Drupal::formBuilder()->getForm($formObject);
     
     if (!class_exists('Stripe\Stripe')) {
       drupal_set_message("Stripe installtion required", 'error');
@@ -133,16 +139,8 @@ class UserRegisterForm extends FormBase {
         '#default_value' => $form_state->getValue('loyalty_id'),
          
       ];
-      $form['membership_type'] = [
-        '#title' => 'Membership Type',
-        '#type' => 'select',
-        '#options' => [
-          'keys' => 'lkjhgfd'
-        ],
-
-        '#default_value' => $form_state->getValue('membership_type'),
-         
-      ];
+      $form['membership_type'] =  $form2['membership_type'];
+      $form['address'] =  $form2['address'];
  
       $form['sms_text'] = [
         '#title' => 'SMS/Text',

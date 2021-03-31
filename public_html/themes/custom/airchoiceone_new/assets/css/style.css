@@ -20293,6 +20293,9 @@ h1, h2, h3, h4, h6 {
 .ticket_white .ticket_depart_arrive {
   color: #731FEA;
 }
+.dash_side .ticket_depart_arrive {
+  padding-left: 10px;
+}
 .ticket_time {
   font-size: 34px;
   line-height: 43px;
