@@ -55,7 +55,7 @@ class AddMemberForm extends FormBase {
     $form['email'] = [
       '#title' => 'Email',
       '#type' => 'email',
-      '#default_value' => $form_state->getValue('email','test@gmail.com'),
+      '#default_value' => $form_state->getValue('email',''),
       '#disabled' => $email?true:false,
       '#required' => true
     ];

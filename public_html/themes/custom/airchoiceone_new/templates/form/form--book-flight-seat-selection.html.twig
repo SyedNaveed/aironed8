@@ -18,12 +18,13 @@
       <div class="col-md-7">
         <h1  >{{ element.title }}</h1>
         <div class="divide10"></div>
+              {% for el in element.tab_buttons['#titles']  %}
         <div class="row seat_flight_ov">
 						<div class="col-md-4 cs6">
 							<label>Flight Number</label>
 							<h4>
-                
-              3E2700 JBR-STL</h4>
+                {{ el['#markup'] }}
+              </h4>
 						</div>
 						<div class="col-md-4 cs6">
 							<label>Passenger</label>
@@ -39,6 +40,7 @@
 							<div class="seat_select_small"></div><h4>1B</h4>
 						</div>
 					</div>
+              {% endfor %}
           <div class="flights-seat-btuns">
             {{ element.tab_buttons }}
           </div>

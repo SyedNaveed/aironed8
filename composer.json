@@ -32,6 +32,7 @@
         "drupal/backup_migrate": "^4.1",
         "drupal/better_formats": "1.x-dev",
         "drupal/bfd": "^2.61",
+        "drupal/change_pwd_page": "^1.0",
         "drupal/config_filter": "^1.4",
         "drupal/config_split": "^1.4",
         "drupal/context": "^4.0@beta",
