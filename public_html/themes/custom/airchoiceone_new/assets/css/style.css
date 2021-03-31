@@ -20492,6 +20492,7 @@ body.path-user form.user-form .field--name-membership-type select,
 body.path-user form.user-form #edit-timezone .details-wrapper select {
   border: none;
 }
+.add-member-member #password-policy-status,
 body.path-user form.user-form #edit-timezone summary,
 body.path-user form.user-form #password-policy-status {
   display: none;
@@ -21299,4 +21300,10 @@ body.path-book-flight nav.block-menu.menu--flight {
     background: white;
     margin-bottom: 30px;
     padding: 0px 10px;
+}
+form .add-member-member .custom-control-label::after {
+  left: -1.9rem;
+}
+form .add-member-member .user-checkboxes li:nth-child(2) {
+  margin-left: 5px;
 }

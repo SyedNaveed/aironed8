@@ -88,7 +88,7 @@ class AddMemberForm extends FormBase {
         '#title' => 'Loyalty ID',
         '#type' => 'textfield',
         '#default_value' => $form_state->getValue('loyalty_id'),
-        '#required' => true
+        
       ];
       $form['membership_type'] = [
         '#title' => 'Membership Type',
@@ -101,13 +101,13 @@ class AddMemberForm extends FormBase {
         '#title' => 'SMS/Text',
         '#type' => 'checkbox',
         '#default_value' => 0,
-        '#required' => true
+        
       ];
       $form['email_notified'] = [
         '#title' => 'Email',
         '#type' => 'checkbox',
         '#default_value' => 0,
-        '#required' => true
+         
       ];
       $form['month'] = [
         '#title' => 'Month',
@@ -133,7 +133,7 @@ class AddMemberForm extends FormBase {
         '#title' => 'Role',
         '#type' => 'textfield',
         '#default_value' => $form_state->getValue('role'),
-        '#required' => true
+        
       ];
       
 

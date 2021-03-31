@@ -80,10 +80,10 @@ function airchoice_member_help($route_name, RouteMatchInterface $route_match) {
       'template' => 'search_flights_departures'
     ];
     
-    // $templates['form__book_flight_flight_selection'] = [
-    //   'render element' => 'form',
-    //   'template' => 'form--book-flight-flight_selection'
-    // ];
+    $templates['form__custom_user_edit'] = [
+      'render element' => 'form',
+      'template' => 'form--custom-user-edit'
+    ];
 
     
 
@@ -95,6 +95,7 @@ function airchoice_member_help($route_name, RouteMatchInterface $route_match) {
   */
   function airchoice_member_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
     $show_debug = \Drupal\Core\Site\Settings::get('custom_show_debug_info');
+
     if($show_debug)
     {
       $form['formidtest'] = ['#markup'=>"<div class='alert alert-info'>FormID is $form_id <a type='button' class='close' data-dismiss='alert' aria-label='Close'>    <span aria-hidden='true'>&times;</span>  </a></div>", '#weight'=>-100];

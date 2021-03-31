@@ -25,7 +25,7 @@
             <h2>Name &amp; Contact</h2>
             <div class="row">
                 <div class="col-md-6">
-                    {{ element.first }}
+                    {{ element.first_name }}
                 </div>
                 <div class="col-md-6">
                     {{ element.last_name }}
@@ -79,25 +79,18 @@
                     {{ element.year }}
                 </div>
             </div>
-               <div class="divide30"></div>
-            <div class="col-md-12">
-                <h2>Packages</h2>
-            <div>  
-            <div class="row">
-                <div class="col-md-4">
-                    {{ element.price }}
-                </div>
-                 <div class="col-md-8">
-                    {{ element.stripe }}
-                </div>
-            </div>
+              
+             
+             
             <div class="divide30"></div>
             <div class="col-md-12">
                 <h2>Address</h2>
             <div>  
                 <div class="new">
                 <div class="row">
-                 {{ element.submit }}
+                {{ element|without(  'username', 'last_name', 'company', 'phone', 'role', 'loyalty_id', 'sms_text', 'email_notified', 'month', 'day', 'year','membership_type', 'submit', 'last', 'stripe', 'first', 'first_name', 'price', 
+    'account').submit }}
+                 {# {{ element.submit }} #}
                  </div>
                 </div>
             
@@ -111,8 +104,7 @@
     
     </div>
 
-    {{ element|without('username', 'last_name', 'company', 'phone', 'role', 'loyalty_id', 'sms_text', 'email_notified', 'month', 'day', 'year','membership_type', 'submit', 'last', 'stripe', 'first', 'price', 
-    'account') }}
+    
        
        
    </div>

@@ -94,7 +94,7 @@
         "drupal/views_accordion": "^2.0",
         "drupal/we_megamenu": "^1.11",
         "drupal/webform": "^5.4",
-        "drush/drush": "^9.0.0",
+        "drush/drush": "^10.4",
         "stripe/stripe-php": "^7.75",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
