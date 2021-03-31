@@ -12,9 +12,12 @@
  * @ingroup themeable
  */
 #}
-
+<form{{ attributes }}>
 <div class='add-member-member' id="myform" >
+
  {# {{dump(element|keys)}} #}
+
+
 
 
    <div class="col-lg-6 col-md-12 white_input edit_profile">
@@ -31,7 +34,7 @@
                     {{ element.last_name }}
                 </div>
                 <div class="col-md-6">
-                    {{ element.username }}
+                    {{ element.account.name }}
                 </div>
                 <div class="col-md-6">
                     {{ element.company }}
@@ -42,12 +45,18 @@
                     {{ element.phone }}
                 </div>
                 <div class="col-md-4">
-                    {{ element.account.email }}
+                    {{ element.account.mail }}
+                   
                 </div>
                 <div class="col-md-4">
                     {{ element.membership_type }}
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12">
+                     {{ element.account.current_pass }}
+                </div>
+            <div>
              <div class="row">
                  <div class="col-md-4">
                     {{ element.role }}
@@ -85,12 +94,24 @@
             <div class="divide30"></div>
             <div class="col-md-12">
                 <h2>Address</h2>
+                 {{ element.address }}
             <div>  
                 <div class="new">
                 <div class="row">
-                {{ element|without(  'username', 'last_name', 'company', 'phone', 'role', 'loyalty_id', 'sms_text', 'email_notified', 'month', 'day', 'year','membership_type', 'submit', 'last', 'stripe', 'first', 'first_name', 'price', 
-    'account').submit }}
-                 {# {{ element.submit }} #}
+
+    {# {{ element|without('first_name') }} #}
+
+                {# {{ element|without('actions', 'last_name', 'company', 'phone', 'role', 'loyalty_id', 'sms_text', 'email_notified', 'month', 'day', 'year','membership_type', 'submit', 'last', 'stripe', 'first', 'first_name', 'price', 'account') }} #}
+                 <pre>
+                 {# {{ dump(element|without('first_name')|keys) }} #}
+                 </pre>
+                 {{ element.form_build_id }}
+
+                 {{ element.form_token }}
+
+                 {{ element.form_id }}
+
+                 {{ element.actions }}
                  </div>
                 </div>
             
@@ -112,3 +133,5 @@
 
 
 </div>
+
+</form>

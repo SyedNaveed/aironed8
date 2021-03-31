@@ -60,6 +60,14 @@ class AddMemberForm extends FormBase {
       '#required' => true
     ];
     if($email){
+
+          // ddefaulte user form 
+    $entity = \Drupal::entityTypeManager()->getStorage('user')->create(array());
+    $formObject = \Drupal::entityTypeManager()
+    ->getFormObject('user', 'register')
+    ->setEntity($entity);
+    $form2 = \Drupal::formBuilder()->getForm($formObject);
+
       $form['username'] = [
         '#title' => 'Username',
         '#type' => 'textfield',
@@ -90,11 +98,12 @@ class AddMemberForm extends FormBase {
         '#default_value' => $form_state->getValue('loyalty_id'),
         
       ];
-      $form['membership_type'] = [
-        '#title' => 'Membership Type',
+
+      $form['membership_type'] =  [
         '#type' => 'select',
-        '#default_value' => $form_state->getValue('membership_type'),
-        '#required' => true
+        '#title' => $form2['membership_type']['widget']['#title'],
+        '#options' => $form2['membership_type']['widget']['#options'],
+        '#default_value' => $form_state->getValue('membership_type', ''),
       ];
  
       $form['sms_text'] = [
@@ -135,6 +144,9 @@ class AddMemberForm extends FormBase {
         '#default_value' => $form_state->getValue('role'),
         
       ];
+      
+
+      $form['address'] = $form2['address'];
       
 
       
@@ -189,7 +201,7 @@ class AddMemberForm extends FormBase {
         $user = \Drupal\user\Entity\User::create();
         $user->setEmail($email);
         $user->setUsername($username);
-        // $user->set("init", $email);
+        $user->set("init", $email);
         $user->enforceIsNew();
         $validate = $user->validate();
         
@@ -219,11 +231,17 @@ class AddMemberForm extends FormBase {
         
         $uid = \Drupal::currentUser()->id();
         $user = \Drupal\user\Entity\User::load($uid);
+
+        
         $profiles = $user->paid_member_profiles->referencedEntities();
         $profile = $profiles[0];
         $old  = $profile->field_mem->getValue();
         
         $newUser = $form_state->get('newUser');
+
+        //!TODO save user fields
+
+
         $newUser->save();
         
         

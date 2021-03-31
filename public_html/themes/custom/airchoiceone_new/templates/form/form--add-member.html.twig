@@ -79,12 +79,15 @@
             <div class="col-md-12">
                 <h2>Address</h2>
             <div>  
+            <div class="row">
+                 {{ element.address }}
+            </div>
                 <div class="new">
                 <div class="row">
                  {{ element.submit }}
                  </div>
                 </div>
-            {{ element|without('username', 'last_name', 'company', 'phone', 'email', 'role', 'loyalty_id', 'sms_text', 'email_notified', 'month', 'day', 'year','membership_type', 'submit') }}
+            {{ element|without('address','username', 'last_name', 'company', 'phone', 'email', 'role', 'loyalty_id', 'sms_text', 'email_notified', 'month', 'day', 'year','membership_type', 'submit') }}
 
         </div>
          {% else %}
@@ -99,7 +102,7 @@
     
     </div>
 
-    {{ element|without('username', 'last_name', 'company', 'phone', 'email', 'role', 'loyalty_id', 'sms_text', 'email_notified', 'month', 'day', 'year','membership_type', 'submit') }}
+    {{ element|without('address','username', 'last_name', 'company', 'phone', 'email', 'role', 'loyalty_id', 'sms_text', 'email_notified', 'month', 'day', 'year','membership_type', 'submit') }}
         {% endif %}
        
    </div>
