@@ -136,6 +136,10 @@ class UserRegisterForm extends FormBase {
       $form['membership_type'] = [
         '#title' => 'Membership Type',
         '#type' => 'select',
+        '#options' => [
+          'keys' => 'lkjhgfd'
+        ],
+
         '#default_value' => $form_state->getValue('membership_type'),
          
       ];
