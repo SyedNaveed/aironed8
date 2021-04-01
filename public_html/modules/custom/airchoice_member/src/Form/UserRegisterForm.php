@@ -291,7 +291,7 @@ class UserRegisterForm extends FormBase {
       $params = [ ];
       $params['subject'] = 'Thanks to registered on Air one Choice ';  
       $params['body'][] = 'Test message , your Username is '.$username.' and password ';
-      customMailSend('nav@yopmail.com',$params);
+      customMailSend('nav@yopmail.com','email checked ');
       
         // do{
         //   $username = $email_name.'_'. substr(uniqid(), -5) ;
