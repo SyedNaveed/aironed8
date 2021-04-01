@@ -296,7 +296,7 @@ class UserRegisterForm extends FormBase {
         
         //create user
         $user = \Drupal\user\Entity\User::create();
-          $user->setEmail($email);
+        $user->setEmail($email);
         $user->setUsername($username);
         $user->enforceIsNew();
         $user->set('init', 'email');
