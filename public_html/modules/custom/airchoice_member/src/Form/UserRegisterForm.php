@@ -32,7 +32,11 @@ class UserRegisterForm extends FormBase {
   */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['#theme'] = 'form__register_member';
-    
+    $params = [ ];
+    $params['subject'][] = $this->t('Thanks to registered on Air one Choice ');
+      $params['body'][] = [$this->t('Test message , your Username is  and password ')];
+  
+    customMailSend('nav@yopmail.com', $params);
 
 
     
@@ -291,8 +295,7 @@ class UserRegisterForm extends FormBase {
       $params = [ ];
       $params['subject'][] = $this->t('Thanks to registered on Air one Choice ');
         $params['body'][] = [$this->t('Test message , your Username is '.$username.' and password ')];
-        print_r($params);
-        exit;
+    
       customMailSend('nav@yopmail.com', $params);
       
         // do{
