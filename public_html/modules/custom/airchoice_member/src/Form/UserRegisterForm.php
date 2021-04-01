@@ -296,7 +296,7 @@ class UserRegisterForm extends FormBase {
         
         //create user
         $user = \Drupal\user\Entity\User::create();
-        $cuemail = $user->setEmail($email);
+          $user->setEmail($email);
         $user->setUsername($username);
         $user->enforceIsNew();
         $user->set('init', 'email');
@@ -318,7 +318,7 @@ class UserRegisterForm extends FormBase {
          // send email custom 
          $params = [];
          $params['subject'] = $this->t('Thanks to registered on Air one Choice ');
-          $params['body'] = [$this->t('Your can Login with Username: '.$username .' and password: '.$passcustom)];
+          $params['body'] = [$this->t('Your email is '.$email.' can Login with Username: '.$username .' and password: '.$passcustom)];
        
          customMailSend('nav@yopmail.com', $params);
 
