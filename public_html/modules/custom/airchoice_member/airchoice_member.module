@@ -122,7 +122,7 @@ function airchoice_member_help($route_name, RouteMatchInterface $route_match) {
       // s($mailManager);
  
       $params['headers'] = 'text/html';
-      return $mailManager->mail('custommail', 'sending_email_to_user', $to, null, $params, true);
+      return $mailManager->mail('smtp', 'smtp-test', $to, null, $params);
   }
 
   //custommail
