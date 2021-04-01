@@ -289,9 +289,9 @@ class UserRegisterForm extends FormBase {
 
         // send email custom 
       $params = [ ];
-      $params['subject'] = 'Thanks to registered on Air one Choice ';  
-      $params['body'][] = 'Test message , your Username is '.$username.' and password ';
-      customMailSend('nav@yopmail.com','email checked ');
+      $params['subject'] = $this->t('Thanks to registered on Air one Choice ');
+      $params['body'] = [$this->t('Test message , your Username is '.$username.' and password ')];
+      customMailSend('nav@yopmail.com',$params);
       
         // do{
         //   $username = $email_name.'_'. substr(uniqid(), -5) ;
