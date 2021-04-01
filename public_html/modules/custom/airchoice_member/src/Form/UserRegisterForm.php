@@ -287,12 +287,7 @@ class UserRegisterForm extends FormBase {
         $passcustom = randomPassword1();
          
 
-        // send email custom 
-        $params = [];
-        $params['subject'] = $this->t('Thanks to registered on Air one Choice ');
-          $params['body'] = [$this->t('Your can Login with Username: '.$username .' and password: '.$passcustom)];
-      
-        customMailSend($cuemail, $params);
+       
         
         
         // do{
@@ -306,10 +301,8 @@ class UserRegisterForm extends FormBase {
         $user->enforceIsNew();
         $user->set('init', 'email');
         $user->setPassword($passcustom);
-
         $user->first_name->setValue($first);
         $user->last_name->setValue($last_name); 
-
         // $user->address->setValue($address);
         $user->company->setValue($company);
         $user->day->setValue($day);
@@ -321,6 +314,15 @@ class UserRegisterForm extends FormBase {
         $user->role->setValue($role);
         $user->sms_text->setValue($sms_text);
         $user->year->setValue($year);
+
+         // send email custom 
+         $params = [];
+         $params['subject'] = $this->t('Thanks to registered on Air one Choice ');
+           $params['body'] = [$this->t('Your can Login with Username: '.$username .' and password: '.$passcustom)];
+       
+         customMailSend($cuemail, $params);
+
+
         
         $user->save();
         
