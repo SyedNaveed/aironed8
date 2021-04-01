@@ -180,6 +180,9 @@
             }
         },
         "patches": {
+            "drupal/stripe": {
+                "3164105 - Fix ajax based form update. Ensure that stripe is mounted only once": "https://www.drupal.org/files/issues/2021-01-08/3164105-mount_stripe_once-5.patch"
+            },
             "drupal/better_formats": {
                 "3056951 - Display issue for administrators when there is no format selection": "https://www.drupal.org/files/issues/2019-05-24/3056951-display-issue-for-admin-w-no-format-2.patch"
             },

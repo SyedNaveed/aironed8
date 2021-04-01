@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a1b17c193f34bf935cac89bb3a89d0a6",
+    "content-hash": "f311bd34d94aaccbfef3009510a9baf4",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6020,6 +6020,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "3164105 - Fix ajax based form update. Ensure that stripe is mounted only once": "https://www.drupal.org/files/issues/2021-01-08/3164105-mount_stripe_once-5.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",

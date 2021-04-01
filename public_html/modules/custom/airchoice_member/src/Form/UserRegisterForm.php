@@ -192,6 +192,22 @@ class UserRegisterForm extends FormBase {
           '#default_value' => $form_state->getValue('role'),
           
         ];
+
+        $form['address'] = [
+          '#type' => 'address',
+          '#title' => "Address",
+          '#field_overrides' => [
+            "givenName" => "hidden", 
+            "additionalName" => "hidden", 
+            "familyName" => "hidden", 
+            "organization" => "hidden", 
+            "postalCode" => "optional", 
+            "sortingCode" => "hidden", 
+            "dependentLocality" => "optional", 
+            "locality" => "optional", 
+            "administrativeArea" => "optional",
+            ] 
+          ];
         
         
         

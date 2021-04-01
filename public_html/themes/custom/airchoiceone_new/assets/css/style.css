@@ -20883,7 +20883,7 @@ body.path-book-flight form.aco-book-flight-flight-selection-form {
   font-size: 21px;
   color: #7318ea;
   float: left;
-  margin-right: 3px;
+  margin-right: 25px;
   line-height: 1;
   margin-top: 2px;
 }
@@ -21114,6 +21114,19 @@ form .form-actions .button {
   font-size: 20px;
   cursor: pointer;
 }
+form .form-actions {
+  width: 100%;
+}
+form .form-actions input[value="Next"]:hover:focus,
+form .form-actions input[value="Next"]:focus,
+form .form-actions input[value="Next"]:hover,
+form .form-actions input[value="Next"] {
+  background: #29E0BA;
+
+}
+form .form-actions input[value="Next"] {
+  float: right;
+}
 form.aco-book-flight-contact-information-form .book_ticket {
   background: #411777;
   padding: 0 20px 20px 20px;
@@ -21313,4 +21326,10 @@ body.path-book-flight nav.block-menu.menu--flight {
  
 form .add-member-member .user-checkboxes li:nth-child(2) {
   margin-left: 5px;
+}
+.search_flights_times_row .col-md-4 {
+  padding-right: 0;
+}
+body.path-airchoice-member footer {
+  display: none;
 }
