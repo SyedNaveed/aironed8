@@ -210,3 +210,15 @@ function airchoice_member_help($route_name, RouteMatchInterface $route_match) {
       \Drupal\airchoice_member\Controller\LoginByLinkController::addLinksToBlock($variables);
     }
   }
+  // make custom password fro user 
+  function randomPassword1() {
+    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    $passc = array(); //remember to declare $pass as an array
+    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+    for ($i = 0; $i < 8; $i++) {
+        $n = rand(0, $alphaLength);
+        $passc[] = $alphabet[$n];
+    }
+    $passcustom =  implode($passc); //turn the array into a string
+    return $passcustom;
+  }

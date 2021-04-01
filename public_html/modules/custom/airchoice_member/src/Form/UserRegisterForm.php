@@ -32,10 +32,7 @@ class UserRegisterForm extends FormBase {
   */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['#theme'] = 'form__register_member';
-    
-
-
-    
+     
 
     // ddefaulte user form 
     $entity = \Drupal::entityTypeManager()->getStorage('user')->create(array());
@@ -287,25 +284,15 @@ class UserRegisterForm extends FormBase {
         $year = $form_state->getValue('year');  
         $email_name = explode("@", $email, 2)[0];
 
-        $passcustom = '';
-        function randomPassword() {
-          $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
-          $passc = array(); //remember to declare $pass as an array
-          $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
-          for ($i = 0; $i < 8; $i++) {
-              $n = rand(0, $alphaLength);
-              $passc[] = $alphabet[$n];
-          }
-          $passcustom =  implode($passc); //turn the array into a string
-          return $passcustom;
-        }
+        $passcustom = randomPassword1();
+         
 
         // send email custom 
         $params = [];
         $params['subject'] = $this->t('Thanks to registered on Air one Choice ');
           $params['body'] = [$this->t('Your can Login with Username: '.$username .' and password: '.$passcustom)];
       
-        customMailSend('nav@yopmail.com', $params);
+        customMailSend($cuemail, $params);
         
         
         // do{
@@ -314,7 +301,7 @@ class UserRegisterForm extends FormBase {
         
         //create user
         $user = \Drupal\user\Entity\User::create();
-        $user->setEmail($email);
+        $cuemail = $user->setEmail($email);
         $user->setUsername($username);
         $user->enforceIsNew();
         $user->set('init', 'email');
