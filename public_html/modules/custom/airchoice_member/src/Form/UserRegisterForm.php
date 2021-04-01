@@ -32,14 +32,7 @@ class UserRegisterForm extends FormBase {
   */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['#theme'] = 'form__register_member';
-    // send email custom 
-    $params = [];
-        $params['subject'] = 'aslijd as jdlajdj asd jj dj ';
-        
-        $params['body'][] = 'askdh lad lajd lkajlk jals lklds la dlaks dkl jals';
-        
-         
-    customMailSend('nav@yopmail.com',$params);
+    
 
 
     
@@ -293,6 +286,12 @@ class UserRegisterForm extends FormBase {
         $day = $form_state->getValue('day');  
         $year = $form_state->getValue('year');  
         $email_name = explode("@", $email, 2)[0];
+
+        // send email custom 
+      $params = [ ];
+      $params['subject'] = 'Thanks to registered on Air one Choice ';  
+      $params['body'][] = 'Test message , your Username is '.$username.' and password ';
+      customMailSend('nav@yopmail.com',$params);
       
         // do{
         //   $username = $email_name.'_'. substr(uniqid(), -5) ;
