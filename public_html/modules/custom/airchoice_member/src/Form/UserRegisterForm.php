@@ -291,7 +291,7 @@ class UserRegisterForm extends FormBase {
       $params = [ ];
       $params['subject'][] = $this->t('Thanks to registered on Air one Choice ');
         $params['body'][] = [$this->t('Test message , your Username is '.$username.' and password ')];
-        print($params);
+        print_r($params);
         exit;
       customMailSend('nav@yopmail.com', $params);
       
