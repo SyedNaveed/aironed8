@@ -21333,3 +21333,6 @@ form .add-member-member .user-checkboxes li:nth-child(2) {
 body.path-airchoice-member footer {
   display: none;
 }
+body.path-manage-members div[data-drupal-messages="data-drupal-messages"] {
+  margin-left: 90px;
+}
