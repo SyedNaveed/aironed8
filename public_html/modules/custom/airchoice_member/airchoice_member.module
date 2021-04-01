@@ -132,10 +132,10 @@ function airchoice_member_help($route_name, RouteMatchInterface $route_match) {
   */
 
   function airchoice_member_mail($key, &$message, $params) {
-      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
-      $message['from'] = \Drupal::config('system.site')->get('mail');
-      $message['subject'] = t('Air One Choice site' );
-      $message['body'] = t("Dear user There is new content available on the site." );
+      // $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+      // $message['from'] = \Drupal::config('system.site')->get('mail');
+      // $message['subject'] = t('Air' );
+      // $message['body'][] = t("Dear @username\n\nThere is new content available on the site." );
 
   }
 
