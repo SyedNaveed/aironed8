@@ -174,8 +174,10 @@ class AddMemberForm extends FormBase {
       if($form_state->get("doneSuccess"))
       {
         $response = new \Drupal\Core\Ajax\AjaxResponse();
-        $response->addCommand(new \Drupal\Core\Ajax\InvokeCommand(NULL, 'reloadPage', ['dashboard']));
+        $response->addCommand(new \Drupal\Core\Ajax\InvokeCommand(NULL, 'reloadPage', ['manage-members']));
         return $response;
+        
+
       }
       return $form;
     }
@@ -240,9 +242,18 @@ class AddMemberForm extends FormBase {
         $newUser = $form_state->get('newUser');
 
         //!TODO save user fields
-
-
-        $newUser->save();
+        $passcustom = randomPassword1();
+        $ncuser = $form_state->getValue('username');
+        $email = $form_state->get('email');
+          // send email custom 
+          $params = [];
+          $params['subject'] = $this->t('Thanks to registered on Air one Choice ');
+           $params['body'] = [$this->t('Your '.$email.' can Login with Username: '.$ncuser .' and password: '.$passcustom)];
+        
+          customMailSend('nav@yopmail.com', $params);
+          $newUser->status= 1;
+          $newUser->activate(); 
+          $newUser->save();
         
         
         $old[] = ['target_id'=>$newUser->id()];
