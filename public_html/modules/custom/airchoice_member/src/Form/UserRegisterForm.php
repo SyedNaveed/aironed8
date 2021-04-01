@@ -32,6 +32,18 @@ class UserRegisterForm extends FormBase {
   */
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['#theme'] = 'form__register_member';
+    // send email custom 
+    $params = [];
+        $params['subject'] = 'aslijd as jdlajdj asd jj dj ';
+        
+        $params['body'][] = 'askdh lad lajd lkajlk jals lklds la dlaks dkl jals';
+        
+         
+    customMailSend('nav@yopmail.com',$params);
+
+
+    
+
     // ddefaulte user form 
     $entity = \Drupal::entityTypeManager()->getStorage('user')->create(array());
     $formObject = \Drupal::entityTypeManager()
