@@ -336,5 +336,10 @@
     header#header-menu.menuscroll #block-useraccountmenu ul li:nth-last-child(1) a {
       background:white ;
       color: #411876 !important;
+    }
   }
+  @media only screen and (min-width: 1200px) and (max-width:1300px) {
+    #header-menu .nav.navbar-nav li.nav-item {
+      margin-right: 25px;
+    }
   }
