@@ -251,8 +251,11 @@ class AddMemberForm extends FormBase {
            $params['body'] = [$this->t('Your '.$email.' can Login with Username: '.$ncuser .' and password: '.$passcustom)];
         
           customMailSend('nav@yopmail.com', $params);
+          // user status active 
           $newUser->status= 1;
           $newUser->activate(); 
+          // save password 
+          $newUser->setPassword($passcustom);
           $newUser->save();
         
         
