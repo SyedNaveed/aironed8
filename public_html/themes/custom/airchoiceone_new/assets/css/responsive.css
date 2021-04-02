@@ -161,6 +161,7 @@
     #block-banner .field--name-body {
       width: 70%;
     }
+    .block-views-blockfront-page-packages-block-1 .view-front-page-packages .view-header h2,
     #block-aviationreimagined .col-md-4 .field--name-title {
       font-size: 44px;
     }
@@ -168,12 +169,20 @@
       width: 33%;
       padding: 0 0px 0 15px;
     }
+    .block-views-blockfront-page-packages-block-1 .view-front-page-packages .front-packages-blocks .name-plan-title {
+      font-size: 16px;
+      padding: 20px 20px 0 17px;
+    }
     .plan-plans .field--name-plan-info1 .paragraph--type--aviation-reimagined- .field--name-plan-title {
       font-size: 18px;
+    }
+    .block-views-blockfront-page-packages-block-1 .view-front-page-packages .front-packages-blocks .plan-price {
+      font-size: 40px;
     }
     .plan-plans .field--name-plan-info1 .paragraph--type--aviation-reimagined- .field--name-plan-price {
       font-size: 56px;
     }
+    .block-views-blockfront-page-packages-block-1 .view-front-page-packages .front-packages-blocks .plan-detail,
     .plan-plans .field--name-plan-info1 .paragraph--type--aviation-reimagined- .field--name-plan-description- {
       padding: 20px 2px;
     }
@@ -184,6 +193,11 @@
       line-height: 17px;
       text-align: center !important;
     }
+    .block-views-blockfront-page-packages-block-1 .view-front-page-packages .front-packages-blocks .plan-detail p {
+      font-size: 18px;
+      line-height: 18px;
+    }
+    .block-views-blockfront-page-packages-block-1 .view-front-page-packages .front-packages-blocks .plan-links a,
     .plan-plans .field--name-plan-info1 > .field__items > .field__item .paragraph--type--aviation-reimagined- .field--name-plan-link.field--type-link a {
       width: 80%;
       padding-bottom: 13px;
@@ -240,6 +254,12 @@
     .contact-form-section-right-inner {
       padding: 60px 40px;
     }
+    header#header-menu.menuscroll a img {
+      height: 80px;
+    }
+    #header-menu .nav.navbar-nav li.nav-item a {
+      font-size: 16px;
+    }
   }
 
   @media only screen and (min-width: 768px) and (max-width:1024px) and (orientation: landscape)  {  
@@ -255,6 +275,35 @@
   }
 
   @media screen and (max-width: 767.98px) {
+    #block-ourcompanyairplanegallery .field--name-mutli-images > .field__item:nth-child(2),
+    #block-ourcompanyairplanegallery .field--name-mutli-images > .field__item:nth-child(1) {
+      width: 100%;
+       
+    }
+    #block-aircraftdetails .field--name-aircraft-details > .field__item {
+      width: 100%;
+      padding: 0 15px;
+    }
+    #block-explorethepossibilitiesofflyingwithskypass .field--name-body p {
+      top: 75%;
+    }
+    #block-explorethepossibilitiesofflyingwithskypass h2 {
+      width: 94%;
+      top: 15%;
+      font-size: 75px;
+    }
+    #block-banner .field--name-body {
+      width: 90%;
+    }
+    .block-views-blockfront-page-packages-block-1 .view-front-page-packages .view-content .views-row {
+      width: 100%;
+    }
+    .block-views-blockfront-page-packages-block-1 .view-front-page-packages .view-header {
+      width: 100%;
+    }
+    .block-views-blockfront-page-packages-block-1 .view-front-page-packages .view-content {
+      width: 100%;
+    }
     header#header-menu .navbar-collapse .block.block-system-branding-block {
       display: none;
     }

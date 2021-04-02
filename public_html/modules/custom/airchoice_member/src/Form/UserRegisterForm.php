@@ -141,16 +141,21 @@ class UserRegisterForm extends FormBase {
           '#default_value' => $form_state->getValue('loyalty_id'),
           
         ];
-
+        // get packages id from url 
+        $packageq = $_GET['package'];
+        // echo $packageq;
         $form['membership_type'] =  [
           '#type' => 'select',
           '#title' => $form2['membership_type']['widget']['#title'],
           '#options' => $form2['membership_type']['widget']['#options'],
-          '#default_value' => $form_state->getValue('membership_type', ''),
+          '#disabled' => true
+          
         ];
+       
+        
 
-        $form['membership_type']['#default_value'] = $form_state->getValue('membership_type', '');
-
+        $form['membership_type']['#value'] = $form_state->getValue('membership_type', $packageq);
+        
         //add other fields here
         
 

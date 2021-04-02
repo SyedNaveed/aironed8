@@ -21336,3 +21336,131 @@ body.path-airchoice-member footer {
 body.path-manage-members div[data-drupal-messages="data-drupal-messages"] {
   margin-left: 90px;
 }
+.block-views-blockfront-page-packages-block-1 {
+  padding-bottom: 55px;
+  padding-top: 55px;
+}
+.block-views-blockfront-page-packages-block-1 .view-front-page-packages {
+  display: flex;
+  flex-wrap: wrap;
+}
+.block-views-blockfront-page-packages-block-1 .view-front-page-packages .view-header {
+  width: 33%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.block-views-blockfront-page-packages-block-1 .view-front-page-packages .view-header h2 {
+  font-size: 75px;
+  font-family: 'Calibre-Light';
+  line-height: 100%;
+  margin-bottom: 15px;
+}
+.block-views-blockfront-page-packages-block-1 .view-front-page-packages .view-header p {
+  font-size: 21px;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  line-height: 31px;
+  font-family: 'Calibre';
+  margin: 0px;
+  color: #000;
+  font-style: normal;
+}
+.block-views-blockfront-page-packages-block-1 .view-front-page-packages .view-content {
+  width: 66.66667%;
+  padding-left: 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.block-views-blockfront-page-packages-block-1 .view-front-page-packages .view-content .views-row {
+  width: 33%;
+  padding: 0 15px;
+}
+.block-views-blockfront-page-packages-block-1 .view-front-page-packages .front-packages-blocks {
+  background: #411777;
+  color: white;
+  margin-top: 10px;
+  text-align: center;
+}
+.block-views-blockfront-page-packages-block-1 .view-front-page-packages .front-packages-blocks .name-plan-title {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-top: 20px;
+  line-height: 1;
+  margin-bottom: 10px;
+  padding: 20px 20px 0 20px;
+}
+.block-views-blockfront-page-packages-block-1 .view-front-page-packages .front-packages-blocks .plan-price {
+  font-size: 65px;
+  line-height: .9;
+  padding: 0 20px;
+}
+.block-views-blockfront-page-packages-block-1 .view-front-page-packages .front-packages-blocks .plan-annually {
+  line-height: 1;
+  color: #A46AEF;
+  opacity: .4;
+  font-size: 21px;
+  margin-bottom: 13px;
+  padding: 0 20px;
+}
+.block-views-blockfront-page-packages-block-1 .view-front-page-packages .front-packages-blocks .plan-detail {
+  border-bottom: 1px dotted #fff;
+    padding-bottom: 35px;
+    padding: 20px;
+    min-height: 134px;
+    text-align: center;
+}
+.block-views-blockfront-page-packages-block-1 .view-front-page-packages .front-packages-blocks .plan-detail p {
+  font-size: 21px;
+    width: 80%;
+    margin: auto;
+    line-height: 1.3;
+    text-align: center !important;
+}
+.block-views-blockfront-page-packages-block-1 .view-front-page-packages .front-packages-blocks .plan-links {
+  width: calc(100% + 0px);
+  margin-top: -19px;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+  padding: 60px 0 45px 0;
+}
+.block-views-blockfront-page-packages-block-1 .view-front-page-packages .front-packages-blocks .plan-links a {
+  width: 60%;
+  margin-top: 26px;
+  border: 2px solid white;
+  background: transparent;
+  border-radius: 50px;
+  transition: .3s;
+  padding-bottom: 13px;
+  padding-right: 35px;
+  padding-left: 35px;
+  padding-top: 15px;
+  color: #fff;
+}
+.block-views-blockfront-page-packages-block-1 .view-front-page-packages .front-packages-blocks .plan-links:before {
+  position: absolute;
+  height: 29px;
+  content: '';
+  background: white;
+  width: 20px;
+  left: -12px;
+  border-radius: 100%;
+  top: 5px;
+}
+.block-views-blockfront-page-packages-block-1 .view-front-page-packages .front-packages-blocks .plan-links:after {
+  position: absolute;
+  height: 29px;
+  content: '';
+  background: white;
+  width: 20px;
+  right: -12px;
+  border-radius: 100%;
+  top: 5px;
+}
+.block-views-blockfront-page-packages-block-1 .view-front-page-packages .front-packages-blocks .plan-links a:hover {
+  color: #7316EA;
+  border-color: #7316EA;
+}
