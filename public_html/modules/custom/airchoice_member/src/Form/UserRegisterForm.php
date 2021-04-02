@@ -314,6 +314,8 @@ class UserRegisterForm extends FormBase {
         $user->role->setValue($role);
         $user->sms_text->setValue($sms_text);
         $user->year->setValue($year);
+        $user->status= 1;
+        $user->activate(); 
 
          // send email custom 
          $params = [];
