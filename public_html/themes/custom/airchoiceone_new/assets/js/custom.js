@@ -17,7 +17,7 @@
 
   $('.dash_side .openclose').click(function() {
     console.log('ff');
-     $('.dash_side').toggleClass('dlclose'); 
+    //  $('.dash_side').toggleClass('dlclose'); 
   }) 
   
 // Flight selection start

@@ -1,11 +1,18 @@
-<!-- dashboard left side start  -->
-<div class="dash_side">
+
+
+<div class="dashboard-body-setion">
+	<section class="container">
+		<h1>Dashboard</h1>
+
+		<div class="row">
+			<!-- dashboard left side start  -->
+<div class="dash_side col-md-3">
 	 
 	<h2>Welcome, {{ data.currentUser.first_name.value }}</h2>
-	<span class="openclose">
+	<!-- <span class="openclose">
 		<i class="fa-chevron-right"></i>
 		<i class="fa-chevron-left"></i>
-	 </span>
+	 </span> -->
 	<div class="ticket ticket_purp purp">
 		<h4>Next Flight</h4>
 		<div class="row">
@@ -134,15 +141,10 @@
 
 <!-- dashboard left side end  -->
 
-<div class="dashboard-body-setion">
-	<section class="container">
-		<h1>Dashboard</h1>
-
-		<div class="row">
-			<div class="col-md-5">
+			<div class="col-md-4">
 				{{ data.findFlightForm }}
 			</div>
-			<div class="col-md-7">
+			<div class="col-md-5">
 				<div class="booking-section">
 					<div class="row">
 						<div class="col-md-6">
@@ -182,10 +184,7 @@
 					<div class="row">
 						{% for flight in data.upcomingFlights%}
 						<div class="col-md-6">
-							  <div class="alert alert-info">
-								variables in fligt
-								<pre>{{ dump(flight)|keys }}</pre>
-							</div>  
+							   
 							<div class="ticket ticket_white wbg">
 								<h4>{{ flight.name }}</h4>
 								<div class="row">

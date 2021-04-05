@@ -20539,14 +20539,15 @@ h4, .h4 {
   font-family: 'Calibre';
 }
 .dash_side {
-  height: calc(100vh - 4vw);
+  /* height: calc(100vh - 4vw);
   position: fixed;
   left: 0%;
-  top: 2vw;
-  width: 20%;
+  top: 2vw; */
+  /* width: 20%; */
   padding: 20px;
   background: white;
-  min-width: 360px;
+  /* min-width: 360px; */
+  
   z-index: 2;
   -webkit-transition: all 0.15s ease-in-out ;
   transition: all 0.15s ease-in-out ;
@@ -21463,4 +21464,13 @@ body.path-manage-members div[data-drupal-messages="data-drupal-messages"] {
 .block-views-blockfront-page-packages-block-1 .view-front-page-packages .front-packages-blocks .plan-links a:hover {
   color: #7316EA;
   border-color: #7316EA;
+}
+#banner-section #block-airplanegallery {
+  /* margin-top: -162px; */
+  position: relative;
+  z-index: 2;
+}
+#banner-section #block-airplanegallery .field--name-body {
+  height: 676px;
+  text-align: center;
 }

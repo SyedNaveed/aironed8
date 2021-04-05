@@ -31,6 +31,8 @@ class UserRegisterForm extends FormBase {
   * {@inheritdoc}
   */
   public function buildForm(array $form, FormStateInterface $form_state) {
+
+   
     $form['#theme'] = 'form__register_member';
      
 
