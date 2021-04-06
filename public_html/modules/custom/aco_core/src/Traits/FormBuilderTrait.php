@@ -40,9 +40,14 @@ trait FormBuilderTrait {
       if ($adultCount > 0) {
         if ($editing_owner && $i == 0) {
           $passenger = [
+            '#type' => 'container',
+            '#prefix' => '<div class="new-passenger">',
+            '#suffix' => '</div>',
             'header' => [
               '#type' => 'container',
               '#markup' => $this->t('Primary Reservation Contact Information'),
+              '#prefix' => '<div class="new-passenger-title">',
+            '#suffix' => '</div>',
             ],
           ];
           $this->getContactInformationForm($passenger, $default_values, [
@@ -53,8 +58,13 @@ trait FormBuilderTrait {
         }
         else {
           $passenger = [
+            '#type' => 'container',
+            '#prefix' => '<div class="new-passenger">',
+            '#suffix' => '</div>',
             'header' => [
               '#type' => 'container',
+              '#prefix' => '<div class="new-passenger-title">',
+              '#suffix' => '</div>',
               '#markup' => $this->t('Additional Passenger #@count Information (Adult)', [
                 '@count' => $i + 1,
               ]),
@@ -70,8 +80,13 @@ trait FormBuilderTrait {
       }
       elseif ($childCount > 0) {
         $passenger = [
+          '#type' => 'container',
+            '#prefix' => '<div class="new-passenger">',
+            '#suffix' => '</div>',
           'header' => [
             '#type' => 'container',
+            '#prefix' => '<div class="new-passenger-title">',
+              '#suffix' => '</div>',
             '#markup' => $this->t('Additional Passenger #@count Information (Child)', [
               '@count' => $i + 1,
             ]),
@@ -160,6 +175,7 @@ trait FormBuilderTrait {
    *   An array of options.
    */
   protected function getContactInformationFields(array &$form, array &$values = [], array $options = []) {
+    // passengers form fields here 
     $form['title'] = [
       '#type' => 'select',
       '#title' => $this->t('Title'),
@@ -233,6 +249,7 @@ trait FormBuilderTrait {
       '#id' => $with_infant_id,
       '#title' => $this->t('With infant?'),
       '#default_value' => intval($values['withInfant']),
+      '#prefix' => '<div class="infant-random-class">',
     ];
     $form['infant']['firstName'] = Fields::nameField($this->t('First Name'), $values['infant']['firstName'], FALSE);
     $form['infant']['firstName']['#states'] = [
@@ -277,6 +294,11 @@ trait FormBuilderTrait {
         '#' . $with_infant_id => ['checked' => TRUE],
       ],
     ];
+
+    $form['something'] = [
+      '#type' => 'container',
+      '#suffix' => '</div>'
+    ];
   }
 
   /**
@@ -299,6 +321,16 @@ trait FormBuilderTrait {
     $combined = [Defaults::contactInformation(), $values];
     $defaults = NestedArray::mergeDeepArray($combined, TRUE);
     $this->getContactInformationFields($form, $defaults, $settings);
+    // $withInfant = [
+    //   '#type' => 'container',
+  
+    //   '#prefix' => '<h1>HELLLLLLOOOOOOOOO</h1><div class="random-class">',
+    //   '#suffix' => '</div>',
+    // ];
+    // $this->getWithInfantFields($withInfant, $defaults);
+    // $form['withInfant'] = $withInfant;
+
+
     $this->getWithInfantFields($form, $defaults);
   }
 
