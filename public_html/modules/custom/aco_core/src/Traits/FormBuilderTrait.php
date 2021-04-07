@@ -471,38 +471,46 @@ trait FormBuilderTrait {
   protected function getAddressFields(array &$form, array &$defaults, array $options = []) {
     $form['address']['address1'] = [
       '#type' => 'textfield',
+      '#prefix' => '<div class="row"><div class="col-md-6">',
+      
       '#title' => $this->t('Address Line 1'),
-      '#title_display' => 'invisible',
+      // '#title_display' => 'invisible',
       '#placeholder' => $this->t('Address Line 1 *'),
       '#default_value' => $defaults['address']['address1'],
       '#maxlength' => 50,
       '#required' => TRUE,
+      '#suffix' => '</div>',
     ];
     $form['address']['address2'] = [
       '#type' => 'textfield',
+      '#prefix' => '<div class="col-md-6">',
       '#title' => $this->t('Address Line 2'),
-      '#title_display' => 'invisible',
+      // '#title_display' => 'invisible',
       '#placeholder' => $this->t('Address Line 2'),
       '#default_value' => $defaults['address']['address2'],
       '#maxlength' => 50,
+      '#suffix' => '</div></div>',
     ];
     $form['address']['city'] = [
       '#type' => 'textfield',
+      '#prefix' => '<div class="row"><div class="col-md-3">',
       '#title' => $this->t('City'),
-      '#title_display' => 'invisible',
+      // '#title_display' => 'invisible',
       '#placeholder' => $this->t('City *'),
       '#default_value' => $defaults['address']['city'],
       '#maxlength' => 50,
       '#required' => TRUE,
+      '#suffix' => '</div>',
     ];
     $html_id = 'address';
     if (isset($options['context']) && !is_null($options['context'])) {
       $html_id .= '-' . $options['context'];
     }
     $form['address']['location']['country']['code'] = [
+      '#prefix' => '<div class="col-md-3">',
       '#type' => 'select',
       '#title' => $this->t('Country'),
-      '#title_display' => 'invisible',
+      // '#title_display' => 'invisible',
       '#options' => ['' => $this->t('Country *')] + Locations::getCountryOptions(),
       '#default_value' => !empty($form['address']['location']) ? $defaults['address']['location']['country']['code'] : Locations::DEFAULT_COUNTRY_CODE,
       '#required' => TRUE,
@@ -515,11 +523,13 @@ trait FormBuilderTrait {
           'type' => 'fullscreen',
         ],
       ],
+      '#suffix' => '</div>',
     ];
     $form['address']['location']['province']['code'] = [
+      '#prefix' => '<div class="col-md-3">',
       '#type' => 'select',
       '#title' => $this->t('State'),
-      '#title_display' => 'invisible',
+      // '#title_display' => 'invisible',
       '#options' => ['' => $this->t('State *')] + Locations::getProvinceOptions(!empty($defaults['address']['location']) ? $defaults['address']['location']['country']['code'] : Locations::DEFAULT_COUNTRY_CODE),
       '#default_value' => !empty($defaults['address']['location']) ? $defaults['address']['location']['province']['code'] : NULL,
       '#required' => TRUE,
@@ -531,15 +541,18 @@ trait FormBuilderTrait {
           ':input[data-ajax-province="' . $html_id . '-country"]' => ['value' => ''],
         ],
       ],
+      '#suffix' => '</div></div>',
     ];
     $form['address']['postalCode'] = [
+      '#prefix' => '<div class="row"><div class="col-md-3">',
       '#type' => 'textfield',
       '#title' => $this->t('Zip Code'),
-      '#title_display' => 'invisible',
+      // '#title_display' => 'invisible',
       '#placeholder' => $this->t('Zip Code *'),
       '#default_value' => $defaults['address']['postalCode'],
       '#maxlength' => 50,
       '#required' => TRUE,
+      '#suffix' => '</div>',
     ];
   }
 
@@ -560,21 +573,23 @@ trait FormBuilderTrait {
     $form['paymentMethod'] = ['#tree' => TRUE];
     $form['paymentMethod']['identifier'] = [
       '#type' => 'radios',
-      '#title' => $this->t('Payment Method'),
+      '#title' => $this->t('<h2>Payment Information</h2>'),
       '#options' => [
-        'amex' => $this->t('American Express'),
-        'visa' => $this->t('Visa'),
-        'discover' => $this->t('Discover'),
-        'mastercard' => $this->t('MasterCard'),
+        'amex' => $this->t('<span class="amex">American Express</span>'),
+        'visa' => $this->t('<span class="visa">Visa</span>'),
+        'discover' => $this->t('<span class="discover">Discover</span>'),
+        'mastercard' => $this->t('<span class="mastercard">MasterCard</span>'),
       ],
     ];
     $form['billing'] = ['#tree' => TRUE];
     $form['billing']['creditCard']['number'] = [
       '#type' => 'textfield',
+      '#prefix' => '<div class="row"><div class="col-md-6">',
       '#title' => $this->t('Credit Card'),
-      '#title_display' => 'invisible',
+      // '#title_display' => 'invisible',
       '#placeholder' => $this->t('Credit Card *'),
       '#required' => TRUE,
+      '#suffix' => '</div>',
     ];
 
     $today = DrupalDateTime::createFromTimestamp(REQUEST_TIME);
@@ -588,23 +603,27 @@ trait FormBuilderTrait {
       $options[$date->format('Y/m')] = $date->format('F Y');
     }
     $form['billing']['creditCard']['expiry'] = [
+      '#prefix' => '<div class="col-md-3">',
       '#type' => 'select',
-      '#title' => $this->t('Credit Card Expiration'),
-      '#title_display' => 'invisible',
+      '#title' => $this->t('Expiration'),
+      // '#title_display' => 'invisible',
       '#default_value' => $today->format('Y/m'),
       '#options' => $options,
       '#required' => TRUE,
+      '#suffix' => '</div>',
     ];
     $form['billing']['creditCard']['verificationNumber'] = [
+      '#prefix' => '<div class="col-md-3">',
       '#type' => 'textfield',
       '#title' => $this->t('Credit CVV'),
-      '#title_display' => 'invisible',
+      // '#title_display' => 'invisible',
       '#placeholder' => $this->t('Credit CVV *'),
       '#required' => TRUE,
+      '#suffix' => '</div></div>',
     ];
     $form['billing']['creditCard']['billing'] = [
       '#type' => 'container',
-      '#markup' => $this->t('<h4>Cardholder Information</h4>'),
+      // '#markup' => $this->t('<h4>Cardholder Information</h4>'),
     ];
     if ($copy_primary_passenger) {
       $form['billing']['creditCard']['billing']['copyPrimaryPassengerAddress'] = [
@@ -619,13 +638,16 @@ trait FormBuilderTrait {
     $form['billing']['creditCard']['billing']['contactInformation']['name'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Full Name'),
-      '#title_display' => 'invisible',
+      // '#title_display' => 'invisible',
       '#placeholder' => $this->t('Full Name *'),
       '#default_value' => $defaults['billing']['creditCard']['billing']['contactInformation']['name'],
       '#required' => TRUE,
     ];
     $this->getAddressFields($form['billing']['creditCard']['billing'], $defaults['billing']['creditCard']['billing']);
     $form['billing']['creditCard']['billing']['phoneNumber'] = Fields::phoneField($this->t('Phone Number'), $defaults['billing']['creditCard']['billing']['phoneNumber']);
+    unset($form['billing']['creditCard']['billing']['phoneNumber']['#title_display']);
+    $form['billing']['creditCard']['billing']['phoneNumber']['#prefix'] = '<div class="col-md-3">';
+    $form['billing']['creditCard']['billing']['phoneNumber']['#suffix'] = '</div>';
 
     if ($copy_primary_passenger) {
       $form['billing']['creditCard']['billing']['contactInformation']['name']['#attributes'] = [

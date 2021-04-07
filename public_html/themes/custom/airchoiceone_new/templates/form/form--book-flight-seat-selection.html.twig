@@ -19,8 +19,12 @@
       <div class="col-md-7">
         <h1  >{{ element.title }}</h1>
         <div class="divide10"></div>
-          
-              {% for el in element.tab_buttons['#titles']  %}
+           {{ element.seat_selections }}
+  <div class="flights-seat-btuns">
+            {{ element.tab_buttons }}
+          </div>
+
+              {# {% for el in element.tab_buttons['#titles']  %}
         <div class="row seat_flight_ov">
 						<div class="col-md-4 cs6">
 							<label>Flight Number</label>
@@ -42,12 +46,14 @@
 							<div class="seat_select_small"></div><h4>1B</h4>
 						</div>
 					</div>
-              {% endfor %}
-          <div class="flights-seat-btuns">
-            {# {{ element.tab_buttons }} #}
-          </div>
+              {% endfor %} #}
+        
         
 
+        
+        
+        
+        
         <div class="divide50"></div>
 
         <div class="row">
@@ -84,7 +90,7 @@
              
             </div>
             <div class="col-md-12 col-sm-12">
-              {{ element.seat_selections }}
+             
   
               <div class="divide40"></div>
   
@@ -119,8 +125,8 @@
     </div>
     <div class="checkout_next_back">
       {{ element|without('actions', 'tab_buttons', 'seats', 'seat_selections', 'title', 'ticket') }}
-      {{ element.actions|without('previous') }}
-      {{ element.actions.previous }}
+      {{ element.actions|without('previousa') }}
+      {# {{ element.actions.previous }} #}
     </div>
   </div>
 </div>

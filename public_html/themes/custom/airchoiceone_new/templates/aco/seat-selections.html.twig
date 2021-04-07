@@ -4,7 +4,7 @@
  * Theme override for seat selections.
  */
 #}
-{% for flight in flights %}
+{# {% for flight in flights %}
   <div data-tab="{{ loop.index0 }}">
     <h2>{{ flight.title }}</h2>
     <div class="row seats_overview">
@@ -32,4 +32,43 @@
       </div>
     </div>
   </div>
+{% endfor %} #}
+
+
+{% for key,flight in flights %}
+<div data-tab="{{key}}" class="user-flight-ticket-info booking_seats">
+{% for passenger in flight.passengers %}
+ <div  class="row seat_flight_ov">
+						<div class="col-md-4 cs6">
+							<label>Flight Number</label>
+							<h4>
+                {{ flight.title }}
+              </h4>
+						</div>
+						<div class="col-md-4 cs6 passengername">
+							<label>Passenger</label>
+							<h4>{{ passenger.name }}</h4>
+						</div>
+						<div class="col-md-3 cs6">
+							<label>Upgrade Price</label>
+							<h4>
+              <b>{{ '$'|t }}</b><span{{ passenger.attributes }} class="upgrade-price">{{ passenger.price }}</span></h4>
+						</div>
+						
+						<div class="col-md-1 cs6">
+							<label>Seat</label>
+							<div class="seat_select_small"></div><h4 {{ passenger.attributes }} class="selected_seat">{{ passenger.seat }} </h4>
+ 
+
+						</div>
+
+					</div>
+              {% endfor %}
+          
+       </div> 
 {% endfor %}
+        
+        
+        
+        
+        

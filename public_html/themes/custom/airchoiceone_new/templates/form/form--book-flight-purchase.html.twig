@@ -15,30 +15,35 @@
 <div class="book_page">
   <div class="container">
     <div class="row">
-      <div class="col-md-9">
-        <h1 class="h2">{{ element.title }}</h1>
-        <p>{{ 'All prices are in United States Dollar. All times are airport local.'|t }}</p>
+      <div class="col-md-7 pr40">
+        <h1  >{{ element.title }}</h1>
+         <h2 class="purp_text">{{ element.subtitle }}</h2>
+        <p class="gray_p">{{ 'All prices are in United States Dollar. All times are airport local.'|t }}</p>
 
-        <div class="book_page_date_select">{{ element.subtitle }}</div>
+         
 
         {{ element.charges_table }}
 
         <div class="divide60"></div>
 
         <div class="book_page_table_values">
-
-          <h1 class="h2">{{ 'Payment Information'|t }}</h1>
-
+ 
           <div class="book_page_contact_form">
 
             <div class="row">
-              {{ element|without('subtitle', 'charges_table', 'title', 'ticket') }}
+              {{ element|without('subtitle', 'charges_table', 'actions', 'title', 'ticket', 'paymentMethod', 'billing') }}
+              {{ element.actions|without('submit')}} 
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-3">
-        {{ element.ticket }}
+      <div class="col-md-5">
+        {# {{ element.ticket }} #}
+        <div class="payment_form">
+        {{ element.paymentMethod }} 
+        {{ element.billing }} 
+       <div class="row"><div class="col-md-12"> {{ element.actions.submit|merge({'#value': 'Continue to Confirm'})}}</div> </div> 
+        </div>
       </div>
     </div>
   </div>

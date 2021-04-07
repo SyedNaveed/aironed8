@@ -18805,10 +18805,19 @@ ol.breadcrumb .breadcrumb-item {
 #block-banner .field__item img {
   max-width: 100%;
   /* height: 676px; */
-  height: 100vh;
+  /* height: 100vh; */
   width: 100%;
+  height: 100vh;
 }
-body.path-frontpage .banner-front {
+body.path-frontpage #block-banner .field__item img {
+  display: none;
+}
+body.path-frontpage .banner-front #block-banner {
+  position: relative;
+  background: url(../image/airone-bann.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   height: 100vh;
 }
 body.path-frontpage  .field--name-field-link2.field--type-link,
@@ -18831,7 +18840,155 @@ body.path-frontpage form.aco-book-flight-search-form.antibot {
   background-position: center  ;
   height: 800px;
 }
- 
+.user-flight-ticket-info .seat_flight_ov {
+  text-align: left;
+}
+.user-flight-ticket-info .seat_flight_ov .passengername .form-item {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.user-flight-ticket-info .seat_flight_ov .passengername .form-item label::after,
+.user-flight-ticket-info .seat_flight_ov .passengername .form-item label::before {
+  display: none;
+}
+.user-flight-ticket-info .seat_flight_ov .passengername .form-item input {
+  float: left;
+  width: 15px;
+  margin-right: 10px;
+}
+.additional-left-side .row {
+  margin-left: 0;
+}
+h2.purp_text {
+  color: #411777;
+  margin-bottom: 0px;
+  font-size: 26px;
+}
+p.gray_p {
+  font-size: 18px;
+  opacity: .7;
+}
+form.aco-book-flight-purchase-form  h1 {
+  margin-bottom: 16px;
+  font-size: 42px;
+  font-family: 'Calibre';
+}
+.wbg.shadow.title_table .row {
+  padding: 20px 20px 15px;
+  /* width: calc(100% - 30px); */
+}
+.payment_form {
+  background: #411777;
+  color: white;
+  padding: 40px;
+}
+.payment_form fieldset#edit-paymentmethod-identifier--wrapper .fieldset-wrapper > .form-radios label span {
+  font-size: 0;
+}
+.payment_form fieldset#edit-paymentmethod-identifier--wrapper .fieldset-wrapper > .form-radios label span.amex {
+  width: 40px;
+  background: url(../image/amex.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 13px 22px;
+  background-size: cover;
+  border-radius: 4px;
+}
+.payment_form fieldset#edit-paymentmethod-identifier--wrapper .fieldset-wrapper > .form-radios label span.visa {
+  width: 40px;
+  background: url(../image/visa.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 13px 22px;
+  background-size: cover;
+  border-radius: 4px;
+}
+.payment_form fieldset#edit-paymentmethod-identifier--wrapper .fieldset-wrapper > .form-radios label span.discover {
+  width: 40px;
+  background: url(../image/discover.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 13px 22px;
+  background-size: cover;
+  border-radius: 4px;
+}
+.payment_form fieldset#edit-paymentmethod-identifier--wrapper .fieldset-wrapper > .form-radios label span.mastercard {
+  width: 40px;
+  background: url(../image/mastercard.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 13px 22px;
+  background-size: cover;
+  border-radius: 4px;
+}
+.payment_form fieldset#edit-paymentmethod-identifier--wrapper .fieldset-wrapper > .form-radios {
+  display: flex;
+  flex-wrap: wrap;
+}
+.payment_form fieldset#edit-paymentmethod-identifier--wrapper .fieldset-wrapper > .form-radios input {
+  float: left;
+  width: 15px;
+  margin-top: 4px;
+  margin-right: 10px;
+  height: auto;
+}
+.payment_form fieldset#edit-paymentmethod-identifier--wrapper .fieldset-wrapper > .form-radios label::before,
+.payment_form fieldset#edit-paymentmethod-identifier--wrapper .fieldset-wrapper > .form-radios label::after {
+  display: none;
+}
+.payment_form fieldset#edit-paymentmethod-identifier--wrapper .fieldset-wrapper > .form-radios .custom-radio {
+  margin-right: 18px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.payment_form label {
+  font-size: 15px;
+  line-height: 1;
+}
+.payment_form .form-item {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.payment_form .custom-checkbox label {
+    margin-top: 0px;
+    position: relative;
+    top: -4px;
+    padding-top: 6px;
+}
+.payment_form select {
+  border: 0px;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-left: 15px;
+  margin-top: 0px;
+  border-radius: 0;
+}
+.payment_form input {
+  border: 0px;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-left: 15px;
+  margin-top: 0px;
+  border-radius: 0;
+}
+.row.table_bb {
+  border-bottom: 1px solid #D2D6E2;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  margin-left: 0px;
+}
+.row.table_bb.bb0 {
+  border-bottom: 0px;
+}
+form.aco-book-flight-purchase-form .pr40 {
+  padding-right: 50px;
+}
+form.aco-book-flight-purchase-form .book_page {
+  padding-left: 80px;
+}
 #block-videobannersection .field--name-body > div::before {
   content: "\e029";
   position: relative;
@@ -18999,6 +19156,8 @@ footer#page-footer #block-bootstrap-for-drupal-airchoiceone-new-footer-branding 
 }
 #block-eachpackageincludes {
   padding-bottom: 80px;
+  width: 90%;
+  margin: 0 auto;
 }
 #block-eachpackageincludes h2 {
   color: #411777;
@@ -19082,6 +19241,11 @@ header#header-menu .bg-secondary {
   color: #fff;
   margin: 0 auto;
 }
+body.path-frontpage #block-banner .field--name-body {
+  left: 50%;
+  top: 50%;
+  transform: translate(-51%, -35%);
+}
 #block-banner .field--name-body {
   position: absolute;
   width: 44%;
@@ -19092,6 +19256,19 @@ header#header-menu .bg-secondary {
   text-align: center;
   color: #fff;
   margin: 0 auto;
+}
+body.path-frontpage main {
+  min-height: 0;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: gray; 
 }
 #header-menu .nav.navbar-nav li.nav-item {
   margin-right: 50px;
@@ -19340,6 +19517,7 @@ header#header-menu.menuscroll #menu-main nav#block-useraccountmenu ul li a {
 }
 #block-ourcompanyairplanegallery .field--name-mutli-images > .field__item .paragraph--type--multi-content-blue-print {
   box-shadow: 6px 11px 23px rgb(65 23 119 / 14%);
+  position: relative;
 }
 #block-ourcompanyairplanegallery .field--name-mutli-images > .field__item .field--name-short-title {
   font-size: 23px;
@@ -19359,16 +19537,29 @@ header#header-menu.menuscroll #menu-main nav#block-useraccountmenu ul li a {
   padding: 0 15px 24px 30px;
   position: relative;
 }
-#block-ourcompanyairplanegallery .field--name-mutli-images > .field__item .field--name-plan-title::after {
-  content: '';
-  background-image: url('../image/right-arrow.png');
+#block-ourcompanyairplanegallery .field--type-link a {
+  position: absolute;
+  right: 15px;
+  bottom: 35px;
+  font-size: 0;
+  background-image: url(../image/right-arrow.png);
   background-repeat: no-repeat;
   height: 20px;
   width: 20px;
   position: absolute;
-  right: 20px;
   z-index: 5;
   padding: 18px 18px;
+}   
+#block-ourcompanyairplanegallery .field--name-mutli-images > .field__item .field--name-plan-title::after {
+  /* content: ''; */
+  /* background-image: url('../image/right-arrow.png'); */
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  /* right: 20px; */
+  z-index: 5;
+  /* padding: 18px 18px; */
 
 }
 #block-ourcompanyairplanegallery {
@@ -21393,6 +21584,8 @@ body.path-manage-members div[data-drupal-messages="data-drupal-messages"] {
 .block-views-blockfront-page-packages-block-1 {
   padding-bottom: 55px;
   padding-top: 55px;
+  width: 90%;
+  margin: 0 auto;
 }
 .block-views-blockfront-page-packages-block-1 .view-front-page-packages {
   display: flex;

@@ -35,7 +35,7 @@ class PurchaseForm extends BookingFormBase {
     }
 
     $form['#theme'] = 'form__book_flight_purchase';
-    $form['title'] = ['#markup' => $this->t('Reservation Charges')];
+    $form['title'] = ['#markup' => $this->t('Submit Payment Information')];
     $form['subtitle'] = [
       '#markup' => $this->t('<span>Departure date:</span> @date', [
         '@date' => $this->values['from'],
@@ -52,6 +52,7 @@ class PurchaseForm extends BookingFormBase {
 
     // Create billing fields.
     $this->getPurchaseFields($form, $this->values);
+  
     return $form;
   }
 

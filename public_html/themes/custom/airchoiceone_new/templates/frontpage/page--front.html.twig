@@ -70,7 +70,7 @@
       <div class="col col-print-12">
 
           <!-- CONTENT BEFORE -->
-          {% if page.content_before %}
+          {% if page.content_before|striptags|trim  %}
             <aside class="mt-2 mt-md-3" id="content-before">
               {{ page.content_before }}
             </aside>
@@ -79,9 +79,11 @@
           <!-- CONTENT BEFORE -->
 
           <!-- MAIN CONTENT -->
+            {% if page.content|striptags|trim  %}
           <section class="py-2 py-md-3" id="page-content">
             {{ page.content }}
           </section>
+           {% endif %}
           <!-- MAIN CONTENT -->
 
           <!-- CONTENT AFTER -->

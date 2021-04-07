@@ -5,7 +5,7 @@
  */
 #}
 <div class="book_page_table">
-  <div class="book_page_table_head doshow_tablet">
+  <div class="wbg shadow title_table">
     <div class="row">
       <div class="col-sm-6 bpth_br">
         <h4>{{ 'Description'|t }}</h4>
@@ -25,12 +25,12 @@
 
 <div class="book_page_table_values book_pay">
   {% for charge in charges %}
-    <div class="row book_page_table_row">
+    <div class="row table_bb">
       {{ charge }}
     </div>
   {% endfor %}
 
-  <div class="row book_page_table_row">
+  <div class=" row table_bb bb0">
     <div class="col-md-10 col-sm-8">
       <span class="book_page_time">{{ 'TOTAL COST'|t }}</span>
     </div>
