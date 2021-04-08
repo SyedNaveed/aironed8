@@ -25,7 +25,7 @@ class SiteLogoBlock extends BlockBase {
 
     $build['dashboardlogo'] = [
       '#type' => 'inline_template',
-      '#template'=> '<a href="{{ drupal_url("/dashboard") }}"><img src="'.theme_get_setting('logo.url').'" />'
+      '#template'=> '<a href="{{ drupal_url("/dashboard") }}"><img src="'.theme_get_setting('logo.url').'" /></a>'
     ];
 
     return $build;
