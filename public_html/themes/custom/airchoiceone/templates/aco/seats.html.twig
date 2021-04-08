@@ -6,7 +6,8 @@
 #}
 {% for flight in flights %}
   <div data-tab="{{ loop.index0 }}" class="booking_seats">
-    <img src="/themes/custom/airchoiceone_new/assets/image/seats-new.png" alt="{{ 'Seat assignment'|t }}">
+
+     <img src="{{ drupal_url('/themes/custom/airchoiceone_new/assets/image/seats-new.png') }}" alt="{{ 'Seat assignment'|t }}">
     <div class="seats">
       <ul class="block-list">
         {% for seat in flight.seats %}

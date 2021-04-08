@@ -19609,6 +19609,7 @@ header#header-menu.menuscroll #menu-main nav#block-useraccountmenu ul li a {
   max-width: 100%;
   margin: 0 auto;
   padding-bottom: 120px;
+  padding-top: 80px;
 }
 .view-gallery .view-header h2 {
   font-size: 62px;
@@ -19925,6 +19926,16 @@ body.path-user section.bg-light{
   box-shadow: 6px 11px 23px rgb(65 23 119 / 14%);
   background-color: transparent !important;
 }
+#page-footer #block-galleryfooter {
+  max-width: 850px;
+  margin: 40px auto;
+  text-align: center;
+  font-size: 28px;
+  line-height: 28x;
+  font-family: 'Calibre-Light';
+  width: 90%;
+  color: #000;
+}
 body.path-user .form-control {
   border: 0px;
   height: 50px;
@@ -19935,10 +19946,20 @@ body.path-user .form-control {
   background: #fff;
   border-radius: 0;
 }
+.payment_form input[type="submit"] {
+  background-color: #29E0BA;
+  border-color: #29E0BA;
+}
+body.path-user .form-actions .button:focus:hover,
+body.path-user .form-actions .button:hover:focus,
+body.path-user .form-actions .button:focus,
+body.path-user .form-actions .button:hover {
+  background: #411777;
+}
 body.path-user .form-actions .button {
   margin: 1rem 1rem 0 0;
   width: 100%;
-  background: purple;
+  background: #411777;
   color: white;
   height: 60px;
   border: none;
@@ -20937,7 +20958,7 @@ form.aco-book-flight-search-form .find_flight_form .form-item-isroundtrip label 
   width: 100%;
 }
 form .cus-form-btn .form-actions input[type="submit"]{  
-  background: #7419ea;
+  background: #411777;
   border: 0px;
   width: 100%;
   height: 50px;
@@ -21810,4 +21831,54 @@ body.path-manage-members div[data-drupal-messages="data-drupal-messages"] {
 #banner-section #block-airplanegallery .field--name-body {
   height: 676px;
   text-align: center;
+}
+form.aco-book-flight-additional-services-form {
+  padding-left: 90px;
+}
+form.change-pwd-form .custom-password .description {
+  display: none;
+}
+body.path-gallery .view-gallery-gallery-field {
+  width: 90%;
+  margin: 0 auto;
+}
+body.path-gallery .view-gallery-gallery-field .view-content .field--name-field-text {
+   margin-bottom: 25px;
+   margin-top: 25px;
+   text-align: center;
+   font-size: 24px;
+
+}
+body.path-gallery .view-gallery-gallery-field .view-content .field--name-field-media .field__item img {
+  max-width: 100%;
+}
+body.path-gallery .view-gallery-gallery-field .view-content .field--name-field-media {    
+  line-height: 0;       
+   -webkit-column-count: 2;    
+   -webkit-column-gap: 0px;    
+   -moz-column-count: 2;
+   -moz-column-gap: 0px;
+    column-count: 2;    
+    column-gap: 0px;    
+}  
+body.path-gallery .view-gallery-gallery-field .view-content .field--name-field-media .field__item   {    
+  width: 100% !important;    
+  height: auto !important;  
+}  
+body.path-gallery .view-gallery-gallery-field .view-content .field--name-field-media {    
+  display:inline-block;    
+  margin-right: auto;    
+  margin-left: auto;  
+}
+#block-sitelogoblock {
+  position: fixed;
+    top: 0;
+    left: 0px;
+    padding: 28px 7px 10px 20px;
+    background: #fff;
+    z-index: 6;
+    width: 100px;
+}
+#block-sitelogoblock a img {
+  width: 60px;
 }
