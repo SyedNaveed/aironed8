@@ -19963,6 +19963,9 @@ body.path-user section.bg-light .btn-primary:not(:disabled):not(.disabled):activ
 body.path-flight-status{
   background: #F0F2F8;
 }
+body.path-dashboard div[data-drupal-messages="data-drupal-messages"] {
+  padding-left: 90px;
+}
 #block-dashboardleftmenu {
   position: fixed;
   top: 71px;
@@ -21075,6 +21078,13 @@ body.path-book-flight form.aco-book-flight-flight-selection-form {
 }
 .col-md-6.search_flights_departures {
   padding-right: 40px;
+}
+form.aco-book-flight-contact-information-form .js-form-type-select.form-type-select label ,
+form.aco-book-flight-contact-information-form .custom-textfield.form-type-textfield label {
+  display: none;
+}
+.col-md-6.search_flights_returns {
+  padding-left: 40px;
 }
 .search_flights_titles {
   overflow: hidden;
