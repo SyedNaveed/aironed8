@@ -19604,6 +19604,32 @@ header#header-menu.menuscroll #menu-main nav#block-useraccountmenu ul li a {
   right: 33px;
   transform: translateY(-50%);
 }
+.view-gallery {
+  width: 90%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-bottom: 120px;
+}
+.view-gallery .view-header h2 {
+  font-size: 62px;
+  font-family: 'Calibre-Light';
+  line-height: .8;
+  margin-bottom: 25px;
+}
+.view-gallery .rpr a {
+  padding: 4px ​17px;
+  padding-top: 4px;
+  padding-right: 17px;
+  padding-bottom: 4px;
+  padding-left: 17px;
+  background-image: url(../image/right-arrow.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  right: -2px;
+  z-index: 5;
+
+  font-size: 0;
+}
 .view-gallery .view-content {
   display: flex;
   flex-wrap: wrap;
@@ -19616,6 +19642,8 @@ header#header-menu.menuscroll #menu-main nav#block-useraccountmenu ul li a {
 }
 #block-ourcompanyairplanegallery {
   padding-bottom: 100px;
+  width: 90%;
+  margin: 0 auto;
 }
 #block-havequestionscontactoursupportteam {
   height: 180px;
