@@ -87,6 +87,28 @@
     }
   }
   @media only screen and (min-width: 768px) and (max-width:1024px){
+    #header-menu #block-useraccountmenu ul li:nth-last-child(1) a {
+      padding: 17px 22px 10px;
+    }
+    #header-menu #block-useraccountmenu ul li {
+      margin-left: 10px;
+    }
+    #block-ourcompanyairplanegallery .field--name-mutli-images > .field__item .field--name-short-title {
+      padding-left: 15px;
+    }
+    #block-ourcompanyairplanegallery .field--name-mutli-images > .field__item .field--name-plan-title {
+      font-size: 38px;
+     
+      padding: 0 28px 24px 15px;
+    }
+    .gallery-blog-bottom .rpl h2 {
+      font-size: 30px;
+      font-family: 'Calibre-Light';
+      padding-right: 52px;
+    }
+    .gallery-blog-bottom .rpl {
+      left: 19px;
+    }
     .path-flight-status #page-content #aco-flight-status-form {
       width: 80%;
     }

@@ -19578,14 +19578,14 @@ header#header-menu.menuscroll #menu-main nav#block-useraccountmenu ul li a {
   height: 130px;
   margin-top: 0px;
 }
-.rpl h4 {
+.gallery-blog-bottom .rpl h4 {
   font-size: 23px;
   line-height: 1;
   margin-bottom: 0px;
   margin-top: 0px;
   font-family: 'Calibre';
 }
-.rpl h2 {
+.gallery-blog-bottom .rpl h2 {
   font-size: 45px;
   font-family: 'Calibre-Light';
 }
@@ -19615,6 +19615,7 @@ header#header-menu.menuscroll #menu-main nav#block-useraccountmenu ul li a {
   font-family: 'Calibre-Light';
   line-height: .8;
   margin-bottom: 25px;
+  padding-left: 15px;
 }
 .view-gallery .rpr a {
   padding: 4px ​17px;

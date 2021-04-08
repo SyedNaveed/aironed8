@@ -36,7 +36,7 @@ class AdditionalServicesForm extends BookingFormBase {
     $form['title'] = ['#markup' => $this->t('Additional Services and Items')];
 
     $form['note'] = [
-      '#markup' => $this->t('<p>All prices are in United States Dollar.</p>'),
+      '#markup' => $this->t('<div class="col-md-12"><p>All prices are in United States Dollar.</p></div>'),
     ];
 
     $header = [
@@ -65,7 +65,7 @@ class AdditionalServicesForm extends BookingFormBase {
             if (!$header_printed) {
               $header_printed = TRUE;
               $form['additional_services_header_' . $passenger_index] = [
-                '#markup' => $this->t('<h4>@last, @first</h4>', [
+                '#markup' => $this->t('<div class="col-md-12"><h4>@last, @first</h4></div>', [
                   '@first' => $passenger['firstName'],
                   '@last' => $passenger['lastName'],
                 ]),
