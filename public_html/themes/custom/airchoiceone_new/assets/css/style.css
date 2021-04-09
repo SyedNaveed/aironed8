@@ -20761,6 +20761,10 @@ body.path-user  #page-content form.user-form {
 .register-signup-page .sign_in_left {
   overflow-y: scroll;
 }
+.register-signup-page .sign_in_page {
+  height: auto;
+  overflow: visible;
+}
 body.path-user form.user-form #edit-account,
 body.path-user form.user-form {
   display: flex;
