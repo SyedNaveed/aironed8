@@ -19938,12 +19938,12 @@ body.path-user section.bg-light{
 }
 body.path-user .form-control {
   border: 0px;
-  height: 50px;
+  height: 60px;
   width: 100%;
   margin-bottom: 20px;
   padding-left: 15px;
   margin-top: 0px;
-  background: #fff;
+  /* background: #fff; */
   border-radius: 0;
 }
 .payment_form input[type="submit"] {
@@ -19958,17 +19958,18 @@ body.path-user .form-actions .button:hover {
 }
 body.path-user .form-actions .button {
   margin: 1rem 1rem 0 0;
-  width: 100%;
+  width: auto;
+  border-radius: 30px;
   background: #411777;
   color: white;
   height: 60px;
   border: none;
-  border-radius: 0;
   font-weight: bold;
   font-size: 20px;
+  padding: 3px 80px 0px;
 }
 .path-user main{
-  background: #F0F2F8;
+  /* background: #F0F2F8; */
 }
 body.path-user section.bg-light .btn-primary:focus, .btn-primary.focus {
   box-shadow: none;
@@ -20743,12 +20744,13 @@ body.path-manage-members header#header-menu,
 body.path-manage-members footer,
 body.path-dashboard header#header-menu,
 body.path-dashboard footer,
-body.path-user footer,
-body.path-user header#header-menu {
-  display: none;
+body.path-user footer 
+/* body.path-user header#header-menu  */
+{
+    display: none;
 }
 body.path-user #page-content {
-  padding-left: 82px;
+  /* padding-left: 82px; */
 }
 body.path-user  #page-content form.user-form {
   margin-left: 60px;
@@ -21881,4 +21883,75 @@ body.path-gallery .view-gallery-gallery-field .view-content .field--name-field-m
 }
 #block-sitelogoblock a img {
   width: 60px;
+}
+/* sign up page  */
+.sign_in_page {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  margin-top: -143px;
+}
+.sign_in_page form {
+  width: 80%;
+  margin-top: 139px;
+}
+.sign_in_page form input {
+  background: #f0f2f8;
+  border: 0px;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-left: 15px;
+  margin-top: 0px;
+}
+.sign_in_page form .description {
+  display: none;
+}
+.sign_in_page form label {
+  font-size: 15px;
+}
+.sign_in_left {
+  width: 40%;
+  float: left;
+  height: 100vh;
+  padding: 195px 2.5% 0;
+}
+.sign_in_left h1 {
+  font-size: 50px;
+  font-family: "Calibre-Light";
+}
+.signinup_form {
+  width: 80%;
+}
+.sign_in_right {
+  width: 60%;
+  float: right;
+  height: 100vh;
+}
+.sign_in_right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#header-menu nav#block-alreadyamember h2 {
+  float: left;
+  margin-right: 8px;
+  font-size: 21px;
+  padding-top: 11px;
+}
+#header-menu nav#block-alreadyamember ul.navbar-nav {
+  float: left;
+}
+#header-menu nav#block-alreadyamember ul.navbar-nav li {
+  margin-right: 0;
+}
+#header-menu nav#block-alreadyamember ul.navbar-nav li a {
+  margin-left: 12px;
+  height: 40px;
+  padding: 0px 30px;
+  border-radius: 50px;
+  padding-top: 5px;
+  transition: .3s;
+  background-color: #411777;
+  color: #fff;
 }
