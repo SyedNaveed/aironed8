@@ -3,13 +3,26 @@
 
 
   $(window).scroll(function () {
-    if ($(window).scrollTop() >= 100) {
-      $('header#header-menu').addClass('menuscroll');
+ 
+      if ($(window).scrollTop() >= 100) {
+        $('header#header-menu').addClass('menuscroll');
+      }
+      else {
+        $('header#header-menu').removeClass('menuscroll');
+      }
+  });
+  $('.sign_in_page .sign_in_left').scroll(function () {
+ 
+    if ($('.sign_in_page .sign_in_left').scrollTop() >= 100) {
+      // $('header#header-menu').addClass('menuhide');
     }
     else {
-      $('header#header-menu').removeClass('menuscroll');
+      // $('header#header-menu').removeClass('menuhide');
     }
-  });
+    });
+
+  
+
   // for place holder 
   $("#edit-pass").attr("placeholder", "Password");
 
