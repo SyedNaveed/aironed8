@@ -28,6 +28,8 @@ class FindFlightForm extends FormBase {
 
     customMailSend('idevmoin@gmail.com','test', $params);
 
+    exit;
+
     $form['#theme'] = 'find-a-flight-dashboard-form';
 
     
