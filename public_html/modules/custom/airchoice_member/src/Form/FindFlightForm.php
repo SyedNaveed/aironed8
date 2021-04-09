@@ -22,6 +22,12 @@ class FindFlightForm extends FormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
+    $params = [];
+    $params['subject'] = $this->t('Thanks to registered on Air one Choice ');
+    $params['body'] = [$this->t("Hello world")];
+
+    customMailSend('idevmoin@gmail.com','test', $params);
+
     $form['#theme'] = 'find-a-flight-dashboard-form';
 
     

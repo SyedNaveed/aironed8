@@ -20753,7 +20753,13 @@ body.path-user #page-content {
   /* padding-left: 82px; */
 }
 body.path-user  #page-content form.user-form {
-  margin-left: 60px;
+  /* margin-left: 60px; */
+}
+.register-signup-page .sign_in_page {
+  overflow: visible;
+}
+.register-signup-page .sign_in_left {
+  overflow-y: scroll;
 }
 body.path-user form.user-form #edit-account,
 body.path-user form.user-form {
@@ -21895,6 +21901,10 @@ body.path-gallery .view-gallery-gallery-field .view-content .field--name-field-m
   width: 80%;
   margin-top: 139px;
 }
+.sign_in_page form .custom-textfield {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
 .sign_in_page form input {
   background: #f0f2f8;
   border: 0px;
@@ -21933,18 +21943,22 @@ body.path-gallery .view-gallery-gallery-field .view-content .field--name-field-m
   height: 100%;
   object-fit: cover;
 }
+#header-menu nav#block-alreadyamember-2 h2,
 #header-menu nav#block-alreadyamember h2 {
   float: left;
   margin-right: 8px;
   font-size: 21px;
   padding-top: 11px;
 }
+#header-menu nav#block-alreadyamember-2 ul.navbar-nav,
 #header-menu nav#block-alreadyamember ul.navbar-nav {
   float: left;
 }
+#header-menu nav#block-alreadyamember-2 ul.navbar-nav li,
 #header-menu nav#block-alreadyamember ul.navbar-nav li {
   margin-right: 0;
 }
+#header-menu nav#block-alreadyamember-2 ul.navbar-nav li a,
 #header-menu nav#block-alreadyamember ul.navbar-nav li a {
   margin-left: 12px;
   height: 40px;
