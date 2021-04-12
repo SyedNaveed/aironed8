@@ -18856,6 +18856,9 @@ body.path-frontpage form.aco-book-flight-search-form.antibot {
   width: 15px;
   margin-right: 10px;
 }
+.additional-left-side .row.addd > .col-md-12 {
+  padding-left: 0;
+}
 .additional-left-side .row {
   margin-left: 0;
 }
@@ -20446,6 +20449,7 @@ nav.block-menu.menu--dashboard-top-menu {
   padding-left: 150px;
   padding-right: 35px;
 }
+body.user-logged-in.path-user,
 body.path-dashboard {
   background: #e9ecef;
 }
@@ -21986,7 +21990,7 @@ body.path-gallery .view-gallery-gallery-field .view-content .field--name-field-m
 .sign_in_page.register-signup-page form {
   margin-top: 135px;
 }
-body.path-user #header-menu {
+body.user-logged-out.path-user #header-menu {
   width: 40%;
 }
 .sign_in_right img {
@@ -22141,4 +22145,14 @@ body.path-packages .view-front-page-packages {
 .view-front-page-packages .front-packages-blocks .plan-links a:hover {
   color: #7316EA;
   border-color: #7316EA;
+}
+body.user-logged-in.path-user nav#block-dashboardleftmenu,
+body.user-logged-in.path-user #block-sitelogoblock {
+  /* display: none; */
+}
+body.user-logged-in.path-user header#header-menu {
+  display: none;
+}
+body.user-logged-in.path-user article.profile {
+  padding-left: 90px;
 }

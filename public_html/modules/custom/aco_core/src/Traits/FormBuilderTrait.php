@@ -87,7 +87,7 @@ trait FormBuilderTrait {
             '#type' => 'container',
             '#prefix' => '<div class="new-passenger-title">',
               '#suffix' => '</div>',
-            '#markup' => $this->t('Additional Passenger #@count Information (Child)', [
+            '#markup' => $this->t('<h3>Additional Passenger #@count Information (Child)</h3>', [
               '@count' => $i + 1,
             ]),
           ],
