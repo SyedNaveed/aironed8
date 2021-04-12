@@ -1,0 +1,32 @@
+uuid: a5794267-fdfa-4018-852e-643088165394
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.embedded
+    - field.field.media.document.field_file_size
+    - field.field.media.document.field_media_file
+    - field.field.media.document.field_mime_type
+    - media.type.document
+  module:
+    - file
+id: media.document.embedded
+targetEntityType: media
+bundle: document
+mode: embedded
+content:
+  field_media_file:
+    weight: 0
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+hidden:
+  created: true
+  field_file_size: true
+  field_mime_type: true
+  name: true
+  thumbnail: true
+  uid: true

@@ -1,0 +1,33 @@
+uuid: 292c2b4a-29d1-4fc2-830f-e4ff0f76699d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.multiple_background_content.background_content
+    - field.field.paragraph.multiple_background_content.background_image
+    - paragraphs.paragraphs_type.multiple_background_content
+  module:
+    - image
+    - text
+id: paragraph.multiple_background_content.default
+targetEntityType: paragraph
+bundle: multiple_background_content
+mode: default
+content:
+  background_content:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  background_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden: {  }

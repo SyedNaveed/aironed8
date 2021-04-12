@@ -1,0 +1,19 @@
+uuid: 0f064eab-ddb6-470d-8f22-b33c11acfe1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.gallery_tag
+    - node.type.gallery_page
+id: node.gallery_page.gallery_tag
+field_name: gallery_tag
+entity_type: node
+bundle: gallery_page
+label: 'Gallery Tag'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

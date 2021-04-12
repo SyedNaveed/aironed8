@@ -1,0 +1,8 @@
+uuid: f6208212-3f7a-4ac6-8259-7ef203fe9d5f
+langcode: en
+status: true
+dependencies: {  }
+id: social
+label: 'Social navigation'
+description: 'External links to social media channels'
+locked: false

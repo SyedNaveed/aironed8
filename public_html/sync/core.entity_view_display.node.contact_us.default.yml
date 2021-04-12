@@ -1,0 +1,39 @@
+uuid: 8566ff9f-af79-4f45-ac5f-48d0e133df2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.contact_us.body
+    - field.field.node.contact_us.faq
+    - node.type.contact_us
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.contact_us.default
+targetEntityType: node
+bundle: contact_us
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  faq:
+    type: entity_reference_revisions_entity_view
+    weight: 102
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

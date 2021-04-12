@@ -1,0 +1,58 @@
+uuid: 81bbaadb-9a15-4e7d-8037-07b0097a7b4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.background_image_content
+    - node.type.about_us
+    - paragraphs.paragraphs_type.multiple_background_content
+  module:
+    - entity_reference_revisions
+id: node.about_us.background_image_content
+field_name: background_image_content
+entity_type: node
+bundle: about_us
+label: 'Background Image Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      multiple_background_content: multiple_background_content
+    target_bundles_drag_drop:
+      aircraft_details:
+        weight: 11
+        enabled: false
+      aviation_reimagined_:
+        weight: 12
+        enabled: false
+      destination:
+        weight: 13
+        enabled: false
+      gallery:
+        weight: 14
+        enabled: false
+      icon_and_link:
+        weight: 15
+        enabled: false
+      image_and_link:
+        weight: 16
+        enabled: false
+      multi_content_blue_print:
+        weight: 19
+        enabled: false
+      multiple_background_content:
+        enabled: true
+        weight: 17
+      multiple_content:
+        weight: 18
+        enabled: false
+      text:
+        weight: 20
+        enabled: false
+field_type: entity_reference_revisions

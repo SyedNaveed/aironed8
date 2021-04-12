@@ -1,0 +1,41 @@
+uuid: f4977daa-2830-48ff-bfa9-cd2776b6e5f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - context
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: useraccountmenu
+theme: bootstrap_for_drupal_airchoiceone_new
+region: nav_main
+weight: 0
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: "/flight-status\r\n/dashboard\r\n/manage-members\r\n/airchoice_member\r\n/airchoice_member/*\r\n/user/*\r\n/book-flight/flight-selection"
+    negate: true
+    context_mapping: {  }

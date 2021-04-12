@@ -1,0 +1,41 @@
+uuid: f8eba9f7-ea97-4208-8004-e8f2a813bef2
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.flight-status-footer-menu
+  module:
+    - context
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: flightstatusfootermenu
+theme: bootstrap_for_drupal_airchoiceone_new
+region: content_after
+weight: 0
+provider: null
+plugin: 'system_menu_block:flight-status-footer-menu'
+settings:
+  id: 'system_menu_block:flight-status-footer-menu'
+  label: 'Flight status Footer menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: "/flight-status\r\n/manage-members\r\n/user/*"
+    negate: false
+    context_mapping: {  }

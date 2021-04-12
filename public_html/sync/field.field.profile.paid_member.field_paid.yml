@@ -1,0 +1,23 @@
+uuid: 2d3a2fa2-c014-40e0-b9e9-78da930211eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_paid
+    - profile.type.paid_member
+id: profile.paid_member.field_paid
+field_name: field_paid
+entity_type: profile
+bundle: paid_member
+label: Paid
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

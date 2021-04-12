@@ -1,0 +1,35 @@
+uuid: 80f134f9-cf41-425a-b3ff-abe0662a37cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.body
+    - paragraphs.paragraphs_type.faq_s
+  module:
+    - better_formats
+    - text
+third_party_settings:
+  better_formats:
+    allowed_formats_toggle: 0
+    allowed_formats:
+      rich_text: rich_text
+      full_html: full_html
+    default_order_toggle: 0
+    default_order_wrapper:
+      formats:
+        rich_text:
+          weight: '-10'
+        full_html:
+          weight: '0'
+id: paragraph.faq_s.body
+field_name: body
+entity_type: paragraph
+bundle: faq_s
+label: body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

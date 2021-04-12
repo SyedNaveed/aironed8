@@ -1,0 +1,29 @@
+uuid: c6b82661-ea59-4754-8b34-b3aa4f2219f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_package
+    - node.type.package
+    - profile.type.paid_member
+id: profile.paid_member.field_package
+field_name: field_package
+entity_type: profile
+bundle: paid_member
+label: 'Membership Package'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      package: package
+    sort:
+      field: field_price
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,41 @@
+uuid: 9df12be3-bf4c-4dd3-9e24-23d6b0d81065
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.front_page_packages
+  module:
+    - context
+    - system
+    - views
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: views_block__front_page_packages_block_1
+theme: bootstrap_for_drupal_airchoiceone_new
+region: full_width
+weight: -23
+provider: null
+plugin: 'views_block:front_page_packages-block_1'
+settings:
+  id: 'views_block:front_page_packages-block_1'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

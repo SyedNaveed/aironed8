@@ -1,0 +1,37 @@
+uuid: a9796326-300d-4377-ab8c-d2d2b688533d
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.utility
+  module:
+    - ctools
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: bootstrap_for_drupal_airchoiceone_new_section_utility_navigation
+theme: bootstrap_for_drupal_airchoiceone_new
+region: header_special
+weight: -11
+provider: null
+plugin: 'system_menu_block:utility'
+settings:
+  id: 'system_menu_block:utility'
+  label: 'Section navigation'
+  provider: system
+  label_display: '0'
+  level: 2
+  depth: 1
+  expand_all_items: false
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      about_us_page: about_us_page
+      basic_page: basic_page
+      gallery_page: gallery_page
+      landing_page: landing_page
+      news_article_page: news_article_page
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

@@ -1,0 +1,42 @@
+uuid: 5861fe9d-4afe-4acc-939c-a15c1d06430e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic_block:da405a43-ba11-4e41-9f7d-d66af610fcf4'
+  module:
+    - block_content
+    - context
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: havequestionscontactoursupportteam.
+theme: bootstrap_for_drupal_airchoiceone_new
+region: content_area_second
+weight: -15
+provider: null
+plugin: 'block_content:da405a43-ba11-4e41-9f7d-d66af610fcf4'
+settings:
+  id: 'block_content:da405a43-ba11-4e41-9f7d-d66af610fcf4'
+  label: 'Have questions? Contact our support team.'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: "/flight-status\r\n/dashboard\r\n/manage-members\r\n/manage-members/*\r\n/airchoice_member\r\n/airchoice_member/*\r\n/user/*\r\n/book-flight/flight-selection\r\n/book-flight/seat-selection\r\n/book-flight/contact-information\r\n/public_html/book-flight/contact-information\r\n/book-flight/search\r\n/book-flight/additional-services\r\n/book-flight/purchase"
+    negate: true
+    context_mapping: {  }

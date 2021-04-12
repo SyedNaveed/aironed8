@@ -1,0 +1,30 @@
+uuid: 0177d4cd-35f3-4f7e-b5d6-dcfbe1dead5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - airchoiceone
+id: airchoiceone_system_section_navigation
+theme: airchoiceone
+region: precontent
+weight: -6
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Section navigation'
+  provider: system
+  label_display: '0'
+  level: 2
+  depth: 1
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    pages: /news
+    negate: false
+    context_mapping: {  }

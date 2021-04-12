@@ -1,0 +1,71 @@
+uuid: 9fa85fa8-e15f-4214-a80d-9da823660ca1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.contact_us_page.body
+    - field.field.node.contact_us_page.field_banner_image
+    - field.field.node.contact_us_page.field_form
+    - field.field.node.contact_us_page.field_image
+    - field.field.node.contact_us_page.field_meta_tags
+    - field.field.node.contact_us_page.field_paragraphs
+    - node.type.contact_us_page
+  module:
+    - entity_reference_revisions
+    - metatag
+    - text
+    - user
+    - webform
+id: node.contact_us_page.default
+targetEntityType: node
+bundle: contact_us_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_form:
+    weight: 5
+    label: hidden
+    settings:
+      source_entity: true
+    third_party_settings: {  }
+    type: webform_entity_reference_entity_view
+    region: content
+  field_image:
+    weight: 4
+    label: hidden
+    settings:
+      view_mode: embedded
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_meta_tags:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+  field_paragraphs:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden:
+  field_banner_image: true
+  links: true

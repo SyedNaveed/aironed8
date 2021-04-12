@@ -1,0 +1,22 @@
+uuid: 6510290c-2e87-499f-a859-0f6c96054f41
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.video_banner
+    - field.field.block_content.video_banner.body
+  module:
+    - text
+id: block_content.video_banner.default
+targetEntityType: block_content
+bundle: video_banner
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

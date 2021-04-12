@@ -1,0 +1,42 @@
+uuid: b0e6c3c1-358e-45bc-8949-c67a6f436626
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:packages:12410fb0-b5cb-41ef-b171-8fe6d9593ded'
+  module:
+    - block_content
+    - context
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: eachpackageincludes
+theme: bootstrap_for_drupal_airchoiceone_new
+region: full_width
+weight: -22
+provider: null
+plugin: 'block_content:12410fb0-b5cb-41ef-b171-8fe6d9593ded'
+settings:
+  id: 'block_content:12410fb0-b5cb-41ef-b171-8fe6d9593ded'
+  label: 'Each Package Includes'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

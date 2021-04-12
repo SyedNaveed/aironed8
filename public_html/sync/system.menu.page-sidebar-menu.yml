@@ -1,0 +1,8 @@
+uuid: 073f55ee-487f-40e4-942a-2d5b5ecd09f1
+langcode: en
+status: true
+dependencies: {  }
+id: page-sidebar-menu
+label: 'Dashboard footer menu'
+description: 'Dashboard footer menu'
+locked: false

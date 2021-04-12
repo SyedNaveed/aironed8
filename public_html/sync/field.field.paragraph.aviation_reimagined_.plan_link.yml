@@ -1,0 +1,23 @@
+uuid: 9197b3c8-bb08-4c4a-838f-79864ac3f1ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.plan_link
+    - paragraphs.paragraphs_type.aviation_reimagined_
+  module:
+    - link
+id: paragraph.aviation_reimagined_.plan_link
+field_name: plan_link
+entity_type: paragraph
+bundle: aviation_reimagined_
+label: 'Plan Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

@@ -1,0 +1,42 @@
+uuid: 5a233b8b-7f1c-4dd0-8cbc-b85bcfb028d7
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:main_banner:3ba84dd5-d095-4079-8f8e-c6f3598be5f8'
+  module:
+    - block_content
+    - context
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: explorethepossibilitiesofflyingwithskypass
+theme: bootstrap_for_drupal_airchoiceone_new
+region: full_width
+weight: -21
+provider: null
+plugin: 'block_content:3ba84dd5-d095-4079-8f8e-c6f3598be5f8'
+settings:
+  id: 'block_content:3ba84dd5-d095-4079-8f8e-c6f3598be5f8'
+  label: 'Explore the Possibilities of Flying with SkyPass'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

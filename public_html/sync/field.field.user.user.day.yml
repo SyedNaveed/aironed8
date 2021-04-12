@@ -1,0 +1,24 @@
+uuid: b23c2675-9cfb-4861-84fc-aab0a7afd5aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.day
+  module:
+    - user
+id: user.user.day
+field_name: day
+entity_type: user
+bundle: user
+label: Day
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

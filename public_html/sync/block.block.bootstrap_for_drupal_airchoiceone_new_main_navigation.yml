@@ -1,0 +1,25 @@
+uuid: 4290847f-0359-49b8-a9c9-62cf8aa2df15
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: bootstrap_for_drupal_airchoiceone_new_main_navigation
+theme: bootstrap_for_drupal_airchoiceone_new
+region: header_special
+weight: -7
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 2
+  expand_all_items: true
+visibility: {  }

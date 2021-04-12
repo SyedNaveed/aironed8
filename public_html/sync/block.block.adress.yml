@@ -1,0 +1,42 @@
+uuid: 51b5e69f-09c1-43c6-8f6b-538d4bad9fa5
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic_block:49b94444-d25f-4616-9d95-04ca6dbdb364'
+  module:
+    - block_content
+    - context
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: adress
+theme: bootstrap_for_drupal_airchoiceone_new
+region: footer_center
+weight: -22
+provider: null
+plugin: 'block_content:49b94444-d25f-4616-9d95-04ca6dbdb364'
+settings:
+  id: 'block_content:49b94444-d25f-4616-9d95-04ca6dbdb364'
+  label: adress
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: "/flight-status\r\n/dashboard\r\n/manage-members\r\n/manage-members/*\r\n/user/*\r\n/book-flight/flight-selection\r\n/airchoice_member/form/add_member\r\n/airchoice_member/register"
+    negate: true
+    context_mapping: {  }

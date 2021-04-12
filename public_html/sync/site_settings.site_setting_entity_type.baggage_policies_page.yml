@@ -1,0 +1,8 @@
+uuid: 9119447c-006a-49e2-a949-4aeb45458df5
+langcode: en
+status: true
+dependencies: {  }
+id: baggage_policies_page
+label: 'Baggage Policies Page'
+fieldset: General
+multiple: false

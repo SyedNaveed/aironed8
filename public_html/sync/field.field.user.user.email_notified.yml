@@ -1,0 +1,24 @@
+uuid: 9785cd97-1985-418b-b4f3-750ba8046f91
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.email_notified
+  module:
+    - user
+id: user.user.email_notified
+field_name: email_notified
+entity_type: user
+bundle: user
+label: Email
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,9 @@
+uuid: 7b70f2ee-bf29-492f-a0c3-e51bf252ee18
+langcode: en
+status: true
+dependencies: {  }
+id: airports
+label: Airports
+category: 'Air Choice One'
+likert: false
+options: "ATL: 'Atlanta - GA (ATL)'\nBRL: 'Burlington - IA (BRL)'\nORD: 'Chicago - IL (ORD)'\nFOD: 'Fort Dodge - IA (FOD)'\nIWD: 'Ironwood - MI (IWD)'\nMKL: 'Jackson - TN (MKL)'\nJBR: 'Jonesboro - AR (JBR)'\nMCW: 'Mason City - IA (MCW)'\nMSP: 'Minneapolis - MN (MSP)'\nSTL: 'St Louis - MO (STL)'\n"

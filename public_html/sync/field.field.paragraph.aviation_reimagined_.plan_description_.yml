@@ -1,0 +1,35 @@
+uuid: 860a62f7-c5cf-4ccf-adca-6ab39b5fe228
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.plan_description_
+    - paragraphs.paragraphs_type.aviation_reimagined_
+  module:
+    - better_formats
+    - text
+third_party_settings:
+  better_formats:
+    allowed_formats_toggle: 0
+    allowed_formats:
+      rich_text: rich_text
+      full_html: full_html
+    default_order_toggle: 0
+    default_order_wrapper:
+      formats:
+        rich_text:
+          weight: '-10'
+        full_html:
+          weight: '0'
+id: paragraph.aviation_reimagined_.plan_description_
+field_name: plan_description_
+entity_type: paragraph
+bundle: aviation_reimagined_
+label: 'Plan Description '
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,33 @@
+uuid: cdfdeacf-ba94-4863-9798-25ebab12f7ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.aircraft_details
+    - field.field.block_content.aircraft_details.aircraft_details
+    - field.field.block_content.aircraft_details.body
+  module:
+    - entity_reference_revisions
+    - text
+id: block_content.aircraft_details.default
+targetEntityType: block_content
+bundle: aircraft_details
+mode: default
+content:
+  aircraft_details:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

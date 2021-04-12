@@ -1,0 +1,42 @@
+uuid: 433f08a6-7ccd-48d0-815e-1bacc83de170
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic_block:55bf558d-f4e2-466d-8037-62568028d7e3'
+  module:
+    - block_content
+    - context
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: galleryfooter
+theme: bootstrap_for_drupal_airchoiceone_new
+region: footer_center
+weight: -24
+provider: null
+plugin: 'block_content:55bf558d-f4e2-466d-8037-62568028d7e3'
+settings:
+  id: 'block_content:55bf558d-f4e2-466d-8037-62568028d7e3'
+  label: 'Gallery footer'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: /gallery
+    negate: false
+    context_mapping: {  }

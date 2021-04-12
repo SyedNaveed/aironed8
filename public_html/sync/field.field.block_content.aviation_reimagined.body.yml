@@ -1,0 +1,23 @@
+uuid: 5afddb29-d5fd-4663-a1d7-b39c61a2c32b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.aviation_reimagined
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.aviation_reimagined.body
+field_name: body
+entity_type: block_content
+bundle: aviation_reimagined
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

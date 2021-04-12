@@ -1,0 +1,46 @@
+uuid: c61d5d73-d9a4-4c94-b32f-07d7c6022fc3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.aviation_reimagined
+    - field.storage.block_content.plan_info1
+    - paragraphs.paragraphs_type.aviation_reimagined_
+  module:
+    - entity_reference_revisions
+id: block_content.aviation_reimagined.plan_info1
+field_name: plan_info1
+entity_type: block_content
+bundle: aviation_reimagined
+label: 'Plan info'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      aviation_reimagined_: aviation_reimagined_
+    target_bundles_drag_drop:
+      aviation_reimagined_:
+        enabled: true
+        weight: 7
+      destination:
+        weight: 8
+        enabled: false
+      gallery:
+        weight: 9
+        enabled: false
+      icon_and_link:
+        weight: 10
+        enabled: false
+      image_and_link:
+        weight: 11
+        enabled: false
+      text:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

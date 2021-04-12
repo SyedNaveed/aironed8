@@ -1,0 +1,25 @@
+uuid: 4e4d1fe8-cd39-42bf-9ade-edc146dcaf30
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.contact
+  module:
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: bootstrap_for_drupal_airchoiceone_new_contact_navigation
+theme: bootstrap_for_drupal_airchoiceone_new
+region: footer_left
+weight: -10
+provider: null
+plugin: 'system_menu_block:contact'
+settings:
+  id: 'system_menu_block:contact'
+  label: 'Contact navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

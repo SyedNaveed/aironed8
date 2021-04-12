@@ -1,0 +1,23 @@
+uuid: 52cebbbf-a005-4982-8249-8bd3542fc9c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.site_setting_entity.field_link
+    - site_settings.site_setting_entity_type.purchasing_refunds_page
+  module:
+    - link
+id: site_setting_entity.purchasing_refunds_page.field_link
+field_name: field_link
+entity_type: site_setting_entity
+bundle: purchasing_refunds_page
+label: 'Purchasing and Refunds Page'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 1
+  title: 0
+field_type: link

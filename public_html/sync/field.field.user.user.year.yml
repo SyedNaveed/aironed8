@@ -1,0 +1,24 @@
+uuid: 2262ee5a-ad8c-4e6a-927f-53354bf8c143
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.year
+  module:
+    - user
+id: user.user.year
+field_name: year
+entity_type: user
+bundle: user
+label: Year
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

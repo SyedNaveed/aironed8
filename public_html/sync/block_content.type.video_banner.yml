@@ -1,0 +1,8 @@
+uuid: d157e1d7-514b-4262-9a24-2dd4db0e061a
+langcode: en
+status: true
+dependencies: {  }
+id: video_banner
+label: 'Video Banner'
+revision: 0
+description: ''

@@ -1,0 +1,20 @@
+uuid: 97548f7f-088f-4507-a851-9e019175dec7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.company
+  module:
+    - user
+id: user.user.company
+field_name: company
+entity_type: user
+bundle: user
+label: Company
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

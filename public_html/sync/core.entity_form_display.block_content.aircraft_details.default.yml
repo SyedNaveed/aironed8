@@ -1,0 +1,47 @@
+uuid: 04ab71fe-2123-4a77-8cf0-647d25d800a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.aircraft_details
+    - field.field.block_content.aircraft_details.aircraft_details
+    - field.field.block_content.aircraft_details.body
+  module:
+    - paragraphs
+    - text
+id: block_content.aircraft_details.default
+targetEntityType: block_content
+bundle: aircraft_details
+mode: default
+content:
+  aircraft_details:
+    type: entity_reference_paragraphs
+    weight: 27
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  body:
+    type: text_textarea_with_summary
+    weight: 26
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

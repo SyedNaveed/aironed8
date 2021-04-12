@@ -1,0 +1,8 @@
+uuid: 9a47bed8-f5b7-4435-baa3-35dd983f64ab
+langcode: en
+status: true
+dependencies: {  }
+id: flight-status-footer-menu
+label: 'Flight status Footer menu'
+description: 'Menu for manage members footer menu '
+locked: false

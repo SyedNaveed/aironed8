@@ -1,0 +1,25 @@
+uuid: 261962fb-be31-41d1-8d40-31c9c3ccd31a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: bootstrap_for_drupal_airchoiceone_new_system_page_title
+theme: bootstrap_for_drupal_airchoiceone_new
+region: header_special
+weight: -18
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'System page title'
+  provider: core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/book-flight\r\n/book-flight/search\r\n/book-flight-charge-summary/*\r\n/manage-flight\r\n/manage-flight/*\r\n/reservation\r\n/reservation/*\r\n/flight-status\r\n/news\r\n/user\r\n/user/*"
+    negate: false
+    context_mapping: {  }

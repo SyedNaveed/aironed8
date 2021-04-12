@@ -1,0 +1,8 @@
+uuid: d86613b2-5c3a-42de-ba97-8462fd081db1
+langcode: en
+status: true
+dependencies: {  }
+id: booking
+label: 'Booking navigation'
+description: 'Booking for car or hotel form links'
+locked: false

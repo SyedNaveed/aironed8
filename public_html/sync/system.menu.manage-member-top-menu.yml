@@ -1,0 +1,8 @@
+uuid: 10602ae7-4f39-40a7-8e8a-d9fec2c144e1
+langcode: en
+status: true
+dependencies: {  }
+id: manage-member-top-menu
+label: 'Manage Member top menu'
+description: 'Manage Member Page top menu'
+locked: false

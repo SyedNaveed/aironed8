@@ -41,11 +41,11 @@ trait FormBuilderTrait {
         if ($editing_owner && $i == 0) {
           $passenger = [
             '#type' => 'container',
-            '#prefix' => '<div class="new-passenger">',
+            '#prefix' => '<div class="new-passenger row">',
             '#suffix' => '</div>',
             'header' => [
               '#type' => 'container',
-              '#markup' => $this->t('Primary Reservation Contact Information'),
+              '#markup' => $this->t('<h3>Primary Reservation Contact Information</h3>'),
               '#prefix' => '<div class="new-passenger-title">',
             '#suffix' => '</div>',
             ],
@@ -59,7 +59,7 @@ trait FormBuilderTrait {
         else {
           $passenger = [
             '#type' => 'container',
-            '#prefix' => '<div class="new-passenger">',
+            '#prefix' => '<div class="new-passenger row">',
             '#suffix' => '</div>',
             'header' => [
               '#type' => 'container',
@@ -81,7 +81,7 @@ trait FormBuilderTrait {
       elseif ($childCount > 0) {
         $passenger = [
           '#type' => 'container',
-            '#prefix' => '<div class="new-passenger">',
+            '#prefix' => '<div class="new-passenger row">',
             '#suffix' => '</div>',
           'header' => [
             '#type' => 'container',
@@ -124,6 +124,8 @@ trait FormBuilderTrait {
       $defaults['withInfant'] = 1;
       $defaults['infant'] = $values['infants'][0]['reservationProfile'];
     }
+
+    
     if (!empty($defaults['personalContactInformation']['notificationPreferences'])) {
       $preferences = [];
       foreach ($defaults['personalContactInformation']['notificationPreferences'] as &$preference) {
@@ -181,6 +183,7 @@ trait FormBuilderTrait {
       '#title' => $this->t('Title'),
       '#title_display' => 'invisible',
       '#default_value' => $values['title'],
+      
       '#required' => TRUE,
       '#options' => [
         'Mr' => $this->t('Mr.'),
@@ -189,11 +192,30 @@ trait FormBuilderTrait {
       ],
       '#empty_option' => $this->t('Title *'),
     ];
-    $form['firstName'] = Fields::nameField($this->t('First Name'), $values['firstName']);
-    $form['middleName'] = Fields::nameField($this->t('Middle Name'), $values['middleName'], FALSE);
+    $form['firstName'] =  Fields::nameField($this->t('First Name'),  $values['firstName']);
+    $form['middleName'] = Fields::nameField($this->t('Middle Name'), $values['middleName'], FALSE) ;
     $form['lastName'] = Fields::nameField($this->t('Last Name'), $values['lastName']);
+
+    // custom col class for firstname input fields 
+    $form['title']['#prefix'] = '<div class="col-md-3">';
+    $form['title']['#suffix'] = '</div>';
+    $form['firstName']['#prefix'] = '<div class="col-md-3">';
+    $form['firstName']['#suffix']  =  '</div>';
+    $form['middleName']['#prefix'] = '<div class="col-md-3">';
+    $form['middleName']['#suffix'] = '</div>';
+    $form['lastName']['#prefix'] = '<div class="col-md-3">';
+    $form['lastName']['#suffix'] = '</div>';
+
+
+
     $this->getAddressFields($form, $values, $options);
+    $form['customH']=[
+      '#markup' => '<h3>Date of Birth</h3>',
+    ];
     $this->getBirthDateFields($form, $values, $options);
+    $form['customL']=[
+      '#markup' => '<h3>Loyalty & Traveler Number</h3>',
+    ];
     $form['loyaltyProgram']['number'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Loyalty ID'),
@@ -218,20 +240,53 @@ trait FormBuilderTrait {
       '#default_value' => !empty($values['advancePassengerInformation']) ? $values['advancePassengerInformation']['knownPassengerNumber'] : NULL,
       '#maxlength' => 25,
     ];
+    $form['customPh']=[
+      '#markup' => '<h3>Phone & Email</h3>',
+    ];
+
     $form['personalContactInformation']['email'] = Fields::emailField($this->t('Email'), $values['personalContactInformation']['email']);
     $form['personalContactInformation']['verifyEmail'] = Fields::emailField($this->t('Repeat Email'), $values['personalContactInformation']['email']);
     $form['personalContactInformation']['phoneNumber'] = Fields::phoneField($this->t('Phone Number'), $values['personalContactInformation']['phoneNumber']);
     $form['personalContactInformation']['mobileNumber'] = Fields::phoneField($this->t('Mobile Number'), $values['personalContactInformation']['mobileNumber']);
+
+
+    $form['personalContactInformation']['customNo5']=[
+      '#markup' => '<h3>Notification Preferences</h3>',
+    ];
     $form['personalContactInformation']['notificationPreferences'] = [
       '#type' => 'checkboxes',
       '#title' => $this->t('Notification Preferences'),
       '#title_display' => 'invisible',
       '#options' => CommunicationChannels::getNotificationPreferencesOptions(),
-      '#default_value' => $values['personalContactInformation']['notificationPreferences'],
+      '#default_value' => $values['persloyaltyProgramonalContactInformation']['notificationPreferences'],
       '#multiple' => TRUE,
       // Once a preference has been set, it can't be unset.
       '#required' => $options['edit_mode'] && !empty($values['personalContactInformation']['notificationPreferences']),
     ];
+
+
+    // custom col class for Notification input fields 
+    $form['personalContactInformation']['notificationPreferences']['#prefix'] = '<div class="col-md-12 notificaton-section">';
+    $form['personalContactInformation']['notificationPreferences']['#suffix'] = '</div>';
+
+    // custom col class for loyalty input fields 
+    $form['loyaltyProgram']['number']['#prefix'] = '<div class="col-md-4">';
+    $form['loyaltyProgram']['number']['#suffix'] = '</div>';
+    $form['advancePassengerInformation']['redressNumber']['#prefix'] = '<div class="col-md-4">';
+    $form['advancePassengerInformation']['redressNumber']['#suffix']  =  '</div>';
+    $form['advancePassengerInformation']['knownPassengerNumber']['#prefix'] = '<div class="col-md-4">';
+    $form['advancePassengerInformation']['knownPassengerNumber']['#suffix'] = '</div>';
+
+    // custom col class for phone input fields 
+    $form['personalContactInformation']['email']['#prefix'] = '<div class="col-md-6">';
+    $form['personalContactInformation']['email']['#suffix'] = '</div>';
+    $form['personalContactInformation']['verifyEmail']['#prefix'] = '<div class="col-md-6">';
+    $form['personalContactInformation']['verifyEmail']['#suffix']  =  '</div>';
+    $form['personalContactInformation']['phoneNumber']['#prefix'] = '<div class="col-md-6">';
+    $form['personalContactInformation']['phoneNumber']['#suffix'] = '</div>';
+    $form['personalContactInformation']['mobileNumber']['#prefix'] = '<div class="col-md-6">';
+    $form['personalContactInformation']['mobileNumber']['#suffix'] = '</div>';
+ 
   }
 
   /**
@@ -244,6 +299,12 @@ trait FormBuilderTrait {
    */
   protected function getWithInfantFields(array &$form, array &$values = []) {
     $with_infant_id = Html::getUniqueId('with-infant-checkbox');
+    $form['withInfantt'] = [
+      '#markup' => '<h3>Infant Information</h3>'
+    ];
+
+
+
     $form['withInfant'] = [
       '#type' => 'checkbox',
       '#id' => $with_infant_id,
@@ -299,6 +360,16 @@ trait FormBuilderTrait {
       '#type' => 'container',
       '#suffix' => '</div>'
     ];
+
+    // custom col class for With infant input fields 
+    $form['withInfant']['#prefix'] = '<div class="col-md-12 infant-section">';
+    $form['withInfant']['#suffix'] = '</div>';
+    $form['infant']['firstName'] = '<div class="col-md-6 infant-fname">';
+    $form['infant']['firstName'] = '</div>';
+    $form['infant']['lastName'] = '<div class="col-md-6 infant-fname">';
+    $form['infant']['lastName'] = '</div>';
+
+
   }
 
   /**
@@ -406,6 +477,8 @@ trait FormBuilderTrait {
     if (!isset($current_year)) {
       $current_year = date('Y', REQUEST_TIME);
     }
+    // for date of birthday 
+
 
     // Extract birthday date.
     $birthDate = $birthDateYear = $birthDateMonth = $birthDateDay = '';
@@ -456,7 +529,17 @@ trait FormBuilderTrait {
       '#default_value' => empty($birthDateYear) ? '' : intval($birthDateYear),
       '#required' => $required,
     ];
+
+    // custom col class for birthday input fields 
+    $form['birthDateMonth']['#prefix'] = '<div class="col-md-3">';
+    $form['birthDateMonth']['#suffix'] = '</div>';
+    $form['birthDateDay']['#prefix'] = '<div class="col-md-2">';
+    $form['birthDateDay']['#suffix']  =  '</div>';
+    $form['birthDateYear']['#prefix'] = '<div class="col-md-3">';
+    $form['birthDateYear']['#suffix'] = '</div>';
+     
   }
+
 
   /**
    * Get address fields.
@@ -471,7 +554,7 @@ trait FormBuilderTrait {
   protected function getAddressFields(array &$form, array &$defaults, array $options = []) {
     $form['address']['address1'] = [
       '#type' => 'textfield',
-      '#prefix' => '<div class="row"><div class="col-md-6">',
+      '#prefix' => ' <div class="col-md-6">',
       
       '#title' => $this->t('Address Line 1'),
       // '#title_display' => 'invisible',
@@ -489,25 +572,22 @@ trait FormBuilderTrait {
       '#placeholder' => $this->t('Address Line 2'),
       '#default_value' => $defaults['address']['address2'],
       '#maxlength' => 50,
-      '#suffix' => '</div></div>',
+      '#suffix' => '</div> ',
     ];
     $form['address']['city'] = [
       '#type' => 'textfield',
-      '#prefix' => '<div class="row"><div class="col-md-3">',
       '#title' => $this->t('City'),
       // '#title_display' => 'invisible',
       '#placeholder' => $this->t('City *'),
       '#default_value' => $defaults['address']['city'],
       '#maxlength' => 50,
       '#required' => TRUE,
-      '#suffix' => '</div>',
     ];
     $html_id = 'address';
     if (isset($options['context']) && !is_null($options['context'])) {
       $html_id .= '-' . $options['context'];
     }
-    $form['address']['location']['country']['code'] = [
-      '#prefix' => '<div class="col-md-3">',
+    $form['address']['location']['country']['code'] = [ 
       '#type' => 'select',
       '#title' => $this->t('Country'),
       // '#title_display' => 'invisible',
@@ -523,10 +603,10 @@ trait FormBuilderTrait {
           'type' => 'fullscreen',
         ],
       ],
-      '#suffix' => '</div>',
+     
     ];
     $form['address']['location']['province']['code'] = [
-      '#prefix' => '<div class="col-md-3">',
+      
       '#type' => 'select',
       '#title' => $this->t('State'),
       // '#title_display' => 'invisible',
@@ -534,17 +614,17 @@ trait FormBuilderTrait {
       '#default_value' => !empty($defaults['address']['location']) ? $defaults['address']['location']['province']['code'] : NULL,
       '#required' => TRUE,
       '#validated' => TRUE,
-      '#prefix' => '<div id="' . $html_id . '-province">',
+      '#prefix' => '<div id="' . $html_id . '-province" ',
       '#suffix' => '</div>',
       '#states' => [
         'disabled' => [
           ':input[data-ajax-province="' . $html_id . '-country"]' => ['value' => ''],
         ],
       ],
-      '#suffix' => '</div></div>',
+    
     ];
     $form['address']['postalCode'] = [
-      '#prefix' => '<div class="row"><div class="col-md-3">',
+      
       '#type' => 'textfield',
       '#title' => $this->t('Zip Code'),
       // '#title_display' => 'invisible',
@@ -552,8 +632,21 @@ trait FormBuilderTrait {
       '#default_value' => $defaults['address']['postalCode'],
       '#maxlength' => 50,
       '#required' => TRUE,
-      '#suffix' => '</div>',
+      
     ];
+
+
+    // custom col class for input fields 
+    $form['address']['city']['#prefix'] = '<div class="col-md-4">';
+    $form['address']['city']['#suffix'] = '</div>';
+    $form['address']['location']['country']['code']['#prefix'] = '<div class="col-md-4">';
+    $form['address']['location']['country']['code']['#suffix']  =  '</div>';
+    $form['address']['postalCode']['#prefix'] = '<div class="col-md-2">';
+    $form['address']['postalCode']['#suffix'] = '</div>';
+    $form['address']['location']['province']['code']['#prefix'] = '<div class="col-md-2">';
+    $form['address']['location']['province']['code']['#suffix'] = '</div>';
+
+
   }
 
   /**

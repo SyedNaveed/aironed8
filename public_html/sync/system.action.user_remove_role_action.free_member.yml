@@ -1,0 +1,14 @@
+uuid: f2cae3c0-5343-4ea5-a273-a56000c2f0fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.free_member
+  module:
+    - user
+id: user_remove_role_action.free_member
+label: 'Remove the Free member role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: free_member

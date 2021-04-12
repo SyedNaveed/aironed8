@@ -1,0 +1,17 @@
+uuid: f12a4fb7-c23d-4669-bf7c-6f89a95875cd
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Error page'
+type: error_page
+description: 'The <em>Error page</em> is used for 404 and 403 pages.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,23 @@
+uuid: a80354b2-3eb4-4f64-969c-60c8ee18a703
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.site_setting_entity.field_link
+    - site_settings.site_setting_entity_type.contact_page
+  module:
+    - link
+id: site_setting_entity.contact_page.field_link
+field_name: field_link
+entity_type: site_setting_entity
+bundle: contact_page
+label: 'Contact Page'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 1
+  title: 0
+field_type: link

@@ -1,0 +1,41 @@
+uuid: 130ac6fe-aa71-4ed8-92ac-328ddeb15ca1
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer-airone-menu
+  module:
+    - context
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: footeraironemenu
+theme: bootstrap_for_drupal_airchoiceone_new
+region: footer_center
+weight: -21
+provider: null
+plugin: 'system_menu_block:footer-airone-menu'
+settings:
+  id: 'system_menu_block:footer-airone-menu'
+  label: 'Footer airone menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: "/dashboard\r\n/manage-members\r\n/manage-members/*\r\n/user/*\r\n/book-flight/flight-selection\r\n/airchoice_member/form/add_member\r\n/airchoice_member/register"
+    negate: true
+    context_mapping: {  }

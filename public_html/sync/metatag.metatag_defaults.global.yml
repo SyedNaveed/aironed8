@@ -1,0 +1,38 @@
+uuid: f5618cfc-e8bf-4d8c-a8a0-c4834a102e50
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sL588ui1E_8-2c_UupwyYxcqX2OVyMFp3HTLbbFqvPc
+id: global
+label: Global
+tags:
+  title: '[current-page:title] | [site:name]'
+  content_language: en-US
+  canonical_url: '[current-page:url]'
+  og_type: article
+  og_url: '[current-page:url]'
+  og_site_name: '[site:name]'
+  og_title: '[current-page:title]'
+  twitter_cards_site: '@airchoiceone'
+  twitter_cards_page_url: '[current-page:url]'
+  twitter_cards_type: summary_large_image
+  twitter_cards_site_id: '182533721'
+  twitter_cards_title: '[current-page:title]'
+  schema_organization_additional_type: Airline
+  schema_organization_id: 'https://www.airchoiceone.com/#organization'
+  schema_organization_url: 'https://www.airchoiceone.com/'
+  schema_organization_same_as: 'https://www.facebook.com/airchoiceone/,https://www.instagram.com/airchoiceone/,https://www.linkedin.com/company/air-choice-one-airlines,https://www.youtube.com/channel/UCP-rCZB670tA7x4RlarTy3w/videos,https://twitter.com/airchoiceone'
+  schema_organization_name: '[site:name]'
+  schema_organization_description: 'Air Choice One - Book Your Flight Today!'
+  schema_organization_type: Corporation
+  schema_organization_telephone: '18664359847'
+  schema_web_page_type: WebPage
+  schema_web_page_description: '[node:summary]'
+  schema_web_page_in_language: en-US
+  schema_web_page_id: 'https://www.airchoiceone.com/#webpage'
+  schema_web_site_url: 'https://www.airchoiceone.com/'
+  schema_web_site_publisher: 'a:2:{s:5:"@type";s:12:"Organization";s:3:"@id";s:42:"https://www.airchoiceone.com/#organization";}'
+  schema_web_site_type: WebSite
+  schema_web_site_id: 'https://www.airchoiceone.com/#website'
+  schema_web_site_name: 'Air Choice One'

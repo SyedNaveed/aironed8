@@ -1,0 +1,10 @@
+uuid: 64ef1a58-6f63-46e3-a4cd-f12615baf68b
+langcode: en
+status: true
+dependencies: {  }
+id: multi_content_blue_print
+label: 'multi-content Blue-print'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

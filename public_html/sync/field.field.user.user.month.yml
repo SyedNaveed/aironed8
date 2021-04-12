@@ -1,0 +1,20 @@
+uuid: 925bc042-1c02-444d-a913-d319327e7695
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.month
+  module:
+    - user
+id: user.user.month
+field_name: month
+entity_type: user
+bundle: user
+label: Month
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,23 @@
+uuid: ee5c8678-78df-4f28-a7db-f1721a305bc6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.site_setting_entity.field_link
+    - site_settings.site_setting_entity_type.terms_conditions_page
+  module:
+    - link
+id: site_setting_entity.terms_conditions_page.field_link
+field_name: field_link
+entity_type: site_setting_entity
+bundle: terms_conditions_page
+label: 'Terms & Conditions Page'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 1
+  title: 0
+field_type: link

@@ -1,0 +1,49 @@
+uuid: c7e59be7-493e-402c-a4e9-110df2fbdde4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.aircraft_details
+    - field.storage.block_content.aircraft_details
+    - paragraphs.paragraphs_type.aircraft_details
+  module:
+    - entity_reference_revisions
+id: block_content.aircraft_details.aircraft_details
+field_name: aircraft_details
+entity_type: block_content
+bundle: aircraft_details
+label: 'Aircraft details'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      aircraft_details: aircraft_details
+    target_bundles_drag_drop:
+      aircraft_details:
+        enabled: true
+        weight: 8
+      aviation_reimagined_:
+        weight: 9
+        enabled: false
+      destination:
+        weight: 10
+        enabled: false
+      gallery:
+        weight: 11
+        enabled: false
+      icon_and_link:
+        weight: 12
+        enabled: false
+      image_and_link:
+        weight: 13
+        enabled: false
+      text:
+        weight: 14
+        enabled: false
+field_type: entity_reference_revisions

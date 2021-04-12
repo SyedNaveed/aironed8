@@ -1,0 +1,20 @@
+uuid: aa25d6aa-49f9-425b-8455-5667e9b3ce81
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.loyalty_id
+  module:
+    - user
+id: user.user.loyalty_id
+field_name: loyalty_id
+entity_type: user
+bundle: user
+label: 'Loyalty ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

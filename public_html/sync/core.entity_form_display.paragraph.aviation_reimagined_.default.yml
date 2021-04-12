@@ -1,0 +1,62 @@
+uuid: 6a7711b8-e097-48b5-ae5f-553cace46f74
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.aviation_reimagined_.plan_annually
+    - field.field.paragraph.aviation_reimagined_.plan_description_
+    - field.field.paragraph.aviation_reimagined_.plan_link
+    - field.field.paragraph.aviation_reimagined_.plan_price
+    - field.field.paragraph.aviation_reimagined_.plan_title
+    - paragraphs.paragraphs_type.aviation_reimagined_
+  module:
+    - link
+    - text
+id: paragraph.aviation_reimagined_.default
+targetEntityType: paragraph
+bundle: aviation_reimagined_
+mode: default
+content:
+  plan_annually:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  plan_description_:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  plan_link:
+    weight: 4
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  plan_price:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  plan_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,42 @@
+uuid: 7f256ba2-deaa-42f1-8700-a396b024c687
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:main_banner:f235f81d-ac84-4889-9cb5-14611a1de6ef'
+  module:
+    - block_content
+    - context
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: safetypage
+theme: bootstrap_for_drupal_airchoiceone_new
+region: banner_section
+weight: -21
+provider: null
+plugin: 'block_content:f235f81d-ac84-4889-9cb5-14611a1de6ef'
+settings:
+  id: 'block_content:f235f81d-ac84-4889-9cb5-14611a1de6ef'
+  label: 'safety page '
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: "/when-you-fly/safety\r\n/customer-service/baggage-policies"
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,42 @@
+uuid: e2f6b59e-ca80-4a5c-83af-c20d32f69c75
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:main_banner:dfb111f0-da29-4bef-9d90-a4182a2901ff'
+  module:
+    - block_content
+    - context
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: airplanegallery
+theme: bootstrap_for_drupal_airchoiceone_new
+region: banner_section
+weight: -24
+provider: null
+plugin: 'block_content:dfb111f0-da29-4bef-9d90-a4182a2901ff'
+settings:
+  id: 'block_content:dfb111f0-da29-4bef-9d90-a4182a2901ff'
+  label: 'Airplane Gallery'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: /gallery
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,23 @@
+uuid: 94215470-c06b-487f-a553-b3247f9c02e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_price
+    - node.type.package
+id: node.package.field_price
+field_name: field_price
+entity_type: node
+bundle: package
+label: Price
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: $
+  suffix: ''
+field_type: float

@@ -1,0 +1,37 @@
+uuid: 8aa256fe-0aba-4f82-bb08-72ee7c372d0c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraphs
+    - node.type.flight_destination_page
+    - paragraphs.paragraphs_type.destination
+  module:
+    - entity_reference_revisions
+id: node.flight_destination_page.field_paragraphs
+field_name: field_paragraphs
+entity_type: node
+bundle: flight_destination_page
+label: 'Serving flights to'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      destination: destination
+    target_bundles_drag_drop:
+      destination:
+        enabled: true
+        weight: 4
+      icon_and_link:
+        weight: 5
+        enabled: false
+      text:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

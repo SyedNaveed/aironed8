@@ -1,0 +1,23 @@
+uuid: 7bd9c697-78d8-49e0-9319-ba0929e4ee2b
+langcode: en
+status: false
+dependencies: {  }
+name: Lists
+format: lists
+weight: -9
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -10
+    settings:
+      allowed_html: '<ul> <li>'
+      filter_html_help: false
+      filter_html_nofollow: false
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }

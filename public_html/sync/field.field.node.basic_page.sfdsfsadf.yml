@@ -1,0 +1,29 @@
+uuid: 84ff98ed-32cf-480f-9e13-d93d23910ff0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.sfdsfsadf
+    - node.type.basic_page
+    - taxonomy.vocabulary.test
+id: node.basic_page.sfdsfsadf
+field_name: sfdsfsadf
+entity_type: node
+bundle: basic_page
+label: 'node count'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      test: test
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

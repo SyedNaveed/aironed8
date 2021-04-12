@@ -1,0 +1,29 @@
+uuid: d80e062d-bcdb-47b7-8bf7-82ccf9b9ae43
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image3
+    - media.type.image
+    - node.type.home_page
+id: node.home_page.field_image3
+field_name: field_image3
+entity_type: node
+bundle: home_page
+label: 'Background Image'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: name
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,82 @@
+uuid: b11e8130-ee82-4c59-a3fd-ead09bdd975b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.aviation_reimagined
+    - field.field.block_content.aviation_reimagined.body
+    - field.field.block_content.aviation_reimagined.plan_info1
+    - field.field.block_content.aviation_reimagined.title
+  module:
+    - entity_reference_revisions
+    - field_group
+    - text
+third_party_settings:
+  field_group:
+    group_plan_infomain:
+      children:
+        - title
+        - body
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      region: content
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: col-md-4
+      label: plan-infomain
+    group_plan_plans:
+      children:
+        - plan_info1
+      parent_name: ''
+      weight: 2
+      format_type: html_element
+      region: content
+      format_settings:
+        id: ''
+        classes: 'col-md-8 plan-plans'
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+      label: 'Plan plans'
+id: block_content.aviation_reimagined.default
+targetEntityType: block_content
+bundle: aviation_reimagined
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  plan_info1:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  title:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

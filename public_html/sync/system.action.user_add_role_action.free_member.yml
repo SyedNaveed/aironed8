@@ -1,0 +1,14 @@
+uuid: 1f856773-e909-48b5-b8c4-147ee98aa622
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.free_member
+  module:
+    - user
+id: user_add_role_action.free_member
+label: 'Add the Free member role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: free_member

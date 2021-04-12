@@ -1,0 +1,41 @@
+uuid: a2b706ad-092e-4973-b7ea-02c60c6bad1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.flight
+  module:
+    - context
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: bootstrap_for_drupal_airchoiceone_new_flight_navigation
+theme: bootstrap_for_drupal_airchoiceone_new
+region: content_before
+weight: -23
+provider: null
+plugin: 'system_menu_block:flight'
+settings:
+  id: 'system_menu_block:flight'
+  label: 'Flight navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    pages: "/book-flight\r\n/book-flight/search\r\n/book-flight-charge-summary/*\r\n/manage-flight\r\n/manage-flight/*\r\n/reservation\r\n/reservation/*\r\n/flight-status\r\n"
+    negate: false
+    context_mapping: {  }
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }

@@ -1,0 +1,21 @@
+uuid: 04c37300-25c7-45ba-9d9a-f2ba5dcf420f
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.plan_annually
+field_name: plan_annually
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,8 @@
+uuid: 894fee5a-4e02-4079-a91d-730ef1397da8
+langcode: en
+status: true
+dependencies: {  }
+id: floating
+label: 'Floating navigation'
+description: 'Floating icon links'
+locked: false

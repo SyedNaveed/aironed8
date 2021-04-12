@@ -1,0 +1,23 @@
+uuid: f197acc9-f800-4a68-bdec-013324314579
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.gallery_link
+    - node.type.gallery_page
+  module:
+    - link
+id: node.gallery_page.gallery_link
+field_name: gallery_link
+entity_type: node
+bundle: gallery_page
+label: 'Gallery Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

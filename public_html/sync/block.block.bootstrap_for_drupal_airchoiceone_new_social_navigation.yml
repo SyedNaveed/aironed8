@@ -1,0 +1,25 @@
+uuid: ca211bb1-5fc9-497a-91c5-1379b85bdcc7
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.social
+  module:
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: bootstrap_for_drupal_airchoiceone_new_social_navigation
+theme: bootstrap_for_drupal_airchoiceone_new
+region: header_special
+weight: -13
+provider: null
+plugin: 'system_menu_block:social'
+settings:
+  id: 'system_menu_block:social'
+  label: 'Social navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

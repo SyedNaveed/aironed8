@@ -1,0 +1,42 @@
+uuid: e2e244fd-82c6-4d54-a211-4d1d817b34f5
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:main_banner:4999b0ef-527c-4115-ba71-c43f679a03a1'
+  module:
+    - block_content
+    - context
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: travelpolicy
+theme: bootstrap_for_drupal_airchoiceone_new
+region: banner_section
+weight: -22
+provider: null
+plugin: 'block_content:4999b0ef-527c-4115-ba71-c43f679a03a1'
+settings:
+  id: 'block_content:4999b0ef-527c-4115-ba71-c43f679a03a1'
+  label: 'Travel Policy'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: /when-you-fly/travel-policy
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,20 @@
+uuid: ffe3d119-dd3b-4399-a480-44199d749f0a
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: bootstrap_for_drupal_airchoiceone_new_main_page_content
+theme: bootstrap_for_drupal_airchoiceone_new
+region: content
+weight: -19
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

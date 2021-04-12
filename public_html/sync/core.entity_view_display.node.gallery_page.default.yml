@@ -1,0 +1,83 @@
+uuid: bfe0bad7-ceaa-450b-8cad-0bcbb3a35aa8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.gallery_page.body
+    - field.field.node.gallery_page.field_meta_tags
+    - field.field.node.gallery_page.field_paragraphs
+    - field.field.node.gallery_page.gallery_blog_image
+    - field.field.node.gallery_page.gallery_link
+    - field.field.node.gallery_page.gallery_tag
+    - node.type.gallery_page
+  module:
+    - entity_reference_revisions
+    - image
+    - link
+    - metatag
+    - text
+    - user
+id: node.gallery_page.default
+targetEntityType: node
+bundle: gallery_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: -20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_meta_tags:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+  field_paragraphs:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  gallery_blog_image:
+    weight: 3
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  gallery_link:
+    weight: 5
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  gallery_tag:
+    weight: 4
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  links: true

@@ -1,0 +1,28 @@
+uuid: 66399d27-33db-4b55-9994-72f67fc26034
+langcode: en
+status: true
+dependencies:
+  module:
+    - context_active_trail
+    - system
+name: manage_flight_active_trail
+label: 'Manage flight active trail'
+group: 'Active trail'
+description: ''
+requireAllConditions: false
+disabled: false
+conditions:
+  request_path:
+    id: request_path
+    pages: "/manage-flight/*\r\n/reservation\r\n/reservation/*"
+    negate: 0
+    uuid: 4038470a-f97f-46e2-a23b-3dabaaaa4a9d
+    context_mapping: {  }
+reactions:
+  active_trail:
+    id: active_trail
+    trail: 'flight:menu_link_content:b6941fcc-20ab-4a08-9e15-7be2ede063fa'
+    breadcrumbs: 1
+    breadcrumb_title: 0
+    uuid: 7d487766-3fdc-4c03-9fb5-b01c3cdc09ab
+weight: 0

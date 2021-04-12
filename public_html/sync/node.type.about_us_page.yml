@@ -1,0 +1,24 @@
+uuid: ee8415c9-a747-4a1f-9659-32577739ee8f
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - contact
+      - copyright
+      - footer
+      - footer-utility
+      - main
+      - mobile-contact
+      - utility
+    parent: 'main:'
+name: 'About Us page'
+type: about_us_page
+description: 'The <em>About Us page</em> is like a <em>Basic page</em>, but with more images.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

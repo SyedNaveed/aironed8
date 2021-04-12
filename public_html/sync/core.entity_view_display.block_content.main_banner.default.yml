@@ -1,0 +1,33 @@
+uuid: ae833f63-4d7f-4946-bbbb-6590a40af733
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.main_banner
+    - field.field.block_content.main_banner.body
+    - field.field.block_content.main_banner.image
+  module:
+    - image
+    - text
+id: block_content.main_banner.default
+targetEntityType: block_content
+bundle: main_banner
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden: {  }

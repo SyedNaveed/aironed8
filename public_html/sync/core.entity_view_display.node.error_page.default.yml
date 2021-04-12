@@ -1,0 +1,38 @@
+uuid: 9e7a6398-0c1d-4400-a224-e9a932befe5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.error_page.body
+    - field.field.node.error_page.field_meta_tags
+    - node.type.error_page
+  module:
+    - metatag
+    - text
+    - user
+id: node.error_page.default
+targetEntityType: node
+bundle: error_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_meta_tags:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_empty_formatter
+    region: content
+hidden:
+  links: true

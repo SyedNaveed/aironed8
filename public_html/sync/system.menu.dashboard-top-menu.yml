@@ -1,0 +1,8 @@
+uuid: 8ba6690c-099b-4f18-a8d5-62fb9ff05ebb
+langcode: en
+status: true
+dependencies: {  }
+id: dashboard-top-menu
+label: 'Dashboard top menu'
+description: 'Dashboard page top menu'
+locked: false

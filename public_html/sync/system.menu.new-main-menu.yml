@@ -1,0 +1,8 @@
+uuid: 0e2c674e-9e96-47b4-bcc9-5d35a365c116
+langcode: en
+status: true
+dependencies: {  }
+id: new-main-menu
+label: 'New Main Menu'
+description: ''
+locked: false

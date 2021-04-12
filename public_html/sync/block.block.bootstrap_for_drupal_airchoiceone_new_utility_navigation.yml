@@ -1,0 +1,25 @@
+uuid: 59a302a0-04ee-40b3-82dc-0802353557d2
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.utility
+  module:
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: bootstrap_for_drupal_airchoiceone_new_utility_navigation
+theme: bootstrap_for_drupal_airchoiceone_new
+region: header_special
+weight: -8
+provider: null
+plugin: 'system_menu_block:utility'
+settings:
+  id: 'system_menu_block:utility'
+  label: 'Utility navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

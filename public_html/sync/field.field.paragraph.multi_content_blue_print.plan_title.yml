@@ -1,0 +1,19 @@
+uuid: 546d6646-711c-4345-afc7-039b68f65110
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.plan_title
+    - paragraphs.paragraphs_type.multi_content_blue_print
+id: paragraph.multi_content_blue_print.plan_title
+field_name: plan_title
+entity_type: paragraph
+bundle: multi_content_blue_print
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

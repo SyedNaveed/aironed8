@@ -1,0 +1,10 @@
+uuid: a0d9a73d-a9f5-40ba-9b35-bca644f71801
+langcode: en
+status: true
+dependencies: {  }
+id: aircraft_details
+label: 'Aircraft Details'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

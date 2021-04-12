@@ -1,0 +1,27 @@
+uuid: b8b0f6ff-9ecc-4473-a8cc-27cc8558431c
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: bootstrap_for_drupal_airchoiceone_new_tabs
+theme: bootstrap_for_drupal_airchoiceone_new
+region: header_special
+weight: -17
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility:
+  request_path:
+    id: request_path
+    pages: "/user/login\r\n/user/password"
+    negate: false
+    context_mapping: {  }

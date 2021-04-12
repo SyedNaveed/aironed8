@@ -1,0 +1,18 @@
+uuid: 34e2a825-1bf2-45c1-a727-44ea796c058c
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: background
+label: 'Background Image (1600x1200)'
+effects:
+  22b22674-218e-4f4f-9def-584ee81b907f:
+    uuid: 22b22674-218e-4f4f-9def-584ee81b907f
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1600
+      height: 1200
+      crop_type: focal_point
+pipeline: default_pipeline

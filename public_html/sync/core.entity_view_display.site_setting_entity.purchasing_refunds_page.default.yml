@@ -1,0 +1,30 @@
+uuid: 4dd1873f-c89f-49d7-8a92-743fc5d6afcc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.site_setting_entity.purchasing_refunds_page.field_link
+    - site_settings.site_setting_entity_type.purchasing_refunds_page
+  module:
+    - link
+id: site_setting_entity.purchasing_refunds_page.default
+targetEntityType: site_setting_entity
+bundle: purchasing_refunds_page
+mode: default
+content:
+  field_link:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link_separate
+    region: content
+hidden:
+  fieldset: true
+  name: true
+  user_id: true

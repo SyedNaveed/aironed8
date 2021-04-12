@@ -1,0 +1,22 @@
+uuid: 78f0815f-adb2-43c3-81de-9bc17e8d6e3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.flight_destination_page
+id: node.flight_destination_page.promote
+field_name: promote
+entity_type: node
+bundle: flight_destination_page
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

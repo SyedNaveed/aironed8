@@ -1,0 +1,8 @@
+uuid: 7ccd17fd-8136-4398-8be9-3d4e337d7ea6
+langcode: en
+status: true
+dependencies: {  }
+id: dashboard-left-menu
+label: 'Dashboard Left Menu'
+description: 'Show on Dashboard page on Left Side'
+locked: false

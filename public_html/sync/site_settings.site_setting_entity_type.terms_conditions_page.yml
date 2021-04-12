@@ -1,0 +1,8 @@
+uuid: d3ee6376-cf08-4686-bcd7-6e131bddc6fd
+langcode: en
+status: true
+dependencies: {  }
+id: terms_conditions_page
+label: 'Terms & Conditions Page'
+fieldset: General
+multiple: false

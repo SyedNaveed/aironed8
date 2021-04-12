@@ -1,0 +1,16 @@
+uuid: e9c7e042-c332-4480-82fb-80b15d75dd02
+langcode: en
+status: false
+dependencies: {  }
+id: live
+label: Live
+description: 'Live environment (SiteGround).'
+folder: ../config/live
+module: {  }
+theme: {  }
+blacklist:
+  - imageapi_optimize.pipeline.default_pipeline
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 3

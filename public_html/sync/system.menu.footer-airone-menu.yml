@@ -1,0 +1,8 @@
+uuid: 253913ec-a4b4-4bec-a46d-3d4d93e6272a
+langcode: en
+status: true
+dependencies: {  }
+id: footer-airone-menu
+label: 'Footer airone menu'
+description: ''
+locked: false

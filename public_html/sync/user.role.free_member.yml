@@ -1,0 +1,9 @@
+uuid: 9d747abf-e9be-4658-9cb5-61a05fd4d934
+langcode: en
+status: true
+dependencies: {  }
+id: free_member
+label: 'Free member'
+weight: 3
+is_admin: null
+permissions: {  }

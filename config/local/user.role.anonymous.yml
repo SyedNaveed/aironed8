@@ -10,6 +10,6 @@ weight: -10
 is_admin: false
 permissions:
   - 'access content'
-  - 'access devel information'
-  - 'access kint'
+  - 'use text format full_html'
+  - 'view empty pages'
   - 'view media'

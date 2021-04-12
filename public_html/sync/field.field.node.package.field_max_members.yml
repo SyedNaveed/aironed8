@@ -1,0 +1,23 @@
+uuid: 9c13c3ba-e9c8-4ba5-9900-71efc35b6bef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_max_members
+    - node.type.package
+id: node.package.field_max_members
+field_name: field_max_members
+entity_type: node
+bundle: package
+label: 'Max Members'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

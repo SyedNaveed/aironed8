@@ -1,0 +1,30 @@
+uuid: 1186d9ed-33ed-4f16-9d6d-6d98ade65dd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.flight
+  module:
+    - system
+  theme:
+    - airchoiceone
+id: airchoiceone_flight_navigation
+theme: airchoiceone
+region: precontent
+weight: -5
+provider: null
+plugin: 'system_menu_block:flight'
+settings:
+  id: 'system_menu_block:flight'
+  label: 'Flight navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    pages: "/book-flight\r\n/book-flight/search\r\n/book-flight-charge-summary/*\r\n/manage-flight\r\n/manage-flight/*\r\n/reservation\r\n/reservation/*\r\n/flight-status"
+    negate: false
+    context_mapping: {  }

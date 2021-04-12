@@ -1,0 +1,10 @@
+uuid: 25b00485-122b-4fce-ad01-00583e72f11b
+langcode: en
+status: true
+dependencies:
+  module:
+    - site_settings
+id: site_setting_entity.admin
+label: 'Site settings list'
+targetEntityType: site_setting_entity
+cache: true

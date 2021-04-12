@@ -1,0 +1,9 @@
+login_redirection:
+  anonymous: null
+  authenticated: /dashboard
+  site_editor: /dashboard
+  site_administrator: /dashboard
+  administrator: /dashboard
+  free_member: /dashboard
+  paid_member: /dashboard
+exclude_urls: ''

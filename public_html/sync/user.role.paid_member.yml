@@ -1,0 +1,17 @@
+uuid: dcd70add-6bcd-4779-a87b-f5decf2e25b3
+langcode: en
+status: true
+dependencies: {  }
+id: paid_member
+label: 'Paid Member'
+weight: 4
+is_admin: null
+permissions:
+  - 'change own username'
+  - 'create field_paid'
+  - 'edit own field_mem'
+  - 'update any paid_member profile'
+  - 'view own field_mem'
+  - 'view own field_package'
+  - 'view own field_paid'
+  - 'view own paid_member profile'

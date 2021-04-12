@@ -1,0 +1,17 @@
+uuid: 6cc18efe-b190-4b16-a1c9-3a8d2bd3fd74
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Package
+type: package
+description: 'Package content type for user subscribed pacakges.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

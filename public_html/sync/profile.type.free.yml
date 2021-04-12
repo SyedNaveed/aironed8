@@ -1,0 +1,13 @@
+uuid: 3f17a592-197d-4bd7-b041-144691778077
+langcode: en
+status: true
+dependencies: {  }
+id: free
+label: Free
+display_label: ''
+multiple: false
+registration: false
+roles:
+  free_member: free_member
+allow_revisions: false
+new_revision: false

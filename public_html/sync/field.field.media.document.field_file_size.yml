@@ -1,0 +1,23 @@
+uuid: 85ce51a3-22ab-4028-b3d4-6629bfea473c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_file_size
+    - media.type.document
+id: media.document.field_file_size
+field_name: field_file_size
+entity_type: media
+bundle: document
+label: 'File size'
+description: 'The size of the file in bytes.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

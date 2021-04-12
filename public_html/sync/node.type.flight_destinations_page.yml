@@ -1,0 +1,24 @@
+uuid: 9d4c1193-9b43-4f82-a4c4-19ed5109f319
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - contact
+      - copyright
+      - footer
+      - footer-utility
+      - main
+      - mobile-contact
+      - utility
+    parent: 'main:'
+name: 'Flight Destinations Landing page'
+type: flight_destinations_page
+description: 'The <em>Flight Destinations Landing page</em> lists all available <em>Flight Destination pages</em>.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

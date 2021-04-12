@@ -1,0 +1,49 @@
+uuid: 98633f66-c7e8-4def-8dfc-a976b3426c60
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.dashboard-left-menu
+  module:
+    - context
+    - system
+    - user
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: dashboardleftmenu
+theme: bootstrap_for_drupal_airchoiceone_new
+region: content
+weight: -23
+provider: null
+plugin: 'system_menu_block:dashboard-left-menu'
+settings:
+  id: 'system_menu_block:dashboard-left-menu'
+  label: 'Dashboard Left Menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: "/manage-members\r\n/user/*\r\n/book-flight/flight-selection\r\n/book-flight/seat-selection\r\n/book-flight/contact-information\r\n/book-flight/search\r\n/book-flight/\r\n/airchoice_member/form/add_member\r\n/dashboard\r\n/book-flight/purchase\r\n/book-flight/additional-services"
+    negate: false
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

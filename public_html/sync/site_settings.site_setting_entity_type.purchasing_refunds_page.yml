@@ -1,0 +1,8 @@
+uuid: 690fead5-123b-4f39-bc15-cbfc16234108
+langcode: en
+status: true
+dependencies: {  }
+id: purchasing_refunds_page
+label: 'Purchasing and Refunds Page'
+fieldset: General
+multiple: false

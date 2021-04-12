@@ -1,0 +1,23 @@
+uuid: eb49285e-1a60-48c0-a724-80bdeba2728a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.aircraft_details
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.aircraft_details.body
+field_name: body
+entity_type: block_content
+bundle: aircraft_details
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

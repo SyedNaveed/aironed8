@@ -1,0 +1,56 @@
+uuid: 4e354b40-0a18-431a-a807-11ed56a030e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.aviation_reimagined
+    - field.field.block_content.aviation_reimagined.body
+    - field.field.block_content.aviation_reimagined.plan_info1
+    - field.field.block_content.aviation_reimagined.title
+  module:
+    - paragraphs
+    - text
+id: block_content.aviation_reimagined.default
+targetEntityType: block_content
+bundle: aviation_reimagined
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 2
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
+  info:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  plan_info1:
+    type: entity_reference_paragraphs
+    weight: 4
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden: {  }

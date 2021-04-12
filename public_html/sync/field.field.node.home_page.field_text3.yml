@@ -1,0 +1,19 @@
+uuid: 60a0c6a7-74a5-480e-9476-0c1579cf0e89
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_text3
+    - node.type.home_page
+id: node.home_page.field_text3
+field_name: field_text3
+entity_type: node
+bundle: home_page
+label: Subheadline
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

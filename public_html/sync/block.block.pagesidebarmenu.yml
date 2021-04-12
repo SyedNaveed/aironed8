@@ -1,0 +1,41 @@
+uuid: 343ffb61-c29b-4430-a87b-ce6ccb4f3b50
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.page-sidebar-menu
+  module:
+    - context
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: pagesidebarmenu
+theme: bootstrap_for_drupal_airchoiceone_new
+region: content_after
+weight: 0
+provider: null
+plugin: 'system_menu_block:page-sidebar-menu'
+settings:
+  id: 'system_menu_block:page-sidebar-menu'
+  label: 'Related Pages'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: "/customer-service/baggage-policies\r\n/when-you-fly/safety\r\n/when-you-fly/travel-policy"
+    negate: false
+    context_mapping: {  }

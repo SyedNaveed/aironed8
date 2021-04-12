@@ -1,0 +1,231 @@
+uuid: a7c8d2c3-ff60-4462-a334-8a32252e41d9
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: donation_request
+title: 'Donation Request'
+description: 'Donation Request Information webform.'
+category: ''
+elements: "'#attributes':\n  class:\n    - donations_form\nlabel1:\n  '#type': webform_markup\n  '#markup': '<h4>Requester&rsquo;s information</h4>'\nrow1:\n  '#type': container\n  '#attributes':\n    class:\n      - row\n  name:\n    '#type': textfield\n    '#title': 'Contact person’s name'\n    '#required': true\n    '#wrapper_attributes':\n      class:\n        - col-sm-6\n  organization:\n    '#type': textfield\n    '#title': 'Company/organization name'\n    '#required': true\n    '#wrapper_attributes':\n      class:\n        - col-sm-6\n  email:\n    '#type': email\n    '#title': Email\n    '#required': true\n    '#wrapper_attributes':\n      class:\n        - 'col-md-4 col-sm-6'\n  phone:\n    '#type': tel\n    '#title': Phone\n    '#required': true\n    '#wrapper_attributes':\n      class:\n        - 'col-md-4 col-sm-6'\n  tax_id_number:\n    '#type': textfield\n    '#title': 'Tax ID number'\n    '#required': true\n    '#wrapper_attributes':\n      class:\n        - 'col-md-4 col-sm-4'\n  address:\n    '#type': textfield\n    '#title': Address\n    '#required': true\n    '#wrapper_attributes':\n      class:\n        - 'col-md-12 col-sm-8'\n  city:\n    '#type': textfield\n    '#title': City\n    '#required': true\n    '#wrapper_attributes':\n      class:\n        - 'col-md-4 col-sm-5'\n  state:\n    '#type': textfield\n    '#title': State\n    '#required': true\n    '#wrapper_attributes':\n      class:\n        - 'col-md-4 col-sm-3'\n  zip_code:\n    '#type': textfield\n    '#title': 'Zip code'\n    '#required': true\n    '#wrapper_attributes':\n      class:\n        - 'col-md-4 col-sm-4'\nlabel2:\n  '#type': webform_markup\n  '#markup': '<h4>Event information</h4>'\nrow2:\n  '#type': container\n  '#attributes':\n    class:\n      - row\n  event_date:\n    '#type': date\n    '#title': 'Event date'\n    '#required': true\n    '#wrapper_attributes':\n      class:\n        - 'col-md-4 col-sm-6'\n    '#datepicker': true\n    '#date_date_format': m/d/Y\n  event_location:\n    '#type': textfield\n    '#title': 'Event location'\n    '#required': true\n    '#wrapper_attributes':\n      class:\n        - 'col-md-8 col-sm-6'\n  event_description:\n    '#type': textarea\n    '#title': 'Event purpose/description'\n    '#required': true\n    '#wrapper_attributes':\n      class:\n        - 'col-md-12 col-sm-12'\n  number_attendees:\n    '#type': number\n    '#title': '# of attendees'\n    '#required': true\n    '#wrapper_attributes':\n      class:\n        - 'col-md-4 col-sm-6'\n    '#min': '1'\n  number_beneficiaries:\n    '#type': number\n    '#title': '# of people event benefits'\n    '#required': true\n    '#wrapper_attributes':\n      class:\n        - 'col-md-5 col-sm-6'\n    '#min': '1'\n  donation_request_type_label:\n    '#type': label\n    '#title': 'Donation request type'\n    '#attributes':\n      class:\n        - col-md-12\n    '#required': true\n  donation_request_type:\n    '#type': webform_checkboxes_other\n    '#title': 'Donation request type'\n    '#options':\n      Monterary: Monterary\n      'Flight Vouchers': 'Flight Vouchers'\n      'Raffle Prizes': 'Raffle Prizes'\n      'Auction prize': 'Auction prize'\n    '#options_display': side_by_side\n    '#other__option_label': Other\n    '#other__title': 'Please explain the donation you are requesting'\n    '#other__placeholder': ''\n    '#required': true\n    '#wrapper_type': container\n    '#wrapper_attributes':\n      class:\n        - col-md-12\n  amount_requested:\n    '#type': textfield\n    '#title': 'Amount Requested'\n    '#states':\n      invisible-slide:\n        ':input[name=\"donation_request_type[checkboxes][Monterary]\"]':\n          unchecked: true\n      visible-slide:\n        ':input[name=\"donation_request_type[checkboxes][Monterary]\"]':\n          checked: true\n      required:\n        ':input[name=\"donation_request_type[checkboxes][Monterary]\"]':\n          checked: true\n    '#wrapper_attributes':\n      class:\n        - col-md-12\n  number_of_vouchers:\n    '#type': number\n    '#title': 'Number of Vouchers'\n    '#states':\n      invisible-slide:\n        ':input[name=\"donation_request_type[checkboxes][Flight Vouchers]\"]':\n          unchecked: true\n      visible-slide:\n        ':input[name=\"donation_request_type[checkboxes][Flight Vouchers]\"]':\n          checked: true\n      required:\n        ':input[name=\"donation_request_type[checkboxes][Flight Vouchers]\"]':\n          checked: true\n    '#wrapper_attributes':\n      class:\n        - col-md-12\n    '#min': '1'\n  spacer1:\n    '#type': webform_markup\n    '#wrapper_attributes':\n      class:\n        - col-md-12\n    '#admin_title': Spacer\n    '#markup': '<div class=\"divide30\"><!-- spacer --></div>'\n  representation_label:\n    '#type': label\n    '#title': 'How will Air Choice One be represented at this event?'\n    '#attributes':\n      class:\n        - col-md-12\n    '#required': true\n  representation:\n    '#type': webform_checkboxes_other\n    '#title': 'How will Air Choice One be represented at this event?'\n    '#options':\n      'Logo printed materials/advertising': 'Logo printed materials/advertising'\n      'Logo on apparel': 'Logo on apparel'\n      'Logo on event website': 'Logo on event website'\n      'Event Signage': 'Event Signage'\n      'VIP Tickets': 'VIP Tickets'\n      'Radio Ad Mention': 'Radio Ad Mention'\n    '#other__option_label': Other\n    '#other__title': 'Please explain how Air Choice One will be represented'\n    '#other__placeholder': ''\n    '#required': true\n    '#wrapper_type': container\n    '#wrapper_attributes':\n      class:\n        - 'col-md-12 checkboxes'\n  spacer2:\n    '#type': webform_markup\n    '#wrapper_attributes':\n      class:\n        - col-md-12\n    '#admin_title': Spacer\n    '#markup': '<div class=\"divide30\"><!-- spacer --></div>'\n  redemption_label:\n    '#type': label\n    '#title': 'How will this item be given away?'\n    '#attributes':\n      class:\n        - col-md-12\n    '#required': true\n  redemption:\n    '#type': webform_checkboxes_other\n    '#title': 'How will this item be given away?'\n    '#options':\n      'Silent Auction': 'Silent Auction'\n      'Live Auction': 'Live Auction'\n      'Raffle Basket': 'Raffle Basket'\n    '#other__option_label': Other\n    '#other__title': 'Please explain how this item will be given away'\n    '#other__placeholder': ''\n    '#required': true\n    '#wrapper_type': container\n    '#wrapper_attributes':\n      class:\n        - 'col-md-12 checkboxes'\n  spacer3:\n    '#type': webform_markup\n    '#wrapper_attributes':\n      class:\n        - col-md-12\n    '#admin_title': Spacer\n    '#markup': '<div class=\"divide30\"><!-- spacer --></div>'\n  is_repeat_label:\n    '#type': label\n    '#title': 'Had this organization requested and/or received a donation from Air Choice One in the past 12 months?'\n    '#attributes':\n      class:\n        - col-md-12\n    '#required': true\n  is_repeat:\n    '#type': radios\n    '#title': 'Had this organization requested and/or received a donation from Air Choice One in the past 12 months?'\n    '#options':\n      'Yes': 'Yes'\n      'No': 'No'\n    '#required': true\n    '#wrapper_type': container\n    '#wrapper_attributes':\n      class:\n        - 'col-md-12 checkboxes'\n  spacer4:\n    '#type': webform_markup\n    '#wrapper_attributes':\n      class:\n        - col-md-12\n    '#admin_title': Spacer\n    '#markup': '<div class=\"divide30\"><!-- spacer --></div>'\n  documentation:\n    '#type': managed_file\n    '#title': 'Please provide any literature/documentation regarding this event or your organization'\n    '#multiple': 3\n    '#wrapper_attributes':\n      class:\n        - col-sm-12\n    '#file_placeholder': \"<div class=\\\"divide20\\\"><!-- spacer --></div>\\n\\n<div class=\\\"description\\\">A flyer of the event or a letter with all information on the organization&#39;s letterhead.</div>\\n\"\n    '#file_extensions': 'pdf jpg png doc docx'\n    '#sanitize': true\n    '#button': true\n    '#button__title': 'Select files'\n    '#button__attributes':\n      class:\n        - 'blue_btn fake-button'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Submit Donation Request'\n  '#submit__attributes':\n    class:\n      - red_btn\n  '#update__attributes':\n    class:\n      - red_btn\n"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: ''
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
+  page: false
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_theme_name: ''
+  form_title: source_entity_webform
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_remote_addr: true
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_progress_states: false
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  wizard_prev_button_label: ''
+  wizard_next_button_label: ''
+  wizard_toggle: false
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: message
+  confirmation_title: ''
+  confirmation_message: 'We appreciate your interest in Air Choice One and have received your donation request. Our team will review your request to determine if it aligns with Air Choice One&rsquo;s guidelines and focus areas. A member of our team will send an email and provide you with an update. In the meantime, please accept our sincerest wishes for your continued success.'
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  results_customize: false
+  token_view: false
+  token_update: false
+  serial_disabled: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email_notification:
+    id: email
+    label: 'Email notification'
+    notes: ''
+    handler_id: email_notification
+    status: false
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: marketing@airchoiceone.com
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: 'Donation Request from [webform_submission:values:name] on behalf of [webform_submission:values:organization]'
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: '[webform_submission:values:email:raw]'
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+      parameters: {  }
+variants: {  }

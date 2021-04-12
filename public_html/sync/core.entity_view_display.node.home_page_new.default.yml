@@ -1,0 +1,28 @@
+uuid: fb8cbfbe-c3cb-4059-80ed-f2f24d0b843a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.home_page_new.body
+    - node.type.home_page_new
+  module:
+    - text
+    - user
+id: node.home_page_new.default
+targetEntityType: node
+bundle: home_page_new
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

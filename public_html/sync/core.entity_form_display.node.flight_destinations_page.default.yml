@@ -1,0 +1,109 @@
+uuid: 1ecb7859-5919-4570-b45b-6d05c04f89d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.flight_destinations_page.body
+    - field.field.node.flight_destinations_page.field_banner_image
+    - field.field.node.flight_destinations_page.field_meta_tags
+    - field.field.node.flight_destinations_page.field_paragraphs
+    - node.type.flight_destinations_page
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - media_library
+    - metatag
+    - paragraphs
+    - path
+    - text
+id: node.flight_destinations_page.default
+targetEntityType: node
+bundle: flight_destinations_page
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 3
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+    region: content
+  created:
+    type: datetime_timestamp
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_banner_image:
+    weight: 1
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    type: media_library_widget
+    region: content
+  field_meta_tags:
+    weight: 11
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+    region: content
+  field_paragraphs:
+    weight: 4
+    settings:
+      title: Destination
+      title_plural: Destinations
+      edit_mode: open
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: destination
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 9
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 10
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  promote: true
+  sticky: true

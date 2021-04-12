@@ -1,0 +1,52 @@
+uuid: eb1be898-42cb-4954-84cd-5c1e9459fdb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.multi_image_content
+    - field.storage.block_content.mutli_images
+    - paragraphs.paragraphs_type.multi_content_blue_print
+  module:
+    - entity_reference_revisions
+id: block_content.multi_image_content.mutli_images
+field_name: mutli_images
+entity_type: block_content
+bundle: multi_image_content
+label: Mutli-Images
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      multi_content_blue_print: multi_content_blue_print
+    target_bundles_drag_drop:
+      aircraft_details:
+        weight: 9
+        enabled: false
+      aviation_reimagined_:
+        weight: 10
+        enabled: false
+      destination:
+        weight: 11
+        enabled: false
+      gallery:
+        weight: 12
+        enabled: false
+      icon_and_link:
+        weight: 13
+        enabled: false
+      image_and_link:
+        weight: 14
+        enabled: false
+      multi_content_blue_print:
+        enabled: true
+        weight: 15
+      text:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions

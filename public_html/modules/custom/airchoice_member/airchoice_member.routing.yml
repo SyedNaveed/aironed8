@@ -68,3 +68,11 @@ airchoice_member.find_flight_form:
     _title: 'FindFlightForm'
   requirements:
     _access: 'TRUE'
+
+airchoice_member.change_membership_form:
+  path: '/airchoice_member/change_membership'
+  defaults:
+    _form: '\Drupal\airchoice_member\Form\ChangeMembershipForm'
+    _title: 'ChangeMembershipForm'
+  requirements:
+    _access: 'TRUE'

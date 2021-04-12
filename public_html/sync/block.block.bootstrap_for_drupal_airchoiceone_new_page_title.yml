@@ -1,0 +1,30 @@
+uuid: 1a0cd54d-8195-4838-8723-66ed5eaab4f5
+langcode: en
+status: false
+dependencies:
+  module:
+    - ctools
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+_core:
+  default_config_hash: 8yptDf6WrXxeyevUz4nP5vfr7BtxQqCBMninhV2IJ1g
+id: bootstrap_for_drupal_airchoiceone_new_page_title
+theme: bootstrap_for_drupal_airchoiceone_new
+region: content_before
+weight: -21
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      flight_destination_page: flight_destination_page
+      home_page: home_page
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'

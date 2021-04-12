@@ -1,0 +1,25 @@
+uuid: cf4733c9-1705-4452-b3cd-ed9cd8939bf8
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.copyright
+  module:
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: bootstrap_for_drupal_airchoiceone_new_copyright_navigation
+theme: bootstrap_for_drupal_airchoiceone_new
+region: footer_center
+weight: -19
+provider: null
+plugin: 'system_menu_block:copyright'
+settings:
+  id: 'system_menu_block:copyright'
+  label: 'Copyright navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

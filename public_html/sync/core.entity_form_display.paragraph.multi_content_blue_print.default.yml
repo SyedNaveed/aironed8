@@ -1,0 +1,54 @@
+uuid: cfd393bf-42f8-4ab7-a843-3b78ba863c40
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.multi_content_blue_print.front_blog_link
+    - field.field.paragraph.multi_content_blue_print.image
+    - field.field.paragraph.multi_content_blue_print.plan_title
+    - field.field.paragraph.multi_content_blue_print.short_title
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.multi_content_blue_print
+  module:
+    - image
+    - link
+id: paragraph.multi_content_blue_print.default
+targetEntityType: paragraph
+bundle: multi_content_blue_print
+mode: default
+content:
+  front_blog_link:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  image:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  plan_title:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  short_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

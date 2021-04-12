@@ -1,0 +1,30 @@
+uuid: dc2cad4f-29cb-4cf7-ae85-8c9a8640dd63
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.footer-utility
+  module:
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: bootstrap_for_drupal_airchoiceone_new_footer_utility_navigation
+theme: bootstrap_for_drupal_airchoiceone_new
+region: footer_sub_center
+weight: -11
+provider: null
+plugin: 'system_menu_block:footer-utility'
+settings:
+  id: 'system_menu_block:footer-utility'
+  label: 'Footer utility navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/book-flight/flight-selection\r\n/book-flight/contact-information\r\n/book-flight/seat-selection\r\n/book-flight/additional-services\r\n/book-flight/purchase\r\n/book-flight/confirm\r\n/your-confirmed-itinerary"
+    negate: true
+    context_mapping: {  }

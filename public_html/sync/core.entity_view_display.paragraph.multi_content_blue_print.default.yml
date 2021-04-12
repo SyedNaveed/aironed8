@@ -1,0 +1,56 @@
+uuid: bd361717-94bb-4628-9234-ac7ae3c15040
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.multi_content_blue_print.front_blog_link
+    - field.field.paragraph.multi_content_blue_print.image
+    - field.field.paragraph.multi_content_blue_print.plan_title
+    - field.field.paragraph.multi_content_blue_print.short_title
+    - paragraphs.paragraphs_type.multi_content_blue_print
+  module:
+    - image
+    - link
+id: paragraph.multi_content_blue_print.default
+targetEntityType: paragraph
+bundle: multi_content_blue_print
+mode: default
+content:
+  front_blog_link:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  plan_title:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  short_title:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

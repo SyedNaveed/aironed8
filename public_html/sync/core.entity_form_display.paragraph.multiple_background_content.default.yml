@@ -1,0 +1,36 @@
+uuid: 105ec179-2c8b-4dac-9a25-1af389044e7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.multiple_background_content.background_content
+    - field.field.paragraph.multiple_background_content.background_image
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.multiple_background_content
+  module:
+    - image
+    - text
+id: paragraph.multiple_background_content.default
+targetEntityType: paragraph
+bundle: multiple_background_content
+mode: default
+content:
+  background_content:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  background_image:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+hidden:
+  created: true
+  status: true

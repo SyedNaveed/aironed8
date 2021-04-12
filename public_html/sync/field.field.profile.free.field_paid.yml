@@ -1,0 +1,23 @@
+uuid: ffe73c7e-041d-44a4-9027-dd387ccc815b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_paid
+    - profile.type.free
+id: profile.free.field_paid
+field_name: field_paid
+entity_type: profile
+bundle: free
+label: field_paid
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

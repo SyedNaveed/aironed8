@@ -1,0 +1,39 @@
+theme: current
+defaults:
+  sender: php_mail
+  formatter: php_mail
+_core:
+  default_config_hash: IhwTepsVwtbtbcT5GzQKhCXDCRvbk3MNkWqPiuiZ10s
+modules:
+  webform:
+    none:
+      formatter: swiftmailer
+      sender: swiftmailer
+  swiftmailer:
+    none:
+      formatter: swiftmailer
+      sender: swiftmailer
+  user:
+    none:
+      formatter: swiftmailer
+      sender: swiftmailer
+  login_security:
+    none:
+      formatter: swiftmailer
+      sender: swiftmailer
+  system:
+    none:
+      formatter: swiftmailer
+      sender: swiftmailer
+  update:
+    none:
+      formatter: swiftmailer
+      sender: swiftmailer
+  aco_frequent_flyers:
+    none:
+      formatter: swiftmailer
+      sender: swiftmailer
+  airchoice_member:
+    none:
+      formatter: swiftmailer
+      sender: swiftmailer

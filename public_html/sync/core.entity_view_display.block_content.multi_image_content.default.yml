@@ -1,0 +1,33 @@
+uuid: 5560725b-d2a6-437e-a437-a3398bb807b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.multi_image_content
+    - field.field.block_content.multi_image_content.body
+    - field.field.block_content.multi_image_content.mutli_images
+  module:
+    - entity_reference_revisions
+    - text
+id: block_content.multi_image_content.default
+targetEntityType: block_content
+bundle: multi_image_content
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  mutli_images:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

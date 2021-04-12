@@ -1,0 +1,26 @@
+uuid: e3dd2247-294f-43ea-8131-ca847352843d
+langcode: en
+status: false
+dependencies:
+  module:
+    - aco_flight_status
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: bootstrap_for_drupal_airchoiceone_new_flight_statuses
+theme: bootstrap_for_drupal_airchoiceone_new
+region: header_special
+weight: -14
+provider: null
+plugin: flight_statuses_block
+settings:
+  id: flight_statuses_block
+  label: 'Flight Statuses Block'
+  provider: aco_flight_status
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: /flight-status
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,38 @@
+uuid: d3651115-c4f8-44f6-9ba9-b21abb17c15a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.about_us.background_image_content
+    - field.field.node.about_us.body
+    - field.field.node.about_us.content_heading
+    - field.field.node.about_us.multiple_content
+    - field.field.node.about_us.small_image
+    - node.type.about_us
+  module:
+    - text
+    - user
+id: node.about_us.teaser
+targetEntityType: node
+bundle: about_us
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  background_image_content: true
+  content_heading: true
+  multiple_content: true
+  small_image: true

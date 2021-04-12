@@ -1,0 +1,8 @@
+uuid: a692bacd-f1c2-435f-aa15-f76fe1e3ba87
+langcode: en
+status: true
+dependencies: {  }
+id: aircraft_details
+label: 'Aircraft details'
+revision: 0
+description: ''

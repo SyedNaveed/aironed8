@@ -1,0 +1,8 @@
+uuid: 367f2311-21c5-4672-b5a9-82bea0bf1269
+langcode: en
+status: true
+dependencies: {  }
+id: multi_image_content
+label: 'multi-image Content'
+revision: 0
+description: ''

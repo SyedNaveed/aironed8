@@ -1,0 +1,19 @@
+uuid: 84c31ebb-e745-4989-9e81-99b6b106b318
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.plan_link
+field_name: plan_link
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

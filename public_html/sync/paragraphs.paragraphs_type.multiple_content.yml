@@ -1,0 +1,10 @@
+uuid: 7e28f3b1-3dd9-4b8d-84b6-c4a4dd6d1914
+langcode: en
+status: true
+dependencies: {  }
+id: multiple_content
+label: 'Multiple Content'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,41 @@
+uuid: 00a0f883-873c-4080-b684-6e12490a8813
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.site_setting_entity.flight_selection_page.field_longtext
+    - field.field.site_setting_entity.flight_selection_page.field_longtext2
+    - field.field.site_setting_entity.flight_selection_page.field_longtext3
+    - site_settings.site_setting_entity_type.flight_selection_page
+  module:
+    - text
+id: site_setting_entity.flight_selection_page.default
+targetEntityType: site_setting_entity
+bundle: flight_selection_page
+mode: default
+content:
+  field_longtext:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_longtext2:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_longtext3:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  fieldset: true
+  name: true
+  user_id: true

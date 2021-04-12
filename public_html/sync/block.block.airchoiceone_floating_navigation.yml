@@ -1,0 +1,25 @@
+uuid: 5aab5ba9-84d2-45b0-afcc-43014a618327
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.floating
+  module:
+    - system
+  theme:
+    - airchoiceone
+id: airchoiceone_floating_navigation
+theme: airchoiceone
+region: postfooter
+weight: 0
+provider: null
+plugin: 'system_menu_block:floating'
+settings:
+  id: 'system_menu_block:floating'
+  label: 'Floating navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

@@ -1,0 +1,21 @@
+uuid: 666ed3bf-f491-4ff7-b205-3f3256e9c3ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.destination.field_content
+    - paragraphs.paragraphs_type.destination
+id: paragraph.destination.default
+targetEntityType: paragraph
+bundle: destination
+mode: default
+content:
+  field_content:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  created: true
+  status: true

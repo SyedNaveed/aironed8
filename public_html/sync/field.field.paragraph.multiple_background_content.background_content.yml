@@ -1,0 +1,35 @@
+uuid: 1f2b1e77-6aed-4cc8-bbd4-9592ac168060
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.background_content
+    - paragraphs.paragraphs_type.multiple_background_content
+  module:
+    - better_formats
+    - text
+third_party_settings:
+  better_formats:
+    allowed_formats_toggle: 0
+    allowed_formats:
+      rich_text: rich_text
+      full_html: full_html
+    default_order_toggle: 0
+    default_order_wrapper:
+      formats:
+        rich_text:
+          weight: '-10'
+        full_html:
+          weight: '0'
+id: paragraph.multiple_background_content.background_content
+field_name: background_content
+entity_type: paragraph
+bundle: multiple_background_content
+label: 'Background Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

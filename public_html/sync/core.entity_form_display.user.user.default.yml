@@ -1,0 +1,157 @@
+uuid: f45168bb-e4be-4924-8a9c-5311726668b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.address
+    - field.field.user.user.company
+    - field.field.user.user.day
+    - field.field.user.user.email_notified
+    - field.field.user.user.field_last_password_reset
+    - field.field.user.user.field_password_expiration
+    - field.field.user.user.first_name
+    - field.field.user.user.last_name
+    - field.field.user.user.loyalty_id
+    - field.field.user.user.membership_type
+    - field.field.user.user.month
+    - field.field.user.user.phone
+    - field.field.user.user.role
+    - field.field.user.user.sms_text
+    - field.field.user.user.year
+  module:
+    - address
+    - datetime
+    - telephone
+    - user
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  account:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  address:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  company:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  day:
+    weight: 11
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  email_notified:
+    weight: 18
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_last_password_reset:
+    type: datetime_default
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_password_expiration:
+    type: boolean_checkbox
+    weight: 6
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    region: content
+  first_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  language:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  last_name:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  loyalty_id:
+    weight: 15
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  membership_type:
+    weight: 19
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  month:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  phone:
+    weight: 3
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  role:
+    weight: 14
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  sms_text:
+    weight: 16
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  timezone:
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  year:
+    weight: 12
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+hidden:
+  free_profiles: true
+  paid_member_profiles: true
+  path: true

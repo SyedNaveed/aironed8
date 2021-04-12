@@ -1,0 +1,20 @@
+uuid: 3f55a249-f832-4f27-9dbc-0f227552c3de
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: CMuvuRCfGZ5k3XgsXmkEc54rI8etDY1Qz2JP7JzKL-g
+name: linkit_result_thumbnail
+label: 'Linkit result thumbnail (50x50)'
+effects:
+  80b04d61-463c-4b17-8852-5ecb6a2b2964:
+    uuid: 80b04d61-463c-4b17-8852-5ecb6a2b2964
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 50
+      height: 50
+      crop_type: focal_point
+pipeline: default_pipeline

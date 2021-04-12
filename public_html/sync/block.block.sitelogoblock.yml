@@ -1,0 +1,45 @@
+uuid: 041e1cf3-b38b-4ffa-bde5-a7c3dfe311e1
+langcode: en
+status: true
+dependencies:
+  module:
+    - airchoice_member
+    - context
+    - system
+    - user
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: sitelogoblock
+theme: bootstrap_for_drupal_airchoiceone_new
+region: content
+weight: -25
+provider: null
+plugin: site_logo_block
+settings:
+  id: site_logo_block
+  label: 'Site logo block'
+  provider: airchoice_member
+  label_display: '0'
+visibility:
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: "/user/*\r\n/manage-members\r\n/book-flight/flight-selection\r\n/book-flight/seat-selection\r\n/book-flight/contact-information\r\n/book-flight/search\r\n/airchoice_member/form/add_member\r\n/dashboard\r\n/book-flight/purchase\r\n/book-flight/additional-services"
+    negate: false
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

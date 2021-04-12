@@ -1,0 +1,8 @@
+uuid: 8b104bd7-6db2-4430-874b-d991fe39bb43
+langcode: en
+status: true
+dependencies: {  }
+id: flight
+label: 'Flight navigation'
+description: 'Flight links'
+locked: false

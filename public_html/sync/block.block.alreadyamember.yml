@@ -1,0 +1,41 @@
+uuid: e746b2eb-7d6e-4f88-83bb-94d8ccb87e5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.already-a-member-
+  module:
+    - context
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+id: alreadyamember
+theme: bootstrap_for_drupal_airchoiceone_new
+region: nav_main
+weight: 0
+provider: null
+plugin: 'system_menu_block:already-a-member-'
+settings:
+  id: 'system_menu_block:already-a-member-'
+  label: 'Already a member?'
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  request_path_exclusion:
+    id: request_path_exclusion
+    pages: ''
+    negate: null
+    context_mapping: {  }
+  view_inclusion:
+    id: view_inclusion
+    negate: null
+    view_inclusion: {  }
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: /user/login
+    negate: false
+    context_mapping: {  }

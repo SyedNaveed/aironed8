@@ -1,0 +1,22 @@
+uuid: 239c00e9-5bd9-47e8-9477-451898754b49
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bootstrap_for_drupal_airchoiceone_new
+_core:
+  default_config_hash: 5MNdk3fpMKx_xxBTcz2T11DL4XEU1H5SgHl8BsYdFsA
+id: bootstrap_for_drupal_airchoiceone_new_messages
+theme: bootstrap_for_drupal_airchoiceone_new
+region: content_before
+weight: -22
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

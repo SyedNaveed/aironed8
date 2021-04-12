@@ -1,15 +1,12 @@
-transport: sendmail
-smtp_host: 127.0.0.1
-smtp_port: 25
-smtp_encryption: ''
+transport: smtp
+smtp_host: smtp.gmail.com
+smtp_port: 587
+smtp_encryption: tls
 smtp_credential_provider: swiftmailer
 smtp_credentials:
   swiftmailer:
-    username: ''
-    password: ''
-  key:
-    username: ''
-    password: ''
+    username: idevmoin2@gmail.com
+    password: zbkpyrukuiegpyov
 sendmail_path: /usr/sbin/sendmail
 sendmail_mode: bs
 spool_directory: ''

@@ -1,0 +1,19 @@
+uuid: 317a68a2-9bb0-4833-a624-c2b27cfbcd74
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.content_heading
+    - node.type.about_us
+id: node.about_us.content_heading
+field_name: content_heading
+entity_type: node
+bundle: about_us
+label: 'Content Heading'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

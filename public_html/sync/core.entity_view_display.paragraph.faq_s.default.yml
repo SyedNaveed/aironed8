@@ -1,0 +1,31 @@
+uuid: 2adc2004-4fa5-4cb4-afcb-cb0711855c25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.faq_s.body
+    - field.field.paragraph.faq_s.title
+    - paragraphs.paragraphs_type.faq_s
+  module:
+    - text
+id: paragraph.faq_s.default
+targetEntityType: paragraph
+bundle: faq_s
+mode: default
+content:
+  body:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  title:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

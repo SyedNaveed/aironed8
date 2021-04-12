@@ -1,0 +1,55 @@
+uuid: fd455651-6b55-4a89-b0fc-70cb69a62817
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.multiple_content
+    - node.type.about_us
+    - paragraphs.paragraphs_type.multiple_content
+  module:
+    - entity_reference_revisions
+id: node.about_us.multiple_content
+field_name: multiple_content
+entity_type: node
+bundle: about_us
+label: 'Multiple Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      multiple_content: multiple_content
+    target_bundles_drag_drop:
+      aircraft_details:
+        weight: 10
+        enabled: false
+      aviation_reimagined_:
+        weight: 11
+        enabled: false
+      destination:
+        weight: 12
+        enabled: false
+      gallery:
+        weight: 13
+        enabled: false
+      icon_and_link:
+        weight: 14
+        enabled: false
+      image_and_link:
+        weight: 15
+        enabled: false
+      multi_content_blue_print:
+        weight: 17
+        enabled: false
+      multiple_content:
+        enabled: true
+        weight: 16
+      text:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

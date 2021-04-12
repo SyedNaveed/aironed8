@@ -1,0 +1,10 @@
+uuid: 20091d50-7017-4453-8a70-f5f34fdfb82b
+langcode: en
+status: true
+dependencies: {  }
+id: multiple_background_content
+label: 'Multiple Background Content'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

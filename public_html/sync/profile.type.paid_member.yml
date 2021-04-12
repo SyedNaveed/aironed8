@@ -1,0 +1,13 @@
+uuid: 8a7f8b69-cdc7-4d4a-a166-a535b36771ae
+langcode: en
+status: true
+dependencies: {  }
+id: paid_member
+label: 'Membership '
+display_label: ''
+multiple: false
+registration: true
+roles:
+  paid_member: paid_member
+allow_revisions: false
+new_revision: false
