@@ -65,7 +65,7 @@ trait FormBuilderTrait {
               '#type' => 'container',
               '#prefix' => '<div class="new-passenger-title">',
               '#suffix' => '</div>',
-              '#markup' => $this->t('Additional Passenger #@count Information (Adult)', [
+              '#markup' => $this->t('<h3>Additional Passenger #@count Information (Adult)</h3>', [
                 '@count' => $i + 1,
               ]),
             ],
@@ -197,13 +197,13 @@ trait FormBuilderTrait {
     $form['lastName'] = Fields::nameField($this->t('Last Name'), $values['lastName']);
 
     // custom col class for firstname input fields 
-    $form['title']['#prefix'] = '<div class="col-md-3">';
+    $form['title']['#prefix'] = '<div class="col-md-3 col-sm-6">';
     $form['title']['#suffix'] = '</div>';
-    $form['firstName']['#prefix'] = '<div class="col-md-3">';
+    $form['firstName']['#prefix'] = '<div class="col-md-3 col-sm-6">';
     $form['firstName']['#suffix']  =  '</div>';
-    $form['middleName']['#prefix'] = '<div class="col-md-3">';
+    $form['middleName']['#prefix'] = '<div class="col-md-3 col-sm-6">';
     $form['middleName']['#suffix'] = '</div>';
-    $form['lastName']['#prefix'] = '<div class="col-md-3">';
+    $form['lastName']['#prefix'] = '<div class="col-md-3 col-sm-6">';
     $form['lastName']['#suffix'] = '</div>';
 
 
@@ -310,7 +310,7 @@ trait FormBuilderTrait {
       '#id' => $with_infant_id,
       '#title' => $this->t('With infant?'),
       '#default_value' => intval($values['withInfant']),
-      '#prefix' => '<div class="infant-random-class">',
+      
     ];
     $form['infant']['firstName'] = Fields::nameField($this->t('First Name'), $values['infant']['firstName'], FALSE);
     $form['infant']['firstName']['#states'] = [
@@ -330,6 +330,10 @@ trait FormBuilderTrait {
         '#' . $with_infant_id => ['checked' => TRUE],
       ],
     ];
+    $form['infant']['infanth3h'] = [
+      '#markup' => '<h3>Infant Date of Birth</h3>',
+    ];
+
     $this->getBirthDateFields($form['infant'], $values['infant'], ['age_limit' => TimeHelper::INFANT_AGE_LIMIT], FALSE);
     $form['infant']['birthDateMonth']['#states'] = [
       'disabled' => [
@@ -356,18 +360,16 @@ trait FormBuilderTrait {
       ],
     ];
 
-    $form['something'] = [
-      '#type' => 'container',
-      '#suffix' => '</div>'
-    ];
+    
 
     // custom col class for With infant input fields 
     $form['withInfant']['#prefix'] = '<div class="col-md-12 infant-section">';
     $form['withInfant']['#suffix'] = '</div>';
-    $form['infant']['firstName'] = '<div class="col-md-6 infant-fname">';
-    $form['infant']['firstName'] = '</div>';
-    $form['infant']['lastName'] = '<div class="col-md-6 infant-fname">';
-    $form['infant']['lastName'] = '</div>';
+    $form['infant']['firstName']['#prefix'] = '<div class="col-md-6 infant-fname">';
+    $form['infant']['firstName']['#suffix'] = '</div>';
+    $form['infant']['lastName']['#prefix'] = '<div class="col-md-6 infant-lastName">';
+    $form['infant']['lastName']['#suffix'] = '</div>';
+   
 
 
   }

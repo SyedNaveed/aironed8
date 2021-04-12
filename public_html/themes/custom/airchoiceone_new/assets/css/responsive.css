@@ -176,10 +176,6 @@
     .ticket_total_price h3 {
         font-size: 40px;
     }
-    .contact-information-form div[data-drupal-selector="edit-passengers-0-header"], .contact-information-form .custom-control {
-        width: 46%;
-        margin-right: 15px;
-    }
     #block-banner .field--name-body {
       width: 70%;
     }
