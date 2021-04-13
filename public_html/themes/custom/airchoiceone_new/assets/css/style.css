@@ -21890,6 +21890,24 @@ form.aco-book-flight-additional-services-form {
 form.change-pwd-form .custom-password .description {
   display: none;
 }
+/* gallery page style  */
+body.path-gallery .view-gallery-gallery-field .views-row .views-field-field-media .field-content a {
+  display: none;
+}
+body.path-gallery .view-gallery-gallery-field .views-row .views-field-field-media .field-content a:nth-child(1) {
+  display: block;
+}
+body.path-gallery .view-gallery-gallery-field .view-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+body.path-gallery .view-gallery-gallery-field .view-content .views-row {
+  width: 33%;
+  margin-right: 1%;
+}
+body.path-gallery .view-gallery-gallery-field .view-content .views-row img {
+  max-width: 100%;
+}
 body.path-gallery .view-gallery-gallery-field {
   width: 90%;
   margin: 0 auto;
@@ -21899,7 +21917,6 @@ body.path-gallery .view-gallery-gallery-field .view-content .field--name-field-t
    margin-top: 25px;
    text-align: center;
    font-size: 24px;
-
 }
 body.path-gallery .view-gallery-gallery-field .view-content .field--name-field-media .field__item img {
   max-width: 100%;
@@ -22155,4 +22172,11 @@ body.user-logged-in.path-user header#header-menu {
 }
 body.user-logged-in.path-user article.profile {
   padding-left: 90px;
+}
+.additional-left-side .table-responsive-lg table tbody td .form-item input.form-checkbox {
+  opacity: 1;
+  z-index: 2;
+}
+.additional-left-side .row.addd > .col-md-6 {
+  padding-left: 0;
 }

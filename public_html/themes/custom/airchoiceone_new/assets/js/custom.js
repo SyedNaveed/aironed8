@@ -1,6 +1,13 @@
 (function ($, Drupal) {
 
+  // for color box 
+ 
+  jQuery(".views-field-field-media img").each((i, e)=>{
+        $e = jQuery(e);
+        $e.wrap("<a class='gallery-link' href='"+e.src+"' />")
+    });
 
+  jQuery('a.gallery-link').colorbox({rel:'group1'});
 
   $(window).scroll(function () {
  

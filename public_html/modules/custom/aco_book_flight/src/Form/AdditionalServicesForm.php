@@ -104,6 +104,9 @@ class AdditionalServicesForm extends BookingFormBase {
               '#empty' => $this->t('There are no additional services available.'),
               '#default_value' => isset($this->values[$table]) ? $this->values[$table] : [],
             ];
+
+            $form[$table]['#prefix'] = '<div class="col-md-6">';
+            $form[$table]['#suffix']  =  '</div>';
           }
         }
       }

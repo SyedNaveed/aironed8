@@ -4,6 +4,9 @@ global-styling:
     theme:
       assets/css/style.css: {}
       assets/css/responsive.css: {}
+      assets/js/colorbox/colorbox.css: {}
   js:
+    assets/js/colorbox/jquery.colorbox.js: {}
     assets/js/global.js: {}
     assets/js/custom.js: {}
+    
