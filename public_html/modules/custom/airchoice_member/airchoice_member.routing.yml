@@ -6,6 +6,14 @@ airchoice_member.dashboard_controller_index:
   requirements:
     _role: 'paid_member'
 
+airchoice_member.upcoming_controller_index:
+  path: '/upcoming-flights'
+  defaults:
+    _controller: '\Drupal\airchoice_member\Controller\UpcomingController::index'
+    _title: 'Upcoming Flights'
+  requirements:
+    _role: 'paid_member'
+
 airchoice_member.dashboard_controller:
   path: '/manage-members'
   defaults:

@@ -19950,6 +19950,11 @@ body.path-user section.bg-light{
   width: 90%;
   color: #000;
 }
+form.aco-manage-flight-find-your-flight-form {
+  width: 50%;
+  margin: 0 auto;
+}
+form.aco-manage-flight-find-your-flight-form .form-control,
 body.path-user .form-control {
   border: 0px;
   height: 60px;
@@ -20145,7 +20150,7 @@ body.path-dashboard div[data-drupal-messages="data-drupal-messages"] {
   width: 100%;
   /* max-width: 100%; */
   height: 50px;
-  background: purple;
+  background: #411777;
   border: none;
   border-radius: unset;
 }
@@ -20749,6 +20754,14 @@ body.path-user h1.page-title {
 body.path-manage-members #page-content {
   padding-left: 115px;
 }
+#block-bootstrap-for-drupal-airchoiceone-new-flight-navigation {
+  padding: 0px 0px 20px;
+  border-bottom: 0 solid #ccd4e2;
+  margin-bottom: 22px;
+  margin-left: 67px;
+  width: 94%;
+  height: 58px;
+}
 .block-superfishmanage-member-top-menu {
   padding: 0px 0px 20px;
   border-bottom: 2px solid #ccd4e2;
@@ -20771,6 +20784,7 @@ body.path-manage-members #page-content {
   color: var(--purp);
   text-decoration: none;
 }
+body.path-manage-flight header#header-menu,
 body.path-book-flight header#header-menu, 
 body.path-book-flight  footer,
 body.path-manage-members header#header-menu, 
@@ -21681,9 +21695,21 @@ form.aco-book-flight-seat-selection-form .form-actions {
 body.path-book-flight header.bg-secondary {
   display: none;
 }
-body.path-book-flight form.aco-book-flight-search-form {
-  padding-left: 90px;
+body.path-manage-flight nav.block-menu.menu--flight {
+  width: 89%;
+  margin: 0 auto 0 100px;
+}
+body.path-manage-flight .container1 {
   width: 90%;
+  max-width: 100%;
+  margin: 0 auto ;
+}
+body.path-manage-flight .navigation.menu--flight > .navbar-nav {
+  border-bottom: 0 solid #ccd4e2;
+}
+body.path-book-flight form.aco-book-flight-search-form {
+ 
+  width: 50%;
   margin: 0 auto;
 }
 body.path-book-flight nav.block-menu.menu--flight {
@@ -22228,4 +22254,10 @@ body.page-node-type-news-article-page main > .container1 {
   width: 90%;
   max-width: 100%;
   margin:  0 auto;
+}
+body.path-manage-flight h1.page-title {
+  display: none;
+}
+body.path-manage-flight {
+  background: #e9ecef;
 }
