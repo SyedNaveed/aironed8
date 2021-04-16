@@ -22221,7 +22221,7 @@ body.path-news {
   margin-bottom: 30px;
   transition: .3s ease;
   background: #fff;
-  min-height: 210px;
+  min-height: 210px; 
   padding: 30px;
 }
 body.page-node-type-news-article-page main > .container1 {
