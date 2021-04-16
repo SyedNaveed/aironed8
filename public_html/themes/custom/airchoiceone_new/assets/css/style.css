@@ -18834,11 +18834,22 @@ body.path-frontpage form.aco-book-flight-search-form.antibot {
 }
 #block-videobannersection {
   position: relative;
-  background: url('../image/hof-11.jpg');
+  /* background: url('../image/hof-11.jpg'); 
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center  ;
+  background-position: center  ;*/
   height: 800px;
+}
+#block-videobannersection  .field--name-field-media-oembed-video,
+#block-videobannersection figure {
+  width: 100%;
+}
+#block-videobannersection iframe {
+  width: 100%;
+  height: 800px;
+}
+body.user-logged-in #block-useraccountmenu ul.menu-account li:nth-last-child(1) {
+  display: none;
 }
 .user-flight-ticket-info .seat_flight_ov {
   text-align: left;
@@ -18993,7 +19004,7 @@ form.aco-book-flight-purchase-form .book_page {
   padding-left: 80px;
 }
 #block-videobannersection .field--name-body > div::before {
-  content: "\e029";
+  /* content: "\e029"; */
   position: relative;
   top: 1px;
   display: inline-block;
@@ -19007,8 +19018,8 @@ form.aco-book-flight-purchase-form .book_page {
 
 }
 #block-videobannersection .field--name-body > div {
-  position: absolute;
-  top: 45%;
+  /* position: absolute; */
+  /* top: 45%; */
   left: 0;
   color: #fff;
   text-align: center;
@@ -21902,11 +21913,12 @@ body.path-gallery .view-gallery-gallery-field .view-content {
   flex-wrap: wrap;
 }
 body.path-gallery .view-gallery-gallery-field .view-content .views-row {
-  width: 33%;
+  width: 49%;
   margin-right: 1%;
 }
 body.path-gallery .view-gallery-gallery-field .view-content .views-row img {
   max-width: 100%;
+  /* max-height: 535px; */
 }
 body.path-gallery .view-gallery-gallery-field {
   width: 90%;
@@ -22179,4 +22191,41 @@ body.user-logged-in.path-user article.profile {
 }
 .additional-left-side .row.addd > .col-md-6 {
   padding-left: 0;
+}
+body.path-news h1.page-title {
+  display: none;
+}
+body.path-news .view-news {
+
+}
+body.page-node-type-news-article-page ,
+body.path-news {
+  background: #F0F2F8;
+}
+.view-news .view-content {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  max-width: 100%;
+  margin:  0 auto;
+}
+.view-news .view-content > div {
+  display: flex;
+}
+.view-news .view-content article.node--view-mode-teaser a {
+  color: black;
+}
+.view-news .view-content article.node--view-mode-teaser {
+  color: black;
+  box-shadow: 6px 11px 23px rgb(65 23 119 / 14%);
+  margin-bottom: 30px;
+  transition: .3s ease;
+  background: #fff;
+  min-height: 210px;
+  padding: 30px;
+}
+body.page-node-type-news-article-page main > .container1 {
+  width: 90%;
+  max-width: 100%;
+  margin:  0 auto;
 }
