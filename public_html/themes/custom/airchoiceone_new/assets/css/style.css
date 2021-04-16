@@ -20465,9 +20465,14 @@ nav.block-menu.menu--dashboard-top-menu {
   padding-left: 150px;
   padding-right: 35px;
 }
+body.path-upcoming-flights,
 body.user-logged-in.path-user,
 body.path-dashboard {
   background: #e9ecef;
+}
+body.path-upcoming-flights main > .container1 {
+  width: 90%;
+  margin: 0 auto;
 }
 .block-superfishdashboard-top-menu > ul.sf-dashboard-top-menu {
   float: right;
@@ -20784,6 +20789,7 @@ body.path-manage-members #page-content {
   color: var(--purp);
   text-decoration: none;
 }
+body.path-upcoming-flights header#header-menu,
 body.path-manage-flight header#header-menu,
 body.path-book-flight header#header-menu, 
 body.path-book-flight  footer,
@@ -22260,4 +22266,94 @@ body.path-manage-flight h1.page-title {
 }
 body.path-manage-flight {
   background: #e9ecef;
+}
+body.path-book-flight #block-bootstrap-for-drupal-airchoiceone-new-flight-navigation {
+  padding: 0px 0px 20px;
+  border-bottom: 0 solid #ccd4e2;
+  margin-bottom: 22px;
+  margin-left: 67px;
+  width: 88%;
+  height: 58px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 38px;
+}
+body.path-book-flight .navigation.menu--flight > .navbar-nav .nav-item a {
+  color: var(--purp);
+  font-size: 20px;
+  padding: 1em 1.5em;
+  line-height: 20px;
+}
+form.aco-book-flight-purchase-form .payment_form #edit-billing-creditcard-billing {
+  display: flex;
+  flex-wrap: wrap;
+}
+form.aco-book-flight-purchase-form .payment_form #edit-billing-creditcard-billing .col-md-3,
+form.aco-book-flight-purchase-form .payment_form #edit-billing-creditcard-billing .col-md-2,
+form.aco-book-flight-purchase-form .payment_form #edit-billing-creditcard-billing .col-md-4,
+form.aco-book-flight-purchase-form .payment_form #edit-billing-creditcard-billing .col-md-6 {
+  padding-left: 0;
+}
+form.aco-book-flight-purchase-form .payment_form #edit-billing-creditcard-billing .col-md-6:nth-child(2) {
+  padding-right: 0; 
+}
+form.aco-book-flight-purchase-form .payment_form #edit-billing-creditcard-billing > .custom-textfield {
+  margin-right: 15px;
+} 
+body.path-your-confirmed-itinerary .container1,
+body.path-book-flight .container1 {
+  width: 90%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+form.aco-book-flight-confirm-form .book_ticket  {
+  background: var(--purp);
+  padding: 20px;
+  color: white;
+}
+form.aco-book-flight-confirm-form .contact_information {
+  display: flex;
+  flex-wrap: wrap;
+}
+form.aco-book-flight-confirm-form .contact_information h5 {
+  font-weight: bold;
+  color: #000;
+}
+body.path-your-confirmed-itinerary {
+  background: #e9ecef;
+}
+body.path-your-confirmed-itinerary header#header-menu {
+  display: none;
+}
+body.path-your-confirmed-itinerary footer {
+  display: none;
+}
+.confiremed-itinerary .book_page > .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.confiremed-itinerary .book_page > .row > .new-row {
+  width: 48%;
+  background: white;
+  padding: 20px;
+  -webkit-box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+  margin-bottom: 25px;
+  margin-right: 1%;
+}
+.confiremed-itinerary .book_page .new-row.section2 .seats_overview {
+  display: flex;
+  flex-wrap: wrap;
+}
+.confiremed-itinerary .book_page .new-row.section .contact_information {
+  display: flex;
+  flex-wrap: wrap;
+}
+.confiremed-itinerary .book_page .new-row.section .contact_information h5 {
+  font-weight: bold;
+  color: #000;
+}
+.confiremed-itinerary .book_page .new-row.section2 .seats_overview h4,
+.confiremed-itinerary .book_page .new-row.section h4.section__header {
+  font-size: 22px;
 }
