@@ -20193,7 +20193,7 @@ body.path-dashboard div[data-drupal-messages="data-drupal-messages"] {
   top: -22px;
   left: 0;
   right: 0;
-}
+} 
  #block-dashboardleftmenu li.nav-item:nth-child(1) a.nav-link::before{
   content: url('data:image/svg+xml,<svg width="2em" height="2em" fill="lightgray" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38.417 36.557"><path id="plane" d="M25.077,23.713,15.62,38.8c0,.106-.106.106-.213.106H11.688a.282.282,0,0,1-.319-.319l4.676-14.877H6.055L3.292,27.432c0,.106-.106.106-.213.106H.316A.282.282,0,0,1,0,27.219L1.909,20.63,0,14.041a.34.34,0,0,1,.319-.319H3.079c.106,0,.213,0,.213.106l2.763,3.719h9.989L11.369,2.671a.34.34,0,0,1,.319-.319h3.719c.106,0,.213,0,.213.106l9.457,15.09H35.385c4.038,0,4.038,6.163,0,6.163H25.077Z" transform="translate(0.003 -2.352)" fill-rule="evenodd"/></svg>');
 }
