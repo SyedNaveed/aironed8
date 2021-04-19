@@ -19940,12 +19940,16 @@ body.path-user section.bg-light{
   box-shadow: 6px 11px 23px rgb(65 23 119 / 14%);
   background-color: transparent !important;
 }
+body.path-manage-flight footer,
+body.path-manage-flight #page-footer #block-galleryfooter {
+  display: none;
+}
 #page-footer #block-galleryfooter {
   max-width: 850px;
   margin: 40px auto;
   text-align: center;
   font-size: 28px;
-  line-height: 28x;
+  line-height: 28px;
   font-family: 'Calibre-Light';
   width: 90%;
   color: #000;
@@ -20766,6 +20770,7 @@ body.path-manage-members #page-content {
   margin-left: 67px;
   width: 94%;
   height: 58px;
+  margin-top: 36px;
 }
 .block-superfishmanage-member-top-menu {
   padding: 0px 0px 20px;
@@ -21710,8 +21715,21 @@ body.path-manage-flight .container1 {
   max-width: 100%;
   margin: 0 auto ;
 }
+.path-manage-flight .navigation.menu--flight > .navbar-nav {
+  margin-left: 24px;
+}
+body.path-manage-flight #page-content {
+  padding-left: 90px;
+}
 body.path-manage-flight .navigation.menu--flight > .navbar-nav {
-  border-bottom: 0 solid #ccd4e2;
+  /* border-bottom: 0 solid #ccd4e2; */
+}
+.navigation.menu--flight > .navbar-nav .nav-item a {
+  color: var(--purp);
+  text-decoration: none;
+  padding: 1em 1.5em;
+  font-size: 19px;
+  line-height: 19px;
 }
 body.path-book-flight form.aco-book-flight-search-form {
  
@@ -22356,4 +22374,47 @@ body.path-your-confirmed-itinerary footer {
 .confiremed-itinerary .book_page .new-row.section2 .seats_overview h4,
 .confiremed-itinerary .book_page .new-row.section h4.section__header {
   font-size: 22px;
+}
+body.path-reservation {
+  background: #e9ecef;
+}
+body.path-reservation header#header-menu,
+body.path-reservation h1.page-title {
+  display: none;
+}
+body.path-reservation #page-content {
+  padding-left: 90px;
+}
+body.path-reservation footer {
+  display: none;
+}
+form.aco-manage-flight-select-leg-form  .section__actions ul,
+form.aco-manage-flight-select-passenger-form .section__actions ul {
+  list-style: none;
+}
+form.aco-manage-flight-select-leg-form  .section__actions ul li,
+form.aco-manage-flight-select-passenger-form .section__actions ul li {
+  display: inline-block;
+  margin-right: 8px;
+}
+body.path-reservation .child_page_center.reservation_blocks > .section {
+  color: black;
+  box-shadow: 6px 11px 23px rgb(65 23 119 / 14%);
+  margin-bottom: 30px;
+  transition: .3s ease;
+  background: white;
+  margin-top: 10px;
+  padding: 20px;
+  padding-bottom: 13px;
+}
+body.path-reservation .container1 {
+  width: 90%;
+  max-width: 100%;
+  margin: 0 auto
+}
+body.path-reservation .child_page_center.reservation_blocks > .section > .section__header {
+  font-size: 22px;
+}
+body.path-reservation .child_page_center.reservation_blocks > .section  .table thead th {
+  color: #000;
 }
