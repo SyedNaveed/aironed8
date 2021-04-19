@@ -162,11 +162,34 @@ header#header-menu .region-nav-main {
  #banner-section #block-safetypage, 
  #banner-section #block-contactusbanner, 
  #banner-section #block-banner {
-  margin-top: -94px;
+  margin-top: -69px;
   position: relative;
   z-index: 2;
 }
-
+#banner-section #block-banner .field--name-body h3 {
+  text-transform: none;
+  font-family: "Calibre-Light";
+  font-size: 26px;
+  line-height: 1.2;
+  color: #fff;
+}
+.about-us-section .eb_text {
+  position: relative;
+  width: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.about-us-section .eb_text h2 {
+  font-size: 40px;
+  font-family: 'Calibre-Light';
+  line-height: 1;
+  margin-bottom: 10px;
+  color: black;
+}
+#banner-section #block-banner .field--name-body p {
+  font-size: 41px;
+}
 #banner-section .field--name-body p {
   font-size: 44px;
 }
@@ -771,7 +794,7 @@ body.path-frontpage .banner-front #block-banner {
       padding-right: 10px;
     }
     #block-havequestionscontactoursupportteam h2 {
-      font-size: 27px;
+      font-size: 24px;
       line-height: 31px;
       padding-left: 15px;
       padding-top: 19px;
