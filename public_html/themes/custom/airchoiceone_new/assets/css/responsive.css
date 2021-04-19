@@ -1,28 +1,358 @@
+@media only screen and (min-width: 320px) and (max-width:415px){
+  body.path-frontpage .banner-front #block-banner {
+    /* position: relative;
+    background: url(../image/airone-bann.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; */
+    height: 98vh !important;
+}
+}
 @media only screen and (min-width: 320px) and (max-width:575px){
-  /* login page  */
-  nav#block-alreadyamember {
-    color: #fff;
-  }
-  body.user-logged-out.path-user #header-menu {
-      width: 100%;
-  }
-  .sign_in_left {
-    width: 100%;
-  }
-  .sign_in_right {
-    display: none;
-  }
-  .sign_in_page form {
-    margin: 134px auto 0 auto;
-  }
-  /* login page  */
-  #block-videobannersection iframe {
-    height: 550px;
-  }
-  #block-videobannersection {
-    position: relative;
-    height: 550px;
-  }
+
+/* update z */
+.related_pages .gallery-img img {
+  max-width: 100%;
+  height: auto;
+
+
+}
+.path-gallery .view-gallery {
+  padding-bottom: 0;
+  padding-top: 12px;
+ 
+}
+#header-menu #block-useraccountmenu ul li:nth-child(1) {
+  padding-top: 8px !important;
+}
+.page-node-type-contact-us .main-form-section {
+  padding-bottom: 28px;
+}
+
+#header-menu #block-useraccountmenu ul li:nth-child(1) a{
+  padding: 14px 24px 14px !important;
+  border-radius: 50px;
+  transition: .3s;
+  border: 0px;
+  font-size: 18px;
+  cursor: pointer;
+  background: white;
+  color: #000 !important;
+}
+.page-node-type-contact-us .contact-ussection {
+  padding: 35px 0 35px 0;
+}
+.faq-section-inner .main-form-section {
+  padding-bottom: 30px;
+}
+.faq-section-inner .view-faq.ui-accordion .ui-accordion-header {
+  list-style: none;
+  color: black;
+  font-size: 18px;
+  font-family: 'Calibre';
+}
+.path-gallery #page-footer #block-galleryfooter {
+  max-width: 850px;
+  margin: 20px auto;
+
+  width: 90%;
+  color: #000;
+}
+.path-gallery .view-gallery .col-md-4 {
+  margin-bottom: 26px;
+  padding: 0;
+}
+.path-gallery .view-gallery .view-header h2 {
+  font-size: 46px;
+  font-family: 'Calibre-Light';
+  line-height: 50px;
+  margin-bottom: 25px;
+  padding-left: 0;
+}
+.path-gallery #banner-section .field--name-body p {
+  font-size: 42px;
+  text-align: left;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+#banner-section #block-airplanegallery .field--name-body {
+  height: auto;
+  text-align: center;
+  margin-top: 20px;
+}
+body.path-gallery .view-gallery-gallery-field .view-content .views-row {
+  width: 100%;
+  margin-right: 0;
+  margin-bottom: 20px;
+}
+.related_pages {
+  position: relative;
+  height: auto;
+}
+.gallery-blog-bottom .rpl h2 {
+  font-size: 24px;
+
+}
+.about-col-section-inner img {
+
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 0px;
+}
+.about-col-section-inner .field--name-multiple-content > .field__item .paragraph--type--multiple-content {
+  position: relative;
+  height: auto;
+  box-shadow: 6px 11px 23px rgb(65 23 119 / 14%);
+}
+.about-bottom-section .about-col-section .field--name-content-title {
+  font-size: 24px;
+  font-family: 'Calibre-Light';
+  line-height: 1;
+  margin-bottom: 10px;
+  color: black;
+  padding: 0 15px 30px 30px;
+  position: relative;
+  margin-top: 6px;
+}
+.about-bottom-section {
+  padding: 36px 0 0 0;
+}
+body.page-node-type-about-us #block-havequestionscontactoursupportteam {
+  width: 90%;
+  margin: 0 auto -64px auto;
+}
+.about-bottom-section .about-col-section .field--name-content-title::after {
+  /* content: ' ';
+  background-image: url('../image/right-arrow.png');
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 15px;
+  padding: 20px 18px; */
+  top: -9px;
+}
+#header-menu #block-useraccountmenu ul li:nth-last-child(1) a{
+  padding: 14px 24px 14px !important;
+}
+.faq-section-inner .view-faq.ui-accordion .ui-accordion-header .field-content::after {
+  top: 4px;
+}
+header#header-menu #menu-main nav#block-useraccountmenu {
+
+  order: 2;
+  border-bottom: solid 1px #ccc;
+  border-top: solid 1px #ccc;
+  padding-top: 13px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+header#header-menu #menu-main .container > nav {
+ 
+  order: 3;
+}
+header#header-menu .search-effect {
+  padding: 20px;
+}
+header#header-menu .region-nav-main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+#banner-section #block-travelpolicy,
+ #banner-section #block-safetypage, 
+ #banner-section #block-contactusbanner, 
+ #banner-section #block-banner {
+  margin-top: -94px;
+  position: relative;
+  z-index: 2;
+}
+
+#banner-section .field--name-body p {
+  font-size: 44px;
+}
+#banner-section .field--name-body h3 {
+
+  line-height: 1;
+
+}
+/* #block-videobannersection iframe {
+  height: 255px;
+} */
+#block-banner .field__item img {
+
+  height: 60vh;
+}
+.block-views-blockfront-page-packages-block-1 {
+  width: 100%;
+  padding-top: 0px;
+
+}
+.banner-about_imgs {
+  position: relative;
+  padding: 70px 0px;
+ 
+}
+.about-bottom-section {
+  padding: 36px 0;
+}
+.about-col-section-inner .field--name-multiple-content > .field__item {
+  padding: 0 5px;
+  width: 100%;
+  margin-bottom: 28px;
+}
+.about-bottom-section p {
+  font-size: 50px;
+  font-family: 'Calibre-Light';
+  line-height: 56px;
+  margin-bottom: 25px;
+}
+.banner-about_imgs .field--name-background-content p a{
+  width: 170px;
+}
+.banner-about_imgs h2 {
+  position: relative;
+  color: white;
+  width: 92%;
+  margin: auto;
+  text-align: center;
+  font-size: 64px;
+  line-height: .9;
+}
+.equalblocks img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: -12px;
+}
+#block-videobannersection {
+  position: relative;
+  height: auto;
+}
+.block-views-blockfront-page-packages-block-1 .view-front-page-packages .view-header h2 {
+  font-size: 50px;
+
+}
+.block-views-blockfront-page-packages-block-1 .view-front-page-packages .view-content {
+ 
+  padding-left: 0;
+ 
+}
+#block-eachpackageincludes .field--name-body ul li {
+  width: 100%;
+
+}
+#block-eachpackageincludes {
+  padding-bottom: 10px;
+
+}
+#block-explorethepossibilitiesofflyingwithskypass h2 {
+  width: 84%;
+  top: 11%;
+  font-size: 54px;
+  line-height: 65px;
+}
+#block-explorethepossibilitiesofflyingwithskypass .field--name-image img {
+  height: 482px;
+  
+}
+#block-aircraftdetails {
+  padding: 32px 0;
+}
+#block-aircraftdetails h2 {
+  font-size: 59px;
+  font-family: 'Calibre-Light';
+  line-height: 61px;
+  margin-bottom: 10px;
+  color: black;
+  text-align: center;
+}
+#block-aircraftdetails .field--name-aircraft-details {
+ 
+  padding-top: 0px;
+}
+#block-ourcompanyairplanegallery .field--name-mutli-images > .field__item .field--name-image img {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 0px;
+}
+#block-ourcompanyairplanegallery .field--name-mutli-images > .field__item .field--name-plan-title {
+  font-size: 24px;
+  line-height: 40px;
+}
+#block-ourcompanyairplanegallery .field--name-mutli-images > .field__item {
+  position: relative;
+  height: auto;
+  margin-bottom: 24px;
+}
+#block-ourcompanyairplanegallery {
+  padding-bottom: 0px;
+  width: 100%;
+  margin: 0 auto;
+}
+.container {
+  width: 100%;
+  max-width: 100%;
+}
+#page-footer {
+  padding-top: 79px !important;
+}
+#page-footer #block-adress {
+  max-width: 100%;
+  width: 100%;
+
+}
+#page-footer nav.block-menu ul.navbar-nav {
+
+  width: 100%;
+  
+}
+#page-footer nav.block-menu ul.navbar-nav{
+  padding-top: 16px;
+}
+#page-footer nav.block-menu ul.navbar-nav li {
+  display: inline-block;
+  font-size: 30px;
+  margin: 7px;
+  width: 100%;
+}
+footer#page-footer #block-copyright {
+  max-width: 850px;
+  margin: 18px auto;
+  text-align: center;
+  font-size: 19px;
+  line-height: 1.2;
+  font-family: 'Calibre';
+  width: 100%;
+  color: #000;
+}
+#page-footer .order-2 {
+
+  margin-bottom: 0 !important;
+}
+#page-footer {
+
+  padding-bottom: 0 !important;
+}
+#block-videobannersection iframe {
+  height: auto;
+}
+body.path-frontpage .banner-front #block-banner {
+  /* position: relative;
+  background: url(../image/airone-bann.jpg);
+      background-position-x: 0%;
+      background-position-y: 0%;
+      background-repeat: repeat;
+      background-size: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; */
+  height: 66vh;
+}
+/* update z cls */
+
+
+  
     #banner-section #block-travelpolicy .field--name-body, 
     #banner-section #block-safetypage .field--name-body {
       width: 100%;
@@ -111,6 +441,73 @@
     }
   }
   @media only screen and (min-width: 768px) and (max-width:1024px){
+    /* update z */
+
+    header#header-menu a img {
+      max-width: 100px;
+      margin-right: 30px;
+      height: 100px;
+  }
+  #header-menu .nav.navbar-nav li.nav-item a {
+    color: white;
+    font-size: 16px;
+}
+#header-menu .nav.navbar-nav li.nav-item {
+  margin-right: 9px;
+}
+#header-menu #block-useraccountmenu ul li:nth-last-child(1) a {
+  width: auto;
+  background: white;
+  color: black;
+  padding: 9px 10px 6px;
+  border-radius: 50px;
+  transition: .3s;
+  border: 0px;
+  font-size: 20px;
+  cursor: pointer;
+}
+#header-menu #block-useraccountmenu ul li {
+  margin-left: 16px;
+}
+#header-menu .container {
+  width: 94%;
+  max-width: 100%;
+}
+#header-menu #block-newmainmenu .nav.navbar-nav li.nav-item {
+  margin-right: 0px;
+}
+#block-eachpackageincludes .field--name-body ul li {
+  width: 100%;
+  display: inline-block;
+  margin-right: 1px;
+  border-top: 2px solid black;
+  padding: 23px 0px;
+  font-size: 17px;
+}
+#block-ourcompanyairplanegallery {
+  padding-bottom: 70px;
+  width: 90%;
+  margin: 0 auto;
+}
+#page-footer {
+  
+  padding-top: 145px !important;
+  
+}
+#page-footer nav.block-menu ul.navbar-nav li {
+  display: inline-block;
+  font-size: 30px;
+  margin: 23px;
+}
+#block-ourcompanyairplanegallery .field--name-mutli-images > .field__item:nth-child(1) {
+  width: 49.333%;
+  padding: 0 15px;
+}
+#block-ourcompanyairplanegallery .field--name-mutli-images > .field__item:nth-child(2) {
+  width: 49.333%;
+  padding: 0 15px;
+}
+    /* update z cls */
     #block-videobannersection iframe ,
     #block-videobannersection {
       height: 550px;
@@ -272,7 +669,7 @@
       font-size: 32px;
     }
     #block-havequestionscontactoursupportteam h2 {
-      font-size: 38px;
+      font-size: 36px;
       font-family: 'Calibre-Light';
       line-height: 53px;
       padding-left: 50px;
@@ -340,7 +737,7 @@
     #block-explorethepossibilitiesofflyingwithskypass h2 {
       width: 94%;
       top: 15%;
-      font-size: 75px;
+      /* font-size: 75px; */
     }
     #block-banner .field--name-body {
       width: 90%;
