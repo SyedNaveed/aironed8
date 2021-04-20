@@ -22418,3 +22418,14 @@ body.path-reservation .child_page_center.reservation_blocks > .section > .sectio
 body.path-reservation .child_page_center.reservation_blocks > .section  .table thead th {
   color: #000;
 }
+body.page-node-type-error-page .container1 {
+  width: 90%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+article.node--type-error-page {
+  margin-left: 35px;
+}
+body.path-upcoming-flights footer {
+  display: none;
+}
