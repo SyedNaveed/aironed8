@@ -9,6 +9,48 @@
 }
 }
  @media only screen and (min-width: 320px) and (max-width:575px){
+  body.path-dashboard .dashboard-body-setion {
+    padding-left: 94px;
+  }
+  body.path-dashboard .block-superfish {
+    margin-left: 114px;
+  }
+  .sign_in_left h1 {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .booking-section .row > .col-md-6 {
+    margin-bottom: 15px;
+  } 
+  form .form-actions .button {
+    padding: 3px 22px 0px;
+  }
+  ul.sf-menu.sf-accordion, ul.sf-menu.sf-accordion ul, ul.sf-menu.sf-accordion li {
+    width: auto;
+  }
+  .col-md-6.search_flights_departures {
+    padding-right: 0;
+  }
+  .col-md-6.search_flights_returns {
+    padding-left: 15px;
+  }
+  form .form-actions {
+    width: 100%;
+    padding-left: 15px;
+  }
+  .ticket_total_depart {
+     width: auto;
+  }
+  #your-ticket.book_ticket, 
+  .col-lg-4.tcb_right, .col-md-4.tcb_right {
+    text-align: center;
+  }
+
+
+
+  form.aco-book-flight-search-form.antibot {
+    margin-bottom: 25px;
+  } 
   .view-front-page-packages .view-content .views-row {
     width: 100%;
   }
@@ -456,6 +498,9 @@ body.path-frontpage .banner-front #block-banner {
     }
   }
   @media only screen and (min-width: 576px) and (max-width:767px) {
+    form.aco-book-flight-search-form.antibot {
+      margin-bottom: 25px;
+    } 
     .view-front-page-packages .view-content .views-row {
       width: 100%;
     }
@@ -516,6 +561,27 @@ body.path-frontpage .banner-front #block-banner {
     }
   }
   @media only screen and (min-width: 768px) and (max-width:1024px){
+    .book_page.flight-purchase .pr40 {
+      padding-bottom: 25px;
+    }
+    form.aco-book-flight-purchase-form .pr40 {
+      padding-right: 0;
+    }
+    .infocontainer {
+      padding-bottom: 25px;
+    }
+    form .form-actions {
+      padding-left: 15px;
+    }
+    .cl6.cs6.search_flights_departures {
+      padding-right: 0;
+    }
+    .cl6.cs6.search_flights_returns {
+      padding-left: 0;
+    }
+    form.aco-book-flight-search-form.antibot {
+      margin-bottom: 25px;
+    } 
     /* update z */
 
     header#header-menu a img {

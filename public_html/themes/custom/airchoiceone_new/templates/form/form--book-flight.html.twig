@@ -15,14 +15,14 @@
 <div class="dashboard_content search_flights_page">
   <div class="container">
     <div class="row">
-      <div class="col-md-8 additional-left-side">
+      <div class="col-lg-8 col-md-12 additional-left-side">
         <h1 class="serach_flights_h1">{{ element.title }}</h1>
         <div class="row addd">
         {# {{ element.content }} #}
-        {{ element|without('content', 'title', 'ticket') }}
+        {{ element|without('content', 'title', 'ticket') }} 
         </div>
       </div>
-      <div class="col-md-4 ticket_row_ticket">
+      <div class="col-lg-4 col-md-10 ticket_row_ticket">
       {# <pre>{{ 
         {{ dump(element|keys) }}
        }}</pre> #}

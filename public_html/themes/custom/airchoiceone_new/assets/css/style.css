@@ -22429,3 +22429,28 @@ article.node--type-error-page {
 body.path-upcoming-flights footer {
   display: none;
 }
+.upcoming_body {
+  padding-left: calc(100px + 5vw);
+  position: relative;
+  padding-right: 2.5vw;
+  padding-bottom: 100px;
+  padding-top: 85px;
+}
+.ticket_white h4 {
+  color: black;
+  margin-top: 11px;
+}
+.ticket .cxs4, .ticket .cxs2 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.cxs4 {
+  width: 33.33333333%;
+}
+.upcoming_flights_page .ticket_time {
+  font-size: 26px;
+  line-height: 36px;
+}
+.upcoming_flights_page .ticket_am_pm {
+  font-size: 14px;
+}
