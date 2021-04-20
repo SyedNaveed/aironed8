@@ -21141,7 +21141,11 @@ body.path-book-flight form.aco-book-flight-flight-selection-form {
   border-radius: 50px;
   text-transform: uppercase;
   font-size: 13px;
-  width: 120px;
+  /* width: 120px; */
+  width: 106px;
+}
+form.aco-book-flight-confirm-form .new-row.spacing-bottom .custom-control-label::before {
+  left: -1.1rem;
 }
 .ticket_total .ticket_city_big {
   font-size: 44px;

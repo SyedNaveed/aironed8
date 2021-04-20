@@ -2,7 +2,10 @@
 {% set reservations = data.reservations %}
 <h1>Upcoming Flights</h1>
 <div class='row eq dashboard_content upcoming_flights_page'>
+{% if reservations|length == 0 %}
 
+<div>No ticket Purchase </div>
+{% endif %}
 {% for key,reservation in reservations %}
 
     {# <h1>Reservation {{ key }}</h1> #}
