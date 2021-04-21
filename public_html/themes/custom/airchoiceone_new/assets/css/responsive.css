@@ -9,6 +9,11 @@
 }
 }
  @media only screen and (min-width: 320px) and (max-width:575px){
+  body.path-gallery #banner-section #block-airplanegallery .field--name-body {
+    height: 150px;
+    text-align: center;
+    padding-top: 64px;
+  }
   form.change-membership-form  .custom-stripe {
      margin-left: 10px;
    }
@@ -48,9 +53,6 @@
   .col-lg-4.tcb_right, .col-md-4.tcb_right {
     text-align: center;
   }
-
-
-
   form.aco-book-flight-search-form.antibot {
     margin-bottom: 25px;
   } 
@@ -85,13 +87,10 @@
 .related_pages .gallery-img img {
   max-width: 100%;
   height: auto;
-
-
 }
 .path-gallery .view-gallery {
   padding-bottom: 0;
   padding-top: 12px;
- 
 }
 #header-menu #block-useraccountmenu ul li:nth-child(1) {
   padding-top: 8px !important;
@@ -499,8 +498,25 @@ body.path-frontpage .banner-front #block-banner {
     .path-flight-status .block-menu.navigation.menu--flight{
       padding-left: 85px;
     }
+    body.path-news header#header-menu, body.path-gallery header#header-menu {
+      height: auto;
+    }
+    body.path-news header#header-menu .nav.navbar-nav li.nav-item a, body.path-gallery header#header-menu .nav.navbar-nav li.nav-item a {
+      color: #fff;
+    }
   }
   @media only screen and (min-width: 576px) and (max-width:767px) {
+    body.path-news header#header-menu .nav.navbar-nav li.nav-item a, body.path-gallery header#header-menu .nav.navbar-nav li.nav-item a {
+      color: #fff;
+    }
+    body.path-news header#header-menu, body.path-gallery header#header-menu {
+      height: auto;
+    }
+    body.path-gallery #banner-section #block-airplanegallery .field--name-body {
+      height: 150px;
+      text-align: center;
+      padding-top: 64px;
+    }
     form.aco-book-flight-search-form.antibot {
       margin-bottom: 25px;
     } 
@@ -564,6 +580,7 @@ body.path-frontpage .banner-front #block-banner {
     }
   }
   @media only screen and (min-width: 768px) and (max-width:1024px){
+   
     #banner-section #block-airplanegallery .field--name-body {
       height: 192px;
       padding-top: 48px;

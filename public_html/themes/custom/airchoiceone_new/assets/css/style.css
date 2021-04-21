@@ -22266,8 +22266,9 @@ body.user-logged-in.path-user article.profile {
 body.path-news h1.page-title {
   display: none;
 }
-body.path-news .view-news {
-
+body.path-news .container1 {
+  width: 90%;
+  margin: 0 auto;
 }
 body.page-node-type-news-article-page ,
 body.path-news {
@@ -22280,13 +22281,17 @@ body.path-news {
 }
 .view-news .view-header h3 {
   padding-left: 15px;
+  font-size: 80PX;
+    line-height: 1;
+    font-family: "Calibre-Light";
+    text-align: center;
+    margin-bottom: 31px;
+    margin-top: 18px;
 }
 .view-news .view-content {
   display: flex;
   flex-wrap: wrap;
-  width: 90%;
-  max-width: 100%;
-  margin:  0 auto;
+ 
 }
 .view-news .view-content > div {
   display: flex;
@@ -22510,10 +22515,11 @@ body.path-airchoice-member form.change-membership-form .button {
   padding-left: 80px;
 }
 body.path-gallery #banner-section #block-airplanegallery .field--name-body {
-  height: 258px;
+  height: 215px;
   text-align: center;
   padding-top: 87px;
 }
+body.path-news header#header-menu,
 body.path-gallery header#header-menu {
   -webkit-transition: all 0.5s ease-out;
   -moz-transition: all 0.5s ease-out;
@@ -22523,8 +22529,19 @@ body.path-gallery header#header-menu {
   box-shadow: 6px 11px 23px rgb(65 23 119 / 14%);
   -webkit-box-shadow: 0 4px 4px -2px rgb(0 0 0 / 30%);
   box-shadow: 0 4px 4px -2px rgb(0 0 0 / 30%);
+  height: 80px;
+  background: #fff;
 }
-body.path-gallery header#header-menu  .nav.navbar-nav li.nav-item a {
+body.path-gallery header#header-menu a img,
+body.path-news header#header-menu a img {
+  height: 97px; 
+}
+body.path-news header#header-menu #menu-main .container > nav,
+body.path-gallery header#header-menu #menu-main .container > nav {
+  padding-top: 14px;
+}
+body.path-news  header#header-menu .nav.navbar-nav li.nav-item a,
+body.path-gallery header#header-menu .nav.navbar-nav li.nav-item a {
   color: #000;
 }
 .custom-payment-block input:-webkit-input-placeholder { /* WebKit browsers */
