@@ -9,6 +9,9 @@
 }
 }
  @media only screen and (min-width: 320px) and (max-width:575px){
+  form.change-membership-form  .custom-stripe {
+     margin-left: 10px;
+   }
   body.path-dashboard .dashboard-body-setion {
     padding-left: 94px;
   }
@@ -561,6 +564,23 @@ body.path-frontpage .banner-front #block-banner {
     }
   }
   @media only screen and (min-width: 768px) and (max-width:1024px){
+    .view-front-page-packages .front-packages-blocks .plan-links a {
+      width: 100%;
+      margin-top: 26px;
+      border: 2px solid white;
+      background: transparent;
+      border-radius: 47px;
+      transition: .3s;
+      padding-bottom: 13px;
+      padding-right: 14px;
+      padding-left: 13px;
+      padding-top: 15px;
+      color: #fff;
+      font-size: 16px;
+    }
+    .view-front-page-packages .front-packages-blocks .plan-price {
+      font-size: 54px;
+    }
     .book_page.flight-purchase .pr40 {
       padding-bottom: 25px;
     }

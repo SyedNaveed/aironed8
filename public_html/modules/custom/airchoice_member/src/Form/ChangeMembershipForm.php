@@ -93,7 +93,7 @@ class ChangeMembershipForm extends FormBase {
     $nids = \Drupal::entityQuery('node')->condition('type','package')->execute();
     $nodes =  \Drupal\node\Entity\Node::loadMultiple($nids);
     
-    $form['packages'] = views_embed_view('front_page_packages', 'block_2');
+    $form['packages'] = views_embed_view('front_page_packages', 'block_2', $package->id());
     
     
     $packagesPrice = [];

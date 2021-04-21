@@ -22458,6 +22458,20 @@ body.path-upcoming-flights footer {
 .upcoming_flights_page .ticket_am_pm {
   font-size: 14px;
 }
+form.change-membership-form {
+  padding-left: 80px;
+}
 form.change-membership-form #edit-package.form-radios .form-item {
   display: none;
+}
+body.path-airchoice-member form.change-membership-form .button {
+  background: #411777;
+  height: 50px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+}
+#block-flightstatusesblock {
+  padding-left: 80px;
 }
