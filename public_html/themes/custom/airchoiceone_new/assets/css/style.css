@@ -22273,6 +22273,14 @@ body.page-node-type-news-article-page ,
 body.path-news {
   background: #F0F2F8;
 }
+.view-news .view-header {
+  width: 90%;
+  max-width: 100%;
+  margin:  0 auto;
+}
+.view-news .view-header h3 {
+  padding-left: 15px;
+}
 .view-news .view-content {
   display: flex;
   flex-wrap: wrap;
@@ -22502,9 +22510,22 @@ body.path-airchoice-member form.change-membership-form .button {
   padding-left: 80px;
 }
 body.path-gallery #banner-section #block-airplanegallery .field--name-body {
-  height: 373px;
+  height: 258px;
   text-align: center;
-  padding-top: 48px;
+  padding-top: 87px;
+}
+body.path-gallery header#header-menu {
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -ms-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+  box-shadow: 6px 11px 23px rgb(65 23 119 / 14%);
+  -webkit-box-shadow: 0 4px 4px -2px rgb(0 0 0 / 30%);
+  box-shadow: 0 4px 4px -2px rgb(0 0 0 / 30%);
+}
+body.path-gallery header#header-menu  .nav.navbar-nav li.nav-item a {
+  color: #000;
 }
 .custom-payment-block input:-webkit-input-placeholder { /* WebKit browsers */
   color:    #fff;
