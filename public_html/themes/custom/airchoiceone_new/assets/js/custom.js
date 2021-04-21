@@ -39,7 +39,23 @@
     console.log('ff');
     //  $('.dash_side').toggleClass('dlclose'); 
   }) 
-  
+
+  jQuery(".plan-links a.package-select-button").on("click", function(){
+
+    let id = jQuery(this).attr("data-id");
+    // let checkbox = jQuery("edit-package-"+id);
+    console.log(id);
+    let $input = $( "#edit-package-"+id);
+    $input[0].click();
+      $(".form-item-package").css('display', 'none');
+
+      $input.parent().css('display', 'block');
+   
+    
+  });
+
+
+
 // Flight selection start
 Drupal.behaviors.acoFlightSelection = {
   attach: function attach (context) {

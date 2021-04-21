@@ -77,12 +77,12 @@ class ChangeMembershipForm extends FormBase {
  
     
     $form['daysRemaining'] = [
-      '#type' => 'textfield',
+      '#type' => 'hidden',
       '#value' => $left,
       '#title' => 'Days Remaining'
     ];
     $form['priceRemaining'] = [
-      '#type' => 'textfield',
+      '#type' => 'hidden',
       '#value' => $priceRemaining,
       '#title' => 'Price Remaining'
     ];

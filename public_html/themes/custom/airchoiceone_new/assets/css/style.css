@@ -22458,3 +22458,6 @@ body.path-upcoming-flights footer {
 .upcoming_flights_page .ticket_am_pm {
   font-size: 14px;
 }
+form.change-membership-form #edit-package.form-radios .form-item {
+  display: none;
+}
