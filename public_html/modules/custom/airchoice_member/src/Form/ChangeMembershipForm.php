@@ -111,7 +111,8 @@ class ChangeMembershipForm extends FormBase {
         $form['package']['#option_attributes'][$node->id()]['disabled'] = 'true';
       }
       $packagesPrice[$node->id()] = $node->field_price->value;
-      $options[$node->id()] = $node->getTitle() . "($" . round($node->field_price->value, 2) . ") to pay $".($node->field_price->value - $priceRemaining);
+      $options[$node->id()] = "<div class='confirm-membership-h2' ><h2>Confirm Membership Change</h2></div><div class='membershipinfo'><span>New Membership: </span><span>" . $node->getTitle() . "</span></div><div class='membershipinfo'><span>Due Today: </span><span>" . ($node->field_price->value - $priceRemaining) . " </span></div><div class='membershipinfo'><span>Membership Renews: </span><span> " . $left . " Days </span></div>";
+      // $options[$node->id()] =   "<div ><h2>Confirm Membership Change</h2></div><div class='membershipinfo'><span>New Membership: </label>".$node->getTitle()."($" . round($node->field_price->value, 2) . ") to pay $".($node->field_price->value - $priceRemaining);
     }
     $form_state->set('packagesPrice', $packagesPrice);
     

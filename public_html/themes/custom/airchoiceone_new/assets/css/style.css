@@ -21903,6 +21903,23 @@ body.path-manage-members div[data-drupal-messages="data-drupal-messages"] {
   overflow: hidden;
   padding: 60px 0 45px 0;
 }
+.view-front-page-packages .front-packages-blocks .plan-links.pc {
+  width: 60%;
+  margin-top: 26px;
+  background: transparent;
+  border-radius: 50px;
+  transition: .3s;
+  padding-bottom: 13px;
+  padding-right: 35px;
+  padding-left: 35px;
+  padding-top: 15px;
+  color: #7316EA;
+  border: 2px solid  #7316EA;
+}
+.view-front-page-packages .front-packages-blocks .package-select-button.pc {
+  color: #7316EA;
+  border-color: #7316EA;
+}
 .block-views-blockfront-page-packages-block-1 .view-front-page-packages .front-packages-blocks .plan-links a {
   width: 60%;
   margin-top: 26px;
@@ -22320,7 +22337,16 @@ form.aco-book-flight-purchase-form .payment_form #edit-billing-creditcard-billin
   padding-right: 0; 
 }
 form.aco-book-flight-purchase-form .payment_form #edit-billing-creditcard-billing > .custom-textfield {
-  margin-right: 15px;
+  /* margin-right: 15px; */
+} 
+.custom-payment-block #edit-billing-creditcard-billing .col-md-6:nth-child(1) {
+  padding-right: 15px;
+}
+.custom-payment-block #edit-billing-creditcard-billing .col-md-3,
+.custom-payment-block #edit-billing-creditcard-billing .col-md-2 {
+  width: 33%;
+  max-width: 33%;
+  flex: 33%;
 } 
 body.path-your-confirmed-itinerary .container1,
 body.path-book-flight .container1 {
@@ -22474,4 +22500,39 @@ body.path-airchoice-member form.change-membership-form .button {
 }
 #block-flightstatusesblock {
   padding-left: 80px;
+}
+body.path-gallery #banner-section #block-airplanegallery .field--name-body {
+  height: 373px;
+  text-align: center;
+  padding-top: 48px;
+}
+.custom-payment-block input:-webkit-input-placeholder { /* WebKit browsers */
+  color:    #fff;
+}
+.custom-payment-block input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+ color:    #fff;
+ opacity:  1;
+}
+.custom-payment-block input::-moz-placeholder { /* Mozilla Firefox 19+ */
+ color:    #fff;
+ opacity:  1;
+}
+.custom-payment-block input:-ms-input-placeholder { /* Internet Explorer 10+ */
+ color:    #fff;
+}
+form.change-membership-form #edit-package.form-radios .form-item input {
+  display: none;
+}
+form.change-membership-form #edit-package.form-radios .form-item label::after,
+form.change-membership-form #edit-package.form-radios .form-item label::before {
+  display: none;
+}
+form.change-membership-form .confirm-membership-h2 {
+  padding-top: 25px;
+}
+form.change-membership-form .custom-stripe {
+  max-width: 320px;
+}
+.membershipinfo > span:nth-child(1) {
+  color: #411777;
 }

@@ -564,6 +564,10 @@ body.path-frontpage .banner-front #block-banner {
     }
   }
   @media only screen and (min-width: 768px) and (max-width:1024px){
+    #banner-section #block-airplanegallery .field--name-body {
+      height: 192px;
+      padding-top: 48px;
+    }
     .view-front-page-packages .front-packages-blocks .plan-links a {
       width: 100%;
       margin-top: 26px;
