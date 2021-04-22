@@ -1,0 +1,24 @@
+<?php 
+
+function userlog_user_login($account) {
+
+    $userData = \Drupal::service('user.data');
+    $uid = $account->id();   
+    $time = \Drupal::time()->getCurrentTime();
+
+    $data = $userData->get('userlog', $uid, 'activity');   
+    $log = [$uid, $time];
+
+    if($data == ''){
+        $logs[] = $log;
+    } else{      
+        $logs = json_decode($data);
+        // $logs[] = $log;
+        array_unshift($logs, $log);
+    } 
+    //limit
+    $logs = array_slice($logs, 0, 2);
+    $strlog = json_encode($logs);
+    $userData->set('userlog', $uid, 'activity', $strlog);
+   
+}

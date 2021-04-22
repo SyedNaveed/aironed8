@@ -65,9 +65,20 @@
 				</div>
 				<!-- for user log section start  -->
 				<div class="activity">
+				{# <pre> #}
+				{# {{ dump(data.mwm) }} #}
+				{# </pre> #}
 					<h3>Most Recent Activity</h3>
-					 
-					{{ drupal_view('login', 'block_1', data.user.id) }}
+					 <ul>
+					 {% for d in  data.mwm[data.user.id] %}
+					 	<li>{{ d[1]|date('d.m.Y') }}
+						  - Logged in at  
+						  {{ d[1]|date('H:ia') }}
+						  </li>
+					 {% endfor %} 
+					 </ul>
+					 {# - Logged in at 10:34am #}
+					{# {{ drupal_view('login', 'block_1', data.user.id) }}  #}
 				</div>
 				<!--  for user log section end -->
 				<!-- for user flight detail start -->

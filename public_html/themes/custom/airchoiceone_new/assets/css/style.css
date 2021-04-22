@@ -22602,3 +22602,11 @@ form.change-membership-form .custom-stripe {
 .membershipinfo > span:nth-child(1) {
   color: #411777;
 }
+.useradded-mem .activity ul {
+  padding-left: 17px !important; 
+  color: #000;
+}
+.useradded-mem .activity ul li::marker {
+  color: #000 !important; 
+  font-size: 1.25em;
+}

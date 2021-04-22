@@ -78,11 +78,24 @@ class Dashboard2Controller extends ControllerBase {
               return ['#markup'=>'Login User paid profile not found'];
             }
             
+            $userData = \Drupal::service('user.data');
+
+            
+            $mwm = [];
+            $data = $userData->get('userlog', $uid, 'activity');
+            $mwm[$uid] = json_decode($data);
+            foreach($members as $member)
+            {
+              $data = $userData->get('userlog', $member->id(), 'activity');
+              $mwm[$member->id()] = json_decode($data);
+            }
+            
             $link = \Drupal\Core\Url::fromRoute('airchoice_member.login_by_link_controller_hello', ['user'=>0]);
             $output['package'] = [
               '#theme' => 'page-dashboard',
               '#data' => [
                 'profile_id'=>$profile->id(),
+                'mwm' => $mwm,
                 'user' => $user,
                 'user_id' => $uid,
                 'package_id' => $package->id(),
