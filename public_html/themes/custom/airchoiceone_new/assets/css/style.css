@@ -22291,22 +22291,32 @@ body.path-news {
 .view-news .view-content {
   display: flex;
   flex-wrap: wrap;
- 
 }
 .view-news .view-content > div {
-  display: flex;
+  /* display: flex; */
 }
-.view-news .view-content article.node--view-mode-teaser a {
+.view-news .view-content .blogs-blocks a {
   color: black;
 }
-.view-news .view-content article.node--view-mode-teaser {
+.view-news .view-content .blogs-blocks .views-field-created {
+  width: 100%;
+  margin-bottom: 14px;
+  font-size: 18px;
+  color: #411876;
+}
+.view-news .view-content .blogs-blocks {
   color: black;
   box-shadow: 6px 11px 23px rgb(65 23 119 / 14%);
   margin-bottom: 30px;
   transition: .3s ease;
   background: #fff;
-  min-height: 210px; 
+  min-height: 210px;
   padding: 30px;
+  width: 31.2%;
+  margin-right: 2%;
+  font-size: 31px;
+  line-height: 1;
+  font-family: 'Calibre';
 }
 body.page-node-type-news-article-page main > .container1 {
   width: 90%;
@@ -22519,6 +22529,7 @@ body.path-gallery #banner-section #block-airplanegallery .field--name-body {
   text-align: center;
   padding-top: 87px;
 }
+body.page-node-type-news-article-page header#header-menu,
 body.path-news header#header-menu,
 body.path-gallery header#header-menu {
   -webkit-transition: all 0.5s ease-out;
@@ -22532,15 +22543,32 @@ body.path-gallery header#header-menu {
   height: 80px;
   background: #fff;
 }
+body.page-node-type-news-article-page header#header-menu a img,
 body.path-gallery header#header-menu a img,
 body.path-news header#header-menu a img {
   height: 97px; 
 }
+body.page-node-type-news-article-page header#header-menu #menu-main nav#block-useraccountmenu,
+body.path-news header#header-menu #menu-main nav#block-useraccountmenu,
+body.path-gallery header#header-menu #menu-main nav#block-useraccountmenu {
+  padding-top: 22px;
+}
+body.page-node-type-news-article-page header#header-menu #block-useraccountmenu ul li:nth-last-child(1) a,
+body.path-news header#header-menu #block-useraccountmenu ul li:nth-last-child(1) a,
+body.path-gallery header#header-menu #block-useraccountmenu ul li:nth-last-child(1) a {
+  background: #411876;
+  color: white !important;
+}
+body.page-node-type-news-article-page header#header-menu #menu-main .container > nav,
 body.path-news header#header-menu #menu-main .container > nav,
 body.path-gallery header#header-menu #menu-main .container > nav {
   padding-top: 14px;
 }
-body.path-news  header#header-menu .nav.navbar-nav li.nav-item a,
+body.page-node-type-news-article-page #header-menu #block-useraccountmenu ul li a,
+body.page-node-type-news-article-page header#header-menu .nav.navbar-nav li.nav-item a,
+body.path-news #header-menu #block-useraccountmenu ul li a,
+body.path-gallery #header-menu #block-useraccountmenu ul li a,
+body.path-news header#header-menu .nav.navbar-nav li.nav-item a,
 body.path-gallery header#header-menu .nav.navbar-nav li.nav-item a {
   color: #000;
 }
