@@ -12,58 +12,106 @@
    
    
     {% for journeyKey,journey in reservation.journeys %}
-    {#   #}
+     {# <pre>{{  dump(journey) }}</pre> #}
+	 
      <div class="cm3 cs6 col-lg-3 col-md-6">
-					<div class="ticket ticket_white wbg">
-						<h4> {{  reservation['passengers'][0]['reservationProfile']['firstName']}} {{ reservation['passengers'][0]['reservationProfile']['lastName'] }}  </h4>
-						<div class="row">
-							<div class="cxs4">
-								<div class="ticket_city_big"> {{ journey.from['airport']['code'] }} </div>
-								<div class="ticket_city_small">{{ journey.from['airport']['name'] }}</div>
+		<div class="wbg shadow sfb">
+								<div class="row">
+									<h4> {{  reservation.name }}   <span>{{ journey.date }}</span></h4>
+									<div class="col-md-4 cs5">
+									
+										<div class="ticket_city_big">{{ journey.from.code }}</div>
+										<div class="ticket_city_small">{{ journey.from.name }}</div>
+									</div>
+									<div class="col-md-4 cs2">
+										<div class="search_stops">
+											<svg viewBox="0 0 25.979 24.722">
+												  <path id="plane" d="M16.957,16.8,10.562,27c0,.072-.072.072-.144.072H7.9a.191.191,0,0,1-.216-.216L10.849,16.8H4.094L2.225,19.312c0,.072-.072.072-.144.072H.213A.191.191,0,0,1,0,19.168L1.29,14.712,0,10.257a.23.23,0,0,1,.216-.216H2.082c.072,0,.144,0,.144.072l1.869,2.515h6.755L7.687,2.567A.23.23,0,0,1,7.9,2.352h2.515c.072,0,.144,0,.144.072l6.4,10.2h6.971a2.084,2.084,0,0,1,0,4.168H16.957Z" transform="translate(0.003 -2.352)" fill="#7316ea" fill-rule="evenodd"></path>
+											</svg>
+											<span>{{ journey.stops }} Stop(s)	</span>
+										</div>
+									</div>
+									<div class="col-md-4 cs2">
+										<div class="ticket_city_big">{{ journey.to.code  }}</div>
+										<div class="ticket_city_small">{{ journey.to.name }}</div>
+									</div>
+								</div>
+								<div class="search_dots">
+									<svg viewBox="0 0 340.231 1">
+										  <line id="Line_70" data-name="Line 70" x2="339.231" transform="translate(0.5 0.5)" fill="none" stroke="#bbbbbb" stroke-linecap="round" stroke-width="1" stroke-dasharray="0 2"></line>
+									</svg>
+								</div>
+								<div class="row search_flights_times_row">
+									<div class="col-md-3 cs6">
+										<div class="search_flights_number">#3E2203</div>
+									</div>
+									<div class="col-md-4 cs6">
+										<h4>Depart</h4>
+										<div class="search_time">
+											<div class="search_time_big">{{ journey.from.time  }}{{ journey.from.ampm  }}</div>
+											<div class="search_time_small">{{ journey.from.name }}</div>
+										</div>
+									</div>
+									<div class="col-md-4 cs6">
+										<h4>Arrive</h4>
+										<div class="search_time">
+											<div class="search_time_big">{{ journey.to.time }} {{  journey.to.ampm  }}</div>
+											<div class="search_time_small">STL</div>
+										</div>
+									</div>
+									
+								</div>
+								<div class="search_dots_second">
+									<svg viewBox="0 0 340.231 1">
+										  <line id="Line_70" data-name="Line 70" x2="339.231" transform="translate(0.5 0.5)" fill="none" stroke="#bbbbbb" stroke-linecap="round" stroke-width="1" stroke-dasharray="0 2"></line>
+									</svg>
+								</div>
+								<div class="row search_flights_times_row">
+									<div class="col-md-3 cs12">
+										<div class="search_flights_number">#3E2203</div>
+									</div>
+									<div class="col-md-4 cs6">
+										<h4>Depart</h4>
+										<div class="search_time">
+											<div class="search_time_big">9:45am</div>
+											<div class="search_time_small">FOD</div>
+										</div>
+									</div>
+									<div class="col-md-4 cs6">
+										<h4>Arrive</h4>
+										<div class="search_time">
+											<div class="search_time_big">10:15am</div>
+											<div class="search_time_small">STL</div>
+										</div>
+									</div>
+								</div>
+								<div class="search_dots_second">
+									<svg viewBox="0 0 340.231 1">
+										  <line id="Line_70" data-name="Line 70" x2="339.231" transform="translate(0.5 0.5)" fill="none" stroke="#bbbbbb" stroke-linecap="round" stroke-width="1" stroke-dasharray="0 2"></line>
+									</svg>
+								</div>
+								<div class="ticket_dash"><svg height="1" viewBox="0 0 385.908 1">
+									<line id="Line_104" data-name="Line 104" x2="384.908" transform="translate(0.5 0.5)" fill="none" stroke="#ccc" stroke-linecap="round" stroke-width="1" stroke-dasharray="0 3"></line>
+								  </svg>	
+							  </div>
+							  <div class="ticket_flight_time">
+								<div class="ticket_ft_big">3</div>
+								<div class="ticket_ft_sm">hrs</div>
+								<div class="ticket_ft_big">29</div>
+								<div class="ticket_ft_sm">min</div>
 							</div>
-							<div class="cxs4">
-								<div class="ticket_depart_arrive">Depart</div>
-							</div>
-							<div class="cxs4">
-								<div class="ticket_time"><div class="ticket_time_big">{{ journey.from['dateTime']['time'] }} </div><div class="ticket_am_pm">{{ journey.from['dateTime']['AMPM']  }}</div></div>
-								<div class="ticket_city_small">{{ journey.from['airport']['name'] }}</div>
-							</div>
-						</div>
-						
-						<div class="ticket_divider"></div>
-						<div class="row rnp">
-							<div class="cxs4">
-								<div class="ticket_city_big">{{ journey.to['airport']['code'] }}</div>
-								<div class="ticket_city_small">{{ journey.to['airport']['name'] }}</div>
-							</div>
-							<div class="cxs4">
-								<div class="ticket_depart_arrive">Arrive</div>
-							</div>
-							<div class="cxs4">
-								<div class="ticket_time"><div class="ticket_time_big">{{ journey.to['dateTime']['time'] }}</div><div class="ticket_am_pm">{{  journey.to['dateTime']['AMPM']  }}</div></div>
-								<div class="ticket_city_small">{{ journey.to['airport']['name'] }}</div>
-							</div>
-						</div>
-						
-						<div class="ticket_dash"><svg height="1" viewBox="0 0 385.908 1">
-							  <line id="Line_104" data-name="Line 104" x2="384.908" transform="translate(0.5 0.5)" fill="none" stroke="#ccc" stroke-linecap="round" stroke-width="1" stroke-dasharray="0 3"></line>
-							</svg>	
-						</div>
-						
-						<div class="ticket_flight_time">
-							 {{  journey.to['dateTime']['left']|raw  }}
-						</div>
-						
-						<div class="ticket_bottom_svg">
-							<svg viewBox="0 0 188 24.631">
-								  <line id="Line_53" data-name="Line 53" x2="187" transform="translate(0.5 11.885)" fill="none" stroke="#9952f5" stroke-linecap="round" stroke-width="1" stroke-dasharray="0 2"></line>
-								  <path id="np_plane_2045803_000000" d="M16.9,16.744,10.523,26.911c0,.072-.072.072-.143.072H7.874a.19.19,0,0,1-.215-.215l3.15-10.024H4.079L2.217,19.25c0,.072-.072.072-.143.072H.212A.19.19,0,0,1,0,19.107l1.288-4.439L0,10.228a.229.229,0,0,1,.215-.215H2.074c.072,0,.143,0,.143.072L4.079,12.59h6.73L7.659,2.567a.229.229,0,0,1,.215-.215H10.38c.072,0,.143,0,.143.072L16.9,12.59h6.945a2.077,2.077,0,0,1,0,4.153H16.9Z" transform="translate(81.061 -2.352)" fill="#7316ea" fill-rule="evenodd"></path>
-								</svg>
-								
-						</div>
-					</div>
-				</div>
 
+							<div class="ticket_bottom_svg">
+								<svg viewBox="0 0 188 24.631">
+									  <line id="Line_53" data-name="Line 53" x2="187" transform="translate(0.5 11.885)" fill="none" stroke="#9952f5" stroke-linecap="round" stroke-width="1" stroke-dasharray="0 2"></line>
+									  <path id="np_plane_2045803_000000" d="M16.9,16.744,10.523,26.911c0,.072-.072.072-.143.072H7.874a.19.19,0,0,1-.215-.215l3.15-10.024H4.079L2.217,19.25c0,.072-.072.072-.143.072H.212A.19.19,0,0,1,0,19.107l1.288-4.439L0,10.228a.229.229,0,0,1,.215-.215H2.074c.072,0,.143,0,.143.072L4.079,12.59h6.73L7.659,2.567a.229.229,0,0,1,.215-.215H10.38c.072,0,.143,0,.143.072L16.9,12.59h6.945a2.077,2.077,0,0,1,0,4.153H16.9Z" transform="translate(81.061 -2.352)" fill="#7316ea" fill-rule="evenodd"></path>
+									</svg>
+									
+							</div>
+							</div>
+
+	 </div>
+					 
      
      {# <pre>     
     <div class="card" style="margin-left: 125px;">
@@ -71,12 +119,13 @@
             <div>
             <h3>From </h3> 
              
-             {{ dump(journey.from) }}  
+             <!-- {{ dump(journey.from) }}   -->
              
             </div>
             <div>
             <h3>To</h3>
-             {{ dump(journey.to) }}</div></pre> 
+             {{ dump(journey.to) }}
+			</div></pre> 
        </div>   #}
    
     {% endfor %}
