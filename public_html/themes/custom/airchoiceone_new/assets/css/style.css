@@ -22631,3 +22631,6 @@ form.change-membership-form .custom-stripe {
 .search_flights_times_row .cm3 {
   width: 25%;
 }
+body.path-book-flight .aco-book-flight-flight-selection-form  .form-actions input:nth-child(1) {
+  margin-left: 15px;
+} 

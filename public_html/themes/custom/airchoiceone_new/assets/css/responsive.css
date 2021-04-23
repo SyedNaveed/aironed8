@@ -45,6 +45,10 @@
   form .form-actions {
     width: 100%;
     padding-left: 15px;
+    min-height: 176px;
+  }
+  form .form-actions input[value="Next"] {
+    float: left;
   }
   .ticket_total_depart {
      width: auto;
@@ -504,8 +508,22 @@ body.path-frontpage .banner-front #block-banner {
     body.path-news header#header-menu .nav.navbar-nav li.nav-item a, body.path-gallery header#header-menu .nav.navbar-nav li.nav-item a {
       color: #fff;
     }
+    .ticket_total_price h3 {
+      font-size: 41px;
+    }
   }
   @media only screen and (min-width: 576px) and (max-width:767px) {
+    .ticket_total_price h3 {
+      font-size: 41px;
+    }
+    form .form-actions {
+      width: 100%;
+      padding-left: 15px;
+      min-height: 176px;
+    }
+    form .form-actions input[value="Next"] {
+      float: left;
+    }
     body.path-news header#header-menu .nav.navbar-nav li.nav-item a, body.path-gallery header#header-menu .nav.navbar-nav li.nav-item a {
       color: #fff;
     }

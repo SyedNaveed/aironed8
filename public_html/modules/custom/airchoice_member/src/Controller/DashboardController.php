@@ -59,7 +59,7 @@ class DashboardController extends ControllerBase {
     $journeyCount = 0;
     foreach($userReservations as $reservationKey)
     {
-      $build['t'.$reservationKey['value']]['#markup'] = "<h3>".$reservationKey['value']."</h3>";
+      // $build['t'.$reservationKey['value']]['#markup'] = "<h3>".$reservationKey['value']."</h3>";
       if(!$reservationKey['value'])
       {
         continue;
