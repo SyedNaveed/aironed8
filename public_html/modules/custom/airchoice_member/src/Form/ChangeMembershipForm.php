@@ -176,6 +176,7 @@ class ChangeMembershipForm extends FormBase {
       {
         $amount_remaining = -$priceToPay;
         
+        $user->membership_type->setValue($packageSelected);
         $user->amount_remaining->setValue($amount_remaining);
         $user->save();
         
@@ -194,6 +195,8 @@ class ChangeMembershipForm extends FormBase {
         $amount_remaining = 0;
         
         $user->amount_remaining->setValue($amount_remaining);
+        $user->membership_type->setValue($packageSelected);
+
         $user->save();
         
         
