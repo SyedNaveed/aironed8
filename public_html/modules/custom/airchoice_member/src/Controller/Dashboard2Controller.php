@@ -5,11 +5,33 @@ use Drupal\airchoice_member\AirchoiceMember;
 use Drupal\Core\Session\AccountInterface;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\intelisys\Utility\TimeHelper;
+use Drupal\Core\Datetime\Entity\DateFormat;
 
 /**
 * Class DefaultController.
 */
 class Dashboard2Controller extends ControllerBase {
+
+  public function formatDiff($interval)
+  {
+    $format = "%r";
+    if($interval->m > 0)
+    {
+      $format .= "<div class=\"ticket_ft_big\">%M </div> <div class=\"ticket_ft_sm\">M</div>";
+    }
+    if($interval->d > 0)
+    {
+      $format .= "<div class=\"ticket_ft_big\">%D </div> <div class=\"ticket_ft_sm\">D</div>";
+    }
+    
+    $format .= "<div class=\"ticket_ft_big\">%H</div> <div class=\"ticket_ft_sm\">hrs</div>";
+    
+    
+    $format .= "<div class=\"ticket_ft_big\">%I </div> <div class=\"ticket_ft_sm\">min</div>";
+    
+    return $interval->format($format);
+  }
   
   public function removeMember(AccountInterface $user)
   {
@@ -68,6 +90,10 @@ class Dashboard2Controller extends ControllerBase {
             $userData = AirchoiceMember::getBasicProfileInfo($uid);
             
             $user = $userData['user'];
+
+            
+            $selfReservations = \Drupal\airchoice_member\Controller\UpcomingController::getUserReservations($user);      
+
             
             $profile = $userData['profile'];
             $package = $userData['package'];
@@ -82,13 +108,21 @@ class Dashboard2Controller extends ControllerBase {
 
             
             $mwm = [];
+            $userReservations = [];
+            
             $data = $userData->get('userlog', $uid, 'activity');
+            $userReservations[$uid] = $selfReservations;
             $mwm[$uid] = json_decode($data);
+            
+            
             foreach($members as $member)
             {
               $data = $userData->get('userlog', $member->id(), 'activity');
               $mwm[$member->id()] = json_decode($data);
+              $userReservations[$member->id()] = \Drupal\airchoice_member\Controller\UpcomingController::getUserReservations($member);
             }
+
+
             
             $link = \Drupal\Core\Url::fromRoute('airchoice_member.login_by_link_controller_hello', ['user'=>0]);
             $output['package'] = [
@@ -96,6 +130,7 @@ class Dashboard2Controller extends ControllerBase {
               '#data' => [
                 'profile_id'=>$profile->id(),
                 'mwm' => $mwm,
+                'userReservations'=>$userReservations,
                 'user' => $user,
                 'user_id' => $uid,
                 'package_id' => $package->id(),

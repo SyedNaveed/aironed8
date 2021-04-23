@@ -669,6 +669,7 @@ trait FormBuilderTrait {
     $form['paymentMethod']['identifier'] = [
       '#type' => 'radios',
       '#title' => $this->t('<h2>Payment Information</h2>'),
+      '#required' => true,
       '#options' => [
         'amex' => $this->t('<span class="amex">American Express</span>'),
         'visa' => $this->t('<span class="visa">Visa</span>'),

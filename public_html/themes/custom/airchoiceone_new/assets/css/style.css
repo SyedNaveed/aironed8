@@ -22502,6 +22502,9 @@ body.path-upcoming-flights footer {
   padding-right: 15px;
   padding-left: 15px;
 }
+.upcoming_flights_page .search_flights_times_row .search_time .search_time_big {
+  margin-right: 3px;
+}
 .upcoming_flights_page .ticket_time {
   font-size: 26px;
   line-height: 36px;
@@ -22617,7 +22620,11 @@ form.change-membership-form .custom-stripe {
 }
 .upcoming_flights_page .shadow.sfb > .row > h4 {
   width: 100%;
+  padding-bottom: 15px;
 }  
+.upcoming_flights_page .shadow.sfb > .row > h4 span {
+  float: right;
+}
 .upcoming_flights_page .shadow.sfb  .ticket_flight_time {
   color: #731FEA;
 }
