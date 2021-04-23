@@ -41,7 +41,7 @@
 				<div class='row'>
 					<div class='col-md-6 '>
 						<div class='user-img-section'>
-							<img src='sites/default/files/CODE.jpg'/>
+							{# <img src='sites/default/files/CODE.jpg'/> #}
 							<a class="use-ajax" data-dialog-options="{&quot;width&quot;:400}" data-dialog-type="modal" href="{{ path('airchoice_member.dashboard_controller.member_info', {user: data.user_id}) }}">
 								<h2>{{ data.user.name.value }}
 									(Self)
@@ -402,7 +402,7 @@
 																	variables in member
 																	<pre>{{ dump(member) }}</pre>
 																</div> -->
-									<img src='sites/default/files/CODE.jpg'/>
+									{# <img src='sites/default/files/CODE.jpg'/> #}
 									<a class="use-ajax" data-dialog-options="{&quot;width&quot;:400}" data-dialog-type="modal" href="{{ path('airchoice_member.dashboard_controller.member_info', {user:member.id}) }}">
 
 										<h2>{{member.name.value}}</h2>

@@ -22634,3 +22634,19 @@ form.change-membership-form .custom-stripe {
 body.path-book-flight .aco-book-flight-flight-selection-form  .form-actions input:nth-child(1) {
   margin-left: 15px;
 } 
+.payment_form input::-webkit-input-placeholder {
+  /* WebKit browsers */
+   color: transparent;
+}
+.payment_form input:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+   color: transparent;
+}
+.payment_form input::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+   color: transparent;
+}
+.payment_form input:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+   color: transparent;
+}
