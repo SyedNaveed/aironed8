@@ -511,8 +511,14 @@ body.path-frontpage .banner-front #block-banner {
     .ticket_total_price h3 {
       font-size: 41px;
     }
+    .flights-seat-btuns button {
+      margin-bottom: 10px;
+    }
   }
   @media only screen and (min-width: 576px) and (max-width:767px) {
+    .flights-seat-btuns button {
+      margin-bottom: 10px;
+    }
     .ticket_total_price h3 {
       font-size: 41px;
     }

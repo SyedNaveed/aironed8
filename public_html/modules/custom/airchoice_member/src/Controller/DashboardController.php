@@ -80,9 +80,7 @@ class DashboardController extends ControllerBase {
         {
           continue;
         }
-echo '<pre>';
-print_r($apiReservation);
-exit;
+ 
         
         $time_format = DateFormat::load('short_time')->getPattern();
         $date_format = "M jS, Y";
