@@ -21133,22 +21133,22 @@ body.path-book-flight form.aco-book-flight-flight-selection-form {
 .col-md-4.tcb_right {
   text-align: right;
 }
-.ticket_total_depart {
-  text-align: center;
-  border: 2px solid #7318ea;
-  height: 30px;
-  line-height: 30px;
-  border-radius: 50px;
-  text-transform: uppercase;
-  font-size: 13px;
-  /* width: 120px; */
-  width: 106px;
-}
+ 
 form.aco-book-flight-confirm-form .new-row.spacing-bottom .custom-control-label::before {
   left: -1.1rem;
 }
 .ticket_total .ticket_city_big {
-  font-size: 44px;
+  font-size: 37px;
+}
+form.aco-book-flight-search-form .round-trip-ch {
+  font-size: 16px;
+}
+form.aco-book-flight-search-form .round-trip-ch label {
+  position: relative;
+  top: -3px;
+}
+.flights-seat-btuns button {
+  margin-bottom: 10px;
 }
 .ticket_city_small {
   font-size: 14px;
@@ -21188,7 +21188,8 @@ form.aco-book-flight-confirm-form .new-row.spacing-bottom .custom-control-label:
   border-radius: 50px;
   text-transform: uppercase;
   font-size: 13px;
-  width: 120px;
+  /* width: 120px;  */
+  width: 98px;
 }
 .ticket_total_price h3 {
   text-align: center;
