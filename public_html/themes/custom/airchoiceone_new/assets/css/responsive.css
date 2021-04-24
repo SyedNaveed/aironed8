@@ -1055,4 +1055,28 @@ body.path-frontpage .banner-front #block-banner {
     #header-menu .nav.navbar-nav li.nav-item {
       margin-right: 25px;
     }
+    .sfb .ticket_city_big {
+      font-size: 37px;
+    }
+    .search_time_big {
+      font-size: 16px;
+    }
+    .row.fares .custom-control label, .row.fares .custom-control input {
+      font-size: 14px;
+    }
+    .ticket_total_depart {
+      width: 100%;
+      font-size: 11px;
+    }
+    .book_ticket  .row.ticket_total_details .tcb_right,
+    .book_ticket  .row.ticket_total_details .col-lg-4:nth-child(1) {
+      font-size: 13px;
+    }
+    .ticket_total_price h3 {
+      font-size: 45px;
+    }
+    .contact-information-form .new-passenger .col-md-2 {
+      flex: 0 0 33.33333%;
+      max-width: 33.33333%;
+    }
   } 
