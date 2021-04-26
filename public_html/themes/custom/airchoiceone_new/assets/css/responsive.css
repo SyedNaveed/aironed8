@@ -620,9 +620,37 @@ body.path-frontpage .banner-front #block-banner {
     .flight-purchase .custom-payment-block {
       padding-right: 0;
     }
+    .payment_form {
+      padding: 40px 20px;
+    }
+    .payment_form .form-item {
+      padding-bottom: 8px;
+    }
+    .custom-payment-block #edit-billing-creditcard-billing .col-md-3, 
+    .custom-payment-block #edit-billing-creditcard-billing .col-md-2 {
+      width: 100%;
+      max-width: 100%;
+      flex: 100%;
+    }
   }
  
   @media only screen and (min-width: 576px) and (max-width:767px) {
+
+    .payment_form {
+      padding: 40px 20px;
+    }
+    .payment_form .form-item {
+      padding-bottom: 8px;
+    }
+    .custom-payment-block #edit-billing-creditcard-billing .col-md-3, 
+    .custom-payment-block #edit-billing-creditcard-billing .col-md-2 {
+      width: 100%;
+      max-width: 100%;
+      flex: 100%;
+    }
+    .payment_form .form-item {
+      padding-bottom: 8px;
+    }
     .flight-purchase .custom-payment-block {
       padding-right: 0;
     }
@@ -793,6 +821,18 @@ body.path-frontpage .banner-front #block-banner {
     
   }
   @media only screen and (min-width: 768px) and (max-width:1024px){
+    
+    form.aco-book-flight-seat-selection-form .form-actions .button {
+      padding: 3px 33px 0px;
+    }
+    form.aco-book-flight-seat-selection-form .form-actions {
+      padding: 5px 15px 0 53px;
+    }
+    form.aco-book-flight-flight-selection-form .form-actions,
+    form.aco-book-flight-contact-information-form .form-actions,
+    form.aco-book-flight-additional-services-form .form-actions {
+      padding-left: 0;
+    }
     .upcoming-flights-shedule-section .dashboard_content.upcoming_flights_page {
       margin-left: 0;
     }
