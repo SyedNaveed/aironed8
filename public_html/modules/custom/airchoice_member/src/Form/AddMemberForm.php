@@ -250,7 +250,8 @@ class AddMemberForm extends FormBase {
           $params['subject'] = $this->t('Thanks to registered on Air one Choice ');
            $params['body'] = [$this->t('Your '.$email.' can Login with Username: '.$ncuser .' and password: '.$passcustom)];
         
-          customMailSend('nav@yopmail.com', $params);
+          customMailSend($email,'register', $params);
+          
           // user status active 
           $newUser->status= 1;
           $newUser->activate(); 

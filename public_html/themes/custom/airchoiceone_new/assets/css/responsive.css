@@ -18,14 +18,28 @@
   .padding-remove-registration {
     padding: 0;
   }
-  div.alert {
-    /* margin-left: 5em; */
+  .region-content-before div.alert {
+    margin-left: 5em;
   }
   form.aco-book-flight-search-form .find_flight_form {
     padding: 39px 20px;
   }
   form .cus-form-btn .form-actions input[type="submit"] {
     font-size: 17px;
+  }
+  .date_drop_down {
+    float: left;
+  }
+  .search_flights_times_row,
+  .sfb .ticket_city_small,
+  .sfb .ticket_city_big {
+    text-align: center;
+  }
+  .row.fares .fares-types {
+    padding-bottom: 15px;
+  }
+  .ticket_total_plane svg {
+    margin-bottom: 11px;
   }
  
 
@@ -70,6 +84,7 @@
   }
   .col-md-6.search_flights_returns {
     padding-left: 15px;
+    padding-right: 0;
   }
   form .form-actions {
     width: 100%;
@@ -550,10 +565,113 @@ body.path-frontpage .banner-front #block-banner {
     .upcoming-flights-shedule-section .dashboard_content.upcoming_flights_page {
       margin-left: 0;
     }
-    
+    form.aco-book-flight-search-form .form-actions {
+      min-height: 2px;
+      padding-left: 0;
+    }
+    form.aco-book-flight-contact-information-form .test.infocontainer,
+    form.aco-book-flight-contact-information-form > .container {
+      padding-right: 0;
+    }
+    .contact-information-form .col-md-2,
+    .contact-information-form .col-md-4,
+    .contact-information-form .col-md-6,
+    .contact-information-form .col-sm-6 {
+      padding-right: 0;
+    }
+    form.aco-book-flight-contact-information-form .form-actions {
+      padding-left: 0;
+    }
+    form.aco-book-flight-seat-selection-form .book_page > .col-md-12,
+    form.aco-book-flight-seat-selection-form .book_page > .container {
+      padding-right: 0;
+    }
+    ul.bpth_seat li {
+      width: 100%;
+    }
+    .responsivestyle-r {
+      padding-right: 0;
+    }
+    .responsivestyle-l {
+      padding-left: 0;
+    }
+    .imge-seat-selection {
+      padding-bottom: 15px;
+    }
+    form.aco-book-flight-seat-selection-form .book_page .ticket_total_title {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    form.aco-book-flight-seat-selection-form .form-actions {
+      padding: 5px 15px 0 17px;
+    }
+    .checkout_next_back input[data-drupal-selector="edit-previous"] {
+      float: left;
+    }
+    form.aco-book-flight-additional-services-form .form-actions {
+      padding-left: 0;
+    }
+    form.aco-book-flight-purchase-form h1 {
+      font-size: 37px;
+    }
+    form.aco-book-flight-purchase-form .pr40 {
+      padding-right: 0;
+    }
+    .flight-purchase .custom-payment-block {
+      padding-right: 0;
+    }
   }
  
   @media only screen and (min-width: 576px) and (max-width:767px) {
+    .flight-purchase .custom-payment-block {
+      padding-right: 0;
+    }
+    form.aco-book-flight-purchase-form .pr40 {
+      padding-right: 0;
+    }
+    form.aco-book-flight-purchase-form h1 {
+      font-size: 37px;
+    }
+    form.aco-book-flight-additional-services-form .form-actions {
+      padding-left: 0;
+    }
+    .checkout_next_back input[data-drupal-selector="edit-previous"] {
+      float: left;
+    }
+    form.aco-book-flight-seat-selection-form .form-actions {
+      padding: 5px 15px 0 17px;
+    }
+    form.aco-book-flight-seat-selection-form .book_page .ticket_total_title {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    .imge-seat-selection {
+      padding-bottom: 15px;
+    }
+    .responsivestyle-r {
+      padding-right: 0;
+    }
+    .responsivestyle-l {
+      padding-left: 0;
+    }
+    form.aco-book-flight-seat-selection-form .book_page > .col-md-12,
+    form.aco-book-flight-seat-selection-form .book_page > .container {
+      padding-right: 0;
+    }
+    ul.bpth_seat li {
+      width: 100%;
+    }
+    form.aco-book-flight-contact-information-form .form-actions {
+      padding-left: 0;
+    }
+    form.aco-book-flight-contact-information-form .test.infocontainer,
+    form.aco-book-flight-contact-information-form > .container {
+      padding-right: 0;
+    }
+    .col-md-6.search_flights_returns {
+      padding-left: 15px;
+      padding-right: 0;
+    }
     .upcoming-flights-shedule-section .dashboard_content.upcoming_flights_page {
       margin-left: 0;
     }
@@ -656,6 +774,11 @@ body.path-frontpage .banner-front #block-banner {
     .path-flight-status .block-menu.navigation.menu--flight{
       padding-left: 85px;
     }
+    form.aco-book-flight-search-form .form-actions {
+      min-height: 2px;
+      padding-left: 0;
+    }
+  
   }
   @media (min-width: 992px) {
     form.aco-book-flight-search-form .find_flight_form .custom-control label {
