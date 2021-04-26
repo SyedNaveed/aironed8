@@ -6,9 +6,36 @@
     background-size: cover;
     background-position: center; */
     height: 98vh !important;
+  } 
 }
+@media screen and (max-width:767px) {
+  body.path-airchoice-member form.airchoice-user-register-form {
+    padding: 20px 0;
+  }
+  form.airchoice-user-register-form .add-member-member .white_input.edit_profile {
+    padding: 0;
+  }
+  .padding-remove-registration {
+    padding: 0;
+  }
+  div.alert {
+    /* margin-left: 5em; */
+  }
+  form.aco-book-flight-search-form .find_flight_form {
+    padding: 39px 20px;
+  }
+  form .cus-form-btn .form-actions input[type="submit"] {
+    font-size: 17px;
+  }
+ 
+
 }
+
  @media only screen and (min-width: 320px) and (max-width:575px){
+  body.path-dashboard .block-superfish {
+    margin-left: 5em;
+  }
+ 
   body.path-gallery #banner-section #block-airplanegallery .field--name-body {
     height: 150px;
     text-align: center;
@@ -34,7 +61,9 @@
     padding: 3px 22px 0px;
   }
   ul.sf-menu.sf-accordion, ul.sf-menu.sf-accordion ul, ul.sf-menu.sf-accordion li {
-    width: auto;
+    width: 100%;
+    text-align: left;
+    margin-left: 0;
   }
   .col-md-6.search_flights_departures {
     padding-right: 0;
@@ -518,8 +547,22 @@ body.path-frontpage .banner-front #block-banner {
     body.path-book-flight .aco-book-flight-flight-selection-form .form-actions input:nth-child(1) {
       margin-left: 0;
     }
+    .upcoming-flights-shedule-section .dashboard_content.upcoming_flights_page {
+      margin-left: 0;
+    }
+    
   }
+ 
   @media only screen and (min-width: 576px) and (max-width:767px) {
+    .upcoming-flights-shedule-section .dashboard_content.upcoming_flights_page {
+      margin-left: 0;
+    }
+    ul.sf-menu.sf-accordion, ul.sf-menu.sf-accordion ul, ul.sf-menu.sf-accordion li {
+      width: 100%;
+      text-align: left;
+      margin-left: 0;
+    }
+   
     body.path-book-flight .aco-book-flight-flight-selection-form .form-actions input:nth-child(1) {
       margin-left: 0;
     }
@@ -614,8 +657,20 @@ body.path-frontpage .banner-front #block-banner {
       padding-left: 85px;
     }
   }
+  @media (min-width: 992px) {
+    form.aco-book-flight-search-form .find_flight_form .custom-control label {
+      font-size: 1rem;
+    } 
+    form.aco-book-flight-search-form .find_flight_form .custom-control input, 
+    form.aco-book-flight-search-form .find_flight_form .custom-control select {
+      font-size: 12px;
+    }
+    
+  }
   @media only screen and (min-width: 768px) and (max-width:1024px){
-   
+    .upcoming-flights-shedule-section .dashboard_content.upcoming_flights_page {
+      margin-left: 0;
+    }
     #banner-section #block-airplanegallery .field--name-body {
       height: 192px;
       padding-top: 48px;

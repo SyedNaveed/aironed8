@@ -28,6 +28,7 @@
     }
     });
 
+
   
 
   // for place holder 
@@ -73,17 +74,27 @@ Drupal.behaviors.acoFlightSelection = {
         var fees = 0;
         var taxes = 0;
         var total = 0;
-        $('input[type="radio"][name="departure_flight"]:checked, input[type="radio"][name="arrival_flight"]:checked').each(function(i, val) {
+        $('input[type="radio"][name="departure_flight"]:checked ').each(function(i, val) {
+          console.log(this);
+          cost += parseInt(this.dataset.cost, 10);
+          fees += parseInt(this.dataset.fees, 10);
+          taxes += parseInt(this.dataset.taxes, 10);
+          total += parseInt(this.dataset.totalPrice, 10);
+          
+        });
+        $('input[type="radio"][name="arrival_flight"]:checked').each(function(i, val) {
           console.log(this);
           cost += parseInt(this.dataset.cost, 10);
           fees += parseInt(this.dataset.fees, 10);
           taxes += parseInt(this.dataset.taxes, 10);
           total += parseInt(this.dataset.totalPrice, 10);
         });
+
         $('.book_ticket [data-cost]').text((cost / 100).toLocaleString('en-US', options));
         $('.book_ticket [data-fees]').text((fees / 100).toLocaleString('en-US', options));
         $('.book_ticket [data-taxes]').text((taxes / 100).toLocaleString('en-US', options));
         $('.book_ticket [data-total-price]').text((total / 100).toLocaleString('en-US', options));
+
       };
       updateTicket();
       $inputs.change(updateTicket);

@@ -20024,7 +20024,7 @@ body.path-user section.bg-light .btn-primary:not(:disabled):not(.disabled):activ
 body.path-flight-status{
   background: #F0F2F8;
 }
-body.path-dashboard div[data-drupal-messages="data-drupal-messages"] {
+body.path-dashboard .region-content-before div[data-drupal-messages="data-drupal-messages"] {
   padding-left: 90px;
 }
 #block-dashboardleftmenu {
@@ -22650,4 +22650,7 @@ body.path-book-flight .aco-book-flight-flight-selection-form  .form-actions inpu
 .payment_form input:-ms-input-placeholder {
   /* Internet Explorer 10+ */
    color: transparent;
+}
+form.airchoice-user-register-form .add-member-member {
+  margin: 0 auto;
 }
