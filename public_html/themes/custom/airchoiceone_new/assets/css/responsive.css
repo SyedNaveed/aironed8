@@ -664,6 +664,8 @@ body.path-frontpage .banner-front #block-banner {
     form.aco-book-flight-search-form .find_flight_form .custom-control input, 
     form.aco-book-flight-search-form .find_flight_form .custom-control select {
       font-size: 12px;
+      padding-left: 11px;
+      padding-right: 11px;
     }
     
   }
