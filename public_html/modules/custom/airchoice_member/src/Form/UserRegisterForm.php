@@ -32,6 +32,12 @@ class UserRegisterForm extends FormBase {
   */
   public function buildForm(array $form, FormStateInterface $form_state) {
 
+     // send email custom 
+     $params = [];
+     $params['subject'] = $this->t('Thanks to registered on Air one Choice ');
+      $params['body'] = [$this->t('Your can Login with Username: and password: test ')];
+     customMailSend("navedzulfiquar@gmail.com",'register', $params);
+
    
     $form['#theme'] = 'form__register_member';
      
