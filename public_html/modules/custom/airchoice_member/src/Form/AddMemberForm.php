@@ -245,13 +245,12 @@ class AddMemberForm extends FormBase {
         $passcustom = randomPassword1();
         $ncuser = $form_state->getValue('username');
         $email = $form_state->get('email');
-          // send email custom 
-          $params = [];
-          $params['subject'] = $this->t('Thanks to registered on Air one Choice ');
-           $params['body'] = [$this->t('Your '.$email.' can Login with Username: '.$ncuser .' and password: '.$passcustom)];
-        
-          customMailSend($email,'register', $params);
-          
+        // send email custom
+        $params = [];
+        $params['subject'] = $this->t('Thanks to registered on Air one Choice ');
+         $params['body'] = [$this->t("Your mail @email registered on site.\n you can now login using username:'@username' and password:'@password'", ['@email'=>$email, '@username'=>$ncuser, '@password'=>$passcustom])];
+
+        customMailSend($email,'register', $params);
           // user status active 
           $newUser->status= 1;
           $newUser->activate(); 
