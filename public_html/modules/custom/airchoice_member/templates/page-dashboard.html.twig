@@ -274,7 +274,7 @@
 						{% set reservations = data.userReservations[data.user.id] %}
 					
 						{% if reservations|length == 0 %}
-							<div>No ticket Purchase
+							<div  class='divnoclass'>No ticket Purchase
 							</div>
 						{% endif %}
 						{% for key,reservation in reservations %}

@@ -19,7 +19,7 @@
     padding: 0;
   }
   .region-content-before div.alert {
-    margin-left: 5em;
+    /* margin-left: 5em; */
   }
   form.aco-book-flight-search-form .find_flight_form {
     padding: 39px 20px;
@@ -46,6 +46,24 @@
 }
 
  @media only screen and (min-width: 320px) and (max-width:575px){
+  .confirm-reservation-information {
+    padding-left: 5em;
+  }
+  .confirm-reservation-information .section.spacing-bottom:nth-last-child(1) > .col-sm-12 {
+    padding-left: 0;
+  }
+  .confirm-reservation-information .section.spacing-bottom .form-actions {
+    padding-left: 0;
+  }
+  .confirm-reservation-information .section.spacing-bottom {
+    padding-bottom: 15px;
+  }
+  .confirm-reservation-information .section.spacing-bottom .contact_information {
+    word-wrap: break-word;
+  }
+  .navigation.menu--flight > .navbar-nav .nav-item {
+    margin: 0 6px;
+  }
   body.path-dashboard .block-superfish {
     margin-left: 5em;
   }
@@ -526,7 +544,7 @@ body.path-frontpage .banner-front #block-banner {
     .path-flight-status #page-content #aco-flight-status-form{
       width: 100%;
       overflow: hidden;
-      padding-left: 85px;
+      padding-left: 5em;
     }
     .path-flight-status #page-content .js-form-item.form-item.custom-control.js-form-type-select.form-type-select.js-form-item-departureairport.form-item-departureairport.form-no-label{
       width: 100%;
@@ -632,10 +650,147 @@ body.path-frontpage .banner-front #block-banner {
       max-width: 100%;
       flex: 100%;
     }
+    body.path-flight-status header#header-menu {
+      display: none;
+    }
+    #block-bootstrap-for-drupal-airchoiceone-new-flight-navigation {
+      margin-left: 5em;
+      width: 71%;
+      height: auto;
+    }
+    .navigation.menu--flight > .navbar-nav .nav-item a {
+      padding: 0.8em;
+    }
+    nav#block-flightstatusfootermenu ul {
+      padding-left: 1.2em;
+    }
+    .path-manage-members .block-superfishmanage-member-top-menu {
+      margin-left: 2px;
+    }
+    .jumbotron.members-addsection {
+      padding-left: 0rem;
+    }
+    .members_bar h2 {
+      line-height: 35px;
+    }
+    .members_bar .user-options a {
+      display: block;
+      height: auto;
+      text-align: center;
+    }
+    .block-superfishmanage-member-top-menu {
+      margin-left: 5em;
+      width: 71%;
+    }
+    body.path-user #page-content form.user-form {
+      padding-left: 5em;
+    }
+    .user-checkboxes ul {
+      display: block;
+    }
+    body.path-user form.user-form .form-actions {
+      margin: 0;
+    }
+    #ui-datepicker-div {
+      z-index: 10;
+    }
+    form.aco-book-flight-additional-services-form .form-actions input[value="Next"],
+    form.aco-book-flight-contact-information-form .form-actions input[value="Next"],
+    form.aco-book-flight-flight-selection-form .form-actions input[value="Next"] {
+      float: right;
+      margin-right: -5px;
+    }
   }
  
   @media only screen and (min-width: 576px) and (max-width:767px) {
-
+    form.aco-book-flight-additional-services-form .form-actions input[value="Next"],
+    form.aco-book-flight-contact-information-form .form-actions input[value="Next"],
+    form.aco-book-flight-flight-selection-form .form-actions input[value="Next"] {
+      float: right;
+      margin-right: -5px;
+    }
+    #ui-datepicker-div {
+      z-index: 10;
+    }
+    body.path-user #page-content form.user-form {
+      padding-left: 5em;
+    }
+    .user-checkboxes ul {
+      display: block;
+    }
+    body.path-user form.user-form .form-actions {
+      margin: 0;
+    }
+    .jumbotron.members-addsection {
+      padding-left: 0rem;
+    }
+    .members_bar h2 {
+      line-height: 35px;
+    }
+    .members_bar .user-options a {
+      display: block;
+      height: auto;
+      text-align: center;
+    }
+    .block-superfishmanage-member-top-menu {
+      margin-left: 5em;
+      width: 71%;
+    }
+    body.path-user #page-content form.user-form {
+      padding-left: 5em;
+    }
+    .user-checkboxes ul {
+      display: block;
+    }
+    .path-manage-members .block-superfishmanage-member-top-menu {
+      margin-left: 2px;
+    }
+    .jumbotron.members-addsection {
+      padding-left: 0rem;
+    }
+    .members_bar h2 {
+      line-height: 35px;
+    }
+    .members_bar .user-options a {
+      display: block;
+      height: auto;
+      text-align: center;
+    }
+    .path-manage-members .block-superfishmanage-member-top-menu {
+      margin-left: 2px;
+    }
+    nav#block-flightstatusfootermenu ul {
+      padding-left: 1.2em;
+    }
+    body.path-flight-status header#header-menu {
+      display: none;
+    }
+    #block-bootstrap-for-drupal-airchoiceone-new-flight-navigation {
+      margin-left: 5em;
+      width: 71%;
+      height: auto;
+    }
+    .navigation.menu--flight > .navbar-nav .nav-item a {
+      padding: 0.8em;
+    }
+    .confirm-reservation-information {
+      padding-left: 5em;
+    }
+    .confirm-reservation-information .section.spacing-bottom:nth-last-child(1) > .col-sm-12 {
+      padding-left: 0;
+    }
+    .confirm-reservation-information .section.spacing-bottom .form-actions {
+      padding-left: 0;
+    }
+    .confirm-reservation-information .section.spacing-bottom {
+      padding-bottom: 15px;
+    }
+    .confirm-reservation-information .section.spacing-bottom .contact_information {
+      word-wrap: break-word;
+    }
+    .navigation.menu--flight > .navbar-nav .nav-item {
+      margin: 0 6px;
+    }
     .payment_form {
       padding: 40px 20px;
     }
@@ -821,6 +976,42 @@ body.path-frontpage .banner-front #block-banner {
     
   }
   @media only screen and (min-width: 768px) and (max-width:1024px){
+    .navigation.menu--flight > .navbar-nav .nav-item a {
+      padding: .8em;
+      font-size: 17px;
+    }
+    .confirm-reservation-information {
+      padding-left: 5em;
+    }
+    .confirm-reservation-information .section.spacing-bottom:nth-last-child(1) > .col-sm-12 {
+      padding-left: 0;
+    }
+    .confirm-reservation-information .section.spacing-bottom .form-actions {
+      padding-left: 0;
+    }
+    .confirm-reservation-information .section.spacing-bottom {
+      padding-bottom: 15px;
+    }
+    .confirm-reservation-information .section.spacing-bottom .contact_information {
+      word-wrap: break-word;
+    }
+    .navigation.menu--flight > .navbar-nav .nav-item {
+      margin: 0 6px;
+    }
+    body.path-book-flight .navigation.menu--flight > .navbar-nav .nav-item a {
+      font-size: 15px;
+      padding: .8em .8em;
+    }
+    body.path-book-flight form.aco-book-flight-search-form {
+      width: 70%;
+    }
+    .conteact-infoday {
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+    form.aco-book-flight-contact-information-form .form-actions {
+      padding-right: 15px;
+    }
     
     form.aco-book-flight-seat-selection-form .form-actions .button {
       padding: 3px 33px 0px;

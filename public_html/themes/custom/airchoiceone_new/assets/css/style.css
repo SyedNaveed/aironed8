@@ -20917,6 +20917,10 @@ body.path-user form.user-form .form-actions {
 body.path-user form.user-form .form-actions .button {
   background: #411777;
   padding: 22px 20px;
+  min-width: 120px;
+}
+.divnoclass {
+  padding-left: 15px;
 }
 body.path-user form.user-form .custom-control .description {
   display: none;
@@ -21808,8 +21812,12 @@ form .add-member-member .user-checkboxes li:nth-child(2) {
 body.path-airchoice-member footer {
   display: none;
 }
+body.path-book-flight div[data-drupal-messages="data-drupal-messages"],
 body.path-manage-members div[data-drupal-messages="data-drupal-messages"] {
   margin-left: 90px;
+}
+p.book_page_supersaver {
+  padding-left: 15px;
 }
 .block-views-blockfront-page-packages-block-1 {
   padding-bottom: 55px;

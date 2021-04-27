@@ -535,7 +535,7 @@ trait FormBuilderTrait {
     // custom col class for birthday input fields 
     $form['birthDateMonth']['#prefix'] = '<div class="col-md-3">';
     $form['birthDateMonth']['#suffix'] = '</div>';
-    $form['birthDateDay']['#prefix'] = '<div class="col-md-2">';
+    $form['birthDateDay']['#prefix'] = '<div class="col-md-2 conteact-infoday">';
     $form['birthDateDay']['#suffix']  =  '</div>';
     $form['birthDateYear']['#prefix'] = '<div class="col-md-3">';
     $form['birthDateYear']['#suffix'] = '</div>';
@@ -643,9 +643,9 @@ trait FormBuilderTrait {
     $form['address']['city']['#suffix'] = '</div>';
     $form['address']['location']['country']['code']['#prefix'] = '<div class="col-md-4">';
     $form['address']['location']['country']['code']['#suffix']  =  '</div>';
-    $form['address']['postalCode']['#prefix'] = '<div class="col-md-2">';
+    $form['address']['postalCode']['#prefix'] = '<div class="col-md-2 conteact-infoday">';
     $form['address']['postalCode']['#suffix'] = '</div>';
-    $form['address']['location']['province']['code']['#prefix'] = '<div class="col-md-2">';
+    $form['address']['location']['province']['code']['#prefix'] = '<div class="col-md-2 conteact-infoday">';
     $form['address']['location']['province']['code']['#suffix'] = '</div>';
 
 
