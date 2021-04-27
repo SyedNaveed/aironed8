@@ -104,9 +104,9 @@
     {# {{ element|without('first_name') }} #}
 
                 {# {{ element|without('actions', 'last_name', 'company', 'phone', 'role', 'loyalty_id', 'sms_text', 'email_notified', 'month', 'day', 'year','membership_type', 'submit', 'last', 'stripe', 'first', 'first_name', 'price', 'account') }} #}
-                 <pre>
-                 {# {{ dump(element|without('first_name')|keys) }} #}
-                 </pre>
+                 {# <pre>
+                 {{ dump(element|without('first_name')|keys) }} 
+                 </pre>#}
                  {{ element.form_build_id }}
 
                  {{ element.form_token }}
