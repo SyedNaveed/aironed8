@@ -700,9 +700,23 @@ body.path-frontpage .banner-front #block-banner {
       float: right;
       margin-right: -5px;
     }
+    .confiremed-itinerary .book_page > .row > .new-row {
+      width: 100%;
+      padding: 20px;
+    }
+    .book_page.confiremed-itinerary {
+      padding-left: 5em;
+    }
   }
  
   @media only screen and (min-width: 576px) and (max-width:767px) {
+    .confiremed-itinerary .book_page > .row > .new-row {
+      width: 100%;
+      padding: 20px;
+    }
+    .book_page.confiremed-itinerary {
+      padding-left: 5em;
+    }
     form.aco-book-flight-additional-services-form .form-actions input[value="Next"],
     form.aco-book-flight-contact-information-form .form-actions input[value="Next"],
     form.aco-book-flight-flight-selection-form .form-actions input[value="Next"] {
@@ -976,6 +990,13 @@ body.path-frontpage .banner-front #block-banner {
     
   }
   @media only screen and (min-width: 768px) and (max-width:1024px){
+    .confiremed-itinerary .book_page > .row > .new-row {
+      width: 100%;
+      padding: 20px;
+    }
+    .book_page.confiremed-itinerary {
+      padding-left: 5em;
+    }
     .useradded-mem .members_bar h2 {
       line-height: 33px;
     }

@@ -22434,7 +22434,10 @@ body.path-your-confirmed-itinerary footer {
   color: #000;
 }
 .confiremed-itinerary .book_page .new-row.section table {
-  width: 100%;
+  display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 .confiremed-itinerary .book_page .new-row.section2 .seats_overview h4,
 .confiremed-itinerary .book_page .new-row.section h4.section__header {
