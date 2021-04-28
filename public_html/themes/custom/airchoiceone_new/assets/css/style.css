@@ -22433,6 +22433,9 @@ body.path-your-confirmed-itinerary footer {
   font-weight: bold;
   color: #000;
 }
+.confiremed-itinerary .book_page .new-row.section table {
+  width: 100%;
+}
 .confiremed-itinerary .book_page .new-row.section2 .seats_overview h4,
 .confiremed-itinerary .book_page .new-row.section h4.section__header {
   font-size: 22px;
