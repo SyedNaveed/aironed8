@@ -4,7 +4,7 @@ airchoice_member.dashboard_controller_index:
     _controller: '\Drupal\airchoice_member\Controller\DashboardController::index'
     _title: 'Dashboard'
   requirements:
-    _role: 'paid_member'
+    _role: 'paid_member+free_member'
 
 airchoice_member.upcoming_controller_index:
   path: '/upcoming-flights'

@@ -15,21 +15,34 @@ class AirchoiceMember
         if(!isset($userInfo[$uid]))
         {
             $user = \Drupal\user\Entity\User::load($uid);
-            $profiles = $user->paid_member_profiles->referencedEntities();
-            $profile = $profiles[0]??null;
-            $packages = $profile->field_package->referencedEntities();
-            $package = $packages[0]??null; 
-            $package_max_members = $package->field_max_members->getValue()[0]['value'];
-            $members  = $profile->field_mem->referencedEntities();
-            $canAddMoreMembers = count($members) < $package_max_members-1;
-            $userInfo[$uid] = compact(['user',
-            'members',
-            'profiles', 
-            'profile', 
-            'packages',
-            'package',
-            'package_max_members',
-            'canAddMoreMembers']);
+            if($user->hasRole('paid_member'))
+            {
+                
+                $profiles = $user->paid_member_profiles->referencedEntities();
+                $profile = $profiles[0]??null;
+                $packages = isset($profile->field_package)?$profile->field_package->referencedEntities():[];
+                $package = $packages[0]??null; 
+                if($package){
+                    $package_max_members = $package->field_max_members->getValue()[0]['value'];
+                }else{
+                    $package_max_members = null;
+                }
+                $members  = $profile->field_mem->referencedEntities();
+                $canAddMoreMembers = count($members) < $package_max_members-1;
+                $userInfo[$uid] = compact(['user',
+                'members',
+                'profiles', 
+                'profile', 
+                'packages',
+                'package',
+                'package_max_members',
+                'canAddMoreMembers']);
+            }else{
+                $userInfo[$uid] = [
+                    'user' => $user
+                ];
+            }
+            
         }
         return $userInfo[$uid];
     }
