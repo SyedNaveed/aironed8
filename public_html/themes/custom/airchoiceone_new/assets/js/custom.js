@@ -1,110 +1,183 @@
 (function ($, Drupal) {
+  
+  jQuery(function(){
+    jQuery("#edit-submit").prop("disabled", 1);
+    jQuery("input.members-to-remove-checkbox").on('change', function(){
 
-  // for color box 
- 
-  jQuery(".views-field-field-media img").each((i, e)=>{
-        $e = jQuery(e);
-        $e.wrap("<a class='gallery-link' href='"+e.src+"' />")
+      let requiredCheckboxes = jQuery("#members-to-remove").attr("data-required-checkboxes");
+      if(!requiredCheckboxes)
+      {
+        return;
+      }
+
+      let checked = jQuery("input.members-to-remove-checkbox:checked").length;
+      
+      if(checked == requiredCheckboxes)
+      {
+      let checked = jQuery("input.members-to-remove-checkbox:checked").length;
+      jQuery("input.members-to-remove-checkbox:not(:checked)").prop("disabled", true);
+      jQuery("#edit-submit").prop("disabled", 0);
+    }else{
+      jQuery("input.members-to-remove-checkbox").prop("disabled", false);
+      jQuery("#edit-submit").prop("disabled", 0);
+      }
+
+
     });
-
+  })
+  // for color box 
+  
+  jQuery(".views-field-field-media img").each((i, e)=>{
+    $e = jQuery(e);
+    $e.wrap("<a class='gallery-link' href='"+e.src+"' />")
+  });
+  
   jQuery('a.gallery-link').colorbox({rel:'group1'});
-
+  
   $(window).scroll(function () {
- 
-      if ($(window).scrollTop() >= 100) { 
-        $('header#header-menu').addClass('menuscroll');
-      }
-      else {
-        $('header#header-menu').removeClass('menuscroll');
-      }
+    
+    if ($(window).scrollTop() >= 100) { 
+      $('header#header-menu').addClass('menuscroll');
+    }
+    else {
+      $('header#header-menu').removeClass('menuscroll');
+    }
   });
   $('.sign_in_page .sign_in_left').scroll(function () {
- 
+    
     if ($('.sign_in_page .sign_in_left').scrollTop() >= 100) {
       // $('header#header-menu').addClass('menuhide');
     }
     else {
       // $('header#header-menu').removeClass('menuhide');
     }
-    });
-
-
+  });
   
-
+  
+  
+  
   // for place holder 
   $("#edit-pass").attr("placeholder", "Password");
-
+  
   $("#edit-name").attr("placeholder", "User Name");
-
+  
   $('.dash_side .openclose').click(function() {
     console.log('ff');
     //  $('.dash_side').toggleClass('dlclose'); 
   }) 
-
+  
   jQuery(".plan-links a.package-select-button").on("click", function(){
+    
+    //members in current package
+    let currentMembersCount = +jQuery("#edit-members-added").val();
+    
+    //max members allowed in current package
+    let currentPackageMax = +jQuery("#edit-members-added").val();
 
+
+    
+    
+    
     let id = jQuery(this).attr("data-id");
-    // let checkbox = jQuery("edit-package-"+id);
-    console.log(id);
+   
+
+
+
     let $input = $( "#edit-package-"+id);
     $input[0].click();
-      $(".form-item-package").css('display', 'none');
+    $(".form-item-package").css('display', 'none');
 
-      $input.parent().css('display', 'block');
-   
+    //get new package max members
+    let newPackageMax = +$input.parent().find(".confirm-membership-h2").attr("data-max-members")
+    
+    $input.parent().css('display', 'block');
+
+    // currentMembersCount -= 1;
+
+    console.log(newPackageMax, currentMembersCount, currentPackageMax);
+
+
+    //logic to show checkboxes
+    //hide checkboxes and no validation for remove users
+    //all users will be removed from backend.
+    if(newPackageMax == 0)
+    {
+      jQuery("#members-to-remove").addClass('hidden');
+
+      jQuery("#edit-submit").prop("disabled", 0);
+      jQuery("#members-to-remove").removeAttr("data-required-checkboxes");
+
+    }//if newPackage allowed members are less greater or equal to currentPackageMax hide checkboxes and validation no need to remove users.
+    else if(newPackageMax >= currentPackageMax)
+    {
+      jQuery("#members-to-remove").addClass('hidden');
+      jQuery("#edit-submit").prop("disabled", 0);
+      jQuery("#members-to-remove").removeAttr("data-required-checkboxes");
+    }//show checkboxes and prevent form submit until required number of checkboxes are selected
+    else{
+      jQuery("#members-to-remove").removeClass('hidden');
+      //number of checkboxes required to select
+      let requiredCheckboxes = currentMembersCount - newPackageMax;
+      jQuery("#members-to-remove").attr("data-required-checkboxes", requiredCheckboxes);
+      jQuery("#members_to_remove_desc").text("Select "+requiredCheckboxes+" Users.");
+      //disable the submit until required number of checbkoxes are selected 
+      jQuery("#edit-submit").prop("disabled", 1);
+    }
+
+    
     
   });
-
-
-
-// Flight selection start
-Drupal.behaviors.acoFlightSelection = {
-  attach: function attach (context) {
-    var form_selector = '[data-drupal-selector="aco-book-flight-flight-selection-form"]';
-    var selector = 'input[type="radio"][name="departure_flight"], input[type="radio"][name="arrival_flight"]';
-    var $form = $(form_selector);
-    var $inputs = $(selector, context).once('acoFlightSelection');
-    if ($form.length && $inputs.length) {
-      var options = {
-        style: 'currency',
-        currency: 'USD'
-      };
-      var updateTicket = function() {
-        var cost = 0;
-        var fees = 0;
-        var taxes = 0;
-        var total = 0;
-        $('input[type="radio"][name="departure_flight"]:checked ').each(function(i, val) {
-          console.log(this);
-          cost += parseInt(this.dataset.cost, 10);
-          fees += parseInt(this.dataset.fees, 10);
-          taxes += parseInt(this.dataset.taxes, 10);
-          total += parseInt(this.dataset.totalPrice, 10);
+  
+  
+  
+  // Flight selection start
+  Drupal.behaviors.acoFlightSelection = {
+    attach: function attach (context) {
+      var form_selector = '[data-drupal-selector="aco-book-flight-flight-selection-form"]';
+      var selector = 'input[type="radio"][name="departure_flight"], input[type="radio"][name="arrival_flight"]';
+      var $form = $(form_selector);
+      var $inputs = $(selector, context).once('acoFlightSelection');
+      if ($form.length && $inputs.length) {
+        var options = {
+          style: 'currency',
+          currency: 'USD'
+        };
+        var updateTicket = function() {
+          var cost = 0;
+          var fees = 0;
+          var taxes = 0;
+          var total = 0;
+          $('input[type="radio"][name="departure_flight"]:checked ').each(function(i, val) {
+            console.log(this);
+            cost += parseInt(this.dataset.cost, 10);
+            fees += parseInt(this.dataset.fees, 10);
+            taxes += parseInt(this.dataset.taxes, 10);
+            total += parseInt(this.dataset.totalPrice, 10);
+            
+          });
+          $('input[type="radio"][name="arrival_flight"]:checked').each(function(i, val) {
+            console.log(this);
+            cost += parseInt(this.dataset.cost, 10);
+            fees += parseInt(this.dataset.fees, 10);
+            taxes += parseInt(this.dataset.taxes, 10);
+            total += parseInt(this.dataset.totalPrice, 10);
+          });
           
-        });
-        $('input[type="radio"][name="arrival_flight"]:checked').each(function(i, val) {
-          console.log(this);
-          cost += parseInt(this.dataset.cost, 10);
-          fees += parseInt(this.dataset.fees, 10);
-          taxes += parseInt(this.dataset.taxes, 10);
-          total += parseInt(this.dataset.totalPrice, 10);
-        });
-
-        $('.book_ticket [data-cost]').text((cost / 100).toLocaleString('en-US', options));
-        $('.book_ticket [data-fees]').text((fees / 100).toLocaleString('en-US', options));
-        $('.book_ticket [data-taxes]').text((taxes / 100).toLocaleString('en-US', options));
-        $('.book_ticket [data-total-price]').text((total / 100).toLocaleString('en-US', options));
-
-      };
-      updateTicket();
-      $inputs.change(updateTicket);
+          $('.book_ticket [data-cost]').text((cost / 100).toLocaleString('en-US', options));
+          $('.book_ticket [data-fees]').text((fees / 100).toLocaleString('en-US', options));
+          $('.book_ticket [data-taxes]').text((taxes / 100).toLocaleString('en-US', options));
+          $('.book_ticket [data-total-price]').text((total / 100).toLocaleString('en-US', options));
+          
+        };
+        updateTicket();
+        $inputs.change(updateTicket);
+      }
     }
-  }
-};
-
-// Flight selection end 
-
-
+  };
+  
+  // Flight selection end 
+  
+  
   // Seat selection.
   Drupal.behaviors.acoSeatSelection = {
     attach: function attach (context) {
@@ -122,7 +195,7 @@ Drupal.behaviors.acoFlightSelection = {
           $('[data-tab="' + tab + '"]').show();
         });
       }
-
+      
       // Seats.
       var $seats = $('.is-standard', context).once('acoSeatSelection');
       if ($seats.length) {
@@ -152,8 +225,8 @@ Drupal.behaviors.acoFlightSelection = {
                 $next_radio = $(':input' + segment_selector + '[data-passenger="1"]');
               }
               $next_radio.prop('checked', true);
-            // Only clear the selection if the selected passenger matches this
-            // seat selection.
+              // Only clear the selection if the selected passenger matches this
+              // seat selection.
             } else if (passenger === parseInt($this.attr('data-passenger'), 10)) {
               $this.removeClass('is-selected').removeAttr('data-passenger');
               $('.upgrade-price' + passenger_selector).html('0');
@@ -164,9 +237,9 @@ Drupal.behaviors.acoFlightSelection = {
       }
     }
   };
-
-
-
-
-
+  
+  
+  
+  
+  
 })(jQuery, Drupal);

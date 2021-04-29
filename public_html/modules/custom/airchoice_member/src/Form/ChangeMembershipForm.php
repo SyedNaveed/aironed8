@@ -54,8 +54,11 @@ class ChangeMembershipForm extends FormBase {
     $package_price = $package->field_price->value;
 
     $currentMembersOptions = [];
+
+
+
     $form['members_added'] = [
-      '#type' => 'textfield',
+      '#type' => 'hidden',
       '#title' => 'members added count (hidden)',
       '#value' => count($members),
       '#weight' => 100,
@@ -75,8 +78,7 @@ class ChangeMembershipForm extends FormBase {
     
 
     $form['max_members'] = [
-      // '#type' => 'hidden',
-      '#type' => 'textfield',
+      '#type' => 'hidden',
       '#title' => "Max members (hidden)",
       '#value' => $package_max_members,
       '#weight' => 100
@@ -166,11 +168,17 @@ class ChangeMembershipForm extends FormBase {
         ]),
       ];
 
+
       $form['members_to_remove'] = [
         '#title' => $this->t("Users to remove after downgrade"),
         '#type' => 'checkboxes',
         '#options' => $currentMembersOptions,
+        '#attributes' => [
+          'class' => ['members-to-remove-checkbox'],
+        ],
         '#description' => '<div id="members_to_remove_desc">Select @count Users.</h1>',
+        '#prefix' => '<div class="hidden" id="members-to-remove">',
+        '#suffix' => '</div>'
       ];
       
       
@@ -207,7 +215,7 @@ class ChangeMembershipForm extends FormBase {
       
       $allowed_members = $allowed_members_list[$packageSelected];
       
-      if($members_added-$member_to_remove_count > $allowed_members)
+      if($allowed_members>0 && $members_added-$member_to_remove_count > $allowed_members)
       {
         $form_state->setErrorByName("members_to_remove", "You must select ".($members_added-($allowed_members+$member_to_remove_count))." more to remove from package.");
       }
