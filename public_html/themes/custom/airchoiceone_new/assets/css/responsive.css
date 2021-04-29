@@ -738,9 +738,15 @@ body.path-frontpage .banner-front #block-banner {
       padding-left: 5em;
       width: 100%;
     }
+    .member_flights {
+      line-height: 28px;
+    }
   }
  
   @media only screen and (min-width: 576px) and (max-width:767px) {
+    .member_flights {
+      line-height: 28px;
+    }
     body.path-book-flight #block-bootstrap-for-drupal-airchoiceone-new-flight-navigation {
       padding-left: 4em;
       width: 100%;
@@ -1055,6 +1061,21 @@ body.path-frontpage .banner-front #block-banner {
     
   }
   @media only screen and (min-width: 768px) and (max-width:1024px){
+    body.path-manage-members #block-managemembertopmenu ul.sf-menu a {
+      padding: 1em .8em;
+    }
+    body.path-manage-members .jumbotron.members-addsection {
+      padding-left: 2rem;
+    }
+    body.path-manage-members .block-superfishmanage-member-top-menu {
+      margin-left: 24px;
+    }
+    .member_flights {
+      line-height: 28px;
+    }
+    body.path-book-flight #block-bootstrap-for-drupal-airchoiceone-new-flight-navigation {
+      padding: 0px 0px 0 4em;
+    }
     nav.navigation.menu--flight > .navbar-nav {
       margin-left: 0;
     }
@@ -1066,6 +1087,7 @@ body.path-frontpage .banner-front #block-banner {
     }
     nav#block-flightstatusfootermenu {
       width: 76%;
+      padding-left: 4em;
     }
     body.path-user #block-managemembertopmenu ul.sf-menu a {
       padding: 1em .6em;
@@ -1122,7 +1144,8 @@ body.path-frontpage .banner-front #block-banner {
       padding: .8em .8em;
     }
     body.path-book-flight form.aco-book-flight-search-form {
-      width: 70%;
+      width: 88%;
+      padding-left: 4em;
     }
     .conteact-infoday {
       flex: 0 0 25%;
