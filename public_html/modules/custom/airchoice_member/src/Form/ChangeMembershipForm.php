@@ -12,6 +12,8 @@ use Stripe\Charge;
 
 
 
+
+
 /**
 * Class ChangeMembershipForm.
 */
@@ -41,10 +43,28 @@ class ChangeMembershipForm extends FormBase {
     'profile'=>$profile,
     'package'=>$package,
     'package_max_members'=>$package_max_members,
-    'canAddMoreMembers'=>$canAddMoreMembers
+    'canAddMoreMembers'=>$canAddMoreMembers,
+    'members' => $members,
+    'members_value' => $members_value,
+    'profiles' => $profiles,
     ) = $userData;
+
+    $form_state->set('members_value', $members_value);
     
     $package_price = $package->field_price->value;
+
+    $currentMembersOptions = [];
+    $form['members_added'] = [
+      '#type' => 'textfield',
+      '#title' => 'members added count (hidden)',
+      '#value' => count($members),
+      '#weight' => 100,
+    ];
+    foreach($members as $member)
+    {
+      $currentMembersOptions[$member->id()] = $member->getUsername();
+    }
+
    
     $amount_remaining = $user->amount_remaining->value;
 
@@ -53,6 +73,17 @@ class ChangeMembershipForm extends FormBase {
       $amount_remaining = 0;
     }
     
+
+    $form['max_members'] = [
+      // '#type' => 'hidden',
+      '#type' => 'textfield',
+      '#title' => "Max members (hidden)",
+      '#value' => $package_max_members,
+      '#weight' => 100
+    ];
+
+  
+
     //get profile creation date
     $startTime =  $profile->getCreatedTime();
     
@@ -104,16 +135,21 @@ class ChangeMembershipForm extends FormBase {
       '#required' => 'true',
       '#options' => &$options
     ];
+    $allowed_members_list = [];
     foreach($nodes as $node)
     {
+
       if($node->id() == $package->id())
       {
         $form['package']['#option_attributes'][$node->id()]['disabled'] = 'true';
       }
+      $allowed_members = $node->field_max_members->value - 1;
       $packagesPrice[$node->id()] = $node->field_price->value;
-      $options[$node->id()] = "<div class='confirm-membership-h2' ><h2>Confirm Membership Change</h2></div><div class='membershipinfo'><span>New Membership: </span><span>" . $node->getTitle() . "</span></div><div class='membershipinfo'><span>Due Today: </span><span>" . ($node->field_price->value - $priceRemaining) . " </span></div><div class='membershipinfo'><span>Membership Renews: </span><span> " . $left . " Days </span></div>";
+      $allowed_members_list[$node->id()] = $allowed_members;
+      $options[$node->id()] = "<div data-max-members=\"$allowed_members\" class='confirm-membership-h2' ><h2>Confirm Membership Change</h2></div><div class='membershipinfo'><span>New Membership: </span><span>" . $node->getTitle() . "</span></div><div class='membershipinfo'><span>Due Today: </span><span>" . ($node->field_price->value - $priceRemaining) . " </span></div><div class='membershipinfo'><span>Membership Renews: </span><span> " . $left . " Days </span></div>";
       // $options[$node->id()] =   "<div ><h2>Confirm Membership Change</h2></div><div class='membershipinfo'><span>New Membership: </label>".$node->getTitle()."($" . round($node->field_price->value, 2) . ") to pay $".($node->field_price->value - $priceRemaining);
     }
+    $form_state->set('allowed_members_list', $allowed_members_list);
     $form_state->set('packagesPrice', $packagesPrice);
     
     
@@ -129,11 +165,19 @@ class ChangeMembershipForm extends FormBase {
         // '@link' => $link_generator->generate('stripe docs', Url::fromUri('https://stripe.com/docs/testing')),
         ]),
       ];
+
+      $form['members_to_remove'] = [
+        '#title' => $this->t("Users to remove after downgrade"),
+        '#type' => 'checkboxes',
+        '#options' => $currentMembersOptions,
+        '#description' => '<div id="members_to_remove_desc">Select @count Users.</h1>',
+      ];
       
       
       
       $form['submit'] = [
         '#type' => 'submit',
+        '#weight' => 1000,
         '#value' => $this->t('Submit'),
       ];
       
@@ -144,9 +188,30 @@ class ChangeMembershipForm extends FormBase {
     * {@inheritdoc}
     */
     public function validateForm(array &$form, FormStateInterface $form_state) {
-      foreach ($form_state->getValues() as $key => $value) {
-        // @TODO: Validate fields.
+      $allowed_members_list = $form_state->get('allowed_members_list');
+      $member_to_remove = array_filter($form_state->getValue('members_to_remove'), function($e){
+        return $e !== 0;
+      });
+
+      $member_to_remove_count = count($member_to_remove);
+      $packageSelected = $form_state->getValue('package');
+      $members_added = $form_state->getValue('members_added');
+      
+      if(!$packageSelected)
+      {
+        $form_state->setErrorByName('package', "Package selection is required.");
+        parent::validateForm($form, $form_state);
+        return;
       }
+      
+      
+      $allowed_members = $allowed_members_list[$packageSelected];
+      
+      if($members_added-$member_to_remove_count > $allowed_members)
+      {
+        $form_state->setErrorByName("members_to_remove", "You must select ".($members_added-($allowed_members+$member_to_remove_count))." more to remove from package.");
+      }
+      
       parent::validateForm($form, $form_state);
     }
     
@@ -156,7 +221,20 @@ class ChangeMembershipForm extends FormBase {
     public function submitForm(array &$form, FormStateInterface $form_state) {
       $packagesPrice = $form_state->get('packagesPrice');
       $priceRemaining = $form_state->get('priceRemaining');
+      $members_value = $form_state->get('members_value');
       $left = $form_state->get('left');
+      
+      $member_to_remove = array_filter($form_state->getValue('members_to_remove'), function($e){
+        return $e !== 0;
+      });
+
+     
+
+      $members_value = $form_state->get('members_value');
+      $members_to_save = array_map(function($e){ return $e['target_id']; }, $members_value);
+      
+      $members_to_save = array_diff($members_to_save, $member_to_remove);
+      $members_to_save = array_map(function($e){ return ['target_id'=>$e]; }, $members_to_save);
       
       $uid = \Drupal::currentUser()->id();
       $user = \Drupal\user\Entity\User::load($uid);
@@ -175,6 +253,15 @@ class ChangeMembershipForm extends FormBase {
       if($priceToPay <= 0)
       {
         $amount_remaining = -$priceToPay;
+
+
+        //block users selected to be removed
+        $userToRemove = \Drupal\user\Entity\User::loadMultiple($member_to_remove);
+        foreach($userToRemove as $userRemove)
+        {
+          $userRemove->block();
+          $userRemove->save();
+        }
         
         $user->membership_type->setValue($packageSelected);
         $user->amount_remaining->setValue($amount_remaining);
@@ -183,12 +270,15 @@ class ChangeMembershipForm extends FormBase {
         $profile = \Drupal\profile\Entity\Profile::create([
           'type' => 'paid_member',
           'uid' => $uid,
-          'field_package' => $packageSelected
-          ]);
+          'field_package' => $packageSelected 
+        ]);
+
+        $profile->field_mem->setValue($members_to_save);
           
           //add condition on downgrade
           $profile->setDefault(TRUE);
           $profile->save();
+
           return;
         }
 
@@ -196,6 +286,7 @@ class ChangeMembershipForm extends FormBase {
         
         $user->amount_remaining->setValue($amount_remaining);
         $user->membership_type->setValue($packageSelected);
+        
 
         $user->save();
         
@@ -213,7 +304,8 @@ class ChangeMembershipForm extends FormBase {
                 'uid' => $uid,
                 'field_package' => $packageSelected
                 ]);
-                
+
+                $profile->field_mem->setValue($members_to_save);
                 //add condition on downgrade
                 $profile->setDefault(TRUE);
                 $profile->save();
