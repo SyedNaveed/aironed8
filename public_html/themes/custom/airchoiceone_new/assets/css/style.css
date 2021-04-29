@@ -20918,6 +20918,7 @@ body.path-user form.user-form .form-actions .button {
   background: #411777;
   padding: 22px 20px;
   min-width: 120px;
+  border-radius: 4px;
 }
 .divnoclass {
   padding-left: 15px;
@@ -22540,6 +22541,10 @@ body.path-airchoice-member form.change-membership-form .button {
     font-size: 20px;
     cursor: pointer;
     border: none;
+    padding: 3px 55px 0px;
+}
+body.path-airchoice-member form.change-membership-form .custom-stripe {
+  padding-left: 17px;
 }
 #block-flightstatusesblock {
   padding-left: 80px;
@@ -22625,6 +22630,19 @@ form.change-membership-form .confirm-membership-h2 {
 }
 form.change-membership-form .custom-stripe {
   max-width: 320px;
+}
+form.change-membership-form .custom-stripe .StripeElement {
+  font-size: 12px;
+  padding-left: 11px;
+  padding-right: 11px;
+  padding-top: 18px;
+  border: 0px;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-left: 15px;
+  margin-top: 0px;
+  background: #fff;
 }
 .membershipinfo > span:nth-child(1) {
   color: #411777;

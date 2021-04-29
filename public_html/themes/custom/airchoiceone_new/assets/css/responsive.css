@@ -46,6 +46,17 @@
 }
 
  @media only screen and (min-width: 320px) and (max-width:575px){
+  nav#block-flightstatusfootermenu li {
+    display: block;
+    margin-right: 0;
+  }
+  form.user-form .addres-spa {
+    padding-right: 0;
+    padding-left: 0;
+  }
+   form.user-form .field--type-address .details-wrapper {
+     padding: 0.5em 0em;
+   }
   .confirm-reservation-information {
     padding-left: 5em;
   }
@@ -126,7 +137,7 @@
     width: 100%;
   }
   .view-front-page-packages .view-header h2 {
-    font-size: 54px;
+    font-size: 40px;
   }
   body.path-packages .view-front-page-packages {
     width: 95%;
@@ -707,9 +718,63 @@ body.path-frontpage .banner-front #block-banner {
     .book_page.confiremed-itinerary {
       padding-left: 5em;
     }
+    .view-front-page-packages .front-packages-blocks .package-select-button.pc {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    nav#block-flightstatusfootermenu li a {
+      padding: 11px 0px;
+    }
+    nav#block-flightstatusfootermenu {
+      padding-left: calc(100px + 0vw);
+      width: 100%;
+    }
+    body.path-book-flight #block-bootstrap-for-drupal-airchoiceone-new-flight-navigation {
+      padding-left: 4em;
+      width: 100%;
+      height: auto;
+    }
+    body.path-book-flight form.aco-book-flight-search-form {
+      padding-left: 5em;
+      width: 100%;
+    }
   }
  
   @media only screen and (min-width: 576px) and (max-width:767px) {
+    body.path-book-flight #block-bootstrap-for-drupal-airchoiceone-new-flight-navigation {
+      padding-left: 4em;
+      width: 100%;
+      height: auto;
+    }
+    body.path-book-flight form.aco-book-flight-search-form {
+      padding-left: 5em;
+      width: 100%;
+    }
+    nav#block-flightstatusfootermenu {
+      padding-left: calc(100px + 0vw);
+      width: 100%;
+    }
+    nav#block-flightstatusfootermenu li a {
+      padding: 11px 0px;
+    }
+    nav#block-flightstatusfootermenu li {
+      display: block;
+      margin-right: 0;
+    }
+    form.user-form .addres-spa {
+      padding-right: 0;
+      padding-left: 0;
+    }
+     form.user-form .field--type-address .details-wrapper {
+       padding: 0.5em 0em;
+     }
+    .confirm-reservation-information {
+      padding-left: 5em;
+    }
+    .view-front-page-packages .front-packages-blocks .package-select-button.pc {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
     .confiremed-itinerary .book_page > .row > .new-row {
       width: 100%;
       padding: 20px;
@@ -990,6 +1055,25 @@ body.path-frontpage .banner-front #block-banner {
     
   }
   @media only screen and (min-width: 768px) and (max-width:1024px){
+    nav#block-flightstatusfootermenu li {
+      margin-right: 16px;
+    }
+    nav#block-flightstatusfootermenu li:nth-last-child(1) {
+      margin-right: 0;
+    }
+    nav#block-flightstatusfootermenu {
+      width: 76%;
+    }
+    body.path-user #block-managemembertopmenu ul.sf-menu a {
+      padding: 1em .6em;
+    }
+    body.path-user #page-content form.user-form {
+      clear: both;
+      padding-left: 5em;
+    }
+    .view-front-page-packages .front-packages-blocks .plan-detail {
+      min-height: 181px;
+    }
     .confiremed-itinerary .book_page > .row > .new-row {
       width: 100%;
       padding: 20px;
