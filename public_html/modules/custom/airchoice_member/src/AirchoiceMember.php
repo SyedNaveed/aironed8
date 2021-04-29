@@ -19,6 +19,10 @@ class AirchoiceMember
             {
                 
                 $profiles = $user->paid_member_profiles->referencedEntities();
+                // $profiles[0]->delete();
+                
+
+                
                 $profile = $profiles[0]??null;
                 $packages = isset($profile->field_package)?$profile->field_package->referencedEntities():[];
                 $package = $packages[0]??null; 
@@ -28,9 +32,11 @@ class AirchoiceMember
                     $package_max_members = null;
                 }
                 $members  = $profile->field_mem->referencedEntities();
+                $members_value  = $profile->field_mem->getValue();
                 $canAddMoreMembers = count($members) < $package_max_members-1;
                 $userInfo[$uid] = compact(['user',
                 'members',
+                'members_value',
                 'profiles', 
                 'profile', 
                 'packages',
