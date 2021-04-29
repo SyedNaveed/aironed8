@@ -1055,6 +1055,9 @@ body.path-frontpage .banner-front #block-banner {
     
   }
   @media only screen and (min-width: 768px) and (max-width:1024px){
+    nav.navigation.menu--flight > .navbar-nav {
+      margin-left: 0;
+    }
     nav#block-flightstatusfootermenu li {
       margin-right: 16px;
     }
@@ -1278,8 +1281,16 @@ body.path-frontpage .banner-front #block-banner {
     .gallery-blog-bottom .rpl {
       left: 19px;
     }
+    .path-flight-status #page-content .form-item.custom-control {
+      width: 29%;
+    }
+    .path-flight-status #page-content #aco-flight-status-form #edit-actions {
+      width: 100%;
+      padding-left: 0;
+    }
     .path-flight-status #page-content #aco-flight-status-form {
-      width: 80%;
+      width: 100%;
+      padding-left: 5em;
     }
     .path-flight-status #aco-flight-status-form #edit-airports{
       top: 55%;
