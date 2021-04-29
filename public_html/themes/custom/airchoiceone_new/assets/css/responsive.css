@@ -682,7 +682,8 @@ body.path-frontpage .banner-front #block-banner {
       padding-left: 0rem;
     }
     .members_bar h2 {
-      line-height: 35px;
+      line-height: 31px;
+      font-size: 22px;
     }
     .members_bar .user-options a {
       display: block;
@@ -738,9 +739,15 @@ body.path-frontpage .banner-front #block-banner {
       padding-left: 5em;
       width: 100%;
     }
+    .member_flights {
+      line-height: 28px;
+    }
   }
  
   @media only screen and (min-width: 576px) and (max-width:767px) {
+    .member_flights {
+      line-height: 28px;
+    }
     body.path-book-flight #block-bootstrap-for-drupal-airchoiceone-new-flight-navigation {
       padding-left: 4em;
       width: 100%;
@@ -1055,6 +1062,24 @@ body.path-frontpage .banner-front #block-banner {
     
   }
   @media only screen and (min-width: 768px) and (max-width:1024px){
+    body.path-manage-members #block-managemembertopmenu ul.sf-menu a {
+      padding: 1em .8em;
+    }
+    body.path-manage-members .jumbotron.members-addsection {
+      padding-left: 2rem;
+    }
+    body.path-manage-members .block-superfishmanage-member-top-menu {
+      margin-left: 24px;
+    }
+    .member_flights {
+      line-height: 28px;
+    }
+    body.path-book-flight #block-bootstrap-for-drupal-airchoiceone-new-flight-navigation {
+      padding: 0px 0px 0 4em;
+    }
+    nav.navigation.menu--flight > .navbar-nav {
+      margin-left: 0;
+    }
     nav#block-flightstatusfootermenu li {
       margin-right: 16px;
     }
@@ -1063,6 +1088,7 @@ body.path-frontpage .banner-front #block-banner {
     }
     nav#block-flightstatusfootermenu {
       width: 76%;
+      padding-left: 4em;
     }
     body.path-user #block-managemembertopmenu ul.sf-menu a {
       padding: 1em .6em;
@@ -1119,7 +1145,8 @@ body.path-frontpage .banner-front #block-banner {
       padding: .8em .8em;
     }
     body.path-book-flight form.aco-book-flight-search-form {
-      width: 70%;
+      width: 88%;
+      padding-left: 4em;
     }
     .conteact-infoday {
       flex: 0 0 25%;
@@ -1278,8 +1305,16 @@ body.path-frontpage .banner-front #block-banner {
     .gallery-blog-bottom .rpl {
       left: 19px;
     }
+    .path-flight-status #page-content .form-item.custom-control {
+      width: 29%;
+    }
+    .path-flight-status #page-content #aco-flight-status-form #edit-actions {
+      width: 100%;
+      padding-left: 0;
+    }
     .path-flight-status #page-content #aco-flight-status-form {
-      width: 80%;
+      width: 100%;
+      padding-left: 5em;
     }
     .path-flight-status #aco-flight-status-form #edit-airports{
       top: 55%;
