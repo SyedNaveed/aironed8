@@ -682,7 +682,8 @@ body.path-frontpage .banner-front #block-banner {
       padding-left: 0rem;
     }
     .members_bar h2 {
-      line-height: 35px;
+      line-height: 31px;
+      font-size: 22px;
     }
     .members_bar .user-options a {
       display: block;
