@@ -1,15 +1,13 @@
 (function ($, Drupal) {
   
   jQuery(function(){
-    jQuery("#edit-submit").prop("disabled", 1);
+    jQuery("#edit-submit.changemembership").prop("disabled", 1);
     jQuery("input.members-to-remove-checkbox").on('change', function(){
 
       let requiredCheckboxes = jQuery("#members-to-remove").attr("data-required-checkboxes");
-      if(!requiredCheckboxes)
+      if(requiredCheckboxes)
       {
-        return;
-      }
-
+        
       let checked = jQuery("input.members-to-remove-checkbox:checked").length;
       
       if(checked == requiredCheckboxes)
@@ -21,7 +19,7 @@
       jQuery("input.members-to-remove-checkbox").prop("disabled", false);
       jQuery("#edit-submit").prop("disabled", 0);
       }
-
+    }
 
     });
   })
@@ -102,6 +100,7 @@
     //all users will be removed from backend.
     if(newPackageMax == 0)
     {
+      
       jQuery("#members-to-remove").addClass('hidden');
 
       jQuery("#edit-submit").prop("disabled", 0);
@@ -110,12 +109,14 @@
     }//if newPackage allowed members are less greater or equal to currentPackageMax hide checkboxes and validation no need to remove users.
     else if(newPackageMax >= currentPackageMax)
     {
+      
       jQuery("#members-to-remove").addClass('hidden');
       jQuery("#edit-submit").prop("disabled", 0);
       jQuery("#members-to-remove").removeAttr("data-required-checkboxes");
     }//show checkboxes and prevent form submit until required number of checkboxes are selected
     else{
       jQuery("#members-to-remove").removeClass('hidden');
+      
       //number of checkboxes required to select
       let requiredCheckboxes = currentMembersCount - newPackageMax;
       jQuery("#members-to-remove").attr("data-required-checkboxes", requiredCheckboxes);
