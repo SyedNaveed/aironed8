@@ -22697,3 +22697,7 @@ body.page-node-type-contact-us-page .container1 {
   width: 90%;
   margin: 0 auto;
 }
+.form-type-radio.js-form-item-package .membershipinfo,
+.form-type-radio.js-form-item-package .confirm-membership-h2 {
+  padding-left: 15px;
+}
