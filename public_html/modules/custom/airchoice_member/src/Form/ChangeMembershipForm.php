@@ -20,16 +20,18 @@ use Stripe\Charge;
 class ChangeMembershipForm extends FormBase {
   
   /**
-  * {@inheritdoc}
+  *  bracket @inheritdoc bracket 
   */
-  public function getFormId() {
+  public function getFormId()
+  {
     return 'change_membership_form';
   }
   
   /**
-  * {@inheritdoc}
+  *  bracket @inheritdoc bracket 
   */
-  public function buildForm(array $form, FormStateInterface $form_state) {
+  public function buildForm(array $form, FormStateInterface $form_state)
+  {
     //get current user info packages, etc
     $uid = \Drupal::currentUser()->id();
     if(!$uid)
@@ -48,14 +50,19 @@ class ChangeMembershipForm extends FormBase {
     'members_value' => $members_value,
     'profiles' => $profiles,
     ) = $userData;
-
+    
     $form_state->set('members_value', $members_value);
     
     $package_price = $package->field_price->value;
-
+    
     $currentMembersOptions = [];
+    
+    
+    
     $form['members_added'] = [
       '#type' => 'textfield',
+      '#prefix' => '<div class="hidden">',
+      '#suffix' => '</div>',
       '#title' => 'members added count (hidden)',
       '#value' => count($members),
       '#weight' => 100,
@@ -64,26 +71,27 @@ class ChangeMembershipForm extends FormBase {
     {
       $currentMembersOptions[$member->id()] = $member->getUsername();
     }
-
-   
+    
+    
     $amount_remaining = $user->amount_remaining->value;
-
+    
     if(!$amount_remaining)
     {
       $amount_remaining = 0;
     }
     
-
+    
     $form['max_members'] = [
-      // '#type' => 'hidden',
       '#type' => 'textfield',
+      '#prefix' => '<div class="hidden">',
+      '#suffix' => '</div>',
       '#title' => "Max members (hidden)",
       '#value' => $package_max_members,
       '#weight' => 100
     ];
-
-  
-
+    
+    
+    
     //get profile creation date
     $startTime =  $profile->getCreatedTime();
     
@@ -102,10 +110,10 @@ class ChangeMembershipForm extends FormBase {
     {
       $priceRemaining = 0;
     }
-
- 
+    
+    
     $priceRemaining += $amount_remaining;
- 
+    
     
     $form['daysRemaining'] = [
       '#type' => 'hidden',
@@ -138,7 +146,7 @@ class ChangeMembershipForm extends FormBase {
     $allowed_members_list = [];
     foreach($nodes as $node)
     {
-
+      
       if($node->id() == $package->id())
       {
         $form['package']['#option_attributes'][$node->id()]['disabled'] = 'true';
@@ -163,208 +171,296 @@ class ChangeMembershipForm extends FormBase {
       ],
       '#description' => $this->t('You can use test card numbers and tokens from @link.', [
         // '@link' => $link_generator->generate('stripe docs', Url::fromUri('https://stripe.com/docs/testing')),
-        ]),
-      ];
-
-      $form['members_to_remove'] = [
-        '#title' => $this->t("Users to remove after downgrade"),
-        '#type' => 'checkboxes',
-        '#options' => $currentMembersOptions,
-        '#description' => '<div id="members_to_remove_desc">Select @count Users.</h1>',
-      ];
-      
-      
-      
-      $form['submit'] = [
-        '#type' => 'submit',
-        '#weight' => 1000,
-        '#value' => $this->t('Submit'),
-      ];
-      
-      return $form;
-    }
+        ]
+      ),
+    ];
     
-    /**
-    * {@inheritdoc}
-    */
-    public function validateForm(array &$form, FormStateInterface $form_state) {
-      $allowed_members_list = $form_state->get('allowed_members_list');
-      $member_to_remove = array_filter($form_state->getValue('members_to_remove'), function($e){
-        return $e !== 0;
-      });
-
-      $member_to_remove_count = count($member_to_remove);
-      $packageSelected = $form_state->getValue('package');
-      $members_added = $form_state->getValue('members_added');
-      
-      if(!$packageSelected)
-      {
-        $form_state->setErrorByName('package', "Package selection is required.");
-        parent::validateForm($form, $form_state);
-        return;
-      }
-      
-      
-      $allowed_members = $allowed_members_list[$packageSelected];
-      
-      if($members_added-$member_to_remove_count > $allowed_members)
-      {
-        $form_state->setErrorByName("members_to_remove", "You must select ".($members_added-($allowed_members+$member_to_remove_count))." more to remove from package.");
-      }
-      
+    
+    $form['members_to_remove'] = [
+      '#title' => $this->t("Users to remove after downgrade"),
+      '#type' => 'checkboxes',
+      '#options' => $currentMembersOptions,
+      '#attributes' => [
+        'class' => ['members-to-remove-checkbox'],
+      ],
+      '#description' => '<div id="members_to_remove_desc">Select @count Users.</h1>',
+      '#prefix' => '<div class="hidden" id="members-to-remove">',
+      '#suffix' => '</div>'
+    ];
+    
+    
+    
+    $form['submit'] = [
+      '#type' => 'submit',
+      '#weight' => 1000,
+      '#value' => $this->t('Submit'),
+      '#attributes' => [
+        'class' => [
+          'changemembership'
+        ]
+      ]
+    ];
+    
+    return $form;
+  }
+  
+  /**
+  *  bracket @inheritdoc bracket 
+  */
+  public function validateForm(array &$form, FormStateInterface $form_state)
+  {
+    $allowed_members_list = $form_state->get('allowed_members_list');
+    $member_to_remove = array_filter($form_state->getValue('members_to_remove'), function($e){
+      return $e !== 0;
+    });
+    
+    $member_to_remove_count = count($member_to_remove);
+    $packageSelected = $form_state->getValue('package');
+    $members_added = $form_state->getValue('members_added');
+    
+    if(!$packageSelected)
+    {
+      $form_state->setErrorByName('package', "Package selection is required.");
       parent::validateForm($form, $form_state);
+      return;
     }
     
-    /**
-    * {@inheritdoc}
-    */
-    public function submitForm(array &$form, FormStateInterface $form_state) {
-      $packagesPrice = $form_state->get('packagesPrice');
-      $priceRemaining = $form_state->get('priceRemaining');
-      $members_value = $form_state->get('members_value');
-      $left = $form_state->get('left');
+    
+    $allowed_members = $allowed_members_list[$packageSelected];
+    
+    if($allowed_members>0 && $members_added-$member_to_remove_count > $allowed_members)
+    {
+      $form_state->setErrorByName("members_to_remove", "You must select ".($members_added-($allowed_members+$member_to_remove_count))." more to remove from package.");
+    }
+    
+    parent::validateForm($form, $form_state);
+  }
+  
+  /**
+  *  bracket @inheritdoc bracket 
+  */
+  public function submitForm(array &$form, FormStateInterface $form_state)
+  {
+    //none, all, selected
+    $removeUsersMethod = "none";
+    
+    $allowed_members_list = $form_state->get('allowed_members_list');
+    //selected package members allowed
+    $packageSelected = $form_state->getValue('package');
+    $allowed_members = $allowed_members_list[$packageSelected];
+    $members_added = $form_state->getValue('members_added');
+    
+    //current package
+    $max_members = $form_state->getValue('max_members') - 1;
+    
+    $all_members_to_remove = $form_state->getValue('members_to_remove');
+    $members_value = $form_state->get('members_value');
+    
+    $member_to_remove = [];
+    $members_to_save = [];
+    
+    
+    if($max_members == 0)
+    {
+      $removeUsersMethod = "none";
+      $members_to_save = [];
+      $member_to_remove = [];
       
-      $member_to_remove = array_filter($form_state->getValue('members_to_remove'), function($e){
+    }else if($allowed_members == 0){
+      $removeUsersMethod = "all";
+    }else if($members_added <= $allowed_members)
+    {
+      
+      $removeUsersMethod = "none";  
+    }else{
+      
+      $removeUsersMethod = "selected";
+      $member_to_remove = array_filter($all_members_to_remove, function($e){
         return $e !== 0;
       });
-
-     
-
-      $members_value = $form_state->get('members_value');
+      
+      
       $members_to_save = array_map(function($e){ return $e['target_id']; }, $members_value);
-      
       $members_to_save = array_diff($members_to_save, $member_to_remove);
-      $members_to_save = array_map(function($e){ return ['target_id'=>$e]; }, $members_to_save);
+      // $members_to_save = array_map(function($e){ return ['target_id'=>$e]; }, $members_to_save);
       
-      $uid = \Drupal::currentUser()->id();
-      $user = \Drupal\user\Entity\User::load($uid);
+    }
+    
+    
+    $member_to_remove_count = count($member_to_remove);
+    
+    
+    
+    
+    $packagesPrice = $form_state->get('packagesPrice');
+    $priceRemaining = $form_state->get('priceRemaining');
+    $left = $form_state->get('left');
+    
+    
+    // $members_value = $form_state->get('members_value');
+    
+    $members_to_save = array_map(function($e){ return ['target_id'=>$e]; }, $members_to_save);
+    
+    
+    
+    
+    $uid = \Drupal::currentUser()->id();
+    $user = \Drupal\user\Entity\User::load($uid);
+    
+    $amount_remaining = $user->amount_remaining->value;
+    if(!$amount_remaining)
+    { 
+      $amount_remaining = 0;
+    }
+    
+    $packageSelected = $form_state->getValue('package');
+    $packagePrice = $packagesPrice[$packageSelected];
+    
+    $priceToPay = $packagePrice - $priceRemaining;
+    
+    if($priceToPay <= 0)
+    {
+      $amount_remaining = -$priceToPay;
       
-      $amount_remaining = $user->amount_remaining->value;
-      if(!$amount_remaining)
+      
+      if($removeUsersMethod == "all")
       {
-        $amount_remaining = 0;
+        $userToRemove = \Drupal\user\Entity\User::loadMultiple($all_members_to_remove);
+      }else if($removeUsersMethod == "none"){    
+        $userToRemove = [];
+        $members_to_save = array_keys($all_members_to_remove);
       }
-      
-      $packageSelected = $form_state->getValue('package');
-      $packagePrice = $packagesPrice[$packageSelected];
-      
-      $priceToPay = $packagePrice - $priceRemaining;
-      
-      if($priceToPay <= 0)
-      {
-        $amount_remaining = -$priceToPay;
-
-
+      else{
         //block users selected to be removed
         $userToRemove = \Drupal\user\Entity\User::loadMultiple($member_to_remove);
-        foreach($userToRemove as $userRemove)
-        {
-          $userRemove->block();
-          $userRemove->save();
-        }
+      }
+      
+      foreach($userToRemove as $userRemove)
+      {
+        $userRemove->block();
+        $userRemove->save();
+      }
+      
+      $user->membership_type->setValue($packageSelected);
+      $user->amount_remaining->setValue($amount_remaining);
+      $user->save();
+      
+      $profile = \Drupal\profile\Entity\Profile::create(array(
+        'type' => 'paid_member',
+        'uid' => $uid,
+        'field_package' => $packageSelected, 
+      ));
+      
+      if($removeUsersMethod == "all")
+      {
         
-        $user->membership_type->setValue($packageSelected);
-        $user->amount_remaining->setValue($amount_remaining);
-        $user->save();
-        
-        $profile = \Drupal\profile\Entity\Profile::create([
-          'type' => 'paid_member',
-          'uid' => $uid,
-          'field_package' => $packageSelected 
-        ]);
-
+      }else{
         $profile->field_mem->setValue($members_to_save);
+      }
+      //add condition on downgrade
+      $profile->setDefault(TRUE);
+      $profile->save();
+      
+      return;
+    }
+    
+    $amount_remaining = 0;
+    
+    $user->amount_remaining->setValue($amount_remaining);
+    $user->membership_type->setValue($packageSelected);
+    
+    
+    $user->save();
+    
+    
+    if($this->checkTestStripeApiKey()) 
+    {
+      // Make test charge if we have test environment and api key.
+      $stripe_token = $form_state->getValue('stripe');
+      $charge = $this->createCharge($stripe_token, round($priceToPay));
+      if ($charge)
+      {
+        $this->messenger()->addStatus('Charge status: ' . $charge->status);
+        if ($charge->status == 'succeeded')
+        {
           
+          $profile = \Drupal\profile\Entity\Profile::create(array(
+            'type' => 'paid_member',
+            'uid' => $uid,
+            'field_package' => $packageSelected
+          ));
+          
+          if($removeUsersMethod == "all")
+          {
+            //a
+          }else{
+            $profile->field_mem->setValue($members_to_save);
+          }
           //add condition on downgrade
           $profile->setDefault(TRUE);
           $profile->save();
-
-          return;
+          
+          //create user here
+          // $user->addRole('paid_member');
+          // $user->save();
+          $link_generator = \Drupal::service('link_generator');
+          $this->messenger()->addStatus($this->t('Please check payments in @link.', array(
+            '@link' => $link_generator->generate('stripe dashboard', \Drupal\core\Url::fromUri('https://dashboard.stripe.com/test/payments')),
+          )));
         }
-
-        $amount_remaining = 0;
-        
-        $user->amount_remaining->setValue($amount_remaining);
-        $user->membership_type->setValue($packageSelected);
-        
-
-        $user->save();
-        
-        
-        if ($this->checkTestStripeApiKey()) {
-          // Make test charge if we have test environment and api key.
-          $stripe_token = $form_state->getValue('stripe');
-          $charge = $this->createCharge($stripe_token, round($priceToPay));
-          if ($charge) {
-            $this->messenger()->addStatus('Charge status: ' . $charge->status);
-            if ($charge->status == 'succeeded') {
-              
-              $profile = \Drupal\profile\Entity\Profile::create([
-                'type' => 'paid_member',
-                'uid' => $uid,
-                'field_package' => $packageSelected
-                ]);
-
-                $profile->field_mem->setValue($members_to_save);
-                //add condition on downgrade
-                $profile->setDefault(TRUE);
-                $profile->save();
-                
-                //create user here
-                // $user->addRole('paid_member');
-                // $user->save();
-                $link_generator = \Drupal::service('link_generator');
-                $this->messenger()->addStatus($this->t('Please check payments in @link.', [
-                  '@link' => $link_generator->generate('stripe dashboard', \Drupal\core\Url::fromUri('https://dashboard.stripe.com/test/payments')),
-                  ]));
-                }
-              }
-            }
-            
-            
-          }
-          
-          /**
-          * Helper function for making sure stripe key is set for test and has the necessary keys.
-          */
-          private function checkTestStripeApiKey() {
-            $status = FALSE;
-            $config = \Drupal::config('stripe.settings');
-            if ($config->get('environment') == 'test' && $config->get('apikey.test.secret')) {
-              $status = TRUE;
-            }
-            return $status;
-          }
-          
-          /**
-          * Helper function for test charge.
-          *
-          * @param string $stripe_token
-          *   Stripe API token.
-          * @param int $amount
-          *   Amount for charge.
-          *
-          * @return /Stripe/Charge
-          *   Charge object.
-          */
-          private function createCharge($stripe_token, $amount) {
-            try {
-              $config = \Drupal::config('stripe.settings');
-              Stripe::setApiKey($config->get('apikey.test.secret'));
-              $charge = Charge::create([
-                'amount' => $amount * 100,
-                'currency' => 'usd',
-                'description' => "Example charge",
-                'source' => $stripe_token,
-                ]);
-                return $charge;
-              }
-              catch (StripeBaseException $e) {
-                $this->messenger()->addError($this->t('Stripe error: %error', ['%error' => $e->getMessage()]));
-              }
-            }
-            
-            
-            
-          }
-          
+      }
+    }
+    
+    
+  }
+  
+  /**
+  * Helper function for making sure stripe key is set for test and has the necessary keys.
+  */
+  private function checkTestStripeApiKey()
+  {
+    $status = FALSE;
+    $config = \Drupal::config('stripe.settings');
+    if ($config->get('environment') == 'test' && $config->get('apikey.test.secret'))
+    {
+      $status = TRUE;
+    }
+    return $status;
+  }
+  
+  /**
+  * Helper function for test charge.
+  *
+  * @param string $stripe_token
+  *   Stripe API token.
+  * @param int $amount
+  *   Amount for charge.
+  *
+  * @return /Stripe/Charge
+  *   Charge object.
+  */
+  private function createCharge($stripe_token, $amount)
+  {
+    try {
+      $config = \Drupal::config('stripe.settings');
+      Stripe::setApiKey($config->get('apikey.test.secret'));
+      $charge = Charge::create(
+        [
+          'amount' => $amount * 100,
+          'currency' => 'usd',
+          'description' => "Example charge",
+          'source' => $stripe_token,
+          ]
+        );
+        return $charge;
+      }
+      catch (StripeBaseException $e)
+      {
+        $this->messenger()->addError($this->t('Stripe error: %error', ['%error' => $e->getMessage()]
+      ));
+    }
+  }
+  
+  
+  
+}
