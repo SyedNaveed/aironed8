@@ -80,6 +80,11 @@ class BookFlightWizard extends FormWizardBase {
     if (method_exists($formClass, 'buildFormActions')) {
       $form = $formClass->buildFormActions($form, $form_state);
     }
+    if($operation['form'] == 'Drupal\aco_book_flight\Form\SearchForm');
+    {
+      $url = \Drupal\Core\Url::fromRoute("airchoice_member.dashboard_controller_index");
+      return new \Symfony\Component\HttpFoundation\RedirectResponse($url->toString(), 302);
+    }
     return $form;
   }
 
