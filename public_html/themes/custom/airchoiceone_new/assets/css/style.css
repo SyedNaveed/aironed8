@@ -6,7 +6,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
  @font-face {
-  font-family: "Calibre";
+  font-family: "Calibre"; 
   src: url("../fonts/Calibre.eot"); /*/ IE9 Compat Modes */
   src: url("../fonts/Calibre.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
    /* /   url("../fonts/Calibre.otf") format("opentype"),Open Type Font / */
