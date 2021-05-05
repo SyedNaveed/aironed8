@@ -1,6 +1,15 @@
 (function ($, Drupal) {
   
   jQuery(function(){
+    if(drupalSettings.path.currentPath == "book-flight/flight-selection")
+      {
+          jQuery("#edit-previous").on('click', function(evt){
+              evt.preventDefault();
+              window.location.href =  drupalSettings.path.baseUrl+"dashboard";
+      });
+      }
+
+
     jQuery("#edit-submit.changemembership").prop("disabled", 1);
     jQuery("input.members-to-remove-checkbox").on('change', function(){
 
@@ -22,6 +31,7 @@
     }
 
     });
+    
   })
   // for color box 
   
