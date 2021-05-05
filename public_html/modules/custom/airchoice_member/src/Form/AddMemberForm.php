@@ -50,7 +50,7 @@ class AddMemberForm extends FormBase {
         }
       }
       if(!$is_my_sub)
-      {
+      { 
         // throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
         drupal_set_message('Not Sub User');
       }
