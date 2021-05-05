@@ -53,6 +53,8 @@ airchoice_member.login_by_link_controller_hello:
     parameters:
       user:
         type: entity:user
+
+
 airchoice_member.add_member_form:
   path: '/airchoice_member/form/add_member'
   defaults:
@@ -60,6 +62,20 @@ airchoice_member.add_member_form:
     _title: 'AddMemberForm'
   requirements:
     _role: 'paid_member'
+
+airchoice_member.edit_member_form:
+  path: '/airchoice_member/form/edit_member/{subUser}'
+  defaults:
+    _form: '\Drupal\airchoice_member\Form\AddMemberForm'
+    _title: 'AddMemberForm'
+  requirements:
+    _role: 'paid_member'
+  options:
+    parameters:
+      subUser:
+        type: entity:user
+
+
 airchoice_member.user_register_form:
   path: '/airchoice_member/register'
   defaults:
