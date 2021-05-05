@@ -85,7 +85,7 @@
     padding-top: 64px;
   }
   form.change-membership-form  .custom-stripe {
-     margin-left: 10px;
+     margin-left: 0;
    }
   body.path-dashboard .dashboard-body-setion {
     padding-left: 94px;

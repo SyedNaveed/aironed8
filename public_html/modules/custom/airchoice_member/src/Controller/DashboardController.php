@@ -28,7 +28,7 @@ class DashboardController extends ControllerBase {
       $format .= "<div class=\"ticket_ft_big\">%D </div> <div class=\"ticket_ft_sm\">D</div>";
     }
     
-    $format .= "<div class=\"ticket_ft_big\">%H</div> <div class=\"ticket_ft_sm\">hrs</div>";
+    $format .= "<div class=\"ticket_ft_big\">%h</div> <div class=\"ticket_ft_sm\">hrs</div>";
     
     
     $format .= "<div class=\"ticket_ft_big\">%I </div> <div class=\"ticket_ft_sm\">min</div>";
@@ -105,13 +105,13 @@ class DashboardController extends ControllerBase {
           $_journey['from'] = [
             'name' => $journey['segments'][0]['departure']['airport']['name'],
             'code' => $journey['segments'][0]['departure']['airport']['code'],
-            'time' => TimeHelper::getLocalTime($journey['segments'][0]['departure'], 'H:i'),
+            'time' => TimeHelper::getLocalTime($journey['segments'][0]['departure'], 'h:i'),
             'ampm' => TimeHelper::getLocalTime($journey['segments'][0]['departure'], 'a'),
           ];
           $_journey['to'] = [
             'name' => $journey['segments'][count($journey['segments'])-1]['arrival']['airport']['name'],
             'code' => $journey['segments'][count($journey['segments'])-1]['arrival']['airport']['code'],
-            'time' => TimeHelper::getLocalTime($journey['segments'][count($journey['segments'])-1]['arrival'], 'H:i'),
+            'time' => TimeHelper::getLocalTime($journey['segments'][count($journey['segments'])-1]['arrival'], 'h:i'),
             'ampm' => TimeHelper::getLocalTime($journey['segments'][count($journey['segments'])-1]['arrival'], 'a'),
           ];
           
@@ -140,7 +140,7 @@ class DashboardController extends ControllerBase {
             $_segment['code'] = $segment['flight']['airlineCode']['code'];
             $_segment['code'] .= $segment['flight']['flightNumber'];
             $_segment['departure'] = [
-              'time' => TimeHelper::getLocalTime($segment['departure'], 'H:ia'),
+              'time' => TimeHelper::getLocalTime($segment['departure'], 'h:ia'),
               'airport' => [
                 'name' => $segment['departure']['airport']['name'],
                 'code' => $segment['departure']['airport']['code'],
@@ -148,7 +148,7 @@ class DashboardController extends ControllerBase {
               ];
               
               $_segment['arrival'] = [
-                'time' => TimeHelper::getLocalTime($segment['arrival'], 'H:ia'),
+                'time' => TimeHelper::getLocalTime($segment['arrival'], 'h:ia'),
                 'airport' => [
                   'name' => $segment['arrival']['airport']['name'],
                   'code' => $segment['arrival']['airport']['code'],
@@ -265,7 +265,7 @@ class DashboardController extends ControllerBase {
                         $format .= "<div class=\"ticket_ft_big\">%D </div> <div class=\"ticket_ft_sm\">D</div>";
                       }
                       
-                      $format .= "<div class=\"ticket_ft_big\">%H</div> <div class=\"ticket_ft_sm\">hrs</div>";
+                      $format .= "<div class=\"ticket_ft_big\">%h</div> <div class=\"ticket_ft_sm\">hrs</div>";
                       
                       
                       $format .= "<div class=\"ticket_ft_big\">%I </div> <div class=\"ticket_ft_sm\">min</div>";

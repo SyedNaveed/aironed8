@@ -177,7 +177,7 @@ class ChangeMembershipForm extends FormBase {
     
     
     $form['members_to_remove'] = [
-      '#title' => $this->t("Users to remove after downgrade"),
+      '#title' => $this->t("Members to remove"),
       '#type' => 'checkboxes',
       '#options' => $currentMembersOptions,
       '#attributes' => [
