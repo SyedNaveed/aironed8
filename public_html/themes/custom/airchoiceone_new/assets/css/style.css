@@ -22701,3 +22701,6 @@ body.page-node-type-contact-us-page .container1 {
 .form-type-radio.js-form-item-package .confirm-membership-h2 {
   padding-left: 15px;
 }
+div.alert-error[aria-label="Error message"] {
+  margin-left: 4rem;
+}
