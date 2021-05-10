@@ -22703,4 +22703,6 @@ body.page-node-type-contact-us-page .container1 {
 }
 div.alert-error[aria-label="Error message"] {
   margin-left: 4rem;
+  margin-right: auto;
+  width: 90%;
 }
