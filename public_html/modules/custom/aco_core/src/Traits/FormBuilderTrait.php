@@ -645,7 +645,7 @@ trait FormBuilderTrait {
     $form['address']['location']['country']['code']['#suffix']  =  '</div>';
     $form['address']['postalCode']['#prefix'] = '<div class="col-md-2">';
     $form['address']['postalCode']['#suffix'] = '</div>';
-    $form['address']['location']['province']['code']['#prefix'] = '<div class="col-md-2">';
+    $form['address']['location']['province']['code']['#prefix'] = '<div class="col-md-2"  id="' . $html_id . '-province">';
     $form['address']['location']['province']['code']['#suffix'] = '</div>';
 
 
