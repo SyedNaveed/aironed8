@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '1a921ce4b0659de22b72ca94c407c0121fa92d94',
+    'reference' => 'fd1abc54fc47f8e60c60a8e217ec80862dfb4b68',
     'name' => 'deltstl/air-choice-one',
   ),
   'versions' => 
@@ -328,7 +328,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '1a921ce4b0659de22b72ca94c407c0121fa92d94',
+      'reference' => 'fd1abc54fc47f8e60c60a8e217ec80862dfb4b68',
     ),
     'dflydev/dot-access-data' => 
     array (
@@ -673,15 +673,6 @@ private static $installed = array (
       array (
       ),
       'reference' => '8.x-4.0-beta5',
-    ),
-    'drupal/context_active_trail' => 
-    array (
-      'pretty_version' => '1.0.0-rc2',
-      'version' => '1.0.0.0-RC2',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '8.x-1.0-rc2',
     ),
     'drupal/contextual' => 
     array (
@@ -1045,15 +1036,6 @@ private static $installed = array (
       array (
       ),
       'reference' => NULL,
-    ),
-    'drupal/entity_embed' => 
-    array (
-      'pretty_version' => '1.1.0',
-      'version' => '1.1.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '8.x-1.1',
     ),
     'drupal/entity_reference' => 
     array (
@@ -1680,15 +1662,6 @@ private static $installed = array (
         0 => '8.9.13',
       ),
     ),
-    'drupal/site_settings' => 
-    array (
-      'pretty_version' => '1.19.0',
-      'version' => '1.19.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '8.x-1.19',
-    ),
     'drupal/smtp' => 
     array (
       'pretty_version' => '1.0.0',
@@ -1736,15 +1709,6 @@ private static $installed = array (
       array (
         0 => '8.9.13',
       ),
-    ),
-    'drupal/stripe' => 
-    array (
-      'pretty_version' => '1.0.0',
-      'version' => '1.0.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '8.x-1.0',
     ),
     'drupal/superfish' => 
     array (
@@ -2417,8 +2381,8 @@ private static $installed = array (
     array (
       'provided' => 
       array (
-        0 => '1.0',
-        1 => '^1.0',
+        0 => '^1.0',
+        1 => '1.0',
       ),
     ),
     'psr/http-message' => 

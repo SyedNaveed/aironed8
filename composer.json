@@ -30,6 +30,7 @@
         "drupal/admin_toolbar": "^2.0",
         "drupal/antibot": "^1.2",
         "drupal/backup_migrate": "^4.1",
+        "drupal/better_formats": "1.x-dev@dev",
         "drupal/bfd": "^2.61",
         "drupal/change_pwd_page": "^1.0",
         "drupal/colorbox": "^1.7",
