@@ -53,9 +53,15 @@ public_html/themes/contrib/
 
 # not ignore the following things 
 !public_html/modules/contrib/better_formats
+!public_html/modules/contrib/better_formats/*
 !public_html/modules/contrib/context_active_trail
+!public_html/modules/contrib/context_active_trail/*
 !public_html/modules/contrib/entity_embed
+!public_html/modules/contrib/entity_embed/*
 !public_html/modules/contrib/ctools
+!public_html/modules/contrib/ctools/*
 !public_html/modules/contrib/site_settings
+!public_html/modules/contrib/site_settings/*
 !public_html/modules/contrib/stripe
+!public_html/modules/contrib/stripe/*
 
