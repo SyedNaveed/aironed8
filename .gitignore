@@ -52,8 +52,8 @@ public_html/themes/contrib/
 
 
 # not ignore the following things 
-!public_html/modules/contrib/better_formats
-!public_html/modules/contrib/better_formats/*
+! public_html/modules/contrib/better_formats
+! public_html/modules/contrib/better_formats/*
 !public_html/modules/contrib/context_active_trail
 !public_html/modules/contrib/context_active_trail/*
 !public_html/modules/contrib/entity_embed
